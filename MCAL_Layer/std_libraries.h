@@ -8,6 +8,16 @@
 #ifndef STD_LIBRARIES_H
 #define	STD_LIBRARIES_H
 
+/* Section : includes*/
+
+/* Section : Macro Declarations*/
+
+/* Section : Macro Function Declarations*/
+
+/* Section : Data type Declarations*/
+
+/* Section : Function Declarations*/
+
 
 
 
