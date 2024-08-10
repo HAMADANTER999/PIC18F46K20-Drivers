@@ -28,6 +28,9 @@
 #define E_NOT_OK       (Std_ReturnType)0x00
 
 
+
+
+
 /* Section : Macro Function Declarations*/
 typedef unsigned char uint8;
 typedef unsigned short uint16;

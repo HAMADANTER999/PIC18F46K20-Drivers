@@ -15,13 +15,13 @@
 #include "ECU_Layer/LED/ecu_led.h"
 
 /* Section : Macro Declarations*/
-
+#define _XTAL_FREQ      40000000
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/
 
-/* Section : Function Declarations*
- * 
+/* Section : Function Declarations*/
+void Application (void);
 
 #endif	/* APPLICATION_H */
 

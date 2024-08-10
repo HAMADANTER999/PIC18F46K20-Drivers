@@ -15,7 +15,7 @@
 
 
 # 1 "./application.h" 1
-# 11 "./application.h"
+# 13 "./application.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -186,7 +186,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./application.h" 2
+# 13 "./application.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -265,12 +265,12 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "./application.h" 2
+# 14 "./application.h" 2
 
 # 1 "./ECU_Layer/LED/ecu_led.h" 1
-# 11 "./ECU_Layer/LED/ecu_led.h"
+# 12 "./ECU_Layer/LED/ecu_led.h"
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 1
-# 11 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4483,16 +4483,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 11 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../std_libraries.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h"
+# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4656,18 +4656,147 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 2
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 2
+# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 35 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+typedef unsigned char uint8;
+typedef unsigned short uint16;
+typedef unsigned int uint32;
+typedef signed char sint8;
+typedef signed short sint16;
+typedef signed int sint32;
+
+typedef uint8 Std_ReturnType;
+# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../device_config.h" 1
-# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 11 "./ECU_Layer/LED/ecu_led.h" 2
-# 13 "./application.h" 2
+# 15 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+
+# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 16 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 37 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+typedef enum{
+    GPIO_LOW = 0,
+    GPIO_HIGH
+}logic_t;
+
+typedef enum{
+    GPIO_DIRECTION_OUTPUT = 0,
+    GPIO_DIRECTION_INPUT
+}direction_t;
+
+typedef enum{
+    GPIO_PIN0 = 0,
+    GPIO_PIN1,
+    GPIO_PIN2,
+    GPIO_PIN3,
+    GPIO_PIN4,
+    GPIO_PIN5,
+    GPIO_PIN6,
+    GPIO_PIN7,
+}pin_index_t;
+
+typedef enum{
+    PORTA_INDEX = 0,
+    PORTB_INDEX,
+    PORTC_INDEX,
+    PORTD_INDEX,
+    PORTE_INDEX
+}port_index_t;
+
+typedef struct {
+    uint8 port : 3;
+    uint8 pin : 3;
+    uint8 direction : 1;
+    uint8 logic : 1;
+}pin_config_t;
+
+
+
+Std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config);
+Std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config, direction_t * direction_status);
+Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config, logic_t logic);
+Std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config, logic_t *logic);
+Std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
+Std_ReturnType gpio_pin_intialize(const pin_config_t *_pin_config);
+
+Std_ReturnType gpio_port_direction_intialize(port_index_t port, uint8 direction);
+Std_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *direction_status);
+Std_ReturnType gpio_port_write_logic(port_index_t port, uint8 logic);
+Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
+Std_ReturnType gpio_port_toggle_logic(port_index_t port);
+# 12 "./ECU_Layer/LED/ecu_led.h" 2
+# 15 "./application.h" 2
+# 24 "./application.h"
+void Application (void);
 # 8 "application.c" 2
 
 
+pin_config_t led_1 = {
+    .port = PORTC_INDEX,
+    .pin = GPIO_PIN0,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+
+pin_config_t led_2 = {
+    .port = PORTC_INDEX,
+    .pin = GPIO_PIN1,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+
+pin_config_t led_3 = {
+    .port = PORTC_INDEX,
+    .pin = GPIO_PIN2,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+
+pin_config_t btn_1 = {
+    .port = PORTD_INDEX,
+    .pin = GPIO_PIN0,
+    .direction = GPIO_DIRECTION_INPUT,
+    .logic = GPIO_LOW
+};
+
+Std_ReturnType ret = (Std_ReturnType)0x01;
+direction_t led_1_st;
+logic_t btn1_status;
+
+uint8 portc_direction_status, portc_logic_status;
+
+
 int main() {
+    Application ();
+
+    while (1)
+    {
+        gpio_port_toggle_logic(PORTC_INDEX);
+        _delay((unsigned long)((10)*(40000000/4000.0)));
+
+
+    }
+
+
+
 
     return (0);
+}
+
+void Application (void)
+{
+
+
+
+
+
+
+
+    ret = gpio_port_direction_intialize(PORTC_INDEX, 0x00);
+    ret = gpio_port_get_direction_status(PORTC_INDEX, &portc_direction_status);
+    ret = gpio_port_write_logic(PORTC_INDEX, 0xAA);
+
+
+
 }
