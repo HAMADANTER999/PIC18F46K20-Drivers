@@ -34,11 +34,29 @@ led_t led_4 = {
 int main() {
     Application ();
     
-    
-    
-    
-    
+    while (1)
+    {
+        /*
+        led_turn_on(&led_1);
+        led_turn_on(&led_2);
+        led_turn_on(&led_3);
+        led_turn_on(&led_4);
+        __delay_ms(250);
+        led_turn_off(&led_1);
+        led_turn_off(&led_2);
+        led_turn_off(&led_3);
+        led_turn_off(&led_4);
+        __delay_ms(250);
+        */
+        led_turn_toggle(&led_1);
+        led_turn_toggle(&led_2);
+        led_turn_toggle(&led_3);
+        led_turn_toggle(&led_4);
+        __delay_ms(100);
 
+        
+    }
+    
     return (EXIT_SUCCESS);
 }
 

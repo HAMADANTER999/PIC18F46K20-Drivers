@@ -4784,10 +4784,17 @@ led_t led_4 = {
 int main() {
     Application ();
 
+    while (1)
+    {
+# 51 "application.c"
+        led_turn_toggle(&led_1);
+        led_turn_toggle(&led_2);
+        led_turn_toggle(&led_3);
+        led_turn_toggle(&led_4);
+        _delay((unsigned long)((100)*(40000000/4000.0)));
 
 
-
-
+    }
 
     return (0);
 }

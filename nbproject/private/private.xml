@@ -12,10 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Courses/Embedded%20C/projects/ECU_Layer/LED/ecu_led.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/application.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/GPIO/hal_gpio.h</file>
-            <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/std_libraries.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/application.c</file>
+            <file>file:/D:/Courses/Embedded%20C/projects/ECU_Layer/LED/ecu_led.c</file>
+            <file>file:/D:/Courses/Embedded%20C/projects/ECU_Layer/LED/ecu_led_cfg.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/GPIO/hal_gpio.c</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/mcal_std_types.h</file>
         </group>
