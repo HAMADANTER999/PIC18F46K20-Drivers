@@ -4578,5 +4578,84 @@ Std_ReturnType gpio_port_write_logic(port_index_t port, uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 12 "ECU_Layer/LED/ecu_led.h" 2
-# 8 "ECU_Layer/LED/ecu_led.c" 2
 
+
+
+
+
+
+
+
+typedef enum{
+    LED_OFF = 0,
+    LED_ON,
+}led_status;
+
+typedef struct{
+    uint8 port_name : 4;
+    uint8 pin : 3;
+    uint8 led_status : 1;
+}led_t;
+
+
+
+Std_ReturnType led_initialize(const led_t *led);
+Std_ReturnType led_turn_on(const led_t *led);
+Std_ReturnType led_turn_off(const led_t *led);
+Std_ReturnType led_turn_toggle(const led_t *led);
+# 8 "ECU_Layer/LED/ecu_led.c" 2
+# 17 "ECU_Layer/LED/ecu_led.c"
+Std_ReturnType led_initialize(const led_t *led){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (led == ((void*)0))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 37 "ECU_Layer/LED/ecu_led.c"
+Std_ReturnType led_turn_on(const led_t *led){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (led == ((void*)0))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+
+}
+# 58 "ECU_Layer/LED/ecu_led.c"
+Std_ReturnType led_turn_off(const led_t *led){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (led == ((void*)0))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+
+}
+# 79 "ECU_Layer/LED/ecu_led.c"
+Std_ReturnType led_turn_toggle(const led_t *led){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (led == ((void*)0))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+
+}

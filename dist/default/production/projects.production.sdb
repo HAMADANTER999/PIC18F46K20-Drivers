@@ -39,17 +39,13 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2818 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
-]
 [e E2814 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"45
+"34
 [v _main main `(i  1 e 2 0 ]
-"62
+"45
 [v _Application Application `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -75,22 +71,24 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
 "27 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "84
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-"192
-[v _gpio_port_direction_intialize gpio_port_direction_intialize `(uc  1 e 1 0 ]
-"216
-[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
-"240
-[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
-"288
-[v _gpio_port_toggle_logic gpio_port_toggle_logic `(uc  1 e 1 0 ]
-"38 D:\Courses\Embedded C\projects\application.c
-[v _ret ret `uc  1 e 1 0 ]
-"42
-[v _portc_direction_status portc_direction_status `uc  1 e 1 0 ]
+[s S24 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"10 D:\Courses\Embedded C\projects\application.c
+[v _led_1 led_1 `S24  1 e 1 0 ]
+"16
+[v _led_2 led_2 `S24  1 e 1 0 ]
+"22
+[v _led_3 led_3 `S24  1 e 1 0 ]
+"28
+[v _led_4 led_4 `S24  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -127,57 +125,26 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "15
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"45 D:\Courses\Embedded C\projects\application.c
+"34 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"60
+"43
 } 0
-"288 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_port_toggle_logic gpio_port_toggle_logic `(uc  1 e 1 0 ]
-{
-[v gpio_port_toggle_logic@port port `E2511  1 a 1 wreg ]
-[v gpio_port_toggle_logic@port port `E2511  1 a 1 wreg ]
-[v gpio_port_toggle_logic@port port `E2511  1 a 1 2 ]
-"299
-} 0
-"62 D:\Courses\Embedded C\projects\application.c
+"45
 [v _Application Application `(v  1 e 1 0 ]
 {
-"77
+"53
 } 0
-"240 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+"17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
 {
-[v gpio_port_write_logic@port port `E2511  1 a 1 wreg ]
-"241
-[v gpio_port_write_logic@ret ret `uc  1 a 1 3 ]
-"240
-[v gpio_port_write_logic@port port `E2511  1 a 1 wreg ]
-[v gpio_port_write_logic@logic logic `uc  1 p 1 0 ]
-[v gpio_port_write_logic@port port `E2511  1 a 1 4 ]
-"251
-} 0
-"216
-[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
-{
-[v gpio_port_get_direction_status@port port `E2511  1 a 1 wreg ]
-"217
-[v gpio_port_get_direction_status@ret ret `uc  1 a 1 3 ]
-"216
-[v gpio_port_get_direction_status@port port `E2511  1 a 1 wreg ]
-[v gpio_port_get_direction_status@direction_status direction_status `*.30uc  1 p 1 0 ]
-[v gpio_port_get_direction_status@port port `E2511  1 a 1 4 ]
-"227
-} 0
-"192
-[v _gpio_port_direction_intialize gpio_port_direction_intialize `(uc  1 e 1 0 ]
-{
-[v gpio_port_direction_intialize@port port `E2511  1 a 1 wreg ]
-"193
-[v gpio_port_direction_intialize@ret ret `uc  1 a 1 3 ]
-"192
-[v gpio_port_direction_intialize@port port `E2511  1 a 1 wreg ]
-[v gpio_port_direction_intialize@direction direction `uc  1 p 1 0 ]
-[v gpio_port_direction_intialize@port port `E2511  1 a 1 4 ]
-"203
+"18
+[v led_initialize@ret ret `uc  1 a 1 1 ]
+[s S24 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"17
+[v led_initialize@led led `*.30CS24  1 p 1 0 ]
+"28
 } 0
