@@ -1,12 +1,12 @@
 /* 
- * File:   ecu_led_cfg.h
+ * File:   ecu_button_cfg.h
  * Author: anter
  *
- * Created on August 11, 2024, 7:17 PM
+ * Created on August 12, 2024, 12:16 PM
  */
 
-#ifndef ECU_LED_CFG_H
-#define	ECU_LED_CFG_H
+#ifndef ECU_BUTTON_CFG_H
+#define	ECU_BUTTON_CFG_H
 
 /* Section : includes*/
 
@@ -19,5 +19,5 @@
 /* Section : Function Declarations*/
 
 
-#endif	/* ECU_LED_CFG_H */
+#endif	/* ECU_BUTTON_CFG_H */
 

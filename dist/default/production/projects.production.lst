@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Sun Aug 11 21:26:49 2024
+                                                                                               Mon Aug 12 13:37:54 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F4620
@@ -371,13 +371,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    352   0013FC  0E13               	movlw	19
    353   0013FE  6E32               	movwf	??_main^0,c
    354   001400  0EAE               	movlw	174
-   355   001402                     u607:
+   355   001402                     u627:
    356   001402  2EE8               	decfsz	wreg,f,c
-   357   001404  D7FE               	bra	u607
+   357   001404  D7FE               	bra	u627
    358   001406  2E32               	decfsz	??_main^0,f,c
-   359   001408  D7FC               	bra	u607
+   359   001408  D7FC               	bra	u627
    360   00140A  2E33               	decfsz	(??_main+1)^0,f,c
-   361   00140C  D7FA               	bra	u607
+   361   00140C  D7FA               	bra	u627
    362   00140E  EFEC  F009         	goto	l172
    363   001412  EF00  F000         	goto	start
    364   001416                     __end_of_main:
@@ -429,11 +429,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    405                           ;ECU_Layer/LED/ecu_led.c: 102:     if (led == ((void*)0))
    406   001316  5028               	movf	led_turn_toggle@led^0,w,c
    407   001318  A4D8               	btfss	status,2,c
-   408   00131A  EF91  F009         	goto	u541
-   409   00131E  EF93  F009         	goto	u540
-   410   001322                     u541:
+   408   00131A  EF91  F009         	goto	u561
+   409   00131E  EF93  F009         	goto	u560
+   410   001322                     u561:
    411   001322  EF95  F009         	goto	l30
-   412   001326                     u540:
+   412   001326                     u560:
    413   001326                     
    414                           ;ECU_Layer/LED/ecu_led.c: 105:     }
    415   001326  EFBD  F009         	goto	l34
@@ -472,12 +472,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    447   001364  6ED9               	movwf	fsr2l,c
    448   001366  6ADA               	clrf	fsr2h,c
    449   001368  AEDF               	btfss	indf2,7,c
-   450   00136A  D002               	bra	u555
+   450   00136A  D002               	bra	u575
    451   00136C  8E2A               	bsf	led_turn_toggle@pin_obj^0,7,c
-   452   00136E  D001               	bra	u557
-   453   001370                     u555:
+   452   00136E  D001               	bra	u577
+   453   001370                     u575:
    454   001370  9E2A               	bcf	led_turn_toggle@pin_obj^0,7,c
-   455   001372                     u557:
+   455   001372                     u577:
    456   001372                     
    457                           ;ECU_Layer/LED/ecu_led.c: 114:         gpio_pin_toggle_logic(&pin_obj);
    458   001372  0E2A               	movlw	low led_turn_toggle@pin_obj
@@ -533,11 +533,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
       +                          > 8 -1)
    503   001224  5023               	movf	gpio_pin_toggle_logic@_pin_config^0,w,c
    504   001226  B4D8               	btfsc	status,2,c
-   505   001228  EF18  F009         	goto	u511
-   506   00122C  EF1A  F009         	goto	u510
-   507   001230                     u511:
-   508   001230  EF2A  F009         	goto	l1146
-   509   001234                     u510:
+   505   001228  EF18  F009         	goto	u531
+   506   00122C  EF1A  F009         	goto	u530
+   507   001230                     u531:
+   508   001230  EF2A  F009         	goto	l1168
+   509   001234                     u530:
    510   001234  5023               	movf	gpio_pin_toggle_logic@_pin_config^0,w,c
    511   001236  6ED9               	movwf	fsr2l,c
    512   001238  6ADA               	clrf	fsr2h,c
@@ -548,16 +548,16 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    517   001242  6E24               	movwf	??_gpio_pin_toggle_logic^0,c
    518   001244  0E07               	movlw	7
    519   001246  6424               	cpfsgt	??_gpio_pin_toggle_logic^0,c
-   520   001248  EF28  F009         	goto	u521
-   521   00124C  EF2A  F009         	goto	u520
-   522   001250                     u521:
-   523   001250  EF2C  F009         	goto	l1148
-   524   001254                     u520:
-   525   001254                     l1146:
+   520   001248  EF28  F009         	goto	u541
+   521   00124C  EF2A  F009         	goto	u540
+   522   001250                     u541:
+   523   001250  EF2C  F009         	goto	l1170
+   524   001254                     u540:
+   525   001254                     l1168:
    526                           
    527                           ;MCAL_Layer/GPIO/hal_gpio.c: 148:     }
    528   001254  EF52  F009         	goto	l115
-   529   001258                     l1148:
+   529   001258                     l1170:
    530                           
    531                           ;MCAL_Layer/GPIO/hal_gpio.c: 150:     {;MCAL_Layer/GPIO/hal_gpio.c: 151:         (*lat_r
       +                          egisters[_pin_config->port] ^= ((uint8)1<<_pin_config->pin));
@@ -572,13 +572,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    540   001268  0E01               	movlw	1
    541   00126A  6E25               	movwf	(??_gpio_pin_toggle_logic+1)^0,c
    542   00126C  2A24               	incf	??_gpio_pin_toggle_logic^0,f,c
-   543   00126E  EF3B  F009         	goto	u534
-   544   001272                     u535:
+   543   00126E  EF3B  F009         	goto	u554
+   544   001272                     u555:
    545   001272  90D8               	bcf	status,0,c
    546   001274  3625               	rlcf	(??_gpio_pin_toggle_logic+1)^0,f,c
-   547   001276                     u534:
+   547   001276                     u554:
    548   001276  2E24               	decfsz	??_gpio_pin_toggle_logic^0,f,c
-   549   001278  EF39  F009         	goto	u535
+   549   001278  EF39  F009         	goto	u555
    550   00127C  5023               	movf	gpio_pin_toggle_logic@_pin_config^0,w,c
    551   00127E  6ED9               	movwf	fsr2l,c
    552   001280  6ADA               	clrf	fsr2h,c
@@ -706,11 +706,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    664                           ;ECU_Layer/LED/ecu_led.c: 20:     if (led == ((void*)0))
    665   0012AA  502E               	movf	led_initialize@led^0,w,c
    666   0012AC  A4D8               	btfss	status,2,c
-   667   0012AE  EF5B  F009         	goto	u491
-   668   0012B2  EF5D  F009         	goto	u490
-   669   0012B6                     u491:
+   667   0012AE  EF5B  F009         	goto	u511
+   668   0012B2  EF5D  F009         	goto	u510
+   669   0012B6                     u511:
    670   0012B6  EF61  F009         	goto	l9
-   671   0012BA                     u490:
+   671   0012BA                     u510:
    672   0012BA                     
    673                           ;ECU_Layer/LED/ecu_led.c: 21:     {;ECU_Layer/LED/ecu_led.c: 22:         ret = (Std_Retu
       +                          rnType)0x00;
@@ -718,7 +718,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    675   0012BC  6E30               	movwf	led_initialize@ret^0,c
    676                           
    677                           ;ECU_Layer/LED/ecu_led.c: 23:     }
-   678   0012BE  EF89  F009         	goto	l1138
+   678   0012BE  EF89  F009         	goto	l1160
    679   0012C2                     l9:
    680                           
    681                           ;ECU_Layer/LED/ecu_led.c: 25:     {;ECU_Layer/LED/ecu_led.c: 26:         pin_config_t pi
@@ -754,18 +754,18 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    710   0012FC  6ED9               	movwf	fsr2l,c
    711   0012FE  6ADA               	clrf	fsr2h,c
    712   001300  AEDF               	btfss	indf2,7,c
-   713   001302  D002               	bra	u505
+   713   001302  D002               	bra	u525
    714   001304  8E31               	bsf	led_initialize@pin_obj^0,7,c
-   715   001306  D001               	bra	u507
-   716   001308                     u505:
+   715   001306  D001               	bra	u527
+   716   001308                     u525:
    717   001308  9E31               	bcf	led_initialize@pin_obj^0,7,c
-   718   00130A                     u507:
+   718   00130A                     u527:
    719   00130A                     
    720                           ;ECU_Layer/LED/ecu_led.c: 32:         gpio_pin_intialize(&pin_obj);
    721   00130A  0E31               	movlw	low led_initialize@pin_obj
    722   00130C  6E2B               	movwf	gpio_pin_intialize@_pin_config^0,c
    723   00130E  ECBE  F009         	call	_gpio_pin_intialize	;wreg free
-   724   001312                     l1138:
+   724   001312                     l1160:
    725                           
    726                           ;ECU_Layer/LED/ecu_led.c: 34:     return ret;
    727   001312  5030               	movf	led_initialize@ret^0,w,c
@@ -820,11 +820,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
       +                          > 8 -1)
    771   00137C  502B               	movf	gpio_pin_intialize@_pin_config^0,w,c
    772   00137E  B4D8               	btfsc	status,2,c
-   773   001380  EFC4  F009         	goto	u471
-   774   001384  EFC6  F009         	goto	u470
-   775   001388                     u471:
-   776   001388  EFD6  F009         	goto	l1120
-   777   00138C                     u470:
+   773   001380  EFC4  F009         	goto	u491
+   774   001384  EFC6  F009         	goto	u490
+   775   001388                     u491:
+   776   001388  EFD6  F009         	goto	l1142
+   777   00138C                     u490:
    778   00138C  502B               	movf	gpio_pin_intialize@_pin_config^0,w,c
    779   00138E  6ED9               	movwf	fsr2l,c
    780   001390  6ADA               	clrf	fsr2h,c
@@ -835,16 +835,16 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    785   00139A  6E2C               	movwf	??_gpio_pin_intialize^0,c
    786   00139C  0E07               	movlw	7
    787   00139E  642C               	cpfsgt	??_gpio_pin_intialize^0,c
-   788   0013A0  EFD4  F009         	goto	u481
-   789   0013A4  EFD6  F009         	goto	u480
-   790   0013A8                     u481:
-   791   0013A8  EFD8  F009         	goto	l1122
-   792   0013AC                     u480:
-   793   0013AC                     l1120:
+   788   0013A0  EFD4  F009         	goto	u501
+   789   0013A4  EFD6  F009         	goto	u500
+   790   0013A8                     u501:
+   791   0013A8  EFD8  F009         	goto	l1144
+   792   0013AC                     u500:
+   793   0013AC                     l1142:
    794                           
    795                           ;MCAL_Layer/GPIO/hal_gpio.c: 172:     }
    796   0013AC  EFE9  F009         	goto	l122
-   797   0013B0                     l1122:
+   797   0013B0                     l1144:
    798                           
    799                           ;MCAL_Layer/GPIO/hal_gpio.c: 174:     {;MCAL_Layer/GPIO/hal_gpio.c: 175:         ret = g
       +                          pio_pin_direction_intialize(_pin_config);
@@ -921,11 +921,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
       +                           8 -1)
    864   001118  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
    865   00111A  B4D8               	btfsc	status,2,c
-   866   00111C  EF92  F008         	goto	u381
-   867   001120  EF94  F008         	goto	u380
-   868   001124                     u381:
-   869   001124  EFA4  F008         	goto	l1080
-   870   001128                     u380:
+   866   00111C  EF92  F008         	goto	u401
+   867   001120  EF94  F008         	goto	u400
+   868   001124                     u401:
+   869   001124  EFA4  F008         	goto	l1102
+   870   001128                     u400:
    871   001128  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
    872   00112A  6ED9               	movwf	fsr2l,c
    873   00112C  6ADA               	clrf	fsr2h,c
@@ -936,12 +936,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    878   001136  6E25               	movwf	??_gpio_pin_write_logic^0,c
    879   001138  0E07               	movlw	7
    880   00113A  6425               	cpfsgt	??_gpio_pin_write_logic^0,c
-   881   00113C  EFA2  F008         	goto	u391
-   882   001140  EFA4  F008         	goto	u390
-   883   001144                     u391:
-   884   001144  EFFB  F008         	goto	l1088
-   885   001148                     u390:
-   886   001148                     l1080:
+   881   00113C  EFA2  F008         	goto	u411
+   882   001140  EFA4  F008         	goto	u410
+   883   001144                     u411:
+   884   001144  EFFB  F008         	goto	l1110
+   885   001148                     u410:
+   886   001148                     l1102:
    887                           
    888                           ;MCAL_Layer/GPIO/hal_gpio.c: 87:     {;MCAL_Layer/GPIO/hal_gpio.c: 88:         ret = (St
       +                          d_ReturnType)0x00;
@@ -949,8 +949,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    890   00114A  6E2A               	movwf	gpio_pin_write_logic@ret^0,c
    891                           
    892                           ;MCAL_Layer/GPIO/hal_gpio.c: 89:     }
-   893   00114C  EF10  F009         	goto	l1090
-   894   001150                     l1082:
+   893   00114C  EF10  F009         	goto	l1112
+   894   001150                     l1104:
    895                           
    896                           ;MCAL_Layer/GPIO/hal_gpio.c: 95:                 (*lat_registers[_pin_config->port] &= ~
       +                          ((uint8)1<<_pin_config->pin));
@@ -965,13 +965,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    905   001160  0E01               	movlw	1
    906   001162  6E26               	movwf	(??_gpio_pin_write_logic+1)^0,c
    907   001164  2A25               	incf	??_gpio_pin_write_logic^0,f,c
-   908   001166  EFB7  F008         	goto	u404
-   909   00116A                     u405:
+   908   001166  EFB7  F008         	goto	u424
+   909   00116A                     u425:
    910   00116A  90D8               	bcf	status,0,c
    911   00116C  3626               	rlcf	(??_gpio_pin_write_logic+1)^0,f,c
-   912   00116E                     u404:
+   912   00116E                     u424:
    913   00116E  2E25               	decfsz	??_gpio_pin_write_logic^0,f,c
-   914   001170  EFB5  F008         	goto	u405
+   914   001170  EFB5  F008         	goto	u425
    915   001174  5026               	movf	(??_gpio_pin_write_logic+1)^0,w,c
    916   001176  0AFF               	xorlw	255
    917   001178  6E27               	movwf	(??_gpio_pin_write_logic+2)^0,c
@@ -993,8 +993,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    933   0011A0  16DF               	andwf	indf2,f,c
    934                           
    935                           ;MCAL_Layer/GPIO/hal_gpio.c: 96:                 break;
-   936   0011A2  EF10  F009         	goto	l1090
-   937   0011A6                     l1084:
+   936   0011A2  EF10  F009         	goto	l1112
+   937   0011A6                     l1106:
    938                           
    939                           ;MCAL_Layer/GPIO/hal_gpio.c: 98:                 (*lat_registers[_pin_config->port] |= (
       +                          (uint8)1<<_pin_config->pin));
@@ -1009,13 +1009,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    948   0011B6  0E01               	movlw	1
    949   0011B8  6E26               	movwf	(??_gpio_pin_write_logic+1)^0,c
    950   0011BA  2A25               	incf	??_gpio_pin_write_logic^0,f,c
-   951   0011BC  EFE2  F008         	goto	u414
-   952   0011C0                     u415:
+   951   0011BC  EFE2  F008         	goto	u434
+   952   0011C0                     u435:
    953   0011C0  90D8               	bcf	status,0,c
    954   0011C2  3626               	rlcf	(??_gpio_pin_write_logic+1)^0,f,c
-   955   0011C4                     u414:
+   955   0011C4                     u434:
    956   0011C4  2E25               	decfsz	??_gpio_pin_write_logic^0,f,c
-   957   0011C6  EFE0  F008         	goto	u415
+   957   0011C6  EFE0  F008         	goto	u435
    958   0011CA  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
    959   0011CC  6ED9               	movwf	fsr2l,c
    960   0011CE  6ADA               	clrf	fsr2h,c
@@ -1034,8 +1034,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    973   0011F0  12DF               	iorwf	indf2,f,c
    974                           
    975                           ;MCAL_Layer/GPIO/hal_gpio.c: 99:                 break;
-   976   0011F2  EF10  F009         	goto	l1090
-   977   0011F6                     l1088:
+   976   0011F2  EF10  F009         	goto	l1112
+   977   0011F6                     l1110:
    978   0011F6  5024               	movf	gpio_pin_write_logic@logic^0,w,c
    979   0011F8  6E25               	movwf	??_gpio_pin_write_logic^0,c
    980   0011FA  6A26               	clrf	(??_gpio_pin_write_logic+1)^0,c
@@ -1051,9 +1051,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    989   0011FC  5026               	movf	(??_gpio_pin_write_logic+1)^0,w,c
    990   0011FE  0A00               	xorlw	0	; case 0
    991   001200  B4D8               	btfsc	status,2,c
-   992   001202  EF05  F009         	goto	l1216
-   993   001206  EFA4  F008         	goto	l1080
-   994   00120A                     l1216:
+   992   001202  EF05  F009         	goto	l1238
+   993   001206  EFA4  F008         	goto	l1102
+   994   00120A                     l1238:
    995                           
    996                           ; Switch size 1, requested type "simple"
    997                           ; Number of cases is 2, Range of values is 0 to 1
@@ -1064,12 +1064,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1002   00120A  5025               	movf	??_gpio_pin_write_logic^0,w,c
   1003   00120C  0A00               	xorlw	0	; case 0
   1004   00120E  B4D8               	btfsc	status,2,c
-  1005   001210  EFA8  F008         	goto	l1082
+  1005   001210  EFA8  F008         	goto	l1104
   1006   001214  0A01               	xorlw	1	; case 1
   1007   001216  B4D8               	btfsc	status,2,c
-  1008   001218  EFD3  F008         	goto	l1084
-  1009   00121C  EFA4  F008         	goto	l1080
-  1010   001220                     l1090:
+  1008   001218  EFD3  F008         	goto	l1106
+  1009   00121C  EFA4  F008         	goto	l1102
+  1010   001220                     l1112:
   1011                           
   1012                           ;MCAL_Layer/GPIO/hal_gpio.c: 105:     return ret;
   1013   001220  502A               	movf	gpio_pin_write_logic@ret^0,w,c
@@ -1126,11 +1126,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
       +                           8 -1)
   1059   001006  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
   1060   001008  B4D8               	btfsc	status,2,c
-  1061   00100A  EF09  F008         	goto	u421
-  1062   00100E  EF0B  F008         	goto	u420
-  1063   001012                     u421:
-  1064   001012  EF1B  F008         	goto	l1102
-  1065   001016                     u420:
+  1061   00100A  EF09  F008         	goto	u441
+  1062   00100E  EF0B  F008         	goto	u440
+  1063   001012                     u441:
+  1064   001012  EF1B  F008         	goto	l1124
+  1065   001016                     u440:
   1066   001016  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
   1067   001018  6ED9               	movwf	fsr2l,c
   1068   00101A  6ADA               	clrf	fsr2h,c
@@ -1141,12 +1141,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1073   001024  6E24               	movwf	??_gpio_pin_direction_intialize^0,c
   1074   001026  0E07               	movlw	7
   1075   001028  6424               	cpfsgt	??_gpio_pin_direction_intialize^0,c
-  1076   00102A  EF19  F008         	goto	u431
-  1077   00102E  EF1B  F008         	goto	u430
-  1078   001032                     u431:
-  1079   001032  EF72  F008         	goto	l1110
-  1080   001036                     u430:
-  1081   001036                     l1102:
+  1076   00102A  EF19  F008         	goto	u451
+  1077   00102E  EF1B  F008         	goto	u450
+  1078   001032                     u451:
+  1079   001032  EF72  F008         	goto	l1132
+  1080   001036                     u450:
+  1081   001036                     l1124:
   1082                           
   1083                           ;MCAL_Layer/GPIO/hal_gpio.c: 30:     {;MCAL_Layer/GPIO/hal_gpio.c: 31:         ret = (St
       +                          d_ReturnType)0x00;
@@ -1154,8 +1154,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1085   001038  6E29               	movwf	gpio_pin_direction_intialize@ret^0,c
   1086                           
   1087                           ;MCAL_Layer/GPIO/hal_gpio.c: 32:     }
-  1088   00103A  EF88  F008         	goto	l1112
-  1089   00103E                     l1104:
+  1088   00103A  EF88  F008         	goto	l1134
+  1089   00103E                     l1126:
   1090                           
   1091                           ;MCAL_Layer/GPIO/hal_gpio.c: 38:                 (*tris_registers[_pin_config->port] &= 
       +                          ~((uint8)1<<_pin_config->pin));
@@ -1170,13 +1170,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1100   00104E  0E01               	movlw	1
   1101   001050  6E25               	movwf	(??_gpio_pin_direction_intialize+1)^0,c
   1102   001052  2A24               	incf	??_gpio_pin_direction_intialize^0,f,c
-  1103   001054  EF2E  F008         	goto	u444
-  1104   001058                     u445:
+  1103   001054  EF2E  F008         	goto	u464
+  1104   001058                     u465:
   1105   001058  90D8               	bcf	status,0,c
   1106   00105A  3625               	rlcf	(??_gpio_pin_direction_intialize+1)^0,f,c
-  1107   00105C                     u444:
+  1107   00105C                     u464:
   1108   00105C  2E24               	decfsz	??_gpio_pin_direction_intialize^0,f,c
-  1109   00105E  EF2C  F008         	goto	u445
+  1109   00105E  EF2C  F008         	goto	u465
   1110   001062  5025               	movf	(??_gpio_pin_direction_intialize+1)^0,w,c
   1111   001064  0AFF               	xorlw	255
   1112   001066  6E26               	movwf	(??_gpio_pin_direction_intialize+2)^0,c
@@ -1198,8 +1198,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1128   00108E  16DF               	andwf	indf2,f,c
   1129                           
   1130                           ;MCAL_Layer/GPIO/hal_gpio.c: 39:                 break;
-  1131   001090  EF88  F008         	goto	l1112
-  1132   001094                     l1106:
+  1131   001090  EF88  F008         	goto	l1134
+  1132   001094                     l1128:
   1133                           
   1134                           ;MCAL_Layer/GPIO/hal_gpio.c: 41:                 (*tris_registers[_pin_config->port] |= 
       +                          ((uint8)1<<_pin_config->pin));
@@ -1214,13 +1214,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1143   0010A4  0E01               	movlw	1
   1144   0010A6  6E25               	movwf	(??_gpio_pin_direction_intialize+1)^0,c
   1145   0010A8  2A24               	incf	??_gpio_pin_direction_intialize^0,f,c
-  1146   0010AA  EF59  F008         	goto	u454
-  1147   0010AE                     u455:
+  1146   0010AA  EF59  F008         	goto	u474
+  1147   0010AE                     u475:
   1148   0010AE  90D8               	bcf	status,0,c
   1149   0010B0  3625               	rlcf	(??_gpio_pin_direction_intialize+1)^0,f,c
-  1150   0010B2                     u454:
+  1150   0010B2                     u474:
   1151   0010B2  2E24               	decfsz	??_gpio_pin_direction_intialize^0,f,c
-  1152   0010B4  EF57  F008         	goto	u455
+  1152   0010B4  EF57  F008         	goto	u475
   1153   0010B8  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
   1154   0010BA  6ED9               	movwf	fsr2l,c
   1155   0010BC  6ADA               	clrf	fsr2h,c
@@ -1239,20 +1239,20 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1168   0010DE  12DF               	iorwf	indf2,f,c
   1169                           
   1170                           ;MCAL_Layer/GPIO/hal_gpio.c: 42:                 break;
-  1171   0010E0  EF88  F008         	goto	l1112
-  1172   0010E4                     l1110:
+  1171   0010E0  EF88  F008         	goto	l1134
+  1172   0010E4                     l1132:
   1173   0010E4  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
   1174   0010E6  6ED9               	movwf	fsr2l,c
   1175   0010E8  6ADA               	clrf	fsr2h,c
   1176   0010EA  BCDF               	btfsc	indf2,6,c
-  1177   0010EC  EF7A  F008         	goto	u461
-  1178   0010F0  EF7D  F008         	goto	u460
-  1179   0010F4                     u461:
+  1177   0010EC  EF7A  F008         	goto	u481
+  1178   0010F0  EF7D  F008         	goto	u480
+  1179   0010F4                     u481:
   1180   0010F4  0E01               	movlw	1
-  1181   0010F6  EF7E  F008         	goto	u466
-  1182   0010FA                     u460:
+  1181   0010F6  EF7E  F008         	goto	u486
+  1182   0010FA                     u480:
   1183   0010FA  0E00               	movlw	0
-  1184   0010FC                     u466:
+  1184   0010FC                     u486:
   1185                           
   1186                           ; Switch size 1, requested type "simple"
   1187                           ; Number of cases is 2, Range of values is 0 to 1
@@ -1262,12 +1262,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1191                           ;	Chosen strategy is simple_byte
   1192   0010FC  0A00               	xorlw	0	; case 0
   1193   0010FE  B4D8               	btfsc	status,2,c
-  1194   001100  EF1F  F008         	goto	l1104
+  1194   001100  EF1F  F008         	goto	l1126
   1195   001104  0A01               	xorlw	1	; case 1
   1196   001106  B4D8               	btfsc	status,2,c
-  1197   001108  EF4A  F008         	goto	l1106
-  1198   00110C  EF1B  F008         	goto	l1102
-  1199   001110                     l1112:
+  1197   001108  EF4A  F008         	goto	l1128
+  1198   00110C  EF1B  F008         	goto	l1124
+  1199   001110                     l1134:
   1200                           
   1201                           ;MCAL_Layer/GPIO/hal_gpio.c: 46:     return ret;
   1202   001110  5029               	movf	gpio_pin_direction_intialize@ret^0,w,c
@@ -1685,55 +1685,55 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Sun Aug 11 21:26:49 2024
+Symbol Table                                                                                   Mon Aug 12 13:37:54 2024
 
                                       l9 12C2                                       l13 1314  
                                      l30 132A                                       l34 137A  
                                      l82 1112                        ??_led_turn_toggle 0029  
                                     l101 1222                                      l122 13D2  
                                     l115 12A4                                      l172 13D8  
-                                    l178 148A                                      u420 1016  
-                                    u404 116E                                      u421 1012  
-                                    u405 116A                                      u430 1036  
-                                    u414 11C4                                      u510 1234  
-                                    u431 1032                                      u415 11C0  
-                                    u511 1230                                      u520 1254  
-                                    u505 1308                                      u521 1250  
-                                    u507 130A                                      u460 10FA  
-                                    u444 105C                                      u380 1128  
-                                    u540 1326                                      u461 10F4  
-                                    u445 1058                                      u381 1124  
-                                    u541 1322                                      u454 10B2  
-                                    u390 1148                                      u470 138C  
-                                    u534 1276                                      u455 10AE  
-                                    u391 1144                                      u471 1388  
-                                    u535 1272                                      u607 1402  
-                                    u480 13AC                                      u481 13A8  
-                                    u466 10FC                                      u490 12BA  
-                                    u491 12B6                                      u555 1370  
-                                    u557 1372                      led_initialize@F2573 0037  
-                                    wreg 0FE8                                     l1100 1016  
-                                   l1110 10E4                                     l1102 1036  
-                                   l1104 103E                                     l1112 1110  
-                                   l1120 13AC                                     l1106 1094  
-                                   l1122 13B0                                     l1130 12C6  
-                                   l1210 13F8                                     l1116 137C  
-                                   l1132 12F8                                     l1118 138C  
-                                   l1134 12FA                                     l1126 12A6  
-                                   l1142 1224                                     l1216 120A  
-                                   l1080 1148                                     l1136 130A  
-                                   l1128 12BA                                     l1144 1234  
-                                   l1160 1362                                     l1152 1316  
-                                   l1208 13D4                                     l1082 1150  
-                                   l1090 1220                                     l1138 1312  
-                                   l1170 1472                                     l1146 1254  
-                                   l1162 1372                                     l1154 1326  
-                                   l1084 11A6                                     l1076 1114  
-                                   l1172 147A                                     l1148 1258  
-                                   l1156 132E                                     l1078 1128  
-                                   l1174 1482                                     l1166 146A  
-                                   l1158 1360                                     l1088 11F6  
-                                   l1168 146A                                     l1098 1002  
+                                    l178 148A                                      u400 1128  
+                                    u401 1124                                      u410 1148  
+                                    u411 1144                                      u500 13AC  
+                                    u501 13A8                                      u510 12BA  
+                                    u511 12B6                                      u440 1016  
+                                    u424 116E                                      u441 1012  
+                                    u425 116A                                      u450 1036  
+                                    u434 11C4                                      u530 1234  
+                                    u451 1032                                      u435 11C0  
+                                    u531 1230                                      u540 1254  
+                                    u525 1308                                      u541 1250  
+                                    u527 130A                                      u480 10FA  
+                                    u464 105C                                      u560 1326  
+                                    u481 10F4                                      u465 1058  
+                                    u561 1322                                      u474 10B2  
+                                    u490 138C                                      u554 1276  
+                                    u475 10AE                                      u491 1388  
+                                    u555 1272                                      u627 1402  
+                                    u486 10FC                                      u575 1370  
+                                    u577 1372                      led_initialize@F2573 0037  
+                                    wreg 0FE8                                     l1100 1128  
+                                   l1110 11F6                                     l1102 1148  
+                                   l1120 1002                                     l1104 1150  
+                                   l1112 1220                                     l1122 1016  
+                                   l1106 11A6                                     l1132 10E4  
+                                   l1124 1036                                     l1140 138C  
+                                   l1126 103E                                     l1134 1110  
+                                   l1142 13AC                                     l1150 12BA  
+                                   l1230 13D4                                     l1128 1094  
+                                   l1144 13B0                                     l1152 12C6  
+                                   l1160 1312                                     l1232 13F8  
+                                   l1138 137C                                     l1154 12F8  
+                                   l1170 1258                                     l1156 12FA  
+                                   l1148 12A6                                     l1164 1224  
+                                   l1180 1360                                     l1238 120A  
+                                   l1158 130A                                     l1190 146A  
+                                   l1166 1234                                     l1182 1362  
+                                   l1174 1316                                     l1192 1472  
+                                   l1168 1254                                     l1184 1372  
+                                   l1176 1326                                     l1098 1114  
+                                   l1194 147A                                     l1178 132E  
+                                   l1196 1482                                     l1188 146A  
                                    _LATA 0F89                                     _LATB 0F8A  
                                    _LATC 0F8B                                     _LATD 0F8C  
                                    _LATE 0F8D                                     _main 13D4  
