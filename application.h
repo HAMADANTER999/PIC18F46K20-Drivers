@@ -17,7 +17,7 @@
 #include "ECU_Layer/Relay/ecu_relay.h"
 
 /* Section : Macro Declarations*/
-#define _XTAL_FREQ      40000000
+#define _XTAL_FREQ      8000000UL
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/

@@ -4594,13 +4594,7 @@ Std_ReturnType relay_initialize(const relay_t *relay);
 Std_ReturnType relay_turn_on(const relay_t *relay);
 Std_ReturnType relay_turn_off(const relay_t *relay);
 # 8 "ECU_Layer/Relay/ecu_relay.c" 2
-
-
-
-
-
-
-
+# 17 "ECU_Layer/Relay/ecu_relay.c"
 Std_ReturnType relay_initialize(const relay_t *relay){
     Std_ReturnType ret = (Std_ReturnType)0x01;
     if (relay == ((void*)0))
@@ -4609,17 +4603,20 @@ Std_ReturnType relay_initialize(const relay_t *relay){
     }
     else
     {
+        pin_config_t pin_obj = {
+            .port = relay->relay_port,
+            .pin = relay->relay_pin,
+            .direction = GPIO_DIRECTION_OUTPUT,
+            .logic = relay->relay_status,
+        };
+
+        gpio_pin_intialize(&pin_obj);
 
     }
 
     return ret;
 }
-
-
-
-
-
-
+# 46 "ECU_Layer/Relay/ecu_relay.c"
 Std_ReturnType relay_turn_on(const relay_t *relay){
     Std_ReturnType ret = (Std_ReturnType)0x01;
     if (relay == ((void*)0))
@@ -4628,17 +4625,18 @@ Std_ReturnType relay_turn_on(const relay_t *relay){
     }
     else
     {
-
+        pin_config_t pin_obj = {
+            .port = relay->relay_port,
+            .pin = relay->relay_pin,
+            .direction = GPIO_DIRECTION_OUTPUT,
+            .logic = relay->relay_status,
+        };
+        gpio_pin_write_logic(&pin_obj, GPIO_HIGH);
     }
 
     return ret;
 }
-
-
-
-
-
-
+# 73 "ECU_Layer/Relay/ecu_relay.c"
 Std_ReturnType relay_turn_off(const relay_t *relay){
     Std_ReturnType ret = (Std_ReturnType)0x01;
     if (relay == ((void*)0))
@@ -4647,6 +4645,13 @@ Std_ReturnType relay_turn_off(const relay_t *relay){
     }
     else
     {
+         pin_config_t pin_obj = {
+            .port = relay->relay_port,
+            .pin = relay->relay_pin,
+            .direction = GPIO_DIRECTION_OUTPUT,
+            .logic = relay->relay_status,
+        };
+        gpio_pin_write_logic(&pin_obj, GPIO_LOW);
 
     }
 
