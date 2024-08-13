@@ -10,7 +10,7 @@
 
 /* Section : includes*/
 #include "../../MCAL_Layer/GPIO/hal_gpio.h"
-
+#include "ecu_led_cfg.h"
 
 /* Section : Macro Declarations*/
 

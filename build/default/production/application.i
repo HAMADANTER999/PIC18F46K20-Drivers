@@ -4727,6 +4727,8 @@ Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 12 "./ECU_Layer/LED/ecu_led.h" 2
 
+# 1 "./ECU_Layer/LED/ecu_led_cfg.h" 1
+# 13 "./ECU_Layer/LED/ecu_led.h" 2
 
 
 
@@ -4785,7 +4787,25 @@ typedef struct {
 Std_ReturnType button_initialize(const button_t *btn);
 Std_ReturnType button_read_state(const button_t *btn, button_state_t *btn_state);
 # 16 "./application.h" 2
-# 25 "./application.h"
+
+# 1 "./ECU_Layer/Relay/ecu_relay.h" 1
+# 13 "./ECU_Layer/Relay/ecu_relay.h"
+# 1 "./ECU_Layer/Relay/ecu_relay_cfg.h" 1
+# 13 "./ECU_Layer/Relay/ecu_relay.h" 2
+# 24 "./ECU_Layer/Relay/ecu_relay.h"
+typedef struct {
+    uint8 relay_port : 4;
+    uint8 relay_pin : 3;
+    uint8 relay_status : 1;
+}relay_t;
+
+
+
+Std_ReturnType relay_initialize(const relay_t *relay);
+Std_ReturnType relay_turn_on(const relay_t *relay);
+Std_ReturnType relay_turn_off(const relay_t *relay);
+# 17 "./application.h" 2
+# 26 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 

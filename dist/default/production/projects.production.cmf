@@ -11,6 +11,9 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+init CODE 0 0 0 4 1 2
+config CONFIG 4 300000 300000 E 1 1
 $dist/default/production\projects.production.o
 cinit CODE 0 16CA 16CA 36 1 2
 text0 CODE 0 1224 1224 D0 1 2
@@ -32,9 +35,6 @@ cstackCOMRAM COMRAM 1 2C 2C F 1 1
 smallconst SMALLCONST 0 1000 1000 2 1 2
 dataCOMRAM COMRAM 1 1 1 2B 1 1
 bssCOMRAM COMRAM 1 3B 3B 8 1 1
-config CONFIG 4 300000 300000 E 1 1
-$C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-init CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 E 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -239,34 +239,34 @@ $dist/default/production\projects.production.o
 12DA text0 CODE >89:D:\Courses\Embedded C\projects\application.c
 12E2 text0 CODE >89:D:\Courses\Embedded C\projects\application.c
 12EC text0 CODE >92:D:\Courses\Embedded C\projects\application.c
-16CA cinit CODE >1413:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16CA cinit CODE >1415:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16CA cinit CODE >1418:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16CA cinit CODE >1523:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16CC cinit CODE >1524:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16CE cinit CODE >1525:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16D0 cinit CODE >1526:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16D2 cinit CODE >1527:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16D4 cinit CODE >1528:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16D6 cinit CODE >1529:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16DA cinit CODE >1530:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16DE cinit CODE >1531:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16DE cinit CODE >1532:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16E0 cinit CODE >1533:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16E4 cinit CODE >1534:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16E6 cinit CODE >1535:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16E8 cinit CODE >1536:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16EA cinit CODE >1540:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16EE cinit CODE >1541:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F0 cinit CODE >1542:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F0 cinit CODE >1543:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F2 cinit CODE >1544:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F4 cinit CODE >1545:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F6 cinit CODE >1551:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F6 cinit CODE >1554:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16F8 cinit CODE >1555:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16FA cinit CODE >1556:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
-16FC cinit CODE >1557:C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_1.s
+16CA cinit CODE >1687:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16CA cinit CODE >1689:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16CA cinit CODE >1692:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16CA cinit CODE >1797:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16CC cinit CODE >1798:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16CE cinit CODE >1799:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16D0 cinit CODE >1800:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16D2 cinit CODE >1801:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16D4 cinit CODE >1802:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16D6 cinit CODE >1803:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16DA cinit CODE >1804:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16DE cinit CODE >1805:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16DE cinit CODE >1806:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16E0 cinit CODE >1807:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16E4 cinit CODE >1808:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16E6 cinit CODE >1809:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16E8 cinit CODE >1810:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16EA cinit CODE >1814:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16EE cinit CODE >1815:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F0 cinit CODE >1816:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F0 cinit CODE >1817:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F2 cinit CODE >1818:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F4 cinit CODE >1819:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F6 cinit CODE >1825:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F6 cinit CODE >1828:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16F8 cinit CODE >1829:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16FA cinit CODE >1830:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
+16FC cinit CODE >1831:C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -286,7 +286,7 @@ __Hspace_1 43 0 ABS 0 - dist/default/production\projects.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\projects.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\projects.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\projects.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\projects.production.o
 _btn_low_status 25 0 COMRAM 1 dataCOMRAM dist/default/production\projects.production.o
 _lat_registers B 0 COMRAM 1 dataCOMRAM dist/default/production\projects.production.o
@@ -299,11 +299,11 @@ _LATB F8A 0 ABS 0 - dist/default/production\projects.production.o
 _LATC F8B 0 ABS 0 - dist/default/production\projects.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\projects.production.o
 _LATE F8D 0 ABS 0 - dist/default/production\projects.production.o
-___sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 _main 1224 0 CODE 0 text0 dist/default/production\projects.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-start 0 0 CODE 0 init C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+start 0 0 CODE 0 init C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\projects.production.o
 _gpio_pin_read_logic 13A6 0 CODE 0 text7 dist/default/production\projects.production.o
 led_turn_on@pin_obj 36 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
@@ -311,11 +311,11 @@ __Hpowerup 0 0 CODE 0 powerup dist/default/production\projects.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\projects.production.o
 led_initialize@pin_obj 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
 button_read_state@pin_logic_status 36 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
-__accesstop 80 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+__accesstop 80 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 led_initialize@F2573 42 0 COMRAM 1 bssCOMRAM dist/default/production\projects.production.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\projects.production.o
 _btn_high_valid_status 24 0 COMRAM 1 dataCOMRAM dist/default/production\projects.production.o
@@ -327,8 +327,8 @@ __end_of_program_2 1634 0 CODE 0 text2 dist/default/production\projects.producti
 __end_of_program_3 15DC 0 CODE 0 text1 dist/default/production\projects.production.o
 __pidataCOMRAM 1700 0 CODE 0 idataCOMRAM dist/default/production\projects.production.o
 gpio_pin_direction_intialize@ret 32 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 led_initialize@led 37 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
 led_initialize@ret 39 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\projects.production.o
@@ -357,7 +357,7 @@ button_initialize@ret 34 0 COMRAM 1 cstackCOMRAM dist/default/production\project
 __end_of_gpio_pin_intialize 168C 0 CODE 0 text10 dist/default/production\projects.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\projects.production.o
 __end_of_button_read_state 13A6 0 CODE 0 text6 dist/default/production\projects.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 gpio_pin_write_logic@_pin_config 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\projects.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\projects.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\projects.production.o
@@ -397,7 +397,7 @@ __end_of_led_turn_off 1584 0 CODE 0 text5 dist/default/production\projects.produ
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\projects.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\projects.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\projects.production.o
-__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 _gpio_pin_intialize 1634 0 CODE 0 text10 dist/default/production\projects.production.o
 _program_selected 3D 0 COMRAM 1 bssCOMRAM dist/default/production\projects.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\projects.production.o
@@ -498,13 +498,13 @@ __Lconfig 0 0 CONFIG 4 config dist/default/production\projects.production.o
 __Lsivt_hi 0 0 CODE 0 sivt_hi dist/default/production\projects.production.o
 __Lsivt_lo 0 0 CODE 0 sivt_lo dist/default/production\projects.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\projects.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\projects.production.o
-isa$std 1 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __end_of_Application 1764 0 CODE 0 text8 dist/default/production\projects.production.o
-stackhi 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\projects.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\projects.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\projects.production.o
@@ -548,18 +548,18 @@ __Ltext10 0 0 ABS 0 text10 dist/default/production\projects.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\projects.production.o
 __Ltext12 0 0 ABS 0 text12 dist/default/production\projects.production.o
 __Ltext13 0 0 ABS 0 text13 dist/default/production\projects.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\projects.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\projects.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\projects.production.o
 __psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\projects.production.o
 led_turn_on@F2578 41 0 COMRAM 1 bssCOMRAM dist/default/production\projects.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\projects.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 ___param_bank 0 0 ABS 0 - dist/default/production\projects.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\anter\AppData\Local\Temp\xcAsj34.\driver_tmp_9.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\projects.production.o
 __end_of__initialization 16F6 0 CODE 0 cinit dist/default/production\projects.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\projects.production.o

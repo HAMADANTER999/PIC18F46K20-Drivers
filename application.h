@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include "ECU_Layer/LED/ecu_led.h"
 #include "ECU_Layer/Button/ecu_button.h"
+#include "ECU_Layer/Relay/ecu_relay.h"
 
 /* Section : Macro Declarations*/
 #define _XTAL_FREQ      40000000
