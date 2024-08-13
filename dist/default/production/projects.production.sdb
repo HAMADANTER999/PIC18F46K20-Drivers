@@ -27,6 +27,16 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
+"25 D:\Courses\Embedded C\projects\ECU_Layer/Relay/ecu_relay.c
+[e E2497 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"60
+[e E2493 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "44 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
 [e E2497 . `uc
 GPIO_DIRECTION_OUTPUT 0
@@ -63,19 +73,14 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-"25 D:\Courses\Embedded C\projects\ECU_Layer/Relay/ecu_relay.c
+"25 D:\Courses\Embedded C\projects\ECU_Layer/DC_Motor/ecu_dc_motor.c
 [e E2497 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-"60
-[e E2493 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"24 D:\Courses\Embedded C\projects\application.c
+"22 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
-"43
+"36
 [v _Application Application `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -101,12 +106,6 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"17 D:\Courses\Embedded C\projects\ECU_Layer/Relay/ecu_relay.c
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-"46
-[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
-"73
-[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
 "27 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "84
@@ -117,16 +116,6 @@ GPIO_HIGH 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "167
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"10 D:\Courses\Embedded C\projects\application.c
-[v _relay_1 relay_1 `S270  1 e 1 0 ]
-"16
-[v _relay_2 relay_2 `S270  1 e 1 0 ]
-"22
-[v _ret ret `uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -163,118 +152,13 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "15
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"24 D:\Courses\Embedded C\projects\application.c
+"22 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"42
+"35
 } 0
-"46 D:\Courses\Embedded C\projects\ECU_Layer/Relay/ecu_relay.c
-[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"54
-[v relay_turn_on@pin_obj pin_obj `S24  1 a 1 10 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"46
-[v relay_turn_on@relay relay `*.30CS270  1 p 1 8 ]
-"53
-[v relay_turn_on@F2572 F2572 `S24  1 s 1 F2572 ]
-"64
-} 0
-"73
-[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"81
-[v relay_turn_off@pin_obj pin_obj `S24  1 a 1 10 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"73
-[v relay_turn_off@relay relay `*.30CS270  1 p 1 8 ]
-"80
-[v relay_turn_off@F2577 F2577 `S24  1 s 1 F2577 ]
-"92
-} 0
-"43 D:\Courses\Embedded C\projects\application.c
+"36
 [v _Application Application `(v  1 e 1 0 ]
 {
-"47
-} 0
-"17 D:\Courses\Embedded C\projects\ECU_Layer/Relay/ecu_relay.c
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"25
-[v relay_initialize@pin_obj pin_obj `S24  1 a 1 14 ]
-"18
-[v relay_initialize@ret ret `uc  1 a 1 13 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"17
-[v relay_initialize@relay relay `*.30CS270  1 p 1 11 ]
-"24
-[v relay_initialize@F2567 F2567 `S24  1 s 1 F2567 ]
-"37
-} 0
-"167 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-{
-"168
-[v gpio_pin_intialize@ret ret `uc  1 a 1 10 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"167
-[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 8 ]
-"180
-} 0
-"84
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-{
-"85
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"84
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `E2493  1 p 1 1 ]
-"106
-} 0
-"27
-[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
-{
-"28
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 6 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"27
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-"47
+"39
 } 0

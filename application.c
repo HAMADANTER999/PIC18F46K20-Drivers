@@ -7,17 +7,15 @@
 
 #include "application.h"
 
-relay_t relay_1 = {
-    .relay_pin = GPIO_PIN0,
-    .relay_port = PORTC_INDEX,
-    .relay_status = RELAY_OFF_STATE,
+dc_motor_t dc_motor_1 = {
+    .dc_motor[0].dc_motor_port = PORTC_INDEX,
+    .dc_motor[0].dc_motor_pin = GPIO_PIN0,
+    .dc_motor[0].dc_motor_status = DC_MOTOR_OFF_STATUS,
+    .dc_motor[1].dc_motor_port = PORTC_INDEX,
+    .dc_motor[1].dc_motor_pin = GPIO_PIN1,
+    .dc_motor[1].dc_motor_status = DC_MOTOR_OFF_STATUS,
 };
 
-relay_t relay_2 = {
-    .relay_pin = GPIO_PIN1,
-    .relay_port = PORTC_INDEX,
-    .relay_status = RELAY_OFF_STATE,
-};
 
 Std_ReturnType ret = E_NOT_OK;
 
@@ -26,12 +24,7 @@ int main() {
     
     while (1)
     {
-        relay_turn_on(&relay_1);
-        relay_turn_off(&relay_2);
-        __delay_ms(5000);
-        relay_turn_on(&relay_2);
-        relay_turn_off(&relay_1);
-        __delay_ms(5000);
+        
     }
         
         
@@ -42,7 +35,6 @@ int main() {
 }
 void Application (void)
 {
-    ret = relay_initialize(&relay_1);
-    ret = relay_initialize(&relay_2);
+    
 }
 
