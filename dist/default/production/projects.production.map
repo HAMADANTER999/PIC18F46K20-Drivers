@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
   -cn -h+dist/default/production\projects.production.sym \
   --cmf=dist/default/production\projects.production.cmf -z -Q18F4620 \
-  -oC:\Users\anter\AppData\Local\Temp\xcAsdq0.\driver_tmp_3.o \
+  -oC:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/projects.production.map \
-  --md=C:\Users\anter\AppData\Local\Temp\xcAsdq0.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-07Fh -AABS1=00h-0F7Fh -ABIGRAM=01h-0F7Fh \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\anter\AppData\Local\Temp\xcAsdq0.\driver_tmp_9.o \
+  C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o \
   dist/default/production\projects.production.o 
 
 Object code version is 3.11
@@ -38,39 +38,51 @@ Machine type is 18F4620
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\anter\AppData\Local\Temp\xcAsdq0.\driver_tmp_9.o
+C:\Users\anter\AppData\Local\Temp\xcAsmkk.\driver_tmp_9.o
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
 dist/default/production\projects.production.o
                 config                           300000   300000        E        0       4
                 smallconst                         1000     1000        2      800       0
-                text7                              1002     1002      112      801       0
-                text6                              1114     1114      110      801       0
-                text5                              137C     137C       58      801       0
-                text4                              12A6     12A6       70      801       0
-                text3                              146A     146A       22      801       0
-                text2                              1224     1224       82      801       0
-                text1                              1316     1316       66      801       0
-                text0                              13D4     13D4       42      801       0
-                cstackCOMRAM                         23       23       11        1       1
-                dataCOMRAM                            1        1       22        1       1
-                bssCOMRAM                            34       34        4        1       1
-                cinit                              1416     1416       32      801       0
-                idataCOMRAM                        1448     1448       22      801       0
+                text13                             1002     1002      112      801       0
+                text12                             172C     172C       26      B96       0
+                text11                             1114     1114      110      801       0
+                text10                             1634     1634       58      801       0
+                text9                              1440     1440       70      801       0
+                text8                              1752     1752       12      B96       0
+                text7                              13A6     13A6       9A      801       0
+                text6                              12F4     12F4       B2      801       0
+                text5                              151A     151A       6A      801       0
+                text4                              14B0     14B0       6A      801       0
+                text3                              168C     168C       3E      801       0
+                text2                              15DC     15DC       58      801       0
+                text1                              1584     1584       58      801       0
+                text0                              1224     1224       D0      801       0
+                cstackCOMRAM                         2C       2C        F        1       1
+                dataCOMRAM                            1        1       2B        1       1
+                bssCOMRAM                            3B       3B        8        1       1
+                cinit                              16CA     16CA       36      801       0
+                idataCOMRAM                        1700     1700       2B      801       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 init                                  0        0        4         0
-                text7                              1002     1002      112         0
-                text6                              1114     1114      110         0
-                text5                              137C     137C       58         0
-                text4                              12A6     12A6       70         0
-                text3                              146A     146A       22         0
-                text2                              1224     1224       82         0
-                text1                              1316     1316       66         0
-                text0                              13D4     13D4       42         0
-                cinit                              1416     1416       32         0
-                idataCOMRAM                        1448     1448       22         0
+                text13                             1002     1002      112         0
+                text12                             172C     172C       26         0
+                text11                             1114     1114      110         0
+                text10                             1634     1634       58         0
+                text9                              1440     1440       70         0
+                text8                              1752     1752       12         0
+                text7                              13A6     13A6       9A         0
+                text6                              12F4     12F4       B2         0
+                text5                              151A     151A       6A         0
+                text4                              14B0     14B0       6A         0
+                text3                              168C     168C       3E         0
+                text2                              15DC     15DC       58         0
+                text1                              1584     1584       58         0
+                text0                              1224     1224       D0         0
+                cinit                              16CA     16CA       36         0
+                idataCOMRAM                        1700     1700       2B         0
 
         CLASS   CONST          
 
@@ -80,9 +92,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                         23       23       11         1
-                dataCOMRAM                            1        1       22         1
-                bssCOMRAM                            34       34        4         1
+                cstackCOMRAM                         2C       2C        F         1
+                dataCOMRAM                            1        1       2B         1
+                bssCOMRAM                            3B       3B        8         1
 
         CLASS   ABS1           
 
@@ -144,9 +156,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                dataCOMRAM                     000001  000037  000038         1       1  COMRAM  
+                dataCOMRAM                     000001  000042  000043         1       1  COMRAM  
                 smallconst                     001000  000002  001002       800       0  SMALLCON
-                text7                          001002  00048A  00148C       801       0  CODE    
+                text13                         001002  000729  00172B       801       0  CODE    
+                text12                         00172C  000038  001764       B96       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -168,23 +181,27 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000038-000F7F              F48
+        BIGRAM           000043-000F7F              F3D
         BIGSFR           000F80-000FFF               80
         CODE             000004-000FFF              FFC
-                         00148C-00FFFF             EB74
-        COMRAM           000038-00007F               48
+                         00172B-00172B                1
+                         001764-00FFFF             E89C
+        COMRAM           000043-00007F               3D
         CONST            000004-000FFF              FFC
-                         00148C-00FFFF             EB74
+                         00172B-00172B                1
+                         001764-00FFFF             E89C
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
-        MEDIUMCONST      00148C-00FFFF             EB74
+        MEDIUMCONST      00172B-00172B                1
+                         001764-00FFFF             E89C
         RAM              000080-000F7F              100
         SFR              000F80-000FFF               80
-        SMALLCONST       00148C-00FFFF              100
+        SMALLCONST       00172B-00172B                1
+                         001764-00FFFF              100
 
                                   Symbol Table
 
-_Application                             text3        00146A
+_Application                             text8        001752
 _LATA                                    (abs)        000F89
 _LATB                                    (abs)        000F8A
 _LATC                                    (abs)        000F8B
@@ -267,8 +284,8 @@ __Hsfr                                   sfr          000000
 __Hsivt_hi                               sivt_hi      000000
 __Hsivt_lo                               sivt_lo      000000
 __Hsmallconst                            smallconst   001002
-__Hspace_0                               (abs)        00148C
-__Hspace_1                               (abs)        000038
+__Hspace_0                               (abs)        001764
+__Hspace_1                               (abs)        000043
 __Hspace_2                               (abs)        000000
 __Hspace_4                               (abs)        60000E
 __Hstack                                 stack        000000
@@ -277,12 +294,18 @@ __Htemp                                  temp         000000
 __Htext                                  text         000000
 __Htext0                                 text0        000000
 __Htext1                                 text1        000000
+__Htext10                                text10       000000
+__Htext11                                text11       000000
+__Htext12                                text12       000000
+__Htext13                                text13       000000
 __Htext2                                 text2        000000
 __Htext3                                 text3        000000
 __Htext4                                 text4        000000
 __Htext5                                 text5        000000
 __Htext6                                 text6        000000
 __Htext7                                 text7        000000
+__Htext8                                 text8        000000
+__Htext9                                 text9        000000
 __LRAM                                   (abs)        000001
 __L__absolute__                          __absolute__ 000000
 __Labs1                                  abs1         000000
@@ -360,14 +383,20 @@ __Ltemp                                  temp         000000
 __Ltext                                  text         000000
 __Ltext0                                 text0        000000
 __Ltext1                                 text1        000000
+__Ltext10                                text10       000000
+__Ltext11                                text11       000000
+__Ltext12                                text12       000000
+__Ltext13                                text13       000000
 __Ltext2                                 text2        000000
 __Ltext3                                 text3        000000
 __Ltext4                                 text4        000000
 __Ltext5                                 text5        000000
 __Ltext6                                 text6        000000
 __Ltext7                                 text7        000000
-__S0                                     (abs)        00148C
-__S1                                     (abs)        000038
+__Ltext8                                 text8        000000
+__Ltext9                                 text9        000000
+__S0                                     (abs)        001764
+__S1                                     (abs)        000043
 __S4                                     (abs)        000000
 __S5                                     (abs)        000000
 ___heap_hi                               (abs)        000000
@@ -385,102 +414,149 @@ ___stack_hi                              stack        000000
 ___stack_lo                              stack        000000
 __accesstop                              (abs)        000080
 __activetblptr                           (abs)        000002
-__end_of_Application                     text3        00148C
-__end_of__initialization                 cinit        00143E
-__end_of_gpio_pin_direction_intialize    text7        001114
-__end_of_gpio_pin_intialize              text5        0013D4
-__end_of_gpio_pin_toggle_logic           text2        0012A6
-__end_of_gpio_pin_write_logic            text6        001224
-__end_of_led_initialize                  text4        001316
-__end_of_led_turn_toggle                 text1        00137C
-__end_of_main                            text0        001416
-__initialization                         cinit        001416
+__end_of_Application                     text8        001764
+__end_of__initialization                 cinit        0016F6
+__end_of_button_initialize               text12       001752
+__end_of_button_read_state               text6        0013A6
+__end_of_gpio_pin_direction_intialize    text13       001114
+__end_of_gpio_pin_intialize              text10       00168C
+__end_of_gpio_pin_read_logic             text7        001440
+__end_of_gpio_pin_write_logic            text11       001224
+__end_of_led_initialize                  text9        0014B0
+__end_of_led_turn_off                    text5        001584
+__end_of_led_turn_on                     text4        00151A
+__end_of_main                            text0        0012F4
+__end_of_program_1                       text3        0016CA
+__end_of_program_2                       text2        001634
+__end_of_program_3                       text1        0015DC
+__initialization                         cinit        0016CA
 __mediumconst                            mediumconst  000000
-__pbssCOMRAM                             bssCOMRAM    000034
-__pcinit                                 cinit        001416
-__pcstackCOMRAM                          cstackCOMRAM 000023
+__pbssCOMRAM                             bssCOMRAM    00003B
+__pcinit                                 cinit        0016CA
+__pcstackCOMRAM                          cstackCOMRAM 00002C
 __pdataCOMRAM                            dataCOMRAM   000001
-__pidataCOMRAM                           idataCOMRAM  001448
+__pidataCOMRAM                           idataCOMRAM  001700
 __psmallconst                            smallconst   001000
-__ptext0                                 text0        0013D4
-__ptext1                                 text1        001316
-__ptext2                                 text2        001224
-__ptext3                                 text3        00146A
-__ptext4                                 text4        0012A6
-__ptext5                                 text5        00137C
-__ptext6                                 text6        001114
-__ptext7                                 text7        001002
+__ptext0                                 text0        001224
+__ptext1                                 text1        001584
+__ptext10                                text10       001634
+__ptext11                                text11       001114
+__ptext12                                text12       00172C
+__ptext13                                text13       001002
+__ptext2                                 text2        0015DC
+__ptext3                                 text3        00168C
+__ptext4                                 text4        0014B0
+__ptext5                                 text5        00151A
+__ptext6                                 text6        0012F4
+__ptext7                                 text7        0013A6
+__ptext8                                 text8        001752
+__ptext9                                 text9        001440
 __ramtop                                 ramtop       001000
 __smallconst                             smallconst   001000
-_gpio_pin_direction_intialize            text7        001002
-_gpio_pin_intialize                      text5        00137C
-_gpio_pin_toggle_logic                   text2        001224
-_gpio_pin_write_logic                    text6        001114
+_btn_high                                dataCOMRAM   000027
+_btn_high_last_valid_status              dataCOMRAM   000023
+_btn_high_status                         dataCOMRAM   00002A
+_btn_high_vaild                          bssCOMRAM    00003B
+_btn_high_valid_status                   dataCOMRAM   000024
+_btn_low                                 dataCOMRAM   00001F
+_btn_low_status                          dataCOMRAM   000025
+_button_initialize                       text12       00172C
+_button_read_state                       text6        0012F4
+_gpio_pin_direction_intialize            text13       001002
+_gpio_pin_intialize                      text10       001634
+_gpio_pin_read_logic                     text7        0013A6
+_gpio_pin_write_logic                    text11       001114
 _lat_registers                           dataCOMRAM   00000B
-_led_1                                   dataCOMRAM   000022
-_led_2                                   dataCOMRAM   000021
-_led_3                                   dataCOMRAM   000020
-_led_4                                   dataCOMRAM   00001F
-_led_initialize                          text4        0012A6
-_led_turn_toggle                         text1        001316
-_main                                    text0        0013D4
+_led1_status                             bssCOMRAM    00003E
+_led_1                                   dataCOMRAM   00002B
+_led_2                                   dataCOMRAM   000026
+_led_initialize                          text9        001440
+_led_turn_off                            text5        00151A
+_led_turn_on                             text4        0014B0
+_main                                    text0        001224
 _port_registers                          dataCOMRAM   000001
+_program_1                               text3        00168C
+_program_2                               text2        0015DC
+_program_3                               text1        001584
+_program_selected                        bssCOMRAM    00003D
+_ret                                     dataCOMRAM   000022
 _tris_registers                          dataCOMRAM   000015
-end_of_initialization                    cinit        00143E
-gpio_pin_direction_intialize@_pin_config cstackCOMRAM 000023
-gpio_pin_direction_intialize@ret         cstackCOMRAM 000029
-gpio_pin_intialize@_pin_config           cstackCOMRAM 00002B
-gpio_pin_intialize@ret                   cstackCOMRAM 00002D
-gpio_pin_toggle_logic@_pin_config        cstackCOMRAM 000023
-gpio_pin_write_logic@_pin_config         cstackCOMRAM 000023
-gpio_pin_write_logic@logic               cstackCOMRAM 000024
-gpio_pin_write_logic@ret                 cstackCOMRAM 00002A
+button_initialize@btn                    cstackCOMRAM 000033
+button_initialize@ret                    cstackCOMRAM 000034
+button_read_state@btn                    cstackCOMRAM 000032
+button_read_state@btn_state              cstackCOMRAM 000033
+button_read_state@pin_logic_status       cstackCOMRAM 000036
+button_read_state@ret                    cstackCOMRAM 000035
+end_of_initialization                    cinit        0016F6
+gpio_pin_direction_intialize@_pin_config cstackCOMRAM 00002C
+gpio_pin_direction_intialize@ret         cstackCOMRAM 000032
+gpio_pin_intialize@_pin_config           cstackCOMRAM 000034
+gpio_pin_intialize@ret                   cstackCOMRAM 000036
+gpio_pin_read_logic@_pin_config          cstackCOMRAM 00002C
+gpio_pin_read_logic@logic                cstackCOMRAM 00002D
+gpio_pin_write_logic@_pin_config         cstackCOMRAM 00002C
+gpio_pin_write_logic@logic               cstackCOMRAM 00002D
+gpio_pin_write_logic@ret                 cstackCOMRAM 000033
 intlevel0                                text         000000
 intlevel1                                text         000000
 intlevel2                                text         000000
 intlevel3                                text         000000
 isa$std                                  (abs)        000001
 isa$xinst                                (abs)        000000
-led_initialize@F2573                     bssCOMRAM    000037
-led_initialize@led                       cstackCOMRAM 00002E
-led_initialize@pin_obj                   cstackCOMRAM 000031
-led_initialize@ret                       cstackCOMRAM 000030
-led_turn_off@F2583                       bssCOMRAM    000035
-led_turn_on@F2578                        bssCOMRAM    000036
-led_turn_toggle@F2588                    bssCOMRAM    000034
-led_turn_toggle@led                      cstackCOMRAM 000028
-led_turn_toggle@pin_obj                  cstackCOMRAM 00002A
+led_initialize@F2573                     bssCOMRAM    000042
+led_initialize@led                       cstackCOMRAM 000037
+led_initialize@pin_obj                   cstackCOMRAM 00003A
+led_initialize@ret                       cstackCOMRAM 000039
+led_turn_off@F2583                       bssCOMRAM    000040
+led_turn_off@led                         cstackCOMRAM 000034
+led_turn_off@pin_obj                     cstackCOMRAM 000036
+led_turn_on@F2578                        bssCOMRAM    000041
+led_turn_on@led                          cstackCOMRAM 000034
+led_turn_on@pin_obj                      cstackCOMRAM 000036
+led_turn_toggle@F2588                    bssCOMRAM    00003F
+program_2@counter                        cstackCOMRAM 000039
+program_3@counter                        cstackCOMRAM 000039
 stackhi                                  (abs)        000000
 stacklo                                  (abs)        000000
 start                                    init         000000
-start_initialization                     cinit        001416
+start_initialization                     cinit        0016CA
 
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-shared
-		__initialization		CODE           	1416	0000	40
+ECU_Layer/Button/ecu_button.c
+		_button_read_state		CODE           	12F4	0000	178
+		_button_initialize		CODE           	172C	0000	38
 
-shared estimated size: 40
+ECU_Layer/Button/ecu_button.c estimated size: 216
+
+shared
+		__initialization		CODE           	16CA	0000	44
+
+shared estimated size: 44
 
 MCAL_Layer/GPIO/hal_gpio.c
 		_gpio_pin_write_logic		CODE           	1114	0000	272
-		_gpio_pin_intialize		CODE           	137C	0000	88
+		_gpio_pin_intialize		CODE           	1634	0000	88
+		_gpio_pin_read_logic		CODE           	13A6	0000	154
 		_gpio_pin_direction_intialize		CODE           	1002	0000	274
-		_gpio_pin_toggle_logic		CODE           	1224	0000	130
 
-MCAL_Layer/GPIO/hal_gpio.c estimated size: 764
+MCAL_Layer/GPIO/hal_gpio.c estimated size: 788
 
 ECU_Layer/LED/ecu_led.c
-		_led_turn_toggle		CODE           	1316	0000	102
-		_led_initialize		CODE           	12A6	0000	112
+		_led_initialize		CODE           	1440	0000	112
+		_led_turn_on   		CODE           	14B0	0000	106
+		_led_turn_off  		CODE           	151A	0000	106
 
-ECU_Layer/LED/ecu_led.c estimated size: 214
+ECU_Layer/LED/ecu_led.c estimated size: 324
 
 application.c
-		_Application   		CODE           	146A	0000	34
-		_main          		CODE           	13D4	0000	66
+		_Application   		CODE           	1752	0000	18
+		_main          		CODE           	1224	0000	208
+		_program_1     		CODE           	168C	0000	62
+		_program_2     		CODE           	15DC	0000	88
+		_program_3     		CODE           	1584	0000	88
 
-application.c estimated size: 100
+application.c estimated size: 464
 
