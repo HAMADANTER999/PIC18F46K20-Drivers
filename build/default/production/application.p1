@@ -1,22 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 ./ECU_Layer/DC_Motor/ecu_dc_motor.h
-[; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 22: typedef struct {
-[s S276 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S276 . dc_motor_port dc_motor_pin dc_motor_status ]
-"28
+"66 ./ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . port pin direction logic ]
+"28 ./ECU_Layer/DC_Motor/ecu_dc_motor.h
 [; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 28: typedef struct {
-[s S277 `S276 -> 2 `i ]
-[n S277 . dc_motor ]
+[s S276 `S272 -> 2 `i ]
+[n S276 . dc_motor ]
 "10 application.c
 [; ;application.c: 10: dc_motor_t dc_motor_1 = {
 [c E2832 0 1 2 3 4 .. ]
 [n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2822 0 1 2 3 4 5 6 7 .. ]
 [n E2822 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+[c E2818 0 1 .. ]
+[n E2818 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [p mainexit ]
 "27 ./application.h
 [; ;./application.h: 27: void Application (void);
 [v _Application `(v ~T0 @X0 0 ef ]
+"35 ./ECU_Layer/DC_Motor/ecu_dc_motor.h
+[; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 35: Std_ReturnType dc_motor_move_right(dc_motor_t *_dc_motor);
+[v _dc_motor_move_right `(uc ~T0 @X0 0 ef1`*S276 ]
+[v F2784 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF2784 ~T0 @X0 0 e ]
+[p i __delay ]
+"36 ./ECU_Layer/DC_Motor/ecu_dc_motor.h
+[; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 36: Std_ReturnType dc_motor_move_left(dc_motor_t *_dc_motor);
+[v _dc_motor_move_left `(uc ~T0 @X0 0 ef1`*S276 ]
+"37
+[; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 37: Std_ReturnType dc_motor_stop(dc_motor_t *_dc_motor);
+[v _dc_motor_stop `(uc ~T0 @X0 0 ef1`*S276 ]
+"34
+[; ;./ECU_Layer/DC_Motor/ecu_dc_motor.h: 34: Std_ReturnType dc_motor_initialize(dc_motor_t *_dc_motor);
+[v _dc_motor_initialize `(uc ~T0 @X0 0 ef1`*S276 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -430,7 +447,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "10 application.c
 [; ;application.c: 10: dc_motor_t dc_motor_1 = {
-[v _dc_motor_1 `S277 ~T0 @X0 1 e ]
+[v _dc_motor_1 `S276 ~T0 @X0 1 e ]
 [i _dc_motor_1
 :U ..
 :U ..
@@ -438,62 +455,147 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> . `E2832 2 `uc
 -> . `E2822 0 `uc
+-> . `E2818 0 `uc
 -> -> 0 `ui `uc
 ..
 :U ..
 -> . `E2832 2 `uc
 -> . `E2822 1 `uc
+-> . `E2818 0 `uc
 -> -> 0 `ui `uc
 ..
 ..
 ..
 ..
 ]
-"20
-[; ;application.c: 20: Std_ReturnType ret = (Std_ReturnType)0x00;
+"21
+[; ;application.c: 21: dc_motor_t dc_motor_2 = {
+[v _dc_motor_2 `S276 ~T0 @X0 1 e ]
+[i _dc_motor_2
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 2 `uc
+-> . `E2818 0 `uc
+-> -> 0 `ui `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 3 `uc
+-> . `E2818 0 `uc
+-> -> 0 `ui `uc
+..
+..
+..
+..
+]
+"33
+[; ;application.c: 33: Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"22
-[; ;application.c: 22: int main() {
+"35
+[; ;application.c: 35: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"23
-[; ;application.c: 23:     Application ();
-[e ( _Application ..  ]
-"25
-[; ;application.c: 25:     while (1)
-[e :U 280 ]
-"26
-[; ;application.c: 26:     {
-{
-"28
-[; ;application.c: 28:     }
-}
-[e :U 279 ]
-[e $U 280  ]
-[e :U 281 ]
-"34
-[; ;application.c: 34:     return (0);
-[e ) -> 0 `i ]
-[e $UE 278  ]
-"35
-[; ;application.c: 35: }
-[e :UE 278 ]
-}
 "36
-[; ;application.c: 36: void Application (void)
+[; ;application.c: 36:     Application ();
+[e ( _Application ..  ]
+"38
+[; ;application.c: 38:     while (1)
+[e :U 279 ]
+"39
+[; ;application.c: 39:     {
+{
+"40
+[; ;application.c: 40:         ret = dc_motor_move_right(&dc_motor_1);
+[e = _ret ( _dc_motor_move_right (1 &U _dc_motor_1 ]
+"41
+[; ;application.c: 41:         ret = dc_motor_move_right(&dc_motor_2);
+[e = _ret ( _dc_motor_move_right (1 &U _dc_motor_2 ]
+"42
+[; ;application.c: 42:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"43
+[; ;application.c: 43:         ret = dc_motor_move_left(&dc_motor_1);
+[e = _ret ( _dc_motor_move_left (1 &U _dc_motor_1 ]
+"44
+[; ;application.c: 44:         ret = dc_motor_move_left(&dc_motor_2);
+[e = _ret ( _dc_motor_move_left (1 &U _dc_motor_2 ]
+"45
+[; ;application.c: 45:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"46
+[; ;application.c: 46:         ret = dc_motor_stop(&dc_motor_1);
+[e = _ret ( _dc_motor_stop (1 &U _dc_motor_1 ]
+"47
+[; ;application.c: 47:         ret = dc_motor_stop(&dc_motor_2);
+[e = _ret ( _dc_motor_stop (1 &U _dc_motor_2 ]
+"48
+[; ;application.c: 48:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"49
+[; ;application.c: 49:         ret = dc_motor_move_right(&dc_motor_1);
+[e = _ret ( _dc_motor_move_right (1 &U _dc_motor_1 ]
+"50
+[; ;application.c: 50:         ret = dc_motor_move_left(&dc_motor_2);
+[e = _ret ( _dc_motor_move_left (1 &U _dc_motor_2 ]
+"51
+[; ;application.c: 51:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"52
+[; ;application.c: 52:         ret = dc_motor_stop(&dc_motor_1);
+[e = _ret ( _dc_motor_stop (1 &U _dc_motor_1 ]
+"53
+[; ;application.c: 53:         ret = dc_motor_stop(&dc_motor_2);
+[e = _ret ( _dc_motor_stop (1 &U _dc_motor_2 ]
+"54
+[; ;application.c: 54:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"55
+[; ;application.c: 55:         ret = dc_motor_move_left(&dc_motor_1);
+[e = _ret ( _dc_motor_move_left (1 &U _dc_motor_1 ]
+"56
+[; ;application.c: 56:         ret = dc_motor_move_right(&dc_motor_2);
+[e = _ret ( _dc_motor_move_right (1 &U _dc_motor_2 ]
+"57
+[; ;application.c: 57:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"58
+[; ;application.c: 58:     }
+}
+[e :U 278 ]
+[e $U 279  ]
+[e :U 280 ]
+"64
+[; ;application.c: 64:     return (0);
+[e ) -> 0 `i ]
+[e $UE 277  ]
+"65
+[; ;application.c: 65: }
+[e :UE 277 ]
+}
+"66
+[; ;application.c: 66: void Application (void)
 [v _Application `(v ~T0 @X0 1 ef ]
-"37
-[; ;application.c: 37: {
+"67
+[; ;application.c: 67: {
 {
 [e :U _Application ]
 [f ]
-"39
-[; ;application.c: 39: }
-[e :UE 282 ]
+"68
+[; ;application.c: 68:     ret = dc_motor_initialize(&dc_motor_1);
+[e = _ret ( _dc_motor_initialize (1 &U _dc_motor_1 ]
+"69
+[; ;application.c: 69:     ret = dc_motor_initialize(&dc_motor_2);
+[e = _ret ( _dc_motor_initialize (1 &U _dc_motor_2 ]
+"70
+[; ;application.c: 70: }
+[e :UE 281 ]
 }

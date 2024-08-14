@@ -13,20 +13,20 @@
 #include "ecu_dc_motor_cfg.h"
 
 /* Section : Macro Declarations*/
-#define DC_MOTOR_ON_STATUS 0X01U
+#define DC_MOTOR_ON_STATUS  0X01U
 #define DC_MOTOR_OFF_STATUS 0X00U
+
+#define MOTOR_INDEX_PIN1    0X00U
+#define MOTOR_INDEX_PIN2    0X01U
+
+#define MOTOR_PINS          0x02U
+
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/
 
 typedef struct {
-    uint8 dc_motor_port   : 4;
-    uint8 dc_motor_pin    : 3;
-    uint8 dc_motor_status : 1;
-}dc_motor_pin_t;
-
-typedef struct {
-    dc_motor_pin_t dc_motor[2];
+    pin_config_t dc_motor[MOTOR_PINS];
 }dc_motor_t;
 
 /* Section : Function Declarations*/

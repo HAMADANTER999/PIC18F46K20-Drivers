@@ -4810,15 +4810,9 @@ Std_ReturnType relay_turn_off(const relay_t *relay);
 # 13 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
 # 1 "./ECU_Layer/DC_Motor/ecu_dc_motor_cfg.h" 1
 # 13 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
-# 22 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
+# 28 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
 typedef struct {
-    uint8 dc_motor_port : 4;
-    uint8 dc_motor_pin : 3;
-    uint8 dc_motor_status : 1;
-}dc_motor_pin_t;
-
-typedef struct {
-    dc_motor_pin_t dc_motor[2];
+    pin_config_t dc_motor[0x02U];
 }dc_motor_t;
 
 
@@ -4834,12 +4828,25 @@ void Application (void);
 
 
 dc_motor_t dc_motor_1 = {
-    .dc_motor[0].dc_motor_port = PORTC_INDEX,
-    .dc_motor[0].dc_motor_pin = GPIO_PIN0,
-    .dc_motor[0].dc_motor_status = 0X00U,
-    .dc_motor[1].dc_motor_port = PORTC_INDEX,
-    .dc_motor[1].dc_motor_pin = GPIO_PIN1,
-    .dc_motor[1].dc_motor_status = 0X00U,
+    .dc_motor[0X00U].port = PORTC_INDEX,
+    .dc_motor[0X00U].pin = GPIO_PIN0,
+    .dc_motor[0X00U].logic = 0X00U,
+    .dc_motor[0X00U].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor[0X01U].port = PORTC_INDEX,
+    .dc_motor[0X01U].pin = GPIO_PIN1,
+    .dc_motor[0X01U].logic = 0X00U,
+    .dc_motor[0X01U].direction = GPIO_DIRECTION_OUTPUT,
+};
+
+dc_motor_t dc_motor_2 = {
+    .dc_motor[0X00U].port = PORTC_INDEX,
+    .dc_motor[0X00U].pin = GPIO_PIN2,
+    .dc_motor[0X00U].logic = 0X00U,
+    .dc_motor[0X00U].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor[0X01U].port = PORTC_INDEX,
+    .dc_motor[0X01U].pin = GPIO_PIN3,
+    .dc_motor[0X01U].logic = 0X00U,
+    .dc_motor[0X01U].direction = GPIO_DIRECTION_OUTPUT,
 };
 
 
@@ -4850,7 +4857,24 @@ int main() {
 
     while (1)
     {
-
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_right(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+        ret = dc_motor_move_left(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+        ret = dc_motor_stop(&dc_motor_1);
+        ret = dc_motor_stop(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+        ret = dc_motor_stop(&dc_motor_1);
+        ret = dc_motor_stop(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+        ret = dc_motor_move_left(&dc_motor_1);
+        ret = dc_motor_move_right(&dc_motor_2);
+        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
     }
 
 
@@ -4861,5 +4885,6 @@ int main() {
 }
 void Application (void)
 {
-
+    ret = dc_motor_initialize(&dc_motor_1);
+    ret = dc_motor_initialize(&dc_motor_2);
 }

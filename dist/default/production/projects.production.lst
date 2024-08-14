@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Wed Aug 14 00:06:38 2024
+                                                                                               Wed Aug 14 13:34:43 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F4620
@@ -9,499 +9,1611 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
      3                           	pagewidth 120
      4                           	opt	flic
      5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
-     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
-    12                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
-    13                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    14                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    15                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
-    16   000000                     
-    17                           ; Generated 17/10/2023 GMT
-    18                           ; 
-    19                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    20                           ; All rights reserved.
-    21                           ; 
-    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
-      +                          ip").
-    23                           ; 
-    24                           ; Redistribution and use in source and binary forms, with or without modification, are
-    25                           ; permitted provided that the following conditions are met:
+     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    23                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    24   000000                     
+    25                           ; Generated 17/10/2023 GMT
     26                           ; 
-    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
-      +                          t of
-    28                           ;        conditions and the following disclaimer.
+    27                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    28                           ; All rights reserved.
     29                           ; 
-    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
-      +                          list
-    31                           ;        of conditions and the following disclaimer in the documentation and/or other
-    32                           ;        materials provided with the distribution. Publication is not required when
-    33                           ;        this file is used in an embedded application.
+    30                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    31                           ; 
+    32                           ; Redistribution and use in source and binary forms, with or without modification, are
+    33                           ; permitted provided that the following conditions are met:
     34                           ; 
-    35                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
-      +                          is
-    36                           ;        software without specific prior written permission.
+    35                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    36                           ;        conditions and the following disclaimer.
     37                           ; 
-    38                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    39                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    38                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    39                           ;        of conditions and the following disclaimer in the documentation and/or other
+    40                           ;        materials provided with the distribution. Publication is not required when
+    41                           ;        this file is used in an embedded application.
+    42                           ; 
+    43                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    44                           ;        software without specific prior written permission.
+    45                           ; 
+    46                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    47                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    40                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    48                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    41                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    42                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    43                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    49                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    50                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    51                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    44                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    52                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    45                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    46                           ; 
-    47                           ; 
-    48                           ; Code-generator required, PIC18F4620 Definitions
-    49                           ; 
-    50                           ; SFR Addresses
-    51   000000                     
-    52                           	psect	idataCOMRAM
-    53   001038                     __pidataCOMRAM:
-    54                           	callstack 0
-    55                           
-    56                           ;initializer for _port_registers
-    57   001038  80                 	db	128
-    58   001039  0F                 	db	15
-    59   00103A  81                 	db	129
-    60   00103B  0F                 	db	15
-    61   00103C  82                 	db	130
-    62   00103D  0F                 	db	15
-    63   00103E  83                 	db	131
-    64   00103F  0F                 	db	15
-    65   001040  84                 	db	132
-    66   001041  0F                 	db	15
-    67                           
-    68                           ;initializer for _lat_registers
-    69   001042  89                 	db	137
-    70   001043  0F                 	db	15
-    71   001044  8A                 	db	138
-    72   001045  0F                 	db	15
-    73   001046  8B                 	db	139
-    74   001047  0F                 	db	15
-    75   001048  8C                 	db	140
-    76   001049  0F                 	db	15
-    77   00104A  8D                 	db	141
-    78   00104B  0F                 	db	15
-    79                           
-    80                           ;initializer for _tris_registers
-    81   00104C  92                 	db	146
-    82   00104D  0F                 	db	15
-    83   00104E  93                 	db	147
-    84   00104F  0F                 	db	15
-    85   001050  94                 	db	148
-    86   001051  0F                 	db	15
-    87   001052  95                 	db	149
-    88   001053  0F                 	db	15
-    89   001054  96                 	db	150
-    90   001055  0F                 	db	15
-    91                           
-    92                           ;initializer for _dc_motor_1
-    93   001056  02                 	db	2
-    94   001057  12                 	db	18
-    95   000000                     _PORTE	set	3972
-    96   000000                     _PORTD	set	3971
-    97   000000                     _PORTC	set	3970
-    98   000000                     _PORTB	set	3969
-    99   000000                     _PORTA	set	3968
-   100   000000                     _LATA	set	3977
-   101   000000                     _TRISA	set	3986
-   102   000000                     _TRISE	set	3990
-   103   000000                     _TRISD	set	3989
-   104   000000                     _TRISC	set	3988
-   105   000000                     _TRISB	set	3987
-   106   000000                     _LATE	set	3981
-   107   000000                     _LATD	set	3980
-   108   000000                     _LATC	set	3979
-   109   000000                     _LATB	set	3978
-   110                           
-   111                           ; #config settings
-   112                           
-   113                           	psect	cinit
-   114   001002                     __pcinit:
-   115                           	callstack 0
-   116   001002                     start_initialization:
-   117                           	callstack 0
-   118   001002                     __initialization:
-   119                           	callstack 0
-   120                           
-   121                           ; Initialize objects allocated to COMRAM (32 bytes)
-   122                           ; load TBLPTR registers with __pidataCOMRAM
-   123   001002  0E38               	movlw	low __pidataCOMRAM
-   124   001004  6EF6               	movwf	tblptrl,c
-   125   001006  0E10               	movlw	high __pidataCOMRAM
-   126   001008  6EF7               	movwf	tblptrh,c
-   127   00100A  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
-   128   00100C  6EF8               	movwf	tblptru,c
-   129   00100E  EE00  F001         	lfsr	0,__pdataCOMRAM
-   130   001012  EE10 F020          	lfsr	1,32
-   131   001016                     copy_data0:
-   132   001016  0009               	tblrd		*+
-   133   001018  CFF5 FFEE          	movff	tablat,postinc0
-   134   00101C  50E5               	movf	postdec1,w,c
-   135   00101E  50E1               	movf	fsr1l,w,c
-   136   001020  E1FA               	bnz	copy_data0
-   137                           
-   138                           ; Clear objects allocated to COMRAM (10 bytes)
-   139   001022  EE00  F021         	lfsr	0,__pbssCOMRAM
-   140   001026  0E0A               	movlw	10
-   141   001028                     clear_0:
-   142   001028  6AEE               	clrf	postinc0,c
-   143   00102A  06E8               	decf	wreg,f,c
-   144   00102C  E1FD               	bnz	clear_0
-   145   00102E                     end_of_initialization:
-   146                           	callstack 0
-   147   00102E                     __end_of__initialization:
-   148                           	callstack 0
-   149   00102E  0E00               	movlw	low (__Lmediumconst shr (0+16))
-   150   001030  6EF8               	movwf	tblptru,c
-   151   001032  0100               	movlb	0
-   152   001034  EF2C  F008         	goto	_main	;jump to C main() function
-   153                           
-   154                           	psect	bssCOMRAM
-   155   000021                     __pbssCOMRAM:
-   156                           	callstack 0
-   157   000021                     dc_motor_initialize@F2574:
-   158                           	callstack 0
-   159   000021                     	ds	1
-   160   000022                     dc_motor_initialize@F2572:
-   161                           	callstack 0
-   162   000022                     	ds	1
-   163   000023                     _ret:
-   164                           	callstack 0
-   165   000023                     	ds	1
-   166   000024                     relay_turn_off@F2577:
+    53                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    54                           ; 
+    55                           ; 
+    56                           ; Code-generator required, PIC18F4620 Definitions
+    57                           ; 
+    58                           ; SFR Addresses
+    59   000000                     
+    60                           	psect	idataCOMRAM
+    61   00149E                     __pidataCOMRAM:
+    62                           	callstack 0
+    63                           
+    64                           ;initializer for _port_registers
+    65   00149E  80                 	db	128
+    66   00149F  0F                 	db	15
+    67   0014A0  81                 	db	129
+    68   0014A1  0F                 	db	15
+    69   0014A2  82                 	db	130
+    70   0014A3  0F                 	db	15
+    71   0014A4  83                 	db	131
+    72   0014A5  0F                 	db	15
+    73   0014A6  84                 	db	132
+    74   0014A7  0F                 	db	15
+    75                           
+    76                           ;initializer for _lat_registers
+    77   0014A8  89                 	db	137
+    78   0014A9  0F                 	db	15
+    79   0014AA  8A                 	db	138
+    80   0014AB  0F                 	db	15
+    81   0014AC  8B                 	db	139
+    82   0014AD  0F                 	db	15
+    83   0014AE  8C                 	db	140
+    84   0014AF  0F                 	db	15
+    85   0014B0  8D                 	db	141
+    86   0014B1  0F                 	db	15
+    87                           
+    88                           ;initializer for _tris_registers
+    89   0014B2  92                 	db	146
+    90   0014B3  0F                 	db	15
+    91   0014B4  93                 	db	147
+    92   0014B5  0F                 	db	15
+    93   0014B6  94                 	db	148
+    94   0014B7  0F                 	db	15
+    95   0014B8  95                 	db	149
+    96   0014B9  0F                 	db	15
+    97   0014BA  96                 	db	150
+    98   0014BB  0F                 	db	15
+    99                           
+   100                           ;initializer for _dc_motor_2
+   101   0014BC  12                 	db	18
+   102   0014BD  1A                 	db	26
+   103                           
+   104                           ;initializer for _dc_motor_1
+   105   0014BE  02                 	db	2
+   106   0014BF  0A                 	db	10
+   107                           
+   108                           	psect	nvCOMRAM
+   109   000039                     __pnvCOMRAM:
+   110                           	callstack 0
+   111   000039                     _ret:
+   112                           	callstack 0
+   113   000039                     	ds	1
+   114   000000                     _PORTE	set	3972
+   115   000000                     _PORTD	set	3971
+   116   000000                     _PORTC	set	3970
+   117   000000                     _PORTB	set	3969
+   118   000000                     _PORTA	set	3968
+   119   000000                     _LATA	set	3977
+   120   000000                     _TRISA	set	3986
+   121   000000                     _TRISE	set	3990
+   122   000000                     _TRISD	set	3989
+   123   000000                     _TRISC	set	3988
+   124   000000                     _TRISB	set	3987
+   125   000000                     _LATE	set	3981
+   126   000000                     _LATD	set	3980
+   127   000000                     _LATC	set	3979
+   128   000000                     _LATB	set	3978
+   129                           
+   130                           ; #config settings
+   131                           
+   132                           	psect	cinit
+   133   001438                     __pcinit:
+   134                           	callstack 0
+   135   001438                     start_initialization:
+   136                           	callstack 0
+   137   001438                     __initialization:
+   138                           	callstack 0
+   139                           
+   140                           ; Initialize objects allocated to COMRAM (34 bytes)
+   141                           ; load TBLPTR registers with __pidataCOMRAM
+   142   001438  0E9E               	movlw	low __pidataCOMRAM
+   143   00143A  6EF6               	movwf	tblptrl,c
+   144   00143C  0E14               	movlw	high __pidataCOMRAM
+   145   00143E  6EF7               	movwf	tblptrh,c
+   146   001440  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   147   001442  6EF8               	movwf	tblptru,c
+   148   001444  EE00  F001         	lfsr	0,__pdataCOMRAM
+   149   001448  EE10 F022          	lfsr	1,34
+   150   00144C                     copy_data0:
+   151   00144C  0009               	tblrd		*+
+   152   00144E  CFF5 FFEE          	movff	tablat,postinc0
+   153   001452  50E5               	movf	postdec1,w,c
+   154   001454  50E1               	movf	fsr1l,w,c
+   155   001456  E1FA               	bnz	copy_data0
+   156                           
+   157                           ; Clear objects allocated to COMRAM (7 bytes)
+   158   001458  EE00  F032         	lfsr	0,__pbssCOMRAM
+   159   00145C  0E07               	movlw	7
+   160   00145E                     clear_0:
+   161   00145E  6AEE               	clrf	postinc0,c
+   162   001460  06E8               	decf	wreg,f,c
+   163   001462  E1FD               	bnz	clear_0
+   164   001464                     end_of_initialization:
+   165                           	callstack 0
+   166   001464                     __end_of__initialization:
    167                           	callstack 0
-   168   000024                     	ds	1
-   169   000025                     relay_turn_on@F2572:
-   170                           	callstack 0
-   171   000025                     	ds	1
-   172   000026                     relay_initialize@F2567:
-   173                           	callstack 0
-   174   000026                     	ds	1
-   175   000027                     led_turn_toggle@F2588:
-   176                           	callstack 0
-   177   000027                     	ds	1
-   178   000028                     led_turn_off@F2583:
-   179                           	callstack 0
-   180   000028                     	ds	1
-   181   000029                     led_turn_on@F2578:
-   182                           	callstack 0
-   183   000029                     	ds	1
-   184   00002A                     led_initialize@F2573:
-   185                           	callstack 0
-   186   00002A                     	ds	1
-   187                           
-   188                           	psect	dataCOMRAM
-   189   000001                     __pdataCOMRAM:
-   190                           	callstack 0
-   191   000001                     _port_registers:
+   168   001464  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   169   001466  6EF8               	movwf	tblptru,c
+   170   001468  0100               	movlb	0
+   171   00146A  EF01  F008         	goto	_main	;jump to C main() function
+   172                           
+   173                           	psect	bssCOMRAM
+   174   000032                     __pbssCOMRAM:
+   175                           	callstack 0
+   176   000032                     relay_turn_off@F2577:
+   177                           	callstack 0
+   178   000032                     	ds	1
+   179   000033                     relay_turn_on@F2572:
+   180                           	callstack 0
+   181   000033                     	ds	1
+   182   000034                     relay_initialize@F2567:
+   183                           	callstack 0
+   184   000034                     	ds	1
+   185   000035                     led_turn_toggle@F2588:
+   186                           	callstack 0
+   187   000035                     	ds	1
+   188   000036                     led_turn_off@F2583:
+   189                           	callstack 0
+   190   000036                     	ds	1
+   191   000037                     led_turn_on@F2578:
    192                           	callstack 0
-   193   000001                     	ds	10
-   194   00000B                     _lat_registers:
+   193   000037                     	ds	1
+   194   000038                     led_initialize@F2573:
    195                           	callstack 0
-   196   00000B                     	ds	10
-   197   000015                     _tris_registers:
-   198                           	callstack 0
-   199   000015                     	ds	10
-   200   00001F                     _dc_motor_1:
-   201                           	callstack 0
-   202   00001F                     	ds	2
-   203                           
-   204                           	psect	cstackCOMRAM
-   205   000000                     __pcstackCOMRAM:
-   206                           	callstack 0
-   207   000000                     
-   208                           ; 2 bytes @ 0x0
-   209 ;;
-   210 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   211 ;;
-   212 ;; *************** function _main *****************
-   213 ;; Defined at:
-   214 ;;		line 22 in file "application.c"
-   215 ;; Parameters:    Size  Location     Type
-   216 ;;		None
-   217 ;; Auto vars:     Size  Location     Type
-   218 ;;		None
-   219 ;; Return value:  Size  Location     Type
-   220 ;;                  2  210[None  ] int 
-   221 ;; Registers used:
-   222 ;;		cstack
-   223 ;; Tracked objects:
-   224 ;;		On entry : 0/0
-   225 ;;		On exit  : 0/0
-   226 ;;		Unchanged: 0/0
-   227 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   228 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   229 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   230 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   231 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   232 ;;Total ram usage:        0 bytes
-   233 ;; Hardware stack levels required when called: 1
-   234 ;; This function calls:
-   235 ;;		_Application
-   236 ;; This function is called by:
-   237 ;;		Startup code after reset
-   238 ;; This function uses a non-reentrant model
-   239 ;;
-   240                           
-   241                           	psect	text0
-   242   001058                     __ptext0:
+   196   000038                     	ds	1
+   197                           
+   198                           	psect	dataCOMRAM
+   199   000001                     __pdataCOMRAM:
+   200                           	callstack 0
+   201   000001                     _port_registers:
+   202                           	callstack 0
+   203   000001                     	ds	10
+   204   00000B                     _lat_registers:
+   205                           	callstack 0
+   206   00000B                     	ds	10
+   207   000015                     _tris_registers:
+   208                           	callstack 0
+   209   000015                     	ds	10
+   210   00001F                     _dc_motor_2:
+   211                           	callstack 0
+   212   00001F                     	ds	2
+   213   000021                     _dc_motor_1:
+   214                           	callstack 0
+   215   000021                     	ds	2
+   216                           
+   217                           	psect	cstackCOMRAM
+   218   000023                     __pcstackCOMRAM:
+   219                           	callstack 0
+   220   000023                     gpio_pin_direction_intialize@_pin_config:
+   221                           	callstack 0
+   222   000023                     gpio_pin_write_logic@_pin_config:
+   223                           	callstack 0
+   224                           
+   225                           ; 1 bytes @ 0x0
+   226   000023                     	ds	1
+   227   000024                     ??_gpio_pin_direction_intialize:
+   228   000024                     gpio_pin_write_logic@logic:
+   229                           	callstack 0
+   230                           
+   231                           ; 1 bytes @ 0x1
+   232   000024                     	ds	1
+   233   000025                     ??_gpio_pin_write_logic:
+   234                           
+   235                           ; 1 bytes @ 0x2
+   236   000025                     	ds	4
+   237   000029                     gpio_pin_direction_intialize@ret:
+   238                           	callstack 0
+   239                           
+   240                           ; 1 bytes @ 0x6
+   241   000029                     	ds	1
+   242   00002A                     gpio_pin_write_logic@ret:
    243                           	callstack 0
-   244   001058                     _main:
-   245                           	callstack 30
-   246   001058                     
-   247                           ;application.c: 23:     Application ();
-   248   001058  EC32  F008         	call	_Application	;wreg free
-   249   00105C                     l211:
-   250   00105C  EF2E  F008         	goto	l211
-   251   001060  EF00  F000         	goto	start
-   252   001064                     __end_of_main:
-   253                           	callstack 0
-   254                           
-   255 ;; *************** function _Application *****************
-   256 ;; Defined at:
-   257 ;;		line 36 in file "application.c"
-   258 ;; Parameters:    Size  Location     Type
-   259 ;;		None
-   260 ;; Auto vars:     Size  Location     Type
-   261 ;;		None
-   262 ;; Return value:  Size  Location     Type
-   263 ;;                  1    wreg      void 
-   264 ;; Registers used:
-   265 ;;		None
-   266 ;; Tracked objects:
-   267 ;;		On entry : 0/0
-   268 ;;		On exit  : 0/0
-   269 ;;		Unchanged: 0/0
-   270 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   244                           
+   245                           ; 1 bytes @ 0x7
+   246   00002A                     	ds	1
+   247   00002B                     gpio_pin_intialize@_pin_config:
+   248                           	callstack 0
+   249   00002B                     dc_motor_move_right@_dc_motor:
+   250                           	callstack 0
+   251   00002B                     dc_motor_move_left@_dc_motor:
+   252                           	callstack 0
+   253   00002B                     dc_motor_stop@_dc_motor:
+   254                           	callstack 0
+   255                           
+   256                           ; 1 bytes @ 0x8
+   257   00002B                     	ds	1
+   258   00002C                     ??_gpio_pin_intialize:
+   259   00002C                     dc_motor_move_right@ret:
+   260                           	callstack 0
+   261   00002C                     dc_motor_move_left@ret:
+   262                           	callstack 0
+   263   00002C                     dc_motor_stop@ret:
+   264                           	callstack 0
+   265                           
+   266                           ; 1 bytes @ 0x9
+   267   00002C                     	ds	1
+   268   00002D                     gpio_pin_intialize@ret:
+   269                           	callstack 0
+   270                           
+   271                           ; 1 bytes @ 0xA
+   272   00002D                     	ds	1
+   273   00002E                     dc_motor_initialize@_dc_motor:
+   274                           	callstack 0
+   275                           
+   276                           ; 1 bytes @ 0xB
+   277   00002E                     	ds	1
+   278   00002F                     dc_motor_initialize@ret:
+   279                           	callstack 0
+   280                           
+   281                           ; 1 bytes @ 0xC
+   282   00002F                     	ds	1
+   283   000030                     ??_main:
+   284                           
+   285                           ; 1 bytes @ 0xD
+   286   000030                     	ds	2
+   287                           
+   288 ;;
+   289 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   290 ;;
+   291 ;; *************** function _main *****************
+   292 ;; Defined at:
+   293 ;;		line 35 in file "application.c"
+   294 ;; Parameters:    Size  Location     Type
+   295 ;;		None
+   296 ;; Auto vars:     Size  Location     Type
+   297 ;;		None
+   298 ;; Return value:  Size  Location     Type
+   299 ;;                  2  222[None  ] int 
+   300 ;; Registers used:
+   301 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   302 ;; Tracked objects:
+   303 ;;		On entry : 0/0
+   304 ;;		On exit  : 0/0
+   305 ;;		Unchanged: 0/0
+   306 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   271 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   307 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   272 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   308 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   273 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   309 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   274 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   310 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   275 ;;Total ram usage:        0 bytes
-   276 ;; Hardware stack levels used: 1
-   277 ;; This function calls:
-   278 ;;		Nothing
-   279 ;; This function is called by:
-   280 ;;		_main
-   281 ;; This function uses a non-reentrant model
-   282 ;;
-   283                           
-   284                           	psect	text1
-   285   001064                     __ptext1:
-   286                           	callstack 0
-   287   001064                     _Application:
-   288                           	callstack 30
-   289   001064  0012               	return		;funcret
-   290   001066                     __end_of_Application:
-   291                           	callstack 0
-   292                           
-   293                           	psect	smallconst
-   294   001000                     __psmallconst:
-   295                           	callstack 0
-   296   001000  00                 	db	0
-   297   001001  00                 	db	0	; dummy byte at the end
-   298   000000                     
-   299                           	psect	rparam
-   300   000000                     
-   301                           	psect	config
-   302                           
-   303                           ; Padding undefined space
-   304   300000                     	org	3145728
-   305   300000  FF                 	db	255
-   306                           
-   307                           ;Config register CONFIG1H @ 0x300001
-   308                           ;	Oscillator Selection bits
-   309                           ;	OSC = HS, HS oscillator
-   310                           ;	Fail-Safe Clock Monitor Enable bit
-   311                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
-   312                           ;	Internal/External Oscillator Switchover bit
-   313                           ;	IESO = OFF, Oscillator Switchover mode disabled
-   314   300001                     	org	3145729
-   315   300001  02                 	db	2
-   316                           
-   317                           ;Config register CONFIG2L @ 0x300002
-   318                           ;	Power-up Timer Enable bit
-   319                           ;	PWRT = OFF, PWRT disabled
-   320                           ;	Brown-out Reset Enable bits
-   321                           ;	BOREN = OFF, Brown-out Reset disabled in hardware and software
-   322                           ;	Brown Out Reset Voltage bits
-   323                           ;	BORV = 1, 
-   324   300002                     	org	3145730
-   325   300002  09                 	db	9
-   326                           
-   327                           ;Config register CONFIG2H @ 0x300003
-   328                           ;	Watchdog Timer Enable bit
-   329                           ;	WDT = OFF, WDT disabled (control is placed on the SWDTEN bit)
-   330                           ;	Watchdog Timer Postscale Select bits
-   331                           ;	WDTPS = 32768, 1:32768
-   332   300003                     	org	3145731
-   333   300003  1E                 	db	30
-   334                           
-   335                           ; Padding undefined space
-   336   300004                     	org	3145732
-   337   300004  FF                 	db	255
+   311 ;;Total ram usage:        2 bytes
+   312 ;; Hardware stack levels required when called: 4
+   313 ;; This function calls:
+   314 ;;		_Application
+   315 ;;		_dc_motor_move_left
+   316 ;;		_dc_motor_move_right
+   317 ;;		_dc_motor_stop
+   318 ;; This function is called by:
+   319 ;;		Startup code after reset
+   320 ;; This function uses a non-reentrant model
+   321 ;;
+   322                           
+   323                           	psect	text0
+   324   001002                     __ptext0:
+   325                           	callstack 0
+   326   001002                     _main:
+   327                           	callstack 27
+   328   001002                     
+   329                           ;application.c: 36:     Application ();
+   330   001002  EC60  F00A         	call	_Application	;wreg free
+   331   001006                     l223:
+   332                           
+   333                           ;application.c: 39:     {;application.c: 40:         ret = dc_motor_move_right(&dc_motor
+      +                          _1);
+   334   001006  0E21               	movlw	low _dc_motor_1
+   335   001008  6E2B               	movwf	dc_motor_move_right@_dc_motor^0,c
+   336   00100A  ECE4  F009         	call	_dc_motor_move_right	;wreg free
+   337   00100E  6E39               	movwf	_ret^0,c
    338                           
-   339                           ;Config register CONFIG3H @ 0x300005
-   340                           ;	CCP2 MUX bit
-   341                           ;	CCP2MX = PORTC, CCP2 input/output is multiplexed with RC1
-   342                           ;	PORTB A/D Enable bit
-   343                           ;	PBADEN = OFF, PORTB<4:0> pins are configured as digital I/O on Reset
-   344                           ;	Low-Power Timer1 Oscillator Enable bit
-   345                           ;	LPT1OSC = OFF, Timer1 configured for higher power operation
-   346                           ;	MCLR Pin Enable bit
-   347                           ;	MCLRE = ON, MCLR pin enabled; RE3 input pin disabled
-   348   300005                     	org	3145733
-   349   300005  81                 	db	129
-   350                           
-   351                           ;Config register CONFIG4L @ 0x300006
-   352                           ;	Stack Full/Underflow Reset Enable bit
-   353                           ;	STVREN = ON, Stack full/underflow will cause Reset
-   354                           ;	Single-Supply ICSP Enable bit
-   355                           ;	LVP = OFF, Single-Supply ICSP disabled
-   356                           ;	Extended Instruction Set Enable bit
-   357                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
-      +                          de)
-   358                           ;	Background Debugger Enable bit
-   359                           ;	DEBUG = 0x1, unprogrammed default
-   360   300006                     	org	3145734
-   361   300006  81                 	db	129
-   362                           
-   363                           ; Padding undefined space
-   364   300007                     	org	3145735
-   365   300007  FF                 	db	255
-   366                           
-   367                           ;Config register CONFIG5L @ 0x300008
-   368                           ;	Code Protection bit
-   369                           ;	CP0 = OFF, Block 0 (000800-003FFFh) not code-protected
-   370                           ;	Code Protection bit
-   371                           ;	CP1 = OFF, Block 1 (004000-007FFFh) not code-protected
-   372                           ;	Code Protection bit
-   373                           ;	CP2 = OFF, Block 2 (008000-00BFFFh) not code-protected
-   374                           ;	Code Protection bit
-   375                           ;	CP3 = OFF, Block 3 (00C000-00FFFFh) not code-protected
-   376   300008                     	org	3145736
-   377   300008  0F                 	db	15
-   378                           
-   379                           ;Config register CONFIG5H @ 0x300009
-   380                           ;	Boot Block Code Protection bit
-   381                           ;	CPB = OFF, Boot block (000000-0007FFh) not code-protected
-   382                           ;	Data EEPROM Code Protection bit
-   383                           ;	CPD = OFF, Data EEPROM not code-protected
-   384   300009                     	org	3145737
-   385   300009  C0                 	db	192
+   339                           ;application.c: 41:         ret = dc_motor_move_right(&dc_motor_2);
+   340   001010  0E1F               	movlw	low _dc_motor_2
+   341   001012  6E2B               	movwf	dc_motor_move_right@_dc_motor^0,c
+   342   001014  ECE4  F009         	call	_dc_motor_move_right	;wreg free
+   343   001018  6E39               	movwf	_ret^0,c
+   344   00101A                     
+   345                           ;application.c: 42:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   346   00101A  0E1F               	movlw	31
+   347   00101C  6E31               	movwf	(??_main+1)^0,c
+   348   00101E  0E71               	movlw	113
+   349   001020  6E30               	movwf	??_main^0,c
+   350   001022  0E1E               	movlw	30
+   351   001024                     u837:
+   352   001024  2EE8               	decfsz	wreg,f,c
+   353   001026  D7FE               	bra	u837
+   354   001028  2E30               	decfsz	??_main^0,f,c
+   355   00102A  D7FC               	bra	u837
+   356   00102C  2E31               	decfsz	(??_main+1)^0,f,c
+   357   00102E  D7FA               	bra	u837
+   358   001030  D000               	nop2	
+   359   001032                     
+   360                           ;application.c: 43:         ret = dc_motor_move_left(&dc_motor_1);
+   361   001032  0E21               	movlw	low _dc_motor_1
+   362   001034  6E2B               	movwf	dc_motor_move_left@_dc_motor^0,c
+   363   001036  EC00  F00A         	call	_dc_motor_move_left	;wreg free
+   364   00103A  6E39               	movwf	_ret^0,c
+   365   00103C                     
+   366                           ;application.c: 44:         ret = dc_motor_move_left(&dc_motor_2);
+   367   00103C  0E1F               	movlw	low _dc_motor_2
+   368   00103E  6E2B               	movwf	dc_motor_move_left@_dc_motor^0,c
+   369   001040  EC00  F00A         	call	_dc_motor_move_left	;wreg free
+   370   001044  6E39               	movwf	_ret^0,c
+   371   001046                     
+   372                           ;application.c: 45:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   373   001046  0E1F               	movlw	31
+   374   001048  6E31               	movwf	(??_main+1)^0,c
+   375   00104A  0E71               	movlw	113
+   376   00104C  6E30               	movwf	??_main^0,c
+   377   00104E  0E1E               	movlw	30
+   378   001050                     u847:
+   379   001050  2EE8               	decfsz	wreg,f,c
+   380   001052  D7FE               	bra	u847
+   381   001054  2E30               	decfsz	??_main^0,f,c
+   382   001056  D7FC               	bra	u847
+   383   001058  2E31               	decfsz	(??_main+1)^0,f,c
+   384   00105A  D7FA               	bra	u847
+   385   00105C  D000               	nop2	
    386                           
-   387                           ;Config register CONFIG6L @ 0x30000A
-   388                           ;	Write Protection bit
-   389                           ;	WRT0 = OFF, Block 0 (000800-003FFFh) not write-protected
-   390                           ;	Write Protection bit
-   391                           ;	WRT1 = OFF, Block 1 (004000-007FFFh) not write-protected
-   392                           ;	Write Protection bit
-   393                           ;	WRT2 = OFF, Block 2 (008000-00BFFFh) not write-protected
-   394                           ;	Write Protection bit
-   395                           ;	WRT3 = OFF, Block 3 (00C000-00FFFFh) not write-protected
-   396   30000A                     	org	3145738
-   397   30000A  0F                 	db	15
-   398                           
-   399                           ;Config register CONFIG6H @ 0x30000B
-   400                           ;	Configuration Register Write Protection bit
-   401                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
-   402                           ;	Boot Block Write Protection bit
-   403                           ;	WRTB = OFF, Boot Block (000000-0007FFh) not write-protected
-   404                           ;	Data EEPROM Write Protection bit
-   405                           ;	WRTD = OFF, Data EEPROM not write-protected
-   406   30000B                     	org	3145739
-   407   30000B  E0                 	db	224
-   408                           
-   409                           ;Config register CONFIG7L @ 0x30000C
-   410                           ;	Table Read Protection bit
-   411                           ;	EBTR0 = OFF, Block 0 (000800-003FFFh) not protected from table reads executed in other
+   387                           ;application.c: 46:         ret = dc_motor_stop(&dc_motor_1);
+   388   00105E  0E21               	movlw	low _dc_motor_1
+   389   001060  6E2B               	movwf	dc_motor_stop@_dc_motor^0,c
+   390   001062  ECC8  F009         	call	_dc_motor_stop	;wreg free
+   391   001066  6E39               	movwf	_ret^0,c
+   392                           
+   393                           ;application.c: 47:         ret = dc_motor_stop(&dc_motor_2);
+   394   001068  0E1F               	movlw	low _dc_motor_2
+   395   00106A  6E2B               	movwf	dc_motor_stop@_dc_motor^0,c
+   396   00106C  ECC8  F009         	call	_dc_motor_stop	;wreg free
+   397   001070  6E39               	movwf	_ret^0,c
+   398   001072                     
+   399                           ;application.c: 48:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   400   001072  0E1F               	movlw	31
+   401   001074  6E31               	movwf	(??_main+1)^0,c
+   402   001076  0E71               	movlw	113
+   403   001078  6E30               	movwf	??_main^0,c
+   404   00107A  0E1E               	movlw	30
+   405   00107C                     u857:
+   406   00107C  2EE8               	decfsz	wreg,f,c
+   407   00107E  D7FE               	bra	u857
+   408   001080  2E30               	decfsz	??_main^0,f,c
+   409   001082  D7FC               	bra	u857
+   410   001084  2E31               	decfsz	(??_main+1)^0,f,c
+   411   001086  D7FA               	bra	u857
+   412   001088  D000               	nop2	
+   413   00108A                     
+   414                           ;application.c: 49:         ret = dc_motor_move_right(&dc_motor_1);
+   415   00108A  0E21               	movlw	low _dc_motor_1
+   416   00108C  6E2B               	movwf	dc_motor_move_right@_dc_motor^0,c
+   417   00108E  ECE4  F009         	call	_dc_motor_move_right	;wreg free
+   418   001092  6E39               	movwf	_ret^0,c
+   419   001094                     
+   420                           ;application.c: 50:         ret = dc_motor_move_left(&dc_motor_2);
+   421   001094  0E1F               	movlw	low _dc_motor_2
+   422   001096  6E2B               	movwf	dc_motor_move_left@_dc_motor^0,c
+   423   001098  EC00  F00A         	call	_dc_motor_move_left	;wreg free
+   424   00109C  6E39               	movwf	_ret^0,c
+   425   00109E                     
+   426                           ;application.c: 51:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   427   00109E  0E1F               	movlw	31
+   428   0010A0  6E31               	movwf	(??_main+1)^0,c
+   429   0010A2  0E71               	movlw	113
+   430   0010A4  6E30               	movwf	??_main^0,c
+   431   0010A6  0E1E               	movlw	30
+   432   0010A8                     u867:
+   433   0010A8  2EE8               	decfsz	wreg,f,c
+   434   0010AA  D7FE               	bra	u867
+   435   0010AC  2E30               	decfsz	??_main^0,f,c
+   436   0010AE  D7FC               	bra	u867
+   437   0010B0  2E31               	decfsz	(??_main+1)^0,f,c
+   438   0010B2  D7FA               	bra	u867
+   439   0010B4  D000               	nop2	
+   440                           
+   441                           ;application.c: 52:         ret = dc_motor_stop(&dc_motor_1);
+   442   0010B6  0E21               	movlw	low _dc_motor_1
+   443   0010B8  6E2B               	movwf	dc_motor_stop@_dc_motor^0,c
+   444   0010BA  ECC8  F009         	call	_dc_motor_stop	;wreg free
+   445   0010BE  6E39               	movwf	_ret^0,c
+   446                           
+   447                           ;application.c: 53:         ret = dc_motor_stop(&dc_motor_2);
+   448   0010C0  0E1F               	movlw	low _dc_motor_2
+   449   0010C2  6E2B               	movwf	dc_motor_stop@_dc_motor^0,c
+   450   0010C4  ECC8  F009         	call	_dc_motor_stop	;wreg free
+   451   0010C8  6E39               	movwf	_ret^0,c
+   452   0010CA                     
+   453                           ;application.c: 54:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   454   0010CA  0E1F               	movlw	31
+   455   0010CC  6E31               	movwf	(??_main+1)^0,c
+   456   0010CE  0E71               	movlw	113
+   457   0010D0  6E30               	movwf	??_main^0,c
+   458   0010D2  0E1E               	movlw	30
+   459   0010D4                     u877:
+   460   0010D4  2EE8               	decfsz	wreg,f,c
+   461   0010D6  D7FE               	bra	u877
+   462   0010D8  2E30               	decfsz	??_main^0,f,c
+   463   0010DA  D7FC               	bra	u877
+   464   0010DC  2E31               	decfsz	(??_main+1)^0,f,c
+   465   0010DE  D7FA               	bra	u877
+   466   0010E0  D000               	nop2	
+   467   0010E2                     
+   468                           ;application.c: 55:         ret = dc_motor_move_left(&dc_motor_1);
+   469   0010E2  0E21               	movlw	low _dc_motor_1
+   470   0010E4  6E2B               	movwf	dc_motor_move_left@_dc_motor^0,c
+   471   0010E6  EC00  F00A         	call	_dc_motor_move_left	;wreg free
+   472   0010EA  6E39               	movwf	_ret^0,c
+   473   0010EC                     
+   474                           ;application.c: 56:         ret = dc_motor_move_right(&dc_motor_2);
+   475   0010EC  0E1F               	movlw	low _dc_motor_2
+   476   0010EE  6E2B               	movwf	dc_motor_move_right@_dc_motor^0,c
+   477   0010F0  ECE4  F009         	call	_dc_motor_move_right	;wreg free
+   478   0010F4  6E39               	movwf	_ret^0,c
+   479   0010F6                     
+   480                           ;application.c: 57:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   481   0010F6  0E1F               	movlw	31
+   482   0010F8  6E31               	movwf	(??_main+1)^0,c
+   483   0010FA  0E71               	movlw	113
+   484   0010FC  6E30               	movwf	??_main^0,c
+   485   0010FE  0E1E               	movlw	30
+   486   001100                     u887:
+   487   001100  2EE8               	decfsz	wreg,f,c
+   488   001102  D7FE               	bra	u887
+   489   001104  2E30               	decfsz	??_main^0,f,c
+   490   001106  D7FC               	bra	u887
+   491   001108  2E31               	decfsz	(??_main+1)^0,f,c
+   492   00110A  D7FA               	bra	u887
+   493   00110C  D000               	nop2	
+   494   00110E  EF03  F008         	goto	l223
+   495   001112  EF00  F000         	goto	start
+   496   001116                     __end_of_main:
+   497                           	callstack 0
+   498                           
+   499 ;; *************** function _dc_motor_stop *****************
+   500 ;; Defined at:
+   501 ;;		line 82 in file "ECU_Layer/DC_Motor/ecu_dc_motor.c"
+   502 ;; Parameters:    Size  Location     Type
+   503 ;;  _dc_motor       1    8[COMRAM] PTR struct .
+   504 ;;		 -> dc_motor_2(2), dc_motor_1(2), 
+   505 ;; Auto vars:     Size  Location     Type
+   506 ;;  ret             1    9[COMRAM] unsigned char 
+   507 ;; Return value:  Size  Location     Type
+   508 ;;                  1    wreg      unsigned char 
+   509 ;; Registers used:
+   510 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   511 ;; Tracked objects:
+   512 ;;		On entry : 0/0
+   513 ;;		On exit  : 0/0
+   514 ;;		Unchanged: 0/0
+   515 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   516 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   517 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   518 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   519 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   520 ;;Total ram usage:        2 bytes
+   521 ;; Hardware stack levels used: 1
+   522 ;; Hardware stack levels required when called: 1
+   523 ;; This function calls:
+   524 ;;		_gpio_pin_write_logic
+   525 ;; This function is called by:
+   526 ;;		_main
+   527 ;; This function uses a non-reentrant model
+   528 ;;
+   529                           
+   530                           	psect	text1
+   531   001390                     __ptext1:
+   532                           	callstack 0
+   533   001390                     _dc_motor_stop:
+   534                           	callstack 29
+   535   001390                     
+   536                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 83:     Std_ReturnType ret = (Std_ReturnType)0x01;
+   537   001390  0E01               	movlw	1
+   538   001392  6E2C               	movwf	dc_motor_stop@ret^0,c
+   539                           
+   540                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 84:     if (_dc_motor == ((void*)0))
+   541   001394  502B               	movf	dc_motor_stop@_dc_motor^0,w,c
+   542   001396  A4D8               	btfss	status,2,c
+   543   001398  EFD0  F009         	goto	u691
+   544   00139C  EFD2  F009         	goto	u690
+   545   0013A0                     u691:
+   546   0013A0  EFD6  F009         	goto	l1377
+   547   0013A4                     u690:
+   548   0013A4                     
+   549                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 85:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 86:    
+      +                               ret = (Std_ReturnType)0x00;
+   550   0013A4  0E00               	movlw	0
+   551   0013A6  6E2C               	movwf	dc_motor_stop@ret^0,c
+   552                           
+   553                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 87:     }
+   554   0013A8  EFE2  F009         	goto	l1379
+   555   0013AC                     l1377:
+   556                           
+   557                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 89:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 90:    
+      +                               gpio_pin_write_logic(&(_dc_motor->dc_motor[0X00U]), GPIO_LOW);
+   558   0013AC  C02B  F023         	movff	dc_motor_stop@_dc_motor,gpio_pin_write_logic@_pin_config
+   559   0013B0  0E00               	movlw	0
+   560   0013B2  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   561   0013B4  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   562                           
+   563                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 91:         gpio_pin_write_logic(&(_dc_motor->dc_mot
+      +                          or[0X01U]), GPIO_LOW);
+   564   0013B8  282B               	incf	dc_motor_stop@_dc_motor^0,w,c
+   565   0013BA  6E23               	movwf	gpio_pin_write_logic@_pin_config^0,c
+   566   0013BC  0E00               	movlw	0
+   567   0013BE  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   568   0013C0  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   569   0013C4                     l1379:
+   570                           
+   571                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 93:     return ret;
+   572   0013C4  502C               	movf	dc_motor_stop@ret^0,w,c
+   573   0013C6  0012               	return		;funcret
+   574   0013C8                     __end_of_dc_motor_stop:
+   575                           	callstack 0
+   576                           
+   577 ;; *************** function _dc_motor_move_right *****************
+   578 ;; Defined at:
+   579 ;;		line 40 in file "ECU_Layer/DC_Motor/ecu_dc_motor.c"
+   580 ;; Parameters:    Size  Location     Type
+   581 ;;  _dc_motor       1    8[COMRAM] PTR struct .
+   582 ;;		 -> dc_motor_2(2), dc_motor_1(2), 
+   583 ;; Auto vars:     Size  Location     Type
+   584 ;;  ret             1    9[COMRAM] unsigned char 
+   585 ;; Return value:  Size  Location     Type
+   586 ;;                  1    wreg      unsigned char 
+   587 ;; Registers used:
+   588 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   589 ;; Tracked objects:
+   590 ;;		On entry : 0/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   594 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   595 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   596 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   597 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   598 ;;Total ram usage:        2 bytes
+   599 ;; Hardware stack levels used: 1
+   600 ;; Hardware stack levels required when called: 1
+   601 ;; This function calls:
+   602 ;;		_gpio_pin_write_logic
+   603 ;; This function is called by:
+   604 ;;		_main
+   605 ;; This function uses a non-reentrant model
+   606 ;;
+   607                           
+   608                           	psect	text2
+   609   0013C8                     __ptext2:
+   610                           	callstack 0
+   611   0013C8                     _dc_motor_move_right:
+   612                           	callstack 29
+   613   0013C8                     
+   614                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 41:     Std_ReturnType ret = (Std_ReturnType)0x01;
+   615   0013C8  0E01               	movlw	1
+   616   0013CA  6E2C               	movwf	dc_motor_move_right@ret^0,c
+   617                           
+   618                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 42:     if (_dc_motor == ((void*)0))
+   619   0013CC  502B               	movf	dc_motor_move_right@_dc_motor^0,w,c
+   620   0013CE  A4D8               	btfss	status,2,c
+   621   0013D0  EFEC  F009         	goto	u671
+   622   0013D4  EFEE  F009         	goto	u670
+   623   0013D8                     u671:
+   624   0013D8  EFF2  F009         	goto	l1357
+   625   0013DC                     u670:
+   626   0013DC                     
+   627                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 43:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 44:    
+      +                               ret = (Std_ReturnType)0x00;
+   628   0013DC  0E00               	movlw	0
+   629   0013DE  6E2C               	movwf	dc_motor_move_right@ret^0,c
+   630                           
+   631                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 45:     }
+   632   0013E0  EFFE  F009         	goto	l1359
+   633   0013E4                     l1357:
+   634                           
+   635                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 47:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 48:    
+      +                               gpio_pin_write_logic(&(_dc_motor->dc_motor[0X00U]), GPIO_HIGH);
+   636   0013E4  C02B  F023         	movff	dc_motor_move_right@_dc_motor,gpio_pin_write_logic@_pin_config
+   637   0013E8  0E01               	movlw	1
+   638   0013EA  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   639   0013EC  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   640                           
+   641                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 49:         gpio_pin_write_logic(&(_dc_motor->dc_mot
+      +                          or[0X01U]), GPIO_LOW);
+   642   0013F0  282B               	incf	dc_motor_move_right@_dc_motor^0,w,c
+   643   0013F2  6E23               	movwf	gpio_pin_write_logic@_pin_config^0,c
+   644   0013F4  0E00               	movlw	0
+   645   0013F6  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   646   0013F8  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   647   0013FC                     l1359:
+   648                           
+   649                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 51:     return ret;
+   650   0013FC  502C               	movf	dc_motor_move_right@ret^0,w,c
+   651   0013FE  0012               	return		;funcret
+   652   001400                     __end_of_dc_motor_move_right:
+   653                           	callstack 0
+   654                           
+   655 ;; *************** function _dc_motor_move_left *****************
+   656 ;; Defined at:
+   657 ;;		line 61 in file "ECU_Layer/DC_Motor/ecu_dc_motor.c"
+   658 ;; Parameters:    Size  Location     Type
+   659 ;;  _dc_motor       1    8[COMRAM] PTR struct .
+   660 ;;		 -> dc_motor_2(2), dc_motor_1(2), 
+   661 ;; Auto vars:     Size  Location     Type
+   662 ;;  ret             1    9[COMRAM] unsigned char 
+   663 ;; Return value:  Size  Location     Type
+   664 ;;                  1    wreg      unsigned char 
+   665 ;; Registers used:
+   666 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   667 ;; Tracked objects:
+   668 ;;		On entry : 0/0
+   669 ;;		On exit  : 0/0
+   670 ;;		Unchanged: 0/0
+   671 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   672 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   673 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   674 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   675 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   676 ;;Total ram usage:        2 bytes
+   677 ;; Hardware stack levels used: 1
+   678 ;; Hardware stack levels required when called: 1
+   679 ;; This function calls:
+   680 ;;		_gpio_pin_write_logic
+   681 ;; This function is called by:
+   682 ;;		_main
+   683 ;; This function uses a non-reentrant model
+   684 ;;
+   685                           
+   686                           	psect	text3
+   687   001400                     __ptext3:
+   688                           	callstack 0
+   689   001400                     _dc_motor_move_left:
+   690                           	callstack 29
+   691   001400                     
+   692                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 62:     Std_ReturnType ret = (Std_ReturnType)0x01;
+   693   001400  0E01               	movlw	1
+   694   001402  6E2C               	movwf	dc_motor_move_left@ret^0,c
+   695                           
+   696                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 63:     if (_dc_motor == ((void*)0))
+   697   001404  502B               	movf	dc_motor_move_left@_dc_motor^0,w,c
+   698   001406  A4D8               	btfss	status,2,c
+   699   001408  EF08  F00A         	goto	u681
+   700   00140C  EF0A  F00A         	goto	u680
+   701   001410                     u681:
+   702   001410  EF0E  F00A         	goto	l1367
+   703   001414                     u680:
+   704   001414                     
+   705                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 64:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 65:    
+      +                               ret = (Std_ReturnType)0x00;
+   706   001414  0E00               	movlw	0
+   707   001416  6E2C               	movwf	dc_motor_move_left@ret^0,c
+   708                           
+   709                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 66:     }
+   710   001418  EF1A  F00A         	goto	l1369
+   711   00141C                     l1367:
+   712                           
+   713                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 68:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 69:    
+      +                               gpio_pin_write_logic(&(_dc_motor->dc_motor[0X00U]), GPIO_LOW);
+   714   00141C  C02B  F023         	movff	dc_motor_move_left@_dc_motor,gpio_pin_write_logic@_pin_config
+   715   001420  0E00               	movlw	0
+   716   001422  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   717   001424  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   718                           
+   719                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 70:         gpio_pin_write_logic(&(_dc_motor->dc_mot
+      +                          or[0X01U]), GPIO_HIGH);
+   720   001428  282B               	incf	dc_motor_move_left@_dc_motor^0,w,c
+   721   00142A  6E23               	movwf	gpio_pin_write_logic@_pin_config^0,c
+   722   00142C  0E01               	movlw	1
+   723   00142E  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   724   001430  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   725   001434                     l1369:
+   726                           
+   727                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 72:     return ret;
+   728   001434  502C               	movf	dc_motor_move_left@ret^0,w,c
+   729   001436  0012               	return		;funcret
+   730   001438                     __end_of_dc_motor_move_left:
+   731                           	callstack 0
+   732                           
+   733 ;; *************** function _Application *****************
+   734 ;; Defined at:
+   735 ;;		line 66 in file "application.c"
+   736 ;; Parameters:    Size  Location     Type
+   737 ;;		None
+   738 ;; Auto vars:     Size  Location     Type
+   739 ;;		None
+   740 ;; Return value:  Size  Location     Type
+   741 ;;                  1    wreg      void 
+   742 ;; Registers used:
+   743 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   744 ;; Tracked objects:
+   745 ;;		On entry : 0/0
+   746 ;;		On exit  : 0/0
+   747 ;;		Unchanged: 0/0
+   748 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   749 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   750 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   751 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   752 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   753 ;;Total ram usage:        0 bytes
+   754 ;; Hardware stack levels used: 1
+   755 ;; Hardware stack levels required when called: 3
+   756 ;; This function calls:
+   757 ;;		_dc_motor_initialize
+   758 ;; This function is called by:
+   759 ;;		_main
+   760 ;; This function uses a non-reentrant model
+   761 ;;
+   762                           
+   763                           	psect	text4
+   764   0014C0                     __ptext4:
+   765                           	callstack 0
+   766   0014C0                     _Application:
+   767                           	callstack 27
+   768   0014C0                     
+   769                           ;application.c: 68:     ret = dc_motor_initialize(&dc_motor_1);
+   770   0014C0  0E21               	movlw	low _dc_motor_1
+   771   0014C2  6E2E               	movwf	dc_motor_initialize@_dc_motor^0,c
+   772   0014C4  EC37  F00A         	call	_dc_motor_initialize	;wreg free
+   773   0014C8  6E39               	movwf	_ret^0,c
+   774                           
+   775                           ;application.c: 69:     ret = dc_motor_initialize(&dc_motor_2);
+   776   0014CA  0E1F               	movlw	low _dc_motor_2
+   777   0014CC  6E2E               	movwf	dc_motor_initialize@_dc_motor^0,c
+   778   0014CE  EC37  F00A         	call	_dc_motor_initialize	;wreg free
+   779   0014D2  6E39               	movwf	_ret^0,c
+   780   0014D4  0012               	return		;funcret
+   781   0014D6                     __end_of_Application:
+   782                           	callstack 0
+   783                           
+   784 ;; *************** function _dc_motor_initialize *****************
+   785 ;; Defined at:
+   786 ;;		line 17 in file "ECU_Layer/DC_Motor/ecu_dc_motor.c"
+   787 ;; Parameters:    Size  Location     Type
+   788 ;;  _dc_motor       1   11[COMRAM] PTR struct .
+   789 ;;		 -> dc_motor_2(2), dc_motor_1(2), 
+   790 ;; Auto vars:     Size  Location     Type
+   791 ;;  ret             1   12[COMRAM] unsigned char 
+   792 ;; Return value:  Size  Location     Type
+   793 ;;                  1    wreg      unsigned char 
+   794 ;; Registers used:
+   795 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   796 ;; Tracked objects:
+   797 ;;		On entry : 0/0
+   798 ;;		On exit  : 0/0
+   799 ;;		Unchanged: 0/0
+   800 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   801 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   802 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   803 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   804 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   805 ;;Total ram usage:        2 bytes
+   806 ;; Hardware stack levels used: 1
+   807 ;; Hardware stack levels required when called: 2
+   808 ;; This function calls:
+   809 ;;		_gpio_pin_intialize
+   810 ;; This function is called by:
+   811 ;;		_Application
+   812 ;; This function uses a non-reentrant model
+   813 ;;
+   814                           
+   815                           	psect	text5
+   816   00146E                     __ptext5:
+   817                           	callstack 0
+   818   00146E                     _dc_motor_initialize:
+   819                           	callstack 27
+   820   00146E                     
+   821                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 18:     Std_ReturnType ret = (Std_ReturnType)0x01;
+   822   00146E  0E01               	movlw	1
+   823   001470  6E2F               	movwf	dc_motor_initialize@ret^0,c
+   824                           
+   825                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 19:     if (_dc_motor == ((void*)0))
+   826   001472  502E               	movf	dc_motor_initialize@_dc_motor^0,w,c
+   827   001474  A4D8               	btfss	status,2,c
+   828   001476  EF3F  F00A         	goto	u661
+   829   00147A  EF41  F00A         	goto	u660
+   830   00147E                     u661:
+   831   00147E  EF45  F00A         	goto	l1345
+   832   001482                     u660:
+   833   001482                     
+   834                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 20:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 21:    
+      +                               ret = (Std_ReturnType)0x00;
+   835   001482  0E00               	movlw	0
+   836   001484  6E2F               	movwf	dc_motor_initialize@ret^0,c
+   837                           
+   838                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 22:     }
+   839   001486  EF4D  F00A         	goto	l1347
+   840   00148A                     l1345:
+   841                           
+   842                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 24:     {;ECU_Layer/DC_Motor/ecu_dc_motor.c: 26:    
+      +                               gpio_pin_intialize(&(_dc_motor->dc_motor[0X00U]));
+   843   00148A  C02E  F02B         	movff	dc_motor_initialize@_dc_motor,gpio_pin_intialize@_pin_config
+   844   00148E  EC9C  F009         	call	_gpio_pin_intialize	;wreg free
+   845                           
+   846                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 27:         gpio_pin_intialize(&(_dc_motor->dc_motor
+      +                          [0X01U]));
+   847   001492  282E               	incf	dc_motor_initialize@_dc_motor^0,w,c
+   848   001494  6E2B               	movwf	gpio_pin_intialize@_pin_config^0,c
+   849   001496  EC9C  F009         	call	_gpio_pin_intialize	;wreg free
+   850   00149A                     l1347:
+   851                           
+   852                           ;ECU_Layer/DC_Motor/ecu_dc_motor.c: 30:     return ret;
+   853   00149A  502F               	movf	dc_motor_initialize@ret^0,w,c
+   854   00149C  0012               	return		;funcret
+   855   00149E                     __end_of_dc_motor_initialize:
+   856                           	callstack 0
+   857                           
+   858 ;; *************** function _gpio_pin_intialize *****************
+   859 ;; Defined at:
+   860 ;;		line 167 in file "MCAL_Layer/GPIO/hal_gpio.c"
+   861 ;; Parameters:    Size  Location     Type
+   862 ;;  _pin_config     1    8[COMRAM] PTR const struct .
+   863 ;;		 -> dc_motor_2$dc_motor(2), dc_motor_2(2), dc_motor_1$dc_motor(2), dc_motor_1(2), 
+   864 ;;		 -> relay_initialize@pin_obj(1), led_initialize@pin_obj(1), 
+   865 ;; Auto vars:     Size  Location     Type
+   866 ;;  ret             1   10[COMRAM] unsigned char 
+   867 ;; Return value:  Size  Location     Type
+   868 ;;                  1    wreg      unsigned char 
+   869 ;; Registers used:
+   870 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   871 ;; Tracked objects:
+   872 ;;		On entry : 0/0
+   873 ;;		On exit  : 0/0
+   874 ;;		Unchanged: 0/0
+   875 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   876 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   877 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   878 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   879 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   880 ;;Total ram usage:        3 bytes
+   881 ;; Hardware stack levels used: 1
+   882 ;; Hardware stack levels required when called: 1
+   883 ;; This function calls:
+   884 ;;		_gpio_pin_direction_intialize
+   885 ;;		_gpio_pin_write_logic
+   886 ;; This function is called by:
+   887 ;;		_dc_motor_initialize
+   888 ;;		_led_initialize
+   889 ;;		_relay_initialize
+   890 ;; This function uses a non-reentrant model
+   891 ;;
+   892                           
+   893                           	psect	text6
+   894   001338                     __ptext6:
+   895                           	callstack 0
+   896   001338                     _gpio_pin_intialize:
+   897                           	callstack 27
+   898   001338                     
+   899                           ;MCAL_Layer/GPIO/hal_gpio.c: 169:     if (((void*)0) == _pin_config || _pin_config->pin 
+      +                          > 8 -1)
+   900   001338  502B               	movf	gpio_pin_intialize@_pin_config^0,w,c
+   901   00133A  B4D8               	btfsc	status,2,c
+   902   00133C  EFA2  F009         	goto	u641
+   903   001340  EFA4  F009         	goto	u640
+   904   001344                     u641:
+   905   001344  EFB4  F009         	goto	l1335
+   906   001348                     u640:
+   907   001348  502B               	movf	gpio_pin_intialize@_pin_config^0,w,c
+   908   00134A  6ED9               	movwf	fsr2l,c
+   909   00134C  6ADA               	clrf	fsr2h,c
+   910   00134E  30DF               	rrcf	223,w,c
+   911   001350  32E8               	rrcf	wreg,f,c
+   912   001352  32E8               	rrcf	wreg,f,c
+   913   001354  0B07               	andlw	7
+   914   001356  6E2C               	movwf	??_gpio_pin_intialize^0,c
+   915   001358  0E07               	movlw	7
+   916   00135A  642C               	cpfsgt	??_gpio_pin_intialize^0,c
+   917   00135C  EFB2  F009         	goto	u651
+   918   001360  EFB4  F009         	goto	u650
+   919   001364                     u651:
+   920   001364  EFB6  F009         	goto	l1337
+   921   001368                     u650:
+   922   001368                     l1335:
+   923                           
+   924                           ;MCAL_Layer/GPIO/hal_gpio.c: 172:     }
+   925   001368  EFC7  F009         	goto	l171
+   926   00136C                     l1337:
+   927                           
+   928                           ;MCAL_Layer/GPIO/hal_gpio.c: 174:     {;MCAL_Layer/GPIO/hal_gpio.c: 175:         ret = g
+      +                          pio_pin_direction_intialize(_pin_config);
+   929   00136C  C02B  F023         	movff	gpio_pin_intialize@_pin_config,gpio_pin_direction_intialize@_pin_config
+   930   001370  EC8B  F008         	call	_gpio_pin_direction_intialize	;wreg free
+   931   001374  6E2D               	movwf	gpio_pin_intialize@ret^0,c
+   932                           
+   933                           ;MCAL_Layer/GPIO/hal_gpio.c: 176:         ret = gpio_pin_write_logic(_pin_config , _pin_
+      +                          config->logic);
+   934   001376  C02B  F023         	movff	gpio_pin_intialize@_pin_config,gpio_pin_write_logic@_pin_config
+   935   00137A  502B               	movf	gpio_pin_intialize@_pin_config^0,w,c
+   936   00137C  6ED9               	movwf	fsr2l,c
+   937   00137E  6ADA               	clrf	fsr2h,c
+   938   001380  0E00               	movlw	0
+   939   001382  BEDF               	btfsc	indf2,7,c
+   940   001384  0E01               	movlw	1
+   941   001386  6E24               	movwf	gpio_pin_write_logic@logic^0,c
+   942   001388  EC14  F009         	call	_gpio_pin_write_logic	;wreg free
+   943   00138C  6E2D               	movwf	gpio_pin_intialize@ret^0,c
+   944   00138E                     l171:
+   945   00138E  0012               	return		;funcret
+   946   001390                     __end_of_gpio_pin_intialize:
+   947                           	callstack 0
+   948                           
+   949 ;; *************** function _gpio_pin_write_logic *****************
+   950 ;; Defined at:
+   951 ;;		line 84 in file "MCAL_Layer/GPIO/hal_gpio.c"
+   952 ;; Parameters:    Size  Location     Type
+   953 ;;  _pin_config     1    0[COMRAM] PTR const struct .
+   954 ;;		 -> dc_motor_2$dc_motor(2), dc_motor_2(2), dc_motor_1$dc_motor(2), dc_motor_1(2), 
+   955 ;;		 -> relay_turn_off@pin_obj(1), relay_turn_on@pin_obj(1), relay_initialize@pin_obj(1), led_turn_off@pin_obj(1), 
+   956 ;;		 -> led_turn_on@pin_obj(1), led_initialize@pin_obj(1), 
+   957 ;;  logic           1    1[COMRAM] enum E2493
+   958 ;; Auto vars:     Size  Location     Type
+   959 ;;  ret             1    7[COMRAM] unsigned char 
+   960 ;; Return value:  Size  Location     Type
+   961 ;;                  1    wreg      unsigned char 
+   962 ;; Registers used:
+   963 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+   964 ;; Tracked objects:
+   965 ;;		On entry : 0/0
+   966 ;;		On exit  : 0/0
+   967 ;;		Unchanged: 0/0
+   968 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   969 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   970 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   971 ;;      Temps:          5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   972 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   973 ;;Total ram usage:        8 bytes
+   974 ;; Hardware stack levels used: 1
+   975 ;; This function calls:
+   976 ;;		Nothing
+   977 ;; This function is called by:
+   978 ;;		_gpio_pin_intialize
+   979 ;;		_dc_motor_move_right
+   980 ;;		_dc_motor_move_left
+   981 ;;		_dc_motor_stop
+   982 ;;		_led_turn_on
+   983 ;;		_led_turn_off
+   984 ;;		_relay_turn_on
+   985 ;;		_relay_turn_off
+   986 ;; This function uses a non-reentrant model
+   987 ;;
+   988                           
+   989                           	psect	text7
+   990   001228                     __ptext7:
+   991                           	callstack 0
+   992   001228                     _gpio_pin_write_logic:
+   993                           	callstack 29
+   994   001228                     
+   995                           ;MCAL_Layer/GPIO/hal_gpio.c: 85:     Std_ReturnType ret = (Std_ReturnType)0x01;
+   996   001228  0E01               	movlw	1
+   997   00122A  6E2A               	movwf	gpio_pin_write_logic@ret^0,c
+   998                           
+   999                           ;MCAL_Layer/GPIO/hal_gpio.c: 86:     if (((void*)0) == _pin_config || _pin_config->pin >
+      +                           8 -1)
+  1000   00122C  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1001   00122E  B4D8               	btfsc	status,2,c
+  1002   001230  EF1C  F009         	goto	u601
+  1003   001234  EF1E  F009         	goto	u600
+  1004   001238                     u601:
+  1005   001238  EF2E  F009         	goto	l1313
+  1006   00123C                     u600:
+  1007   00123C  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1008   00123E  6ED9               	movwf	fsr2l,c
+  1009   001240  6ADA               	clrf	fsr2h,c
+  1010   001242  30DF               	rrcf	223,w,c
+  1011   001244  32E8               	rrcf	wreg,f,c
+  1012   001246  32E8               	rrcf	wreg,f,c
+  1013   001248  0B07               	andlw	7
+  1014   00124A  6E25               	movwf	??_gpio_pin_write_logic^0,c
+  1015   00124C  0E07               	movlw	7
+  1016   00124E  6425               	cpfsgt	??_gpio_pin_write_logic^0,c
+  1017   001250  EF2C  F009         	goto	u611
+  1018   001254  EF2E  F009         	goto	u610
+  1019   001258                     u611:
+  1020   001258  EF85  F009         	goto	l1321
+  1021   00125C                     u610:
+  1022   00125C                     l1313:
+  1023                           
+  1024                           ;MCAL_Layer/GPIO/hal_gpio.c: 87:     {;MCAL_Layer/GPIO/hal_gpio.c: 88:         ret = (St
+      +                          d_ReturnType)0x00;
+  1025   00125C  0E00               	movlw	0
+  1026   00125E  6E2A               	movwf	gpio_pin_write_logic@ret^0,c
+  1027                           
+  1028                           ;MCAL_Layer/GPIO/hal_gpio.c: 89:     }
+  1029   001260  EF9A  F009         	goto	l1323
+  1030   001264                     l1315:
+  1031                           
+  1032                           ;MCAL_Layer/GPIO/hal_gpio.c: 95:                 (*lat_registers[_pin_config->port] &= ~
+      +                          ((uint8)1<<_pin_config->pin));
+  1033   001264  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1034   001266  6ED9               	movwf	fsr2l,c
+  1035   001268  6ADA               	clrf	fsr2h,c
+  1036   00126A  30DF               	rrcf	223,w,c
+  1037   00126C  32E8               	rrcf	wreg,f,c
+  1038   00126E  32E8               	rrcf	wreg,f,c
+  1039   001270  0B07               	andlw	7
+  1040   001272  6E25               	movwf	??_gpio_pin_write_logic^0,c
+  1041   001274  0E01               	movlw	1
+  1042   001276  6E26               	movwf	(??_gpio_pin_write_logic+1)^0,c
+  1043   001278  2A25               	incf	??_gpio_pin_write_logic^0,f,c
+  1044   00127A  EF41  F009         	goto	u624
+  1045   00127E                     u625:
+  1046   00127E  90D8               	bcf	status,0,c
+  1047   001280  3626               	rlcf	(??_gpio_pin_write_logic+1)^0,f,c
+  1048   001282                     u624:
+  1049   001282  2E25               	decfsz	??_gpio_pin_write_logic^0,f,c
+  1050   001284  EF3F  F009         	goto	u625
+  1051   001288  5026               	movf	(??_gpio_pin_write_logic+1)^0,w,c
+  1052   00128A  0AFF               	xorlw	255
+  1053   00128C  6E27               	movwf	(??_gpio_pin_write_logic+2)^0,c
+  1054   00128E  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1055   001290  6ED9               	movwf	fsr2l,c
+  1056   001292  6ADA               	clrf	fsr2h,c
+  1057   001294  50DF               	movf	223,w,c
+  1058   001296  0B07               	andlw	7
+  1059   001298  0D02               	mullw	2
+  1060   00129A  50F3               	movf	243,w,c
+  1061   00129C  0F0B               	addlw	low _lat_registers
+  1062   00129E  6ED9               	movwf	fsr2l,c
+  1063   0012A0  6ADA               	clrf	fsr2h,c
+  1064   0012A2  CFDE F028          	movff	postinc2,??_gpio_pin_write_logic+3
+  1065   0012A6  CFDD F029          	movff	postdec2,??_gpio_pin_write_logic+4
+  1066   0012AA  C028  FFD9         	movff	??_gpio_pin_write_logic+3,fsr2l
+  1067   0012AE  C029  FFDA         	movff	??_gpio_pin_write_logic+4,fsr2h
+  1068   0012B2  5027               	movf	(??_gpio_pin_write_logic+2)^0,w,c
+  1069   0012B4  16DF               	andwf	indf2,f,c
+  1070                           
+  1071                           ;MCAL_Layer/GPIO/hal_gpio.c: 96:                 break;
+  1072   0012B6  EF9A  F009         	goto	l1323
+  1073   0012BA                     l1317:
+  1074                           
+  1075                           ;MCAL_Layer/GPIO/hal_gpio.c: 98:                 (*lat_registers[_pin_config->port] |= (
+      +                          (uint8)1<<_pin_config->pin));
+  1076   0012BA  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1077   0012BC  6ED9               	movwf	fsr2l,c
+  1078   0012BE  6ADA               	clrf	fsr2h,c
+  1079   0012C0  30DF               	rrcf	223,w,c
+  1080   0012C2  32E8               	rrcf	wreg,f,c
+  1081   0012C4  32E8               	rrcf	wreg,f,c
+  1082   0012C6  0B07               	andlw	7
+  1083   0012C8  6E25               	movwf	??_gpio_pin_write_logic^0,c
+  1084   0012CA  0E01               	movlw	1
+  1085   0012CC  6E26               	movwf	(??_gpio_pin_write_logic+1)^0,c
+  1086   0012CE  2A25               	incf	??_gpio_pin_write_logic^0,f,c
+  1087   0012D0  EF6C  F009         	goto	u634
+  1088   0012D4                     u635:
+  1089   0012D4  90D8               	bcf	status,0,c
+  1090   0012D6  3626               	rlcf	(??_gpio_pin_write_logic+1)^0,f,c
+  1091   0012D8                     u634:
+  1092   0012D8  2E25               	decfsz	??_gpio_pin_write_logic^0,f,c
+  1093   0012DA  EF6A  F009         	goto	u635
+  1094   0012DE  5023               	movf	gpio_pin_write_logic@_pin_config^0,w,c
+  1095   0012E0  6ED9               	movwf	fsr2l,c
+  1096   0012E2  6ADA               	clrf	fsr2h,c
+  1097   0012E4  50DF               	movf	223,w,c
+  1098   0012E6  0B07               	andlw	7
+  1099   0012E8  0D02               	mullw	2
+  1100   0012EA  50F3               	movf	243,w,c
+  1101   0012EC  0F0B               	addlw	low _lat_registers
+  1102   0012EE  6ED9               	movwf	fsr2l,c
+  1103   0012F0  6ADA               	clrf	fsr2h,c
+  1104   0012F2  CFDE F027          	movff	postinc2,??_gpio_pin_write_logic+2
+  1105   0012F6  CFDD F028          	movff	postdec2,??_gpio_pin_write_logic+3
+  1106   0012FA  C027  FFD9         	movff	??_gpio_pin_write_logic+2,fsr2l
+  1107   0012FE  C028  FFDA         	movff	??_gpio_pin_write_logic+3,fsr2h
+  1108   001302  5026               	movf	(??_gpio_pin_write_logic+1)^0,w,c
+  1109   001304  12DF               	iorwf	indf2,f,c
+  1110                           
+  1111                           ;MCAL_Layer/GPIO/hal_gpio.c: 99:                 break;
+  1112   001306  EF9A  F009         	goto	l1323
+  1113   00130A                     l1321:
+  1114   00130A  5024               	movf	gpio_pin_write_logic@logic^0,w,c
+  1115   00130C  6E25               	movwf	??_gpio_pin_write_logic^0,c
+  1116   00130E  6A26               	clrf	(??_gpio_pin_write_logic+1)^0,c
+  1117                           
+  1118                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1119                           ; Switch size 1, requested type "simple"
+  1120                           ; Number of cases is 1, Range of values is 0 to 0
+  1121                           ; switch strategies available:
+  1122                           ; Name         Instructions Cycles
+  1123                           ; simple_byte            4     3 (average)
+  1124                           ;	Chosen strategy is simple_byte
+  1125   001310  5026               	movf	(??_gpio_pin_write_logic+1)^0,w,c
+  1126   001312  0A00               	xorlw	0	; case 0
+  1127   001314  B4D8               	btfsc	status,2,c
+  1128   001316  EF8F  F009         	goto	l1519
+  1129   00131A  EF2E  F009         	goto	l1313
+  1130   00131E                     l1519:
+  1131                           
+  1132                           ; Switch size 1, requested type "simple"
+  1133                           ; Number of cases is 2, Range of values is 0 to 1
+  1134                           ; switch strategies available:
+  1135                           ; Name         Instructions Cycles
+  1136                           ; simple_byte            7     4 (average)
+  1137                           ;	Chosen strategy is simple_byte
+  1138   00131E  5025               	movf	??_gpio_pin_write_logic^0,w,c
+  1139   001320  0A00               	xorlw	0	; case 0
+  1140   001322  B4D8               	btfsc	status,2,c
+  1141   001324  EF32  F009         	goto	l1315
+  1142   001328  0A01               	xorlw	1	; case 1
+  1143   00132A  B4D8               	btfsc	status,2,c
+  1144   00132C  EF5D  F009         	goto	l1317
+  1145   001330  EF2E  F009         	goto	l1313
+  1146   001334                     l1323:
+  1147                           
+  1148                           ;MCAL_Layer/GPIO/hal_gpio.c: 105:     return ret;
+  1149   001334  502A               	movf	gpio_pin_write_logic@ret^0,w,c
+  1150   001336  0012               	return		;funcret
+  1151   001338                     __end_of_gpio_pin_write_logic:
+  1152                           	callstack 0
+  1153                           
+  1154 ;; *************** function _gpio_pin_direction_intialize *****************
+  1155 ;; Defined at:
+  1156 ;;		line 27 in file "MCAL_Layer/GPIO/hal_gpio.c"
+  1157 ;; Parameters:    Size  Location     Type
+  1158 ;;  _pin_config     1    0[COMRAM] PTR const struct .
+  1159 ;;		 -> dc_motor_2$dc_motor(2), dc_motor_2(2), dc_motor_1$dc_motor(2), dc_motor_1(2), 
+  1160 ;;		 -> relay_initialize@pin_obj(1), led_initialize@pin_obj(1), 
+  1161 ;; Auto vars:     Size  Location     Type
+  1162 ;;  ret             1    6[COMRAM] unsigned char 
+  1163 ;; Return value:  Size  Location     Type
+  1164 ;;                  1    wreg      unsigned char 
+  1165 ;; Registers used:
+  1166 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+  1167 ;; Tracked objects:
+  1168 ;;		On entry : 0/0
+  1169 ;;		On exit  : 0/0
+  1170 ;;		Unchanged: 0/0
+  1171 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1172 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1173 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1174 ;;      Temps:          5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1175 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1176 ;;Total ram usage:        7 bytes
+  1177 ;; Hardware stack levels used: 1
+  1178 ;; This function calls:
+  1179 ;;		Nothing
+  1180 ;; This function is called by:
+  1181 ;;		_gpio_pin_intialize
+  1182 ;;		_button_initialize
+  1183 ;; This function uses a non-reentrant model
+  1184 ;;
+  1185                           
+  1186                           	psect	text8
+  1187   001116                     __ptext8:
+  1188                           	callstack 0
+  1189   001116                     _gpio_pin_direction_intialize:
+  1190                           	callstack 27
+  1191   001116                     
+  1192                           ;MCAL_Layer/GPIO/hal_gpio.c: 28:     Std_ReturnType ret = (Std_ReturnType)0x01;
+  1193   001116  0E01               	movlw	1
+  1194   001118  6E29               	movwf	gpio_pin_direction_intialize@ret^0,c
+  1195                           
+  1196                           ;MCAL_Layer/GPIO/hal_gpio.c: 29:     if (((void*)0) == _pin_config || _pin_config->pin >
+      +                           8 -1)
+  1197   00111A  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1198   00111C  B4D8               	btfsc	status,2,c
+  1199   00111E  EF93  F008         	goto	u551
+  1200   001122  EF95  F008         	goto	u550
+  1201   001126                     u551:
+  1202   001126  EFA5  F008         	goto	l1295
+  1203   00112A                     u550:
+  1204   00112A  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1205   00112C  6ED9               	movwf	fsr2l,c
+  1206   00112E  6ADA               	clrf	fsr2h,c
+  1207   001130  30DF               	rrcf	223,w,c
+  1208   001132  32E8               	rrcf	wreg,f,c
+  1209   001134  32E8               	rrcf	wreg,f,c
+  1210   001136  0B07               	andlw	7
+  1211   001138  6E24               	movwf	??_gpio_pin_direction_intialize^0,c
+  1212   00113A  0E07               	movlw	7
+  1213   00113C  6424               	cpfsgt	??_gpio_pin_direction_intialize^0,c
+  1214   00113E  EFA3  F008         	goto	u561
+  1215   001142  EFA5  F008         	goto	u560
+  1216   001146                     u561:
+  1217   001146  EFFC  F008         	goto	l1303
+  1218   00114A                     u560:
+  1219   00114A                     l1295:
+  1220                           
+  1221                           ;MCAL_Layer/GPIO/hal_gpio.c: 30:     {;MCAL_Layer/GPIO/hal_gpio.c: 31:         ret = (St
+      +                          d_ReturnType)0x00;
+  1222   00114A  0E00               	movlw	0
+  1223   00114C  6E29               	movwf	gpio_pin_direction_intialize@ret^0,c
+  1224                           
+  1225                           ;MCAL_Layer/GPIO/hal_gpio.c: 32:     }
+  1226   00114E  EF12  F009         	goto	l1305
+  1227   001152                     l1297:
+  1228                           
+  1229                           ;MCAL_Layer/GPIO/hal_gpio.c: 38:                 (*tris_registers[_pin_config->port] &= 
+      +                          ~((uint8)1<<_pin_config->pin));
+  1230   001152  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1231   001154  6ED9               	movwf	fsr2l,c
+  1232   001156  6ADA               	clrf	fsr2h,c
+  1233   001158  30DF               	rrcf	223,w,c
+  1234   00115A  32E8               	rrcf	wreg,f,c
+  1235   00115C  32E8               	rrcf	wreg,f,c
+  1236   00115E  0B07               	andlw	7
+  1237   001160  6E24               	movwf	??_gpio_pin_direction_intialize^0,c
+  1238   001162  0E01               	movlw	1
+  1239   001164  6E25               	movwf	(??_gpio_pin_direction_intialize+1)^0,c
+  1240   001166  2A24               	incf	??_gpio_pin_direction_intialize^0,f,c
+  1241   001168  EFB8  F008         	goto	u574
+  1242   00116C                     u575:
+  1243   00116C  90D8               	bcf	status,0,c
+  1244   00116E  3625               	rlcf	(??_gpio_pin_direction_intialize+1)^0,f,c
+  1245   001170                     u574:
+  1246   001170  2E24               	decfsz	??_gpio_pin_direction_intialize^0,f,c
+  1247   001172  EFB6  F008         	goto	u575
+  1248   001176  5025               	movf	(??_gpio_pin_direction_intialize+1)^0,w,c
+  1249   001178  0AFF               	xorlw	255
+  1250   00117A  6E26               	movwf	(??_gpio_pin_direction_intialize+2)^0,c
+  1251   00117C  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1252   00117E  6ED9               	movwf	fsr2l,c
+  1253   001180  6ADA               	clrf	fsr2h,c
+  1254   001182  50DF               	movf	223,w,c
+  1255   001184  0B07               	andlw	7
+  1256   001186  0D02               	mullw	2
+  1257   001188  50F3               	movf	243,w,c
+  1258   00118A  0F15               	addlw	low _tris_registers
+  1259   00118C  6ED9               	movwf	fsr2l,c
+  1260   00118E  6ADA               	clrf	fsr2h,c
+  1261   001190  CFDE F027          	movff	postinc2,??_gpio_pin_direction_intialize+3
+  1262   001194  CFDD F028          	movff	postdec2,??_gpio_pin_direction_intialize+4
+  1263   001198  C027  FFD9         	movff	??_gpio_pin_direction_intialize+3,fsr2l
+  1264   00119C  C028  FFDA         	movff	??_gpio_pin_direction_intialize+4,fsr2h
+  1265   0011A0  5026               	movf	(??_gpio_pin_direction_intialize+2)^0,w,c
+  1266   0011A2  16DF               	andwf	indf2,f,c
+  1267                           
+  1268                           ;MCAL_Layer/GPIO/hal_gpio.c: 39:                 break;
+  1269   0011A4  EF12  F009         	goto	l1305
+  1270   0011A8                     l1299:
+  1271                           
+  1272                           ;MCAL_Layer/GPIO/hal_gpio.c: 41:                 (*tris_registers[_pin_config->port] |= 
+      +                          ((uint8)1<<_pin_config->pin));
+  1273   0011A8  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1274   0011AA  6ED9               	movwf	fsr2l,c
+  1275   0011AC  6ADA               	clrf	fsr2h,c
+  1276   0011AE  30DF               	rrcf	223,w,c
+  1277   0011B0  32E8               	rrcf	wreg,f,c
+  1278   0011B2  32E8               	rrcf	wreg,f,c
+  1279   0011B4  0B07               	andlw	7
+  1280   0011B6  6E24               	movwf	??_gpio_pin_direction_intialize^0,c
+  1281   0011B8  0E01               	movlw	1
+  1282   0011BA  6E25               	movwf	(??_gpio_pin_direction_intialize+1)^0,c
+  1283   0011BC  2A24               	incf	??_gpio_pin_direction_intialize^0,f,c
+  1284   0011BE  EFE3  F008         	goto	u584
+  1285   0011C2                     u585:
+  1286   0011C2  90D8               	bcf	status,0,c
+  1287   0011C4  3625               	rlcf	(??_gpio_pin_direction_intialize+1)^0,f,c
+  1288   0011C6                     u584:
+  1289   0011C6  2E24               	decfsz	??_gpio_pin_direction_intialize^0,f,c
+  1290   0011C8  EFE1  F008         	goto	u585
+  1291   0011CC  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1292   0011CE  6ED9               	movwf	fsr2l,c
+  1293   0011D0  6ADA               	clrf	fsr2h,c
+  1294   0011D2  50DF               	movf	223,w,c
+  1295   0011D4  0B07               	andlw	7
+  1296   0011D6  0D02               	mullw	2
+  1297   0011D8  50F3               	movf	243,w,c
+  1298   0011DA  0F15               	addlw	low _tris_registers
+  1299   0011DC  6ED9               	movwf	fsr2l,c
+  1300   0011DE  6ADA               	clrf	fsr2h,c
+  1301   0011E0  CFDE F026          	movff	postinc2,??_gpio_pin_direction_intialize+2
+  1302   0011E4  CFDD F027          	movff	postdec2,??_gpio_pin_direction_intialize+3
+  1303   0011E8  C026  FFD9         	movff	??_gpio_pin_direction_intialize+2,fsr2l
+  1304   0011EC  C027  FFDA         	movff	??_gpio_pin_direction_intialize+3,fsr2h
+  1305   0011F0  5025               	movf	(??_gpio_pin_direction_intialize+1)^0,w,c
+  1306   0011F2  12DF               	iorwf	indf2,f,c
+  1307                           
+  1308                           ;MCAL_Layer/GPIO/hal_gpio.c: 42:                 break;
+  1309   0011F4  EF12  F009         	goto	l1305
+  1310   0011F8                     l1303:
+  1311   0011F8  5023               	movf	gpio_pin_direction_intialize@_pin_config^0,w,c
+  1312   0011FA  6ED9               	movwf	fsr2l,c
+  1313   0011FC  6ADA               	clrf	fsr2h,c
+  1314   0011FE  BCDF               	btfsc	indf2,6,c
+  1315   001200  EF04  F009         	goto	u591
+  1316   001204  EF07  F009         	goto	u590
+  1317   001208                     u591:
+  1318   001208  0E01               	movlw	1
+  1319   00120A  EF08  F009         	goto	u596
+  1320   00120E                     u590:
+  1321   00120E  0E00               	movlw	0
+  1322   001210                     u596:
+  1323                           
+  1324                           ; Switch size 1, requested type "simple"
+  1325                           ; Number of cases is 2, Range of values is 0 to 1
+  1326                           ; switch strategies available:
+  1327                           ; Name         Instructions Cycles
+  1328                           ; simple_byte            7     4 (average)
+  1329                           ;	Chosen strategy is simple_byte
+  1330   001210  0A00               	xorlw	0	; case 0
+  1331   001212  B4D8               	btfsc	status,2,c
+  1332   001214  EFA9  F008         	goto	l1297
+  1333   001218  0A01               	xorlw	1	; case 1
+  1334   00121A  B4D8               	btfsc	status,2,c
+  1335   00121C  EFD4  F008         	goto	l1299
+  1336   001220  EFA5  F008         	goto	l1295
+  1337   001224                     l1305:
+  1338                           
+  1339                           ;MCAL_Layer/GPIO/hal_gpio.c: 46:     return ret;
+  1340   001224  5029               	movf	gpio_pin_direction_intialize@ret^0,w,c
+  1341   001226  0012               	return		;funcret
+  1342   001228                     __end_of_gpio_pin_direction_intialize:
+  1343                           	callstack 0
+  1344                           
+  1345                           	psect	smallconst
+  1346   001000                     __psmallconst:
+  1347                           	callstack 0
+  1348   001000  00                 	db	0
+  1349   001001  00                 	db	0	; dummy byte at the end
+  1350   000000                     
+  1351                           	psect	rparam
+  1352   000000                     
+  1353                           	psect	config
+  1354                           
+  1355                           ; Padding undefined space
+  1356   300000                     	org	3145728
+  1357   300000  FF                 	db	255
+  1358                           
+  1359                           ;Config register CONFIG1H @ 0x300001
+  1360                           ;	Oscillator Selection bits
+  1361                           ;	OSC = HS, HS oscillator
+  1362                           ;	Fail-Safe Clock Monitor Enable bit
+  1363                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
+  1364                           ;	Internal/External Oscillator Switchover bit
+  1365                           ;	IESO = OFF, Oscillator Switchover mode disabled
+  1366   300001                     	org	3145729
+  1367   300001  02                 	db	2
+  1368                           
+  1369                           ;Config register CONFIG2L @ 0x300002
+  1370                           ;	Power-up Timer Enable bit
+  1371                           ;	PWRT = OFF, PWRT disabled
+  1372                           ;	Brown-out Reset Enable bits
+  1373                           ;	BOREN = OFF, Brown-out Reset disabled in hardware and software
+  1374                           ;	Brown Out Reset Voltage bits
+  1375                           ;	BORV = 1, 
+  1376   300002                     	org	3145730
+  1377   300002  09                 	db	9
+  1378                           
+  1379                           ;Config register CONFIG2H @ 0x300003
+  1380                           ;	Watchdog Timer Enable bit
+  1381                           ;	WDT = OFF, WDT disabled (control is placed on the SWDTEN bit)
+  1382                           ;	Watchdog Timer Postscale Select bits
+  1383                           ;	WDTPS = 32768, 1:32768
+  1384   300003                     	org	3145731
+  1385   300003  1E                 	db	30
+  1386                           
+  1387                           ; Padding undefined space
+  1388   300004                     	org	3145732
+  1389   300004  FF                 	db	255
+  1390                           
+  1391                           ;Config register CONFIG3H @ 0x300005
+  1392                           ;	CCP2 MUX bit
+  1393                           ;	CCP2MX = PORTC, CCP2 input/output is multiplexed with RC1
+  1394                           ;	PORTB A/D Enable bit
+  1395                           ;	PBADEN = OFF, PORTB<4:0> pins are configured as digital I/O on Reset
+  1396                           ;	Low-Power Timer1 Oscillator Enable bit
+  1397                           ;	LPT1OSC = OFF, Timer1 configured for higher power operation
+  1398                           ;	MCLR Pin Enable bit
+  1399                           ;	MCLRE = ON, MCLR pin enabled; RE3 input pin disabled
+  1400   300005                     	org	3145733
+  1401   300005  81                 	db	129
+  1402                           
+  1403                           ;Config register CONFIG4L @ 0x300006
+  1404                           ;	Stack Full/Underflow Reset Enable bit
+  1405                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  1406                           ;	Single-Supply ICSP Enable bit
+  1407                           ;	LVP = OFF, Single-Supply ICSP disabled
+  1408                           ;	Extended Instruction Set Enable bit
+  1409                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
+      +                          de)
+  1410                           ;	Background Debugger Enable bit
+  1411                           ;	DEBUG = 0x1, unprogrammed default
+  1412   300006                     	org	3145734
+  1413   300006  81                 	db	129
+  1414                           
+  1415                           ; Padding undefined space
+  1416   300007                     	org	3145735
+  1417   300007  FF                 	db	255
+  1418                           
+  1419                           ;Config register CONFIG5L @ 0x300008
+  1420                           ;	Code Protection bit
+  1421                           ;	CP0 = OFF, Block 0 (000800-003FFFh) not code-protected
+  1422                           ;	Code Protection bit
+  1423                           ;	CP1 = OFF, Block 1 (004000-007FFFh) not code-protected
+  1424                           ;	Code Protection bit
+  1425                           ;	CP2 = OFF, Block 2 (008000-00BFFFh) not code-protected
+  1426                           ;	Code Protection bit
+  1427                           ;	CP3 = OFF, Block 3 (00C000-00FFFFh) not code-protected
+  1428   300008                     	org	3145736
+  1429   300008  0F                 	db	15
+  1430                           
+  1431                           ;Config register CONFIG5H @ 0x300009
+  1432                           ;	Boot Block Code Protection bit
+  1433                           ;	CPB = OFF, Boot block (000000-0007FFh) not code-protected
+  1434                           ;	Data EEPROM Code Protection bit
+  1435                           ;	CPD = OFF, Data EEPROM not code-protected
+  1436   300009                     	org	3145737
+  1437   300009  C0                 	db	192
+  1438                           
+  1439                           ;Config register CONFIG6L @ 0x30000A
+  1440                           ;	Write Protection bit
+  1441                           ;	WRT0 = OFF, Block 0 (000800-003FFFh) not write-protected
+  1442                           ;	Write Protection bit
+  1443                           ;	WRT1 = OFF, Block 1 (004000-007FFFh) not write-protected
+  1444                           ;	Write Protection bit
+  1445                           ;	WRT2 = OFF, Block 2 (008000-00BFFFh) not write-protected
+  1446                           ;	Write Protection bit
+  1447                           ;	WRT3 = OFF, Block 3 (00C000-00FFFFh) not write-protected
+  1448   30000A                     	org	3145738
+  1449   30000A  0F                 	db	15
+  1450                           
+  1451                           ;Config register CONFIG6H @ 0x30000B
+  1452                           ;	Configuration Register Write Protection bit
+  1453                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
+  1454                           ;	Boot Block Write Protection bit
+  1455                           ;	WRTB = OFF, Boot Block (000000-0007FFh) not write-protected
+  1456                           ;	Data EEPROM Write Protection bit
+  1457                           ;	WRTD = OFF, Data EEPROM not write-protected
+  1458   30000B                     	org	3145739
+  1459   30000B  E0                 	db	224
+  1460                           
+  1461                           ;Config register CONFIG7L @ 0x30000C
+  1462                           ;	Table Read Protection bit
+  1463                           ;	EBTR0 = OFF, Block 0 (000800-003FFFh) not protected from table reads executed in other
       +                           blocks
-   412                           ;	Table Read Protection bit
-   413                           ;	EBTR1 = OFF, Block 1 (004000-007FFFh) not protected from table reads executed in other
+  1464                           ;	Table Read Protection bit
+  1465                           ;	EBTR1 = OFF, Block 1 (004000-007FFFh) not protected from table reads executed in other
       +                           blocks
-   414                           ;	Table Read Protection bit
-   415                           ;	EBTR2 = OFF, Block 2 (008000-00BFFFh) not protected from table reads executed in other
+  1466                           ;	Table Read Protection bit
+  1467                           ;	EBTR2 = OFF, Block 2 (008000-00BFFFh) not protected from table reads executed in other
       +                           blocks
-   416                           ;	Table Read Protection bit
-   417                           ;	EBTR3 = OFF, Block 3 (00C000-00FFFFh) not protected from table reads executed in other
+  1468                           ;	Table Read Protection bit
+  1469                           ;	EBTR3 = OFF, Block 3 (00C000-00FFFFh) not protected from table reads executed in other
       +                           blocks
-   418   30000C                     	org	3145740
-   419   30000C  0F                 	db	15
-   420                           
-   421                           ;Config register CONFIG7H @ 0x30000D
-   422                           ;	Boot Block Table Read Protection bit
-   423                           ;	EBTRB = OFF, Boot Block (000000-0007FFh) not protected from table reads executed in ot
+  1470   30000C                     	org	3145740
+  1471   30000C  0F                 	db	15
+  1472                           
+  1473                           ;Config register CONFIG7H @ 0x30000D
+  1474                           ;	Boot Block Table Read Protection bit
+  1475                           ;	EBTRB = OFF, Boot Block (000000-0007FFh) not protected from table reads executed in ot
       +                          her blocks
-   424   30000D                     	org	3145741
-   425   30000D  40                 	db	64
-   426                           tosu	equ	0xFFF
-   427                           tosh	equ	0xFFE
-   428                           tosl	equ	0xFFD
-   429                           stkptr	equ	0xFFC
-   430                           pclatu	equ	0xFFB
-   431                           pclath	equ	0xFFA
-   432                           pcl	equ	0xFF9
-   433                           tblptru	equ	0xFF8
-   434                           tblptrh	equ	0xFF7
-   435                           tblptrl	equ	0xFF6
-   436                           tablat	equ	0xFF5
-   437                           prodh	equ	0xFF4
-   438                           prodl	equ	0xFF3
-   439                           indf0	equ	0xFEF
-   440                           postinc0	equ	0xFEE
-   441                           postdec0	equ	0xFED
-   442                           preinc0	equ	0xFEC
-   443                           plusw0	equ	0xFEB
-   444                           fsr0h	equ	0xFEA
-   445                           fsr0l	equ	0xFE9
-   446                           wreg	equ	0xFE8
-   447                           indf1	equ	0xFE7
-   448                           postinc1	equ	0xFE6
-   449                           postdec1	equ	0xFE5
-   450                           preinc1	equ	0xFE4
-   451                           plusw1	equ	0xFE3
-   452                           fsr1h	equ	0xFE2
-   453                           fsr1l	equ	0xFE1
-   454                           bsr	equ	0xFE0
-   455                           indf2	equ	0xFDF
-   456                           postinc2	equ	0xFDE
-   457                           postdec2	equ	0xFDD
-   458                           preinc2	equ	0xFDC
-   459                           plusw2	equ	0xFDB
-   460                           fsr2h	equ	0xFDA
-   461                           fsr2l	equ	0xFD9
-   462                           status	equ	0xFD8
+  1476   30000D                     	org	3145741
+  1477   30000D  40                 	db	64
+  1478                           tosu	equ	0xFFF
+  1479                           tosh	equ	0xFFE
+  1480                           tosl	equ	0xFFD
+  1481                           stkptr	equ	0xFFC
+  1482                           pclatu	equ	0xFFB
+  1483                           pclath	equ	0xFFA
+  1484                           pcl	equ	0xFF9
+  1485                           tblptru	equ	0xFF8
+  1486                           tblptrh	equ	0xFF7
+  1487                           tblptrl	equ	0xFF6
+  1488                           tablat	equ	0xFF5
+  1489                           prodh	equ	0xFF4
+  1490                           prodl	equ	0xFF3
+  1491                           indf0	equ	0xFEF
+  1492                           postinc0	equ	0xFEE
+  1493                           postdec0	equ	0xFED
+  1494                           preinc0	equ	0xFEC
+  1495                           plusw0	equ	0xFEB
+  1496                           fsr0h	equ	0xFEA
+  1497                           fsr0l	equ	0xFE9
+  1498                           wreg	equ	0xFE8
+  1499                           indf1	equ	0xFE7
+  1500                           postinc1	equ	0xFE6
+  1501                           postdec1	equ	0xFE5
+  1502                           preinc1	equ	0xFE4
+  1503                           plusw1	equ	0xFE3
+  1504                           fsr1h	equ	0xFE2
+  1505                           fsr1l	equ	0xFE1
+  1506                           bsr	equ	0xFE0
+  1507                           indf2	equ	0xFDF
+  1508                           postinc2	equ	0xFDE
+  1509                           postdec2	equ	0xFDD
+  1510                           preinc2	equ	0xFDC
+  1511                           plusw2	equ	0xFDB
+  1512                           fsr2h	equ	0xFDA
+  1513                           fsr2l	equ	0xFD9
+  1514                           status	equ	0xFD8
 
 Data Sizes:
     Strings     0
     Constant    0
-    Data        32
-    BSS         10
-    Persistent  0
+    Data        34
+    BSS         7
+    Persistent  1
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM          127      0      42
+    COMRAM          127     15      57
     BANK0           128      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -521,6 +1633,31 @@ Auto Spaces:
 
 Pointer List with Targets:
 
+    dc_motor_initialize@_dc_motor	PTR struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_2(COMRAM[2]), 
+
+    dc_motor_move_left@_dc_motor	PTR struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_2(COMRAM[2]), 
+
+    dc_motor_move_right@_dc_motor	PTR struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_2(COMRAM[2]), 
+
+    dc_motor_stop@_dc_motor	PTR struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_2(COMRAM[2]), 
+
+    gpio_pin_direction_intialize@_pin_config	PTR const struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_1$dc_motor(COMRAM[2]), dc_motor_2(COMRAM[2]), dc_motor_2$dc_motor(COMRAM[2]), 
+		 -> led_initialize@pin_obj(COMRAM[1]), relay_initialize@pin_obj(COMRAM[1]), 
+
+    gpio_pin_intialize@_pin_config	PTR const struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_1$dc_motor(COMRAM[2]), dc_motor_2(COMRAM[2]), dc_motor_2$dc_motor(COMRAM[2]), 
+		 -> led_initialize@pin_obj(COMRAM[1]), relay_initialize@pin_obj(COMRAM[1]), 
+
+    gpio_pin_write_logic@_pin_config	PTR const struct . size(1) Largest target is 2
+		 -> dc_motor_1(COMRAM[2]), dc_motor_1$dc_motor(COMRAM[2]), dc_motor_2(COMRAM[2]), dc_motor_2$dc_motor(COMRAM[2]), 
+		 -> led_initialize@pin_obj(COMRAM[1]), led_turn_off@pin_obj(COMRAM[1]), led_turn_on@pin_obj(COMRAM[1]), relay_initialize@pin_obj(COMRAM[1]), 
+		 -> relay_turn_off@pin_obj(COMRAM[1]), relay_turn_on@pin_obj(COMRAM[1]), 
+
     lat_registers	PTR volatile unsigned char [5] size(2) Largest target is 1
 		 -> LATA(BITBIGSFRll[1]), LATB(BITBIGSFRlh[1]), LATC(BITBIGSFRlh[1]), LATD(BITBIGSFRlh[1]), 
 		 -> LATE(BITBIGSFRlh[1]), 
@@ -536,7 +1673,12 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMRAM
 
-    None.
+    _dc_motor_stop->_gpio_pin_write_logic
+    _dc_motor_move_right->_gpio_pin_write_logic
+    _dc_motor_move_left->_gpio_pin_write_logic
+    _Application->_dc_motor_initialize
+    _dc_motor_initialize->_gpio_pin_intialize
+    _gpio_pin_intialize->_gpio_pin_write_logic
 
 Critical Paths under _main in BANK0
 
@@ -607,18 +1749,60 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0       0
+ (0) _main                                                 2     2      0    9583
+                                             13 COMRAM     2     2      0
                         _Application
+                 _dc_motor_move_left
+                _dc_motor_move_right
+                      _dc_motor_stop
  ---------------------------------------------------------------------------------
- (1) _Application                                          0     0      0       0
+ (1) _dc_motor_stop                                        2     1      1    2245
+                                              8 COMRAM     2     1      1
+               _gpio_pin_write_logic
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 1
+ (1) _dc_motor_move_right                                  2     1      1    2245
+                                              8 COMRAM     2     1      1
+               _gpio_pin_write_logic
+ ---------------------------------------------------------------------------------
+ (1) _dc_motor_move_left                                   2     1      1    2245
+                                              8 COMRAM     2     1      1
+               _gpio_pin_write_logic
+ ---------------------------------------------------------------------------------
+ (1) _Application                                          0     0      0    2848
+                _dc_motor_initialize
+ ---------------------------------------------------------------------------------
+ (2) _dc_motor_initialize                                  2     1      1    2848
+                                             11 COMRAM     2     1      1
+                 _gpio_pin_intialize
+ ---------------------------------------------------------------------------------
+ (3) _gpio_pin_intialize                                   3     2      1    2606
+                                              8 COMRAM     3     2      1
+       _gpio_pin_direction_intialize
+               _gpio_pin_write_logic
+ ---------------------------------------------------------------------------------
+ (2) _gpio_pin_write_logic                                 8     6      2    1851
+                                              0 COMRAM     8     6      2
+ ---------------------------------------------------------------------------------
+ (4) _gpio_pin_direction_intialize                         7     6      1     331
+                                              0 COMRAM     7     6      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
    _Application
+     _dc_motor_initialize
+       _gpio_pin_intialize
+         _gpio_pin_direction_intialize
+         _gpio_pin_write_logic
+   _dc_motor_move_left
+     _gpio_pin_write_logic
+   _dc_motor_move_right
+     _gpio_pin_write_logic
+   _dc_motor_stop
+     _gpio_pin_write_logic
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -657,7 +1841,7 @@ BANK15              80      0       0      35        0.0%
 BITBANK0            80      0       0       4        0.0%
 BANK0               80      0       0       5        0.0%
 BITCOMRAM           7F      0       0       0        0.0%
-COMRAM              7F      0      2A       1       33.1%
+COMRAM              7F      F      39       1       44.9%
 BITBIGSFRh          69      0       0      36        0.0%
 BITBIGSFRlh          4      0       0      37        0.0%
 BITBIGSFRll          4      0       0      38        0.0%
@@ -666,37 +1850,124 @@ BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      2A      39        0.0%
-DATA                 0      0      2A       3        0.0%
+ABS                  0      0      39      39        0.0%
+DATA                 0      0      39       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Wed Aug 14 00:06:38 2024
+Symbol Table                                                                                   Wed Aug 14 13:34:43 2024
 
-                     l211 105C                       l212 105C                       l217 1064  
-                     _ret 0023       led_initialize@F2573 002A                       wreg 0FE8  
-   relay_initialize@F2567 0026                      l1207 1058                      _LATA 0F89  
-                    _LATB 0F8A                      _LATC 0F8B                      _LATD 0F8C  
-                    _LATE 0F8D                      _main 1058                      fsr1l 0FE1  
-                    start 0000       __end_of_Application 1066              ___param_bank 0000  
-                   ?_main 0000       relay_turn_off@F2577 0024                     _PORTA 0F80  
-                   _PORTB 0F81                     _PORTC 0F82                     _PORTD 0F83  
-                   _PORTE 0F84                     _TRISA 0F92                     _TRISB 0F93  
-                   _TRISC 0F94                     _TRISD 0F95                     _TRISE 0F96  
-                   tablat 0FF5           __initialization 1002              __end_of_main 1064  
-           _lat_registers 000B                    ??_main 0000             __activetblptr 0002  
-        led_turn_on@F2578 0029               _Application 1064                    clear_0 1028  
-                  isa$std 0001              __pdataCOMRAM 0001              __mediumconst 0000  
-                  tblptrh 0FF7                    tblptrl 0FF6                    tblptru 0FF8  
-              __accesstop 0080   __end_of__initialization 102E             ___rparam_used 0001  
-          __pcstackCOMRAM 0000  dc_motor_initialize@F2572 0022  dc_motor_initialize@F2574 0021  
-              _dc_motor_1 001F         led_turn_off@F2583 0028      led_turn_toggle@F2588 0027  
-          _tris_registers 0015                   __Hparam 0000                   __Lparam 0000  
-            __psmallconst 1000                   __pcinit 1002                   __ramtop 1000  
-                 __ptext0 1058                   __ptext1 1064      end_of_initialization 102E  
-            ?_Application 0000             __Lmediumconst 0000                   postdec1 0FE5  
-                 postinc0 0FEE        relay_turn_on@F2572 0025             __pidataCOMRAM 1038  
-     start_initialization 1002               __pbssCOMRAM 0021               __smallconst 1000  
-               copy_data0 1016                  __Hrparam 0000                  __Lrparam 0000  
-                isa$xinst 0000            _port_registers 0001             ??_Application 0000  
+                                    l131 1226                                      l150 1336  
+                                    l223 1006                                      l171 138E  
+                                    l243 13FE                                      l229 14D4  
+                                    l253 13C6                                      l238 149C  
+                                    l248 1436                                      u600 123C  
+                                    u601 1238                                      u610 125C  
+                                    u611 1258                                      u550 112A  
+                                    u551 1126                                      u560 114A  
+                                    u624 1282                                      u640 1348  
+                                    u561 1146                                      u625 127E  
+                                    u641 1344                                      u634 12D8  
+                                    u650 1368                                      u635 12D4  
+                                    u651 1364                                      u660 1482  
+                                    u661 147E                                      u590 120E  
+                                    u574 1170                                      u670 13DC  
+                                    u591 1208                                      u575 116C  
+                                    u671 13D8                                      u584 11C6  
+                                    u680 1414                                      u585 11C2  
+                                    u681 1410                                      u690 13A4  
+                                    u691 13A0                                      u596 1210  
+                                    u837 1024                                      u847 1050  
+                                    u857 107C                                      u867 10A8  
+                                    u877 10D4                                      u887 1100  
+                                    _ret 0039                      led_initialize@F2573 0038  
+                                    wreg 0FE8                    relay_initialize@F2567 0034  
+                                   l1303 11F8                                     l1311 123C  
+                                   l1305 1224                                     l1321 130A  
+                                   l1313 125C                                     l1315 1264  
+                                   l1323 1334                                     l1331 1338  
+                                   l1317 12BA                                     l1309 1228  
+                                   l1333 1348                                     l1341 146E  
+                                   l1501 108A                                     l1335 1368  
+                                   l1343 1482                                     l1351 14C0  
+                                   l1511 10EC                                     l1503 1094  
+                                   l1337 136C                                     l1345 148A  
+                                   l1353 13C8                                     l1513 10F6  
+                                   l1505 109E                                     l1291 1116  
+                                   l1347 149A                                     l1363 1400  
+                                   l1355 13DC                                     l1507 10CA  
+                                   l1293 112A                                     l1365 1414  
+                                   l1357 13E4                                     l1373 1390  
+                                   l1509 10E2                                     l1295 114A  
+                                   l1519 131E                                     l1367 141C  
+                                   l1359 13FC                                     l1375 13A4  
+                                   l1297 1152                                     l1369 1434  
+                                   l1377 13AC                                     l1299 11A8  
+                                   l1379 13C4                                     l1491 101A  
+                                   l1493 1032                                     l1495 103C  
+                                   l1497 1046                                     l1489 1002  
+                                   l1499 1072                                     _LATA 0F89  
+                                   _LATB 0F8A                                     _LATC 0F8B  
+                                   _LATD 0F8C                                     _LATE 0F8D  
+                                   _main 1002                                     fsr2h 0FDA  
+                                   indf2 0FDF                                     fsr1l 0FE1  
+                                   fsr2l 0FD9                                     prodl 0FF3  
+                                   start 0000                      __end_of_Application 14D6  
+                           ___param_bank 0000                   dc_motor_initialize@ret 002F  
+                   _gpio_pin_write_logic 1228                                    ?_main 0023  
+                    relay_turn_off@F2577 0032                                    _PORTA 0F80  
+                                  _PORTB 0F81                                    _PORTC 0F82  
+                                  _PORTD 0F83                                    _PORTE 0F84  
+                                  _TRISA 0F92                                    _TRISB 0F93  
+                                  _TRISC 0F94                                    _TRISD 0F95  
+                                  _TRISE 0F96                                    tablat 0FF5  
+                                  status 0FD8                          __initialization 1438  
+                           __end_of_main 1116                    ?_gpio_pin_write_logic 0023  
+                          _lat_registers 000B              __end_of_dc_motor_initialize 149E  
+                                 ??_main 0030                            __activetblptr 0002  
+                       led_turn_on@F2578 0037                              _Application 14C0  
+            __end_of_dc_motor_move_right 1400                                   clear_0 145E  
+                                 isa$std 0001  gpio_pin_direction_intialize@_pin_config 0023  
+                           __pdataCOMRAM 0001                             __mediumconst 0000  
+                                 tblptrh 0FF7                                   tblptrl 0FF6  
+                                 tblptru 0FF8                               __accesstop 0080  
+                __end_of__initialization 1464                            ___rparam_used 0001  
+            dc_motor_move_left@_dc_motor 002B                   ??_gpio_pin_write_logic 0025  
+                         __pcstackCOMRAM 0023                               _dc_motor_1 0021  
+                             _dc_motor_2 001F                               __pnvCOMRAM 0039  
+                      led_turn_off@F2583 0036                     led_turn_toggle@F2588 0035  
+                         _tris_registers 0015                                  __Hparam 0000  
+                                __Lparam 0000                    dc_motor_move_left@ret 002C  
+                           __psmallconst 1000               __end_of_gpio_pin_intialize 1390  
+                                __pcinit 1438                                  __ramtop 1000  
+                                __ptext0 1002                                  __ptext1 1390  
+                                __ptext2 13C8                                  __ptext3 1400  
+                                __ptext4 14C0                                  __ptext5 146E  
+                                __ptext6 1338                                  __ptext7 1228  
+                                __ptext8 1116                     end_of_initialization 1464  
+                           ?_Application 0023                            __Lmediumconst 0000  
+                  gpio_pin_intialize@ret 002D                            _dc_motor_stop 1390  
+                                postdec1 0FE5                                  postdec2 0FDD  
+                                postinc0 0FEE                                  postinc2 0FDE  
+          gpio_pin_intialize@_pin_config 002B     __end_of_gpio_pin_direction_intialize 1228  
+           _gpio_pin_direction_intialize 1116                           ?_dc_motor_stop 002B  
+                     relay_turn_on@F2572 0033                            __pidataCOMRAM 149E  
+                    start_initialization 1438            ?_gpio_pin_direction_intialize 0023  
+                 dc_motor_stop@_dc_motor 002B               __end_of_dc_motor_move_left 1438  
+                       dc_motor_stop@ret 002C                              __pbssCOMRAM 0032  
+        gpio_pin_direction_intialize@ret 0029                          ??_dc_motor_stop 002C  
+        gpio_pin_write_logic@_pin_config 0023                gpio_pin_write_logic@logic 0024  
+                            __smallconst 1000                       _gpio_pin_intialize 1338  
+         ??_gpio_pin_direction_intialize 0024                      ?_gpio_pin_intialize 002B  
+                    _dc_motor_initialize 146E             dc_motor_initialize@_dc_motor 002E  
+                   ??_gpio_pin_intialize 002C                     ?_dc_motor_initialize 002E  
+                gpio_pin_write_logic@ret 002A                                copy_data0 144C  
+                    _dc_motor_move_right 13C8                                 __Hrparam 0000  
+                               __Lrparam 0000                     ?_dc_motor_move_right 002B  
+                  ??_dc_motor_initialize 002F                   dc_motor_move_right@ret 002C  
+                               isa$xinst 0000                    ??_dc_motor_move_right 002C  
+                     _dc_motor_move_left 1400             __end_of_gpio_pin_write_logic 1338  
+                    ?_dc_motor_move_left 002B                     ??_dc_motor_move_left 002C  
+           dc_motor_move_right@_dc_motor 002B                           _port_registers 0001  
+                          ??_Application 0030                    __end_of_dc_motor_stop 13C8  

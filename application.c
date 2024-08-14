@@ -8,12 +8,25 @@
 #include "application.h"
 
 dc_motor_t dc_motor_1 = {
-    .dc_motor[0].dc_motor_port = PORTC_INDEX,
-    .dc_motor[0].dc_motor_pin = GPIO_PIN0,
-    .dc_motor[0].dc_motor_status = DC_MOTOR_OFF_STATUS,
-    .dc_motor[1].dc_motor_port = PORTC_INDEX,
-    .dc_motor[1].dc_motor_pin = GPIO_PIN1,
-    .dc_motor[1].dc_motor_status = DC_MOTOR_OFF_STATUS,
+    .dc_motor[MOTOR_INDEX_PIN1].port = PORTC_INDEX,
+    .dc_motor[MOTOR_INDEX_PIN1].pin = GPIO_PIN0,
+    .dc_motor[MOTOR_INDEX_PIN1].logic = DC_MOTOR_OFF_STATUS,
+    .dc_motor[MOTOR_INDEX_PIN1].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor[MOTOR_INDEX_PIN2].port = PORTC_INDEX,
+    .dc_motor[MOTOR_INDEX_PIN2].pin = GPIO_PIN1,
+    .dc_motor[MOTOR_INDEX_PIN2].logic = DC_MOTOR_OFF_STATUS,
+    .dc_motor[MOTOR_INDEX_PIN2].direction = GPIO_DIRECTION_OUTPUT,
+};
+
+dc_motor_t dc_motor_2 = {
+    .dc_motor[MOTOR_INDEX_PIN1].port = PORTC_INDEX,
+    .dc_motor[MOTOR_INDEX_PIN1].pin = GPIO_PIN2,
+    .dc_motor[MOTOR_INDEX_PIN1].logic = DC_MOTOR_OFF_STATUS,
+    .dc_motor[MOTOR_INDEX_PIN1].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor[MOTOR_INDEX_PIN2].port = PORTC_INDEX,
+    .dc_motor[MOTOR_INDEX_PIN2].pin = GPIO_PIN3,
+    .dc_motor[MOTOR_INDEX_PIN2].logic = DC_MOTOR_OFF_STATUS,
+    .dc_motor[MOTOR_INDEX_PIN2].direction = GPIO_DIRECTION_OUTPUT,
 };
 
 
@@ -24,7 +37,24 @@ int main() {
     
     while (1)
     {
-        
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_right(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_move_left(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_stop(&dc_motor_1);
+        ret = dc_motor_stop(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_stop(&dc_motor_1);
+        ret = dc_motor_stop(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_move_left(&dc_motor_1);
+        ret = dc_motor_move_right(&dc_motor_2);
+        __delay_ms(3000);
     }
         
         
@@ -35,6 +65,7 @@ int main() {
 }
 void Application (void)
 {
-    
+    ret = dc_motor_initialize(&dc_motor_1);
+    ret = dc_motor_initialize(&dc_motor_2);
 }
 
