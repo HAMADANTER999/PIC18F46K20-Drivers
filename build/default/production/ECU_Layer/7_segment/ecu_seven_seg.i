@@ -4581,7 +4581,7 @@ Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 
 # 1 "ECU_Layer/7_segment/ecu_seven_seg_cfg.h" 1
 # 13 "ECU_Layer/7_segment/ecu_seven_seg.h" 2
-# 22 "ECU_Layer/7_segment/ecu_seven_seg.h"
+# 33 "ECU_Layer/7_segment/ecu_seven_seg.h"
 typedef enum {
     SEGMENT_COMMON_ANODE = 0,
     SEGMENT_COMMON_CATHODE
@@ -4605,7 +4605,10 @@ Std_ReturnType seven_segment_intialize(const segment_t *seg){
     }
     else
     {
-
+        gpio_pin_intialize(&(seg->segments_pins[0]));
+        gpio_pin_intialize(&(seg->segments_pins[1]));
+        gpio_pin_intialize(&(seg->segments_pins[2]));
+        gpio_pin_intialize(&(seg->segments_pins[3]));
     }
     return ret;
 }
@@ -4617,6 +4620,10 @@ Std_ReturnType seven_segment_write_number(const segment_t *seg, uint8 number){
     }
     else
     {
+        gpio_pin_write_logic(&(seg->segments_pins[0]), (number & 0X01));
+        gpio_pin_write_logic(&(seg->segments_pins[1]), ((number >> 1)& 0X01));
+        gpio_pin_write_logic(&(seg->segments_pins[2]), ((number >> 2)& 0X01));
+        gpio_pin_write_logic(&(seg->segments_pins[3]), ((number >> 3)& 0X01));
 
     }
     return ret;

@@ -14,6 +14,17 @@
 
 
 /* Section : Macro Declarations*/
+#define SEGMENT_PIN0    0
+#define SEGMENT_PIN1    1
+#define SEGMENT_PIN2    2
+#define SEGMENT_PIN3    3
+
+#define SEGMENT_PIN_MAX 4
+#define BIT_MASK        0X01
+#define BIT1_SHIFT      1
+#define BIT2_SHIFT      2
+#define BIT3_SHIFT      3
+
 
 /* Section : Macro Function Declarations*/
 
@@ -25,7 +36,7 @@ typedef enum {
 }segment_type_t;
 
 typedef struct {
-    pin_config_t segments_pins[4];
+    pin_config_t segments_pins[SEGMENT_PIN_MAX];
     segment_type_t segment_type;
 }segment_t;
 /* Section : Function Declarations*/

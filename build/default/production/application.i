@@ -4827,7 +4827,7 @@ Std_ReturnType dc_motor_stop(dc_motor_t *_dc_motor);
 # 13 "./ECU_Layer/7_segment/ecu_seven_seg.h"
 # 1 "./ECU_Layer/7_segment/ecu_seven_seg_cfg.h" 1
 # 13 "./ECU_Layer/7_segment/ecu_seven_seg.h" 2
-# 22 "./ECU_Layer/7_segment/ecu_seven_seg.h"
+# 33 "./ECU_Layer/7_segment/ecu_seven_seg.h"
 typedef enum {
     SEGMENT_COMMON_ANODE = 0,
     SEGMENT_COMMON_CATHODE
@@ -4846,63 +4846,72 @@ void Application (void);
 # 8 "application.c" 2
 
 
+pin_config_t seg1_enable = {
+    .port = PORTD_INDEX,
+    .pin = GPIO_PIN0,
+    .logic = GPIO_LOW,
+    .direction = GPIO_DIRECTION_OUTPUT,
+};
 
+pin_config_t seg2_enable = {
+    .port = PORTD_INDEX,
+    .pin = GPIO_PIN1,
+    .logic = GPIO_LOW,
+    .direction = GPIO_DIRECTION_OUTPUT,
+};
 
+segment_t seg1 = {
+    .segments_pins[0].port = PORTC_INDEX,
+    .segments_pins[0].pin = GPIO_PIN0,
+    .segments_pins[0].direction = GPIO_DIRECTION_OUTPUT,
+    .segments_pins[0].logic = GPIO_LOW,
+    .segments_pins[1].port = PORTC_INDEX,
+    .segments_pins[1].pin = GPIO_PIN1,
+    .segments_pins[1].direction = GPIO_DIRECTION_OUTPUT,
+    .segments_pins[1].logic = GPIO_LOW,
+    .segments_pins[2].port = PORTC_INDEX,
+    .segments_pins[2].pin = GPIO_PIN2,
+    .segments_pins[2].direction = GPIO_DIRECTION_OUTPUT,
+    .segments_pins[2].logic = GPIO_LOW,
+    .segments_pins[3].port = PORTC_INDEX,
+    .segments_pins[3].pin = GPIO_PIN3,
+    .segments_pins[3].direction = GPIO_DIRECTION_OUTPUT,
+    .segments_pins[3].logic = GPIO_LOW,
+    .segment_type = SEGMENT_COMMON_ANODE
+};
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
+uint8 number = 90 , counter = 0;
 
-uint8 seconds = 50, minutes = 59 , hours = 12;
-uint8 counter = 0;
 int main() {
     Application ();
 
     while (1)
     {
-        for (counter = 0; counter <50; counter++)
+        for (counter = 0 ; counter <= 50 ; counter++)
         {
+            seven_segment_write_number(&seg1, ((uint8)number/10));
+            gpio_pin_write_logic(&seg1_enable, GPIO_HIGH);
+            _delay((unsigned long)((10)*(8000000UL/4000.0)));
+            gpio_pin_write_logic(&seg1_enable, GPIO_LOW);
 
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x3E);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours/10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x3D);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours%10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x3B);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes/10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x37);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes%10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x2F);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds/10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-            ret = gpio_port_write_logic(PORTD_INDEX, 0x1F);
-            ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds%10)));
-            _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
+            seven_segment_write_number(&seg1, ((uint8)number%10));
+            gpio_pin_write_logic(&seg2_enable, GPIO_HIGH);
+            _delay((unsigned long)((10)*(8000000UL/4000.0)));
+            gpio_pin_write_logic(&seg2_enable, GPIO_LOW);
         }
-        seconds++;
-        if (seconds == 60)
+        number++;
+        if (number == 100)
         {
-            minutes++;
-            seconds = 0;
+            number = 0;
         }
-        if (minutes == 60)
-        {
-            hours++;
-            minutes = 0;
-        }
-        if (hours == 13)
-        {
-            hours = 1;
-        }
-
-
     }
     return (0);
 }
 void Application (void)
 {
-    ret = gpio_port_direction_intialize(PORTC_INDEX, 0xF0);
-    ret = gpio_port_direction_intialize(PORTD_INDEX, 0xC0);
+    ret = seven_segment_intialize(&seg1);
+    ret = gpio_pin_intialize(&seg1_enable);
+    ret = gpio_pin_intialize(&seg2_enable);
 
 }

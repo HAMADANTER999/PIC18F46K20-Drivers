@@ -1,20 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"66 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . port pin direction logic ]
+"10 application.c
+[; ;application.c: 10: pin_config_t seg1_enable = {
+[c E2832 0 1 2 3 4 .. ]
+[n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2822 0 1 2 3 4 5 6 7 .. ]
+[n E2822 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+[c E2818 0 1 .. ]
+[n E2818 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[c E2814 0 1 .. ]
+[n E2814 . GPIO_LOW GPIO_HIGH  ]
+"24
+[; ;application.c: 24: segment_t seg1 = {
+[c E2931 0 1 .. ]
+[n E2931 . SEGMENT_COMMON_ANODE SEGMENT_COMMON_CATHODE  ]
+"38 ./ECU_Layer/7_segment/ecu_seven_seg.h
+[; ;./ECU_Layer/7_segment/ecu_seven_seg.h: 38: typedef struct {
+[s S277 `S272 -> 4 `i `E2931 1 ]
+[n S277 . segments_pins segment_type ]
 [p mainexit ]
 "28 ./application.h
 [; ;./application.h: 28: void Application (void);
 [v _Application `(v ~T0 @X0 0 ef ]
-"25 application.c
-[; ;application.c: 25:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3E);
-[c E2832 0 1 2 3 4 .. ]
-[n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-"84 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
-[v _gpio_port_write_logic `(uc ~T0 @X0 0 ef2`E2832`uc ]
+"44 ./ECU_Layer/7_segment/ecu_seven_seg.h
+[; ;./ECU_Layer/7_segment/ecu_seven_seg.h: 44: Std_ReturnType seven_segment_write_number(const segment_t *seg, uint8 number);
+[v _seven_segment_write_number `(uc ~T0 @X0 0 ef2`*CS277`uc ]
+"77 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
+[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`E2814 ]
 [v F2784 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
 [v __delay `JF2784 ~T0 @X0 0 e ]
 [p i __delay ]
-"82 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
-[v _gpio_port_direction_intialize `(uc ~T0 @X0 0 ef2`E2832`uc ]
+"43 ./ECU_Layer/7_segment/ecu_seven_seg.h
+[; ;./ECU_Layer/7_segment/ecu_seven_seg.h: 43: Std_ReturnType seven_segment_intialize(const segment_t *seg);
+[v _seven_segment_intialize `(uc ~T0 @X0 0 ef1`*CS277 ]
+"80 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
+[v _gpio_pin_intialize `(uc ~T0 @X0 0 ef1`*CS272 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -426,196 +449,189 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 application.c
-[; ;application.c: 13: Std_ReturnType ret = (Std_ReturnType)0x00;
+"10 application.c
+[; ;application.c: 10: pin_config_t seg1_enable = {
+[v _seg1_enable `S272 ~T0 @X0 1 e ]
+[i _seg1_enable
+:U ..
+:U ..
+-> . `E2832 3 `uc
+-> . `E2822 0 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+..
+]
+"17
+[; ;application.c: 17: pin_config_t seg2_enable = {
+[v _seg2_enable `S272 ~T0 @X0 1 e ]
+[i _seg2_enable
+:U ..
+:U ..
+-> . `E2832 3 `uc
+-> . `E2822 1 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+..
+]
+"24
+[; ;application.c: 24: segment_t seg1 = {
+[v _seg1 `S277 ~T0 @X0 1 e ]
+[i _seg1
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 0 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 1 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 2 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 3 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+..
+. `E2931 0
+..
+..
+]
+"44
+[; ;application.c: 44: Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
-"15
-[; ;application.c: 15: uint8 seconds = 50, minutes = 59 , hours = 12;
-[v _seconds `uc ~T0 @X0 1 e ]
-[i _seconds
--> -> 50 `i `uc
+"45
+[; ;application.c: 45: uint8 number = 90 , counter = 0;
+[v _number `uc ~T0 @X0 1 e ]
+[i _number
+-> -> 90 `i `uc
 ]
-[v _minutes `uc ~T0 @X0 1 e ]
-[i _minutes
--> -> 59 `i `uc
-]
-[v _hours `uc ~T0 @X0 1 e ]
-[i _hours
--> -> 12 `i `uc
-]
-"16
-[; ;application.c: 16: uint8 counter = 0;
 [v _counter `uc ~T0 @X0 1 e ]
 [i _counter
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17
-[; ;application.c: 17: int main() {
+"47
+[; ;application.c: 47: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"18
-[; ;application.c: 18:     Application ();
-[e ( _Application ..  ]
-"20
-[; ;application.c: 20:     while (1)
-[e :U 280 ]
-"21
-[; ;application.c: 21:     {
-{
-"22
-[; ;application.c: 22:         for (counter = 0; counter <50; counter++)
-{
-[e = _counter -> -> 0 `i `uc ]
-[e $ < -> _counter `i -> 50 `i 282  ]
-[e $U 283  ]
-[e :U 282 ]
-"23
-[; ;application.c: 23:         {
-{
-"25
-[; ;application.c: 25:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3E);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 62 `i `uc ]
-"26
-[; ;application.c: 26:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _hours `i -> 10 `i `uc ]
-"27
-[; ;application.c: 27:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"28
-[; ;application.c: 28:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3D);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 61 `i `uc ]
-"29
-[; ;application.c: 29:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _hours `i -> 10 `i `uc ]
-"30
-[; ;application.c: 30:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"31
-[; ;application.c: 31:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3B);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 59 `i `uc ]
-"32
-[; ;application.c: 32:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _minutes `i -> 10 `i `uc ]
-"33
-[; ;application.c: 33:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"34
-[; ;application.c: 34:             ret = gpio_port_write_logic(PORTD_INDEX, 0x37);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 55 `i `uc ]
-"35
-[; ;application.c: 35:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _minutes `i -> 10 `i `uc ]
-"36
-[; ;application.c: 36:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"37
-[; ;application.c: 37:             ret = gpio_port_write_logic(PORTD_INDEX, 0x2F);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 47 `i `uc ]
-"38
-[; ;application.c: 38:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _seconds `i -> 10 `i `uc ]
-"39
-[; ;application.c: 39:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"40
-[; ;application.c: 40:             ret = gpio_port_write_logic(PORTD_INDEX, 0x1F);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 31 `i `uc ]
-"41
-[; ;application.c: 41:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _seconds `i -> 10 `i `uc ]
-"42
-[; ;application.c: 42:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"43
-[; ;application.c: 43:         }
-}
-[e ++ _counter -> -> 1 `i `uc ]
-[e $ < -> _counter `i -> 50 `i 282  ]
-[e :U 283 ]
-}
-"44
-[; ;application.c: 44:         seconds++;
-[e ++ _seconds -> -> 1 `i `uc ]
-"45
-[; ;application.c: 45:         if (seconds == 60)
-[e $ ! == -> _seconds `i -> 60 `i 285  ]
-"46
-[; ;application.c: 46:         {
-{
-"47
-[; ;application.c: 47:             minutes++;
-[e ++ _minutes -> -> 1 `i `uc ]
 "48
-[; ;application.c: 48:             seconds = 0;
-[e = _seconds -> -> 0 `i `uc ]
-"49
-[; ;application.c: 49:         }
-}
-[e :U 285 ]
+[; ;application.c: 48:     Application ();
+[e ( _Application ..  ]
 "50
-[; ;application.c: 50:         if (minutes == 60)
-[e $ ! == -> _minutes `i -> 60 `i 286  ]
+[; ;application.c: 50:     while (1)
+[e :U 280 ]
 "51
-[; ;application.c: 51:         {
+[; ;application.c: 51:     {
 {
 "52
-[; ;application.c: 52:             hours++;
-[e ++ _hours -> -> 1 `i `uc ]
-"53
-[; ;application.c: 53:             minutes = 0;
-[e = _minutes -> -> 0 `i `uc ]
-"54
-[; ;application.c: 54:         }
-}
-[e :U 286 ]
-"55
-[; ;application.c: 55:         if (hours == 13)
-[e $ ! == -> _hours `i -> 13 `i 287  ]
-"56
-[; ;application.c: 56:         {
+[; ;application.c: 52:         for (counter = 0 ; counter <= 50 ; counter++)
 {
+[e = _counter -> -> 0 `i `uc ]
+[e $ <= -> _counter `i -> 50 `i 282  ]
+[e $U 283  ]
+[e :U 282 ]
+"53
+[; ;application.c: 53:         {
+{
+"54
+[; ;application.c: 54:             seven_segment_write_number(&seg1, ((uint8)number/10));
+[e ( _seven_segment_write_number (2 , -> &U _seg1 `*CS277 -> / -> _number `i -> 10 `i `uc ]
+"55
+[; ;application.c: 55:             gpio_pin_write_logic(&seg1_enable, GPIO_HIGH);
+[e ( _gpio_pin_write_logic (2 , -> &U _seg1_enable `*CS272 . `E2814 1 ]
+"56
+[; ;application.c: 56:             _delay((unsigned long)((10)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "57
-[; ;application.c: 57:             hours = 1;
-[e = _hours -> -> 1 `i `uc ]
-"58
-[; ;application.c: 58:         }
-}
-[e :U 287 ]
+[; ;application.c: 57:             gpio_pin_write_logic(&seg1_enable, GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _seg1_enable `*CS272 . `E2814 0 ]
+"59
+[; ;application.c: 59:             seven_segment_write_number(&seg1, ((uint8)number%10));
+[e ( _seven_segment_write_number (2 , -> &U _seg1 `*CS277 -> % -> _number `i -> 10 `i `uc ]
+"60
+[; ;application.c: 60:             gpio_pin_write_logic(&seg2_enable, GPIO_HIGH);
+[e ( _gpio_pin_write_logic (2 , -> &U _seg2_enable `*CS272 . `E2814 1 ]
 "61
-[; ;application.c: 61:     }
+[; ;application.c: 61:             _delay((unsigned long)((10)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"62
+[; ;application.c: 62:             gpio_pin_write_logic(&seg2_enable, GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _seg2_enable `*CS272 . `E2814 0 ]
+"63
+[; ;application.c: 63:         }
+}
+[e ++ _counter -> -> 1 `i `uc ]
+[e $ <= -> _counter `i -> 50 `i 282  ]
+[e :U 283 ]
+}
+"64
+[; ;application.c: 64:         number++;
+[e ++ _number -> -> 1 `i `uc ]
+"65
+[; ;application.c: 65:         if (number == 100)
+[e $ ! == -> _number `i -> 100 `i 285  ]
+"66
+[; ;application.c: 66:         {
+{
+"67
+[; ;application.c: 67:             number = 0;
+[e = _number -> -> 0 `i `uc ]
+"68
+[; ;application.c: 68:         }
+}
+[e :U 285 ]
+"69
+[; ;application.c: 69:     }
 }
 [e :U 279 ]
 [e $U 280  ]
 [e :U 281 ]
-"62
-[; ;application.c: 62:     return (0);
+"70
+[; ;application.c: 70:     return (0);
 [e ) -> 0 `i ]
 [e $UE 278  ]
-"63
-[; ;application.c: 63: }
+"71
+[; ;application.c: 71: }
 [e :UE 278 ]
 }
-"64
-[; ;application.c: 64: void Application (void)
+"72
+[; ;application.c: 72: void Application (void)
 [v _Application `(v ~T0 @X0 1 ef ]
-"65
-[; ;application.c: 65: {
+"73
+[; ;application.c: 73: {
 {
 [e :U _Application ]
 [f ]
-"66
-[; ;application.c: 66:     ret = gpio_port_direction_intialize(PORTC_INDEX, 0xF0);
-[e = _ret ( _gpio_port_direction_intialize (2 , . `E2832 2 -> -> 240 `i `uc ]
-"67
-[; ;application.c: 67:     ret = gpio_port_direction_intialize(PORTD_INDEX, 0xC0);
-[e = _ret ( _gpio_port_direction_intialize (2 , . `E2832 3 -> -> 192 `i `uc ]
-"69
-[; ;application.c: 69: }
-[e :UE 288 ]
+"74
+[; ;application.c: 74:     ret = seven_segment_intialize(&seg1);
+[e = _ret ( _seven_segment_intialize (1 -> &U _seg1 `*CS277 ]
+"75
+[; ;application.c: 75:     ret = gpio_pin_intialize(&seg1_enable);
+[e = _ret ( _gpio_pin_intialize (1 -> &U _seg1_enable `*CS272 ]
+"76
+[; ;application.c: 76:     ret = gpio_pin_intialize(&seg2_enable);
+[e = _ret ( _gpio_pin_intialize (1 -> &U _seg2_enable `*CS272 ]
+"78
+[; ;application.c: 78: }
+[e :UE 286 ]
 }
