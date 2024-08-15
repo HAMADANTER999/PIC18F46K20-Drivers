@@ -1,20 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"28 ./application.h
-[; ;./application.h: 28: void Application (void);
-[v _Application `(v ~T0 @X0 0 ef ]
-"25 application.c
-[; ;application.c: 25:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3E);
-[c E2832 0 1 2 3 4 .. ]
-[n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-"84 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
-[v _gpio_port_write_logic `(uc ~T0 @X0 0 ef2`E2832`uc ]
-[v F2784 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF2784 ~T0 @X0 0 e ]
-[p i __delay ]
-"82 ./ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
-[v _gpio_port_direction_intialize `(uc ~T0 @X0 0 ef2`E2832`uc ]
+"66 ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/7_segment/../../MCAL_Layer/GPIO/hal_gpio.h: 66: typedef struct {
+[s S270 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . port pin direction logic ]
+"10 ECU_Layer/7_segment/ecu_seven_seg.c
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 10: Std_ReturnType seven_segment_intialize(const segment_t *seg){
+[c E2553 0 1 .. ]
+[n E2553 . SEGMENT_COMMON_ANODE SEGMENT_COMMON_CATHODE  ]
+"27 ECU_Layer/7_segment/ecu_seven_seg.h
+[; ;ECU_Layer/7_segment/ecu_seven_seg.h: 27: typedef struct {
+[s S271 `S270 -> 4 `i `E2553 1 ]
+[n S271 . segments_pins segment_type ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -426,196 +422,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 application.c
-[; ;application.c: 13: Std_ReturnType ret = (Std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
--> -> 0 `i `uc
-]
+"10 ECU_Layer/7_segment/ecu_seven_seg.c
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 10: Std_ReturnType seven_segment_intialize(const segment_t *seg){
+[v _seven_segment_intialize `(uc ~T0 @X0 1 ef1`*CS271 ]
+{
+[e :U _seven_segment_intialize ]
+[v _seg `*CS271 ~T0 @X0 1 r1 ]
+[f ]
+"11
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 11:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"12
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 12:     if (seg == ((void*)0))
+[e $ ! == _seg -> -> -> 0 `i `*v `*CS271 273  ]
+"13
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 13:     {
+{
+"14
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 14:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
 "15
-[; ;application.c: 15: uint8 seconds = 50, minutes = 59 , hours = 12;
-[v _seconds `uc ~T0 @X0 1 e ]
-[i _seconds
--> -> 50 `i `uc
-]
-[v _minutes `uc ~T0 @X0 1 e ]
-[i _minutes
--> -> 59 `i `uc
-]
-[v _hours `uc ~T0 @X0 1 e ]
-[i _hours
--> -> 12 `i `uc
-]
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 15:     }
+}
+[e $U 274  ]
 "16
-[; ;application.c: 16: uint8 counter = 0;
-[v _counter `uc ~T0 @X0 1 e ]
-[i _counter
--> -> 0 `i `uc
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 16:     else
+[e :U 273 ]
 "17
-[; ;application.c: 17: int main() {
-[v _main `(i ~T0 @X0 1 ef ]
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 17:     {
 {
-[e :U _main ]
-[f ]
-"18
-[; ;application.c: 18:     Application ();
-[e ( _Application ..  ]
+"19
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 19:     }
+}
+[e :U 274 ]
 "20
-[; ;application.c: 20:     while (1)
-[e :U 280 ]
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 20:     return ret;
+[e ) _ret ]
+[e $UE 272  ]
 "21
-[; ;application.c: 21:     {
-{
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 21: }
+[e :UE 272 ]
+}
 "22
-[; ;application.c: 22:         for (counter = 0; counter <50; counter++)
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 22: Std_ReturnType seven_segment_write_number(const segment_t *seg, uint8 number){
+[v _seven_segment_write_number `(uc ~T0 @X0 1 ef2`*CS271`uc ]
 {
-[e = _counter -> -> 0 `i `uc ]
-[e $ < -> _counter `i -> 50 `i 282  ]
-[e $U 283  ]
-[e :U 282 ]
-"23
-[; ;application.c: 23:         {
-{
-"25
-[; ;application.c: 25:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3E);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 62 `i `uc ]
-"26
-[; ;application.c: 26:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _hours `i -> 10 `i `uc ]
-"27
-[; ;application.c: 27:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"28
-[; ;application.c: 28:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3D);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 61 `i `uc ]
-"29
-[; ;application.c: 29:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(hours%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _hours `i -> 10 `i `uc ]
-"30
-[; ;application.c: 30:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"31
-[; ;application.c: 31:             ret = gpio_port_write_logic(PORTD_INDEX, 0x3B);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 59 `i `uc ]
-"32
-[; ;application.c: 32:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _minutes `i -> 10 `i `uc ]
-"33
-[; ;application.c: 33:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"34
-[; ;application.c: 34:             ret = gpio_port_write_logic(PORTD_INDEX, 0x37);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 55 `i `uc ]
-"35
-[; ;application.c: 35:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(minutes%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _minutes `i -> 10 `i `uc ]
-"36
-[; ;application.c: 36:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"37
-[; ;application.c: 37:             ret = gpio_port_write_logic(PORTD_INDEX, 0x2F);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 47 `i `uc ]
-"38
-[; ;application.c: 38:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds/10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> / -> _seconds `i -> 10 `i `uc ]
-"39
-[; ;application.c: 39:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"40
-[; ;application.c: 40:             ret = gpio_port_write_logic(PORTD_INDEX, 0x1F);
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 3 -> -> 31 `i `uc ]
-"41
-[; ;application.c: 41:             ret = gpio_port_write_logic(PORTC_INDEX, ((uint8)(seconds%10)));
-[e = _ret ( _gpio_port_write_logic (2 , . `E2832 2 -> % -> _seconds `i -> 10 `i `uc ]
-"42
-[; ;application.c: 42:             _delay((unsigned long)((3333)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 3333 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"43
-[; ;application.c: 43:         }
-}
-[e ++ _counter -> -> 1 `i `uc ]
-[e $ < -> _counter `i -> 50 `i 282  ]
-[e :U 283 ]
-}
-"44
-[; ;application.c: 44:         seconds++;
-[e ++ _seconds -> -> 1 `i `uc ]
-"45
-[; ;application.c: 45:         if (seconds == 60)
-[e $ ! == -> _seconds `i -> 60 `i 285  ]
-"46
-[; ;application.c: 46:         {
-{
-"47
-[; ;application.c: 47:             minutes++;
-[e ++ _minutes -> -> 1 `i `uc ]
-"48
-[; ;application.c: 48:             seconds = 0;
-[e = _seconds -> -> 0 `i `uc ]
-"49
-[; ;application.c: 49:         }
-}
-[e :U 285 ]
-"50
-[; ;application.c: 50:         if (minutes == 60)
-[e $ ! == -> _minutes `i -> 60 `i 286  ]
-"51
-[; ;application.c: 51:         {
-{
-"52
-[; ;application.c: 52:             hours++;
-[e ++ _hours -> -> 1 `i `uc ]
-"53
-[; ;application.c: 53:             minutes = 0;
-[e = _minutes -> -> 0 `i `uc ]
-"54
-[; ;application.c: 54:         }
-}
-[e :U 286 ]
-"55
-[; ;application.c: 55:         if (hours == 13)
-[e $ ! == -> _hours `i -> 13 `i 287  ]
-"56
-[; ;application.c: 56:         {
-{
-"57
-[; ;application.c: 57:             hours = 1;
-[e = _hours -> -> 1 `i `uc ]
-"58
-[; ;application.c: 58:         }
-}
-[e :U 287 ]
-"61
-[; ;application.c: 61:     }
-}
-[e :U 279 ]
-[e $U 280  ]
-[e :U 281 ]
-"62
-[; ;application.c: 62:     return (0);
-[e ) -> 0 `i ]
-[e $UE 278  ]
-"63
-[; ;application.c: 63: }
-[e :UE 278 ]
-}
-"64
-[; ;application.c: 64: void Application (void)
-[v _Application `(v ~T0 @X0 1 ef ]
-"65
-[; ;application.c: 65: {
-{
-[e :U _Application ]
+[e :U _seven_segment_write_number ]
+[v _seg `*CS271 ~T0 @X0 1 r1 ]
+[v _number `uc ~T0 @X0 1 r2 ]
 [f ]
-"66
-[; ;application.c: 66:     ret = gpio_port_direction_intialize(PORTC_INDEX, 0xF0);
-[e = _ret ( _gpio_port_direction_intialize (2 , . `E2832 2 -> -> 240 `i `uc ]
-"67
-[; ;application.c: 67:     ret = gpio_port_direction_intialize(PORTD_INDEX, 0xC0);
-[e = _ret ( _gpio_port_direction_intialize (2 , . `E2832 3 -> -> 192 `i `uc ]
-"69
-[; ;application.c: 69: }
-[e :UE 288 ]
+"23
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 23:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"24
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 24:     if ((seg == ((void*)0)) || (number > 9))
+[e $ ! || == _seg -> -> -> 0 `i `*v `*CS271 > -> _number `i -> 9 `i 276  ]
+"25
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 25:     {
+{
+"26
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 26:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"27
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 27:     }
+}
+[e $U 277  ]
+"28
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 28:     else
+[e :U 276 ]
+"29
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 29:     {
+{
+"31
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 31:     }
+}
+[e :U 277 ]
+"32
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 32:     return ret;
+[e ) _ret ]
+[e $UE 275  ]
+"33
+[; ;ECU_Layer/7_segment/ecu_seven_seg.c: 33: }
+[e :UE 275 ]
 }
