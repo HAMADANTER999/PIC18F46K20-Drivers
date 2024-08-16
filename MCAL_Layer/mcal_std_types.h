@@ -27,6 +27,8 @@
 #define E_OK           (Std_ReturnType)0x01
 #define E_NOT_OK       (Std_ReturnType)0x00
 
+#define ZERO_INIT      0X00
+
 
 
 

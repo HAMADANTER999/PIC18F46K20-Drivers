@@ -16,6 +16,8 @@
 
 # 1 "./application.h" 1
 # 13 "./application.h"
+# 1 "./ECU_Layer/ecu_layer_init.h" 1
+# 14 "./ECU_Layer/ecu_layer_init.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -186,7 +188,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 13 "./application.h" 2
+# 14 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -265,7 +267,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 14 "./application.h" 2
+# 15 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/LED/ecu_led.h" 1
 # 12 "./ECU_Layer/LED/ecu_led.h"
@@ -4658,7 +4660,7 @@ unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
 # 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 2
 # 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
-# 35 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 37 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4753,7 +4755,7 @@ Std_ReturnType led_initialize(const led_t *led);
 Std_ReturnType led_turn_on(const led_t *led);
 Std_ReturnType led_turn_off(const led_t *led);
 Std_ReturnType led_turn_toggle(const led_t *led);
-# 15 "./application.h" 2
+# 16 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/Button/ecu_button.h" 1
 # 13 "./ECU_Layer/Button/ecu_button.h"
@@ -4786,7 +4788,7 @@ typedef struct {
 
 Std_ReturnType button_initialize(const button_t *btn);
 Std_ReturnType button_read_state(const button_t *btn, button_state_t *btn_state);
-# 16 "./application.h" 2
+# 17 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/Relay/ecu_relay.h" 1
 # 13 "./ECU_Layer/Relay/ecu_relay.h"
@@ -4804,7 +4806,7 @@ typedef struct {
 Std_ReturnType relay_initialize(const relay_t *relay);
 Std_ReturnType relay_turn_on(const relay_t *relay);
 Std_ReturnType relay_turn_off(const relay_t *relay);
-# 17 "./application.h" 2
+# 18 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 1
 # 13 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
@@ -4821,7 +4823,7 @@ Std_ReturnType dc_motor_initialize(dc_motor_t *_dc_motor);
 Std_ReturnType dc_motor_move_right(dc_motor_t *_dc_motor);
 Std_ReturnType dc_motor_move_left(dc_motor_t *_dc_motor);
 Std_ReturnType dc_motor_stop(dc_motor_t *_dc_motor);
-# 18 "./application.h" 2
+# 19 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/7_segment/ecu_seven_seg.h" 1
 # 13 "./ECU_Layer/7_segment/ecu_seven_seg.h"
@@ -4840,13 +4842,13 @@ typedef struct {
 
 Std_ReturnType seven_segment_intialize(const segment_t *seg);
 Std_ReturnType seven_segment_write_number(const segment_t *seg, uint8 number);
-# 19 "./application.h" 2
+# 20 "./ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "./ECU_Layer/keypad/ecu_keypad.h" 1
 # 12 "./ECU_Layer/keypad/ecu_keypad.h"
 # 1 "./ECU_Layer/keypad/ecu_keypad_cfg.h" 1
 # 12 "./ECU_Layer/keypad/ecu_keypad.h" 2
-# 24 "./ECU_Layer/keypad/ecu_keypad.h"
+# 26 "./ECU_Layer/keypad/ecu_keypad.h"
 typedef struct {
     pin_config_t keypad_row_pins[4];
     pin_config_t keypad_columns_pins[4];
@@ -4855,18 +4857,44 @@ typedef struct {
 
 Std_ReturnType keypad_initialize(const keypad_t *_keypad_obj);
 Std_ReturnType keypad_get_value(const keypad_t *_keypad_obj, uint8 *value);
-# 20 "./application.h" 2
-# 29 "./application.h"
+# 21 "./ECU_Layer/ecu_layer_init.h" 2
+
+
+
+
+
+
+
+extern keypad_t keypad1;
+extern led_t led_1;
+
+
+void ecu_layer_initialize (void);
+# 13 "./application.h" 2
+# 22 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
+uint8 keypad_value = 0X00;
 
 int main() {
     Application ();
     while (1)
     {
+        ret = keypad_get_value(&keypad1, &keypad_value);
+        if (keypad_value == '1')
+        {
+            ret = led_turn_on(&led_1);
+        }
+        else if (keypad_value == '2')
+        {
+            ret = led_turn_off(&led_1);
+        }
+        else {}
+
+
 
     }
 
@@ -4874,5 +4902,5 @@ int main() {
 }
 void Application (void)
 {
-
+    ecu_layer_initialize();
 }
