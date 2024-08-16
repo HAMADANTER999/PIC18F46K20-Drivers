@@ -3,6 +3,16 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
+"10 D:\Courses\Embedded C\projects\ECU_Layer/7_segment/ecu_seven_seg.c
+[e E2553 . `uc
+SEGMENT_COMMON_ANODE 0
+SEGMENT_COMMON_CATHODE 1
+]
+"33
+[e E2493 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "18 D:\Courses\Embedded C\projects\ECU_Layer/Button/ecu_button.c
 [e E2553 . `uc
 BUTTON_PRESSED 0
@@ -60,55 +70,10 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"10 D:\Courses\Embedded C\projects\application.c
-[e E2832 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
-]
-[e E2822 . `uc
-GPIO_PIN0 0
-GPIO_PIN1 1
-GPIO_PIN2 2
-GPIO_PIN3 3
-GPIO_PIN4 4
-GPIO_PIN5 5
-GPIO_PIN6 6
-GPIO_PIN7 7
-]
-[e E2818 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
-]
-[e E2814 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"24
-[e E2931 . `uc
-SEGMENT_COMMON_ANODE 0
-SEGMENT_COMMON_CATHODE 1
-]
-"10 D:\Courses\Embedded C\projects\ECU_Layer/7_segment/ecu_seven_seg.c
-[e E2553 . `uc
-SEGMENT_COMMON_ANODE 0
-SEGMENT_COMMON_CATHODE 1
-]
-"33
-[e E2493 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"47 D:\Courses\Embedded C\projects\application.c
+"12 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
-"72
+"21
 [v _Application Application `(v  1 e 1 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
@@ -133,10 +98,6 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"10 D:\Courses\Embedded C\projects\ECU_Layer/7_segment/ecu_seven_seg.c
-[v _seven_segment_intialize seven_segment_intialize `(uc  1 e 1 0 ]
-"25
-[v _seven_segment_write_number seven_segment_write_number `(uc  1 e 1 0 ]
 "27 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "84
@@ -147,23 +108,6 @@ GPIO_HIGH 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "167
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"10 D:\Courses\Embedded C\projects\application.c
-[v _seg1_enable seg1_enable `S24  1 e 1 0 ]
-"17
-[v _seg2_enable seg2_enable `S24  1 e 1 0 ]
-"24
-[s S392 . 5 `[4]S24 1 segments_pins 4 0 `E2931 1 segment_type 1 4 ]
-[v _seg1 seg1 `S392  1 e 5 0 ]
-"44
-[v _ret ret `uc  1 e 1 0 ]
-"45
-[v _number number `uc  1 e 1 0 ]
-[v _counter counter `uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -200,108 +144,13 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "15
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"47 D:\Courses\Embedded C\projects\application.c
+"12 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"71
+"20
 } 0
-"25 D:\Courses\Embedded C\projects\ECU_Layer/7_segment/ecu_seven_seg.c
-[v _seven_segment_write_number seven_segment_write_number `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S392 . 5 `[4]S24 1 segments_pins 4 0 `E2931 1 segment_type 1 4 ]
-[v seven_segment_write_number@seg seg `*.30CS392  1 p 1 8 ]
-[v seven_segment_write_number@number number `uc  1 p 1 9 ]
-"40
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awmod@dividend dividend `i  1 p 2 0 ]
-[v ___awmod@divisor divisor `i  1 p 2 2 ]
-"34
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
-"41
-} 0
-"72 D:\Courses\Embedded C\projects\application.c
+"21
 [v _Application Application `(v  1 e 1 0 ]
 {
-"78
-} 0
-"10 D:\Courses\Embedded C\projects\ECU_Layer/7_segment/ecu_seven_seg.c
-[v _seven_segment_intialize seven_segment_intialize `(uc  1 e 1 0 ]
-{
-"11
-[v seven_segment_intialize@ret ret `uc  1 a 1 12 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"10
-[s S392 . 5 `[4]S24 1 segments_pins 4 0 `E2931 1 segment_type 1 4 ]
-[v seven_segment_intialize@seg seg `*.30CS392  1 p 1 11 ]
 "24
-} 0
-"167 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-{
-"168
-[v gpio_pin_intialize@ret ret `uc  1 a 1 10 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"167
-[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 8 ]
-"180
-} 0
-"84
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-{
-"85
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"84
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `E2493  1 p 1 1 ]
-"106
-} 0
-"27
-[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
-{
-"28
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 6 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"27
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-"47
 } 0
