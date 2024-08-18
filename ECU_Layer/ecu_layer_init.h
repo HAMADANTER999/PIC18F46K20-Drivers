@@ -19,14 +19,15 @@
 #include "DC_Motor/ecu_dc_motor.h"
 #include "7_segment/ecu_seven_seg.h"
 #include "keypad/ecu_keypad.h"
+#include "chr_lcd/ecu_chr_lcd.h"
 
 /* Section : Macro Declarations*/
 
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/
-extern keypad_t keypad1;
-extern led_t led_1;
+extern chr_lcd_4bit_t lcd_1;
+extern chr_lcd_8bit_t lcd_2;
 
 /* Section : Function Declarations*/
 void ecu_layer_initialize (void);

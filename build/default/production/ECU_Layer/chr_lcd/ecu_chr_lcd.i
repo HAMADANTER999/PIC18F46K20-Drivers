@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU_Layer/chr_lcd/ecu_chr_lcd.c" 2
 
 
 
@@ -14,265 +14,10 @@
 
 
 
-# 1 "./application.h" 1
-# 13 "./application.h"
-# 1 "./ECU_Layer/ecu_layer_init.h" 1
-# 14 "./ECU_Layer/ecu_layer_init.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 2 3
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\features.h" 1 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 2 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 14 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
-
-int atoi (const char *);
-long atol (const char *);
-
-long long atoll (const char *);
-
-double atof (const char *);
-
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-
-unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
-
-unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
-# 55 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
-int rand (void);
-void srand (unsigned);
-
-void *malloc (size_t);
-void *calloc (size_t, size_t);
-void *realloc (void *, size_t);
-void free (void *);
-
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-
-long long llabs (long long);
-
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-
-typedef struct { long long quot, rem; } lldiv_t;
-
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-
-lldiv_t lldiv (long long, long long);
-
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-# 15 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/LED/ecu_led.h" 1
-# 12 "./ECU_Layer/LED/ecu_led.h"
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "ECU_Layer/chr_lcd/ecu_chr_lcd.h" 1
+# 12 "ECU_Layer/chr_lcd/ecu_chr_lcd.h"
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 1
+# 12 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4485,16 +4230,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 12 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
 
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../std_libraries.h" 1
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
+# 13 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../std_libraries.h" 1
+# 13 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 1
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h"
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../compiler.h" 1
+# 13 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4504,7 +4249,112 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\xc8debug.h" 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\features.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+
+int atoi (const char *);
+long atol (const char *);
+
+long long atoll (const char *);
+
+double atof (const char *);
+
+
+float strtof (const char *restrict, char **restrict);
+double strtod (const char *restrict, char **restrict);
+long double strtold (const char *restrict, char **restrict);
+
+
+
+long strtol (const char *restrict, char **restrict, int);
+unsigned long strtoul (const char *restrict, char **restrict, int);
+
+long long strtoll (const char *restrict, char **restrict, int);
+unsigned long long strtoull (const char *restrict, char **restrict, int);
+
+
+unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
+
+unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
+# 55 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
+int rand (void);
+void srand (unsigned);
+
+void *malloc (size_t);
+void *calloc (size_t, size_t);
+void *realloc (void *, size_t);
+void free (void *);
+
+          void abort (void);
+int atexit (void (*) (void));
+          void exit (int);
+          void _Exit (int);
+
+void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+
+
+
+
+
+
+__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int abs (int);
+long labs (long);
+
+long long llabs (long long);
+
+
+typedef struct { int quot, rem; } div_t;
+typedef struct { long quot, rem; } ldiv_t;
+
+typedef struct { long long quot, rem; } lldiv_t;
+
+
+div_t div (int, int);
+ldiv_t ldiv (long, long);
+
+lldiv_t lldiv (long long, long long);
+
+
+typedef struct { unsigned int quot, rem; } udiv_t;
+typedef struct { unsigned long quot, rem; } uldiv_t;
+udiv_t udiv (unsigned int, unsigned int);
+uldiv_t uldiv (unsigned long, unsigned long);
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\xc8debug.h" 2 3
+
+
+
+
+
+
+
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 23 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
@@ -4658,9 +4508,9 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 2
-# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
-# 37 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 13 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../compiler.h" 2
+# 14 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 37 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4669,14 +4519,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 14 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../device_config.h" 1
-# 15 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../device_config.h" 1
+# 15 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
-# 16 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 37 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 16 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 37 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4727,143 +4577,11 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 Std_ReturnType gpio_port_write_logic(port_index_t port, uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 12 "./ECU_Layer/LED/ecu_led.h" 2
+# 12 "ECU_Layer/chr_lcd/ecu_chr_lcd.h" 2
 
-# 1 "./ECU_Layer/LED/ecu_led_cfg.h" 1
-# 13 "./ECU_Layer/LED/ecu_led.h" 2
-
-
-
-
-
-
-
-typedef enum{
-    LED_OFF = 0,
-    LED_ON,
-}led_status;
-
-typedef struct{
-    uint8 port_name : 4;
-    uint8 pin : 3;
-    uint8 led_status : 1;
-}led_t;
-
-
-
-Std_ReturnType led_initialize(const led_t *led);
-Std_ReturnType led_turn_on(const led_t *led);
-Std_ReturnType led_turn_off(const led_t *led);
-Std_ReturnType led_turn_toggle(const led_t *led);
-# 16 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/Button/ecu_button.h" 1
-# 13 "./ECU_Layer/Button/ecu_button.h"
-# 1 "./ECU_Layer/Button/ecu_button_cfg.h" 1
-# 13 "./ECU_Layer/Button/ecu_button.h" 2
-
-
-
-
-
-
-
-
-typedef enum {
-    BUTTON_PRESSED = 0,
-    BUTTON_RELEASED
-}button_state_t;
-
-typedef enum {
-    BUTTON_ACTIVE_HIGH = 0,
-    BUTTON_ACTIVE_LOW
-}button_active_t;
-
-typedef struct {
-    pin_config_t button_pin;
-    button_state_t button_state;
-    button_active_t button_conection;
-}button_t;
-
-
-Std_ReturnType button_initialize(const button_t *btn);
-Std_ReturnType button_read_state(const button_t *btn, button_state_t *btn_state);
-# 17 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/Relay/ecu_relay.h" 1
-# 13 "./ECU_Layer/Relay/ecu_relay.h"
-# 1 "./ECU_Layer/Relay/ecu_relay_cfg.h" 1
-# 13 "./ECU_Layer/Relay/ecu_relay.h" 2
-# 24 "./ECU_Layer/Relay/ecu_relay.h"
-typedef struct {
-    uint8 relay_port : 4;
-    uint8 relay_pin : 3;
-    uint8 relay_status : 1;
-}relay_t;
-
-
-
-Std_ReturnType relay_initialize(const relay_t *relay);
-Std_ReturnType relay_turn_on(const relay_t *relay);
-Std_ReturnType relay_turn_off(const relay_t *relay);
-# 18 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 1
-# 13 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor_cfg.h" 1
-# 13 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
-# 28 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
-typedef struct {
-    pin_config_t dc_motor[0x02U];
-}dc_motor_t;
-
-
-
-Std_ReturnType dc_motor_initialize(dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_move_right(dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_move_left(dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_stop(dc_motor_t *_dc_motor);
-# 19 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/7_segment/ecu_seven_seg.h" 1
-# 13 "./ECU_Layer/7_segment/ecu_seven_seg.h"
-# 1 "./ECU_Layer/7_segment/ecu_seven_seg_cfg.h" 1
-# 13 "./ECU_Layer/7_segment/ecu_seven_seg.h" 2
-# 33 "./ECU_Layer/7_segment/ecu_seven_seg.h"
-typedef enum {
-    SEGMENT_COMMON_ANODE = 0,
-    SEGMENT_COMMON_CATHODE
-}segment_type_t;
-
-typedef struct {
-    pin_config_t segments_pins[4];
-    segment_type_t segment_type;
-}segment_t;
-
-Std_ReturnType seven_segment_intialize(const segment_t *seg);
-Std_ReturnType seven_segment_write_number(const segment_t *seg, uint8 number);
-# 20 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/keypad/ecu_keypad.h" 1
-# 12 "./ECU_Layer/keypad/ecu_keypad.h"
-# 1 "./ECU_Layer/keypad/ecu_keypad_cfg.h" 1
-# 12 "./ECU_Layer/keypad/ecu_keypad.h" 2
-# 26 "./ECU_Layer/keypad/ecu_keypad.h"
-typedef struct {
-    pin_config_t keypad_row_pins[4];
-    pin_config_t keypad_columns_pins[4];
-
-}keypad_t;
-
-Std_ReturnType keypad_initialize(const keypad_t *_keypad_obj);
-Std_ReturnType keypad_get_value(const keypad_t *_keypad_obj, uint8 *value);
-# 21 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/chr_lcd/ecu_chr_lcd.h" 1
-# 13 "./ECU_Layer/chr_lcd/ecu_chr_lcd.h"
-# 1 "./ECU_Layer/chr_lcd/ecu_chr_lcd_cfg.h" 1
-# 13 "./ECU_Layer/chr_lcd/ecu_chr_lcd.h" 2
-# 22 "./ECU_Layer/chr_lcd/ecu_chr_lcd.h"
+# 1 "ECU_Layer/chr_lcd/ecu_chr_lcd_cfg.h" 1
+# 13 "ECU_Layer/chr_lcd/ecu_chr_lcd.h" 2
+# 22 "ECU_Layer/chr_lcd/ecu_chr_lcd.h"
 typedef struct {
     pin_config_t lcd_rs;
     pin_config_t lcd_en;
@@ -4897,7 +4615,7 @@ Std_ReturnType lcd_8bit_send_custom_char(const chr_lcd_8bit_t *lcd, uint8 row, u
 Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str);
 Std_ReturnType convert_short_to_string(uint16 value, uint8 *str);
 Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
-# 22 "./ECU_Layer/ecu_layer_init.h" 2
+# 8 "ECU_Layer/chr_lcd/ecu_chr_lcd.c" 2
 
 
 
@@ -4905,30 +4623,292 @@ Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
 
 
 
-extern chr_lcd_4bit_t lcd_1;
-extern chr_lcd_8bit_t lcd_2;
-
-
-void ecu_layer_initialize (void);
-# 13 "./application.h" 2
-# 22 "./application.h"
-void Application (void);
-# 8 "application.c" 2
-
-
-Std_ReturnType ret = (Std_ReturnType)0x00;
-
-int main() {
-    Application ();
-    while (1)
+Std_ReturnType lcd_4bit_initialize(const chr_lcd_4bit_t *lcd){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 l_data_pin_counter = 0X00;
+    if (((void*)0) == lcd)
     {
-
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        ret = gpio_pin_intialize(&(lcd->lcd_rs));
+        ret = gpio_pin_intialize(&(lcd->lcd_en));
+        for (l_data_pin_counter = 0X00 ; l_data_pin_counter<4 ; l_data_pin_counter++)
+        {
+            ret = gpio_pin_intialize(&(lcd->lcd_data[l_data_pin_counter]));
+        }
 
     }
-
-    return (0);
+    return ret;
 }
-void Application (void)
-{
-    ecu_layer_initialize();
+
+
+
+
+
+
+Std_ReturnType lcd_4bit_send_command(const chr_lcd_4bit_t *lcd, uint8 commad){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_4bit_send_char_data(const chr_lcd_4bit_t *lcd, uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 78 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_4bit_send_char_data_pos(const chr_lcd_4bit_t *lcd,uint8 row, uint8 coulmn,
+                                           uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_4bit_send_string(const chr_lcd_4bit_t *lcd, uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 117 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_4bit_send_string_pos(const chr_lcd_4bit_t *lcd, uint8 row, uint8 coulmn,
+                                        uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 140 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_4bit_send_custom_char(const chr_lcd_4bit_t *lcd, uint8 row, uint8 coulmn,
+                                         uint8 *str,const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_8bit_initialize(const chr_lcd_8bit_t *lcd){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 l_data_pin_counter = 0X00;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        ret = gpio_pin_intialize(&(lcd->lcd_rs));
+        ret = gpio_pin_intialize(&(lcd->lcd_en));
+        for (l_data_pin_counter = 0X00 ; l_data_pin_counter<8 ; l_data_pin_counter++)
+        {
+            ret = gpio_pin_intialize(&(lcd->lcd_data[l_data_pin_counter]));
+        }
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_8bit_send_command(const chr_lcd_8bit_t *lcd, uint8 commad){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_8bit_send_char_data(const chr_lcd_8bit_t *lcd, uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 221 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_8bit_send_char_data_pos(const chr_lcd_8bit_t *lcd,uint8 row, uint8 coulmn,
+                                           uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType lcd_8bit_send_string(const chr_lcd_8bit_t *lcd, uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 260 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_8bit_send_string_pos(const chr_lcd_8bit_t *lcd, uint8 row, uint8 coulmn,
+                                        uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 283 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+Std_ReturnType lcd_8bit_send_custom_char(const chr_lcd_8bit_t *lcd, uint8 row, uint8 coulmn,
+                                         uint8 *str,const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == lcd || ((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType convert_short_to_string(uint16 value, uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+Std_ReturnType convert_int_to_string(uint32 value, uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == str)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
 }
