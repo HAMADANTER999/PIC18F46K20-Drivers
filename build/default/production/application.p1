@@ -3,8 +3,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 ./application.h
 [; ;./application.h: 22: void Application (void);
 [v _Application `(v ~T0 @X0 0 ef ]
-"33 ./ECU_Layer/ecu_layer_init.h
-[; ;./ECU_Layer/ecu_layer_init.h: 33: void ecu_layer_initialize (void);
+"66 ./ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
+"57 ./ECU_Layer/chr_lcd/ecu_chr_lcd.h
+[; ;./ECU_Layer/chr_lcd/ecu_chr_lcd.h: 57: typedef struct {
+[s S281 `S273 1 `S273 1 `S273 -> 8 `i ]
+[n S281 . lcd_rs lcd_en lcd_data ]
+"78
+[; ;./ECU_Layer/chr_lcd/ecu_chr_lcd.h: 78: Std_ReturnType lcd_8bit_send_string_pos(const chr_lcd_8bit_t *lcd, uint8 row, uint8 coulmn, uint8 *str);
+[v _lcd_8bit_send_string_pos `(uc ~T0 @X0 0 ef4`*CS281`uc`uc`*uc ]
+"28 ./ECU_Layer/ecu_layer_init.h
+[; ;./ECU_Layer/ecu_layer_init.h: 28: extern chr_lcd_8bit_t lcd_2;
+[v _lcd_2 `S281 ~T0 @X0 0 e ]
+"82 ./ECU_Layer/chr_lcd/ecu_chr_lcd.h
+[; ;./ECU_Layer/chr_lcd/ecu_chr_lcd.h: 82: Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str);
+[v _convert_byte_to_string `(uc ~T0 @X0 0 ef2`uc`*uc ]
+[v F2951 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF2951 ~T0 @X0 0 e ]
+[p i __delay ]
+"65 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h: 65:           void exit (int);
+[v _exit `(v ~T0 @X0 0 ef1`i ]
+"31 ./ECU_Layer/ecu_layer_init.h
+[; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
 [v _ecu_layer_initialize `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
@@ -423,48 +446,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _ret
 -> -> 0 `i `uc
 ]
+"16
+[; ;application.c: 16: uint8 lcd_counter = 0X00;
+[v _lcd_counter `uc ~T0 @X0 1 e ]
+[i _lcd_counter
+-> -> 0 `i `uc
+]
+"17
+[; ;application.c: 17: uint8 lcd_counter_txt[4];
+[v _lcd_counter_txt `uc ~T0 @X0 -> 4 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"12
-[; ;application.c: 12: int main() {
+"19
+[; ;application.c: 19: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"13
-[; ;application.c: 13:     Application ();
-[e ( _Application ..  ]
-"14
-[; ;application.c: 14:     while (1)
-[e :U 283 ]
-"15
-[; ;application.c: 15:     {
-{
-"18
-[; ;application.c: 18:     }
-}
-[e :U 282 ]
-[e $U 283  ]
-[e :U 284 ]
 "20
-[; ;application.c: 20:     return (0);
-[e ) -> 0 `i ]
-[e $UE 281  ]
+[; ;application.c: 20:     Application ();
+[e ( _Application ..  ]
 "21
-[; ;application.c: 21: }
-[e :UE 281 ]
-}
+[; ;application.c: 21:     ret = lcd_8bit_send_string_pos(&lcd_2, 2, 7, "loading   %");
+[e = _ret ( _lcd_8bit_send_string_pos (4 , , , -> &U _lcd_2 `*CS281 -> -> 2 `i `uc -> -> 7 `i `uc :s 1C ]
 "22
-[; ;application.c: 22: void Application (void)
-[v _Application `(v ~T0 @X0 1 ef ]
+[; ;application.c: 22:     while (1)
+[e :U 284 ]
 "23
-[; ;application.c: 23: {
+[; ;application.c: 23:     {
+{
+"24
+[; ;application.c: 24:         ret = convert_byte_to_string(lcd_counter, lcd_counter_txt);
+[e = _ret ( _convert_byte_to_string (2 , _lcd_counter &U _lcd_counter_txt ]
+"25
+[; ;application.c: 25:         ret = lcd_8bit_send_string_pos(&lcd_2, 2, 15, lcd_counter_txt);
+[e = _ret ( _lcd_8bit_send_string_pos (4 , , , -> &U _lcd_2 `*CS281 -> -> 2 `i `uc -> -> 15 `i `uc &U _lcd_counter_txt ]
+"26
+[; ;application.c: 26:         _delay((unsigned long)((50)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"27
+[; ;application.c: 27:         if (lcd_counter == 100)
+[e $ ! == -> _lcd_counter `i -> 100 `i 286  ]
+"28
+[; ;application.c: 28:         {
+{
+"29
+[; ;application.c: 29:             ret = lcd_8bit_send_string_pos(&lcd_2, 2, 5, "Done successful");
+[e = _ret ( _lcd_8bit_send_string_pos (4 , , , -> &U _lcd_2 `*CS281 -> -> 2 `i `uc -> -> 5 `i `uc :s 2C ]
+"30
+[; ;application.c: 30:             exit(1);
+[e ( _exit (1 -> 1 `i ]
+"31
+[; ;application.c: 31:         }
+}
+[e $U 287  ]
+"32
+[; ;application.c: 32:         else {
+[e :U 286 ]
+{
+"33
+[; ;application.c: 33:             lcd_counter++;
+[e ++ _lcd_counter -> -> 1 `i `uc ]
+"34
+[; ;application.c: 34:         }
+}
+[e :U 287 ]
+"36
+[; ;application.c: 36:     }
+}
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"38
+[; ;application.c: 38:     return (0);
+[e ) -> 0 `i ]
+[e $UE 282  ]
+"39
+[; ;application.c: 39: }
+[e :UE 282 ]
+}
+"40
+[; ;application.c: 40: void Application (void)
+[v _Application `(v ~T0 @X0 1 ef ]
+"41
+[; ;application.c: 41: {
 {
 [e :U _Application ]
 [f ]
-"24
-[; ;application.c: 24:     ecu_layer_initialize();
+"42
+[; ;application.c: 42:     ecu_layer_initialize();
 [e ( _ecu_layer_initialize ..  ]
-"25
-[; ;application.c: 25: }
-[e :UE 285 ]
+"43
+[; ;application.c: 43: }
+[e :UE 288 ]
 }
+[a 2C 68 111 110 101 32 115 117 99 99 101 115 115 102 117 108 0 ]
+[a 1C 108 111 97 100 105 110 103 32 32 32 37 0 ]

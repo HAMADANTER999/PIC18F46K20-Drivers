@@ -11,8 +11,6 @@
 
 /* Section : includes*/
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "LED/ecu_led.h"
 #include "Button/ecu_button.h"
 #include "Relay/ecu_relay.h"
