@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Mon Aug 19 18:27:57 2024
+                                                                                               Fri Aug 23 14:04:53 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F4620
@@ -176,7 +176,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    162   001010  2B                 	db	43
    163   001011                     __end_of_btn_values:
    164                           	callstack 0
-   165   001011                     STR_2:
+   165   001011                     STR_5:
    166   001011  44                 	db	68	;'D'
    167   001012  6F                 	db	111	;'o'
    168   001013  6E                 	db	110	;'n'
@@ -193,7 +193,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    179   00101E  75                 	db	117	;'u'
    180   00101F  6C                 	db	108	;'l'
    181   001020  00                 	db	0
-   182   001021                     STR_1:
+   182   001021                     STR_4:
    183   001021  6C                 	db	108	;'l'
    184   001022  6F                 	db	111	;'o'
    185   001023  61                 	db	97	;'a'
@@ -206,7 +206,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    192   00102A  20                 	db	32
    193   00102B  25                 	db	37
    194   00102C  00                 	db	0
-   195   00102D                     STR_3:
+   195   00102D                     STR_1:
    196   00102D  25                 	db	37
    197   00102E  69                 	db	105	;'i'
    198   00102F  00                 	db	0
@@ -438,13 +438,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    424                           ; 1 bytes @ 0x7
    425   000036                     	ds	1
    426   000037                     ??_abs:
-   427   000037                     gpio_pin_intialize@_pin_config:
+   427   000037                     lcd_send_4bits@lcd:
    428                           	callstack 0
-   429   000037                     lcd_send_4bits@lcd:
+   429   000037                     lcd_send_4bits_enable_signal@lcd:
    430                           	callstack 0
-   431   000037                     lcd_send_4bits_enable_signal@lcd:
+   431   000037                     lcd_send_8bits_enable_signal@lcd:
    432                           	callstack 0
-   433   000037                     lcd_send_8bits_enable_signal@lcd:
+   433   000037                     gpio_pin_intialize@_pin_config:
    434                           	callstack 0
    435                           
    436                           ; 1 bytes @ 0x8
@@ -461,13 +461,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    447                           
    448                           ; 1 bytes @ 0x9
    449   000038                     	ds	1
-   450   000039                     gpio_pin_intialize@ret:
+   450   000039                     lcd_8bit_send_command@command:
    451                           	callstack 0
-   452   000039                     lcd_8bit_send_command@command:
+   452   000039                     lcd_8bit_send_char_data@data:
    453                           	callstack 0
-   454   000039                     lcd_8bit_send_char_data@data:
+   454   000039                     lcd_send_4bits@ret:
    455                           	callstack 0
-   456   000039                     lcd_send_4bits@ret:
+   456   000039                     gpio_pin_intialize@ret:
    457                           	callstack 0
    458   000039                     vfpfcnvrt@fp:
    459                           	callstack 0
@@ -640,7 +640,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    626 ;; Auto vars:     Size  Location     Type
    627 ;;		None
    628 ;; Return value:  Size  Location     Type
-   629 ;;                  2  310[None  ] int 
+   629 ;;                  2  490[None  ] int 
    630 ;; Registers used:
    631 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
    632 ;; Tracked objects:
@@ -685,7 +685,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    666   0018B0  6E43               	movwf	lcd_8bit_send_string_pos@row^0,c
    667   0018B2  0E07               	movlw	7
    668   0018B4  6E44               	movwf	lcd_8bit_send_string_pos@coulmn^0,c
-   669   0018B6  0E21               	movlw	low STR_1
+   669   0018B6  0E21               	movlw	low STR_4
    670   0018B8  6E45               	movwf	lcd_8bit_send_string_pos@str^0,c
    671   0018BA  5045               	movf	lcd_8bit_send_string_pos@str^0,w,c
    672   0018BC  A4D8               	btfss	status,2,c
@@ -693,7 +693,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    674   0018C0  6E46               	movwf	(lcd_8bit_send_string_pos@str+1)^0,c
    675   0018C2  ECFF  F00B         	call	_lcd_8bit_send_string_pos	;wreg free
    676   0018C6  6E75               	movwf	_ret^0,c
-   677   0018C8                     l3110:
+   677   0018C8                     l3250:
    678                           
    679                           ;application.c: 23:     {;application.c: 24:         ret = convert_byte_to_string(lcd_co
       +                          unter, lcd_counter_txt);
@@ -731,11 +731,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    710   0018FA  0E64               	movlw	100
    711   0018FC  1869               	xorwf	_lcd_counter^0,w,c
    712   0018FE  A4D8               	btfss	status,2,c
-   713   001900  EF84  F00C         	goto	u2311
-   714   001904  EF86  F00C         	goto	u2310
-   715   001908                     u2311:
-   716   001908  EF9D  F00C         	goto	l3122
-   717   00190C                     u2310:
+   713   001900  EF84  F00C         	goto	u2471
+   714   001904  EF86  F00C         	goto	u2470
+   715   001908                     u2471:
+   716   001908  EF9D  F00C         	goto	l3262
+   717   00190C                     u2470:
    718   00190C                     
    719                           ;application.c: 28:         {;application.c: 29:             ret = lcd_8bit_send_string_
       +                          pos(&lcd_2, 2, 5, "Done successful");
@@ -745,7 +745,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    723   001912  6E43               	movwf	lcd_8bit_send_string_pos@row^0,c
    724   001914  0E05               	movlw	5
    725   001916  6E44               	movwf	lcd_8bit_send_string_pos@coulmn^0,c
-   726   001918  0E11               	movlw	low STR_2
+   726   001918  0E11               	movlw	low STR_5
    727   00191A  6E45               	movwf	lcd_8bit_send_string_pos@str^0,c
    728   00191C  5045               	movf	lcd_8bit_send_string_pos@str^0,w,c
    729   00191E  A4D8               	btfss	status,2,c
@@ -762,12 +762,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    740   001932  EC11  F00F         	call	_exit	;wreg free
    741                           
    742                           ;application.c: 31:         }
-   743   001936  EF64  F00C         	goto	l3110
-   744   00193A                     l3122:
+   743   001936  EF64  F00C         	goto	l3250
+   744   00193A                     l3262:
    745                           
    746                           ;application.c: 33:             lcd_counter++;
    747   00193A  2A69               	incf	_lcd_counter^0,f,c
-   748   00193C  EF64  F00C         	goto	l3110
+   748   00193C  EF64  F00C         	goto	l3250
    749   001940  EF00  F000         	goto	start
    750   001944                     __end_of_main:
    751                           	callstack 0
@@ -781,7 +781,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    759 ;;  row             1   20[COMRAM] unsigned char 
    760 ;;  coulmn          1   21[COMRAM] unsigned char 
    761 ;;  str             2   22[COMRAM] PTR unsigned char 
-   762 ;;		 -> STR_2(16), lcd_counter_txt(4), STR_1(12), 
+   762 ;;		 -> STR_5(16), lcd_counter_txt(4), STR_4(12), 
    763 ;; Auto vars:     Size  Location     Type
    764 ;;  ret             1   24[COMRAM] unsigned char 
    765 ;; Return value:  Size  Location     Type
@@ -822,20 +822,20 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    795                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 361:     if (((void*)0) == lcd || ((void*)0) == str)
    796   0017FE  5042               	movf	lcd_8bit_send_string_pos@lcd^0,w,c
    797   001800  B4D8               	btfsc	status,2,c
-   798   001802  EF05  F00C         	goto	u1941
-   799   001806  EF07  F00C         	goto	u1940
-   800   00180A                     u1941:
-   801   00180A  EF10  F00C         	goto	l2804
-   802   00180E                     u1940:
+   798   001802  EF05  F00C         	goto	u1961
+   799   001806  EF07  F00C         	goto	u1960
+   800   00180A                     u1961:
+   801   00180A  EF10  F00C         	goto	l2826
+   802   00180E                     u1960:
    803   00180E  5045               	movf	lcd_8bit_send_string_pos@str^0,w,c
    804   001810  1046               	iorwf	(lcd_8bit_send_string_pos@str+1)^0,w,c
    805   001812  A4D8               	btfss	status,2,c
-   806   001814  EF0E  F00C         	goto	u1951
-   807   001818  EF10  F00C         	goto	u1950
-   808   00181C                     u1951:
-   809   00181C  EF14  F00C         	goto	l2806
-   810   001820                     u1950:
-   811   001820                     l2804:
+   806   001814  EF0E  F00C         	goto	u1971
+   807   001818  EF10  F00C         	goto	u1970
+   808   00181C                     u1971:
+   809   00181C  EF14  F00C         	goto	l2828
+   810   001820                     u1970:
+   811   001820                     l2826:
    812                           
    813                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 362:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 363:      
       +                             ret = (Std_ReturnType)0x00;
@@ -843,8 +843,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    815   001822  6E47               	movwf	lcd_8bit_send_string_pos@ret^0,c
    816                           
    817                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 364:     }
-   818   001824  EF51  F00C         	goto	l2814
-   819   001828                     l2806:
+   818   001824  EF51  F00C         	goto	l2836
+   819   001828                     l2828:
    820                           
    821                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 366:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 367:      
       +                             ret = lcd_8bit_set_cursor(lcd, row, coulmn);
@@ -855,8 +855,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    826   001838  6E47               	movwf	lcd_8bit_send_string_pos@ret^0,c
    827                           
    828                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 368:         while (*str)
-   829   00183A  EF38  F00C         	goto	l2812
-   830   00183E                     l2808:
+   829   00183A  EF38  F00C         	goto	l2834
+   830   00183E                     l2830:
    831                           
    832                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 369:         {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 370:  
       +                                     ret = lcd_8bit_send_char_data(lcd, *str++);
@@ -867,21 +867,21 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    837   00184C  6EF8               	movwf	tblptru,c
    838   00184E  0E0F               	movlw	(high __ramtop+-1)
    839   001850  64F7               	cpfsgt	tblptrh,c
-   840   001852  D003               	bra	u1967
+   840   001852  D003               	bra	u1987
    841   001854  0008               	tblrd		*
    842   001856  50F5               	movf	tablat,w,c
-   843   001858  D005               	bra	u1960
-   844   00185A                     u1967:
+   843   001858  D005               	bra	u1980
+   844   00185A                     u1987:
    845   00185A  CFF6 FFE9          	movff	tblptrl,fsr0l
    846   00185E  CFF7 FFEA          	movff	tblptrh,fsr0h
    847   001862  50EF               	movf	indf0,w,c
-   848   001864                     u1960:
+   848   001864                     u1980:
    849   001864  6E39               	movwf	lcd_8bit_send_char_data@data^0,c
    850   001866  ECEC  F00C         	call	_lcd_8bit_send_char_data	;wreg free
    851   00186A  6E47               	movwf	lcd_8bit_send_string_pos@ret^0,c
    852   00186C  4A45               	infsnz	lcd_8bit_send_string_pos@str^0,f,c
    853   00186E  2A46               	incf	(lcd_8bit_send_string_pos@str+1)^0,f,c
-   854   001870                     l2812:
+   854   001870                     l2834:
    855                           
    856                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 368:         while (*str)
    857   001870  C045  FFF6         	movff	lcd_8bit_send_string_pos@str,tblptrl
@@ -890,23 +890,23 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    860   00187A  6EF8               	movwf	tblptru,c
    861   00187C  0E0F               	movlw	(high __ramtop+-1)
    862   00187E  64F7               	cpfsgt	tblptrh,c
-   863   001880  D003               	bra	u1977
+   863   001880  D003               	bra	u1997
    864   001882  0008               	tblrd		*
    865   001884  50F5               	movf	tablat,w,c
-   866   001886  D005               	bra	u1970
-   867   001888                     u1977:
+   866   001886  D005               	bra	u1990
+   867   001888                     u1997:
    868   001888  CFF6 FFE9          	movff	tblptrl,fsr0l
    869   00188C  CFF7 FFEA          	movff	tblptrh,fsr0h
    870   001890  50EF               	movf	indf0,w,c
-   871   001892                     u1970:
+   871   001892                     u1990:
    872   001892  0900               	iorlw	0
    873   001894  A4D8               	btfss	status,2,c
-   874   001896  EF4F  F00C         	goto	u1981
-   875   00189A  EF51  F00C         	goto	u1980
-   876   00189E                     u1981:
-   877   00189E  EF1F  F00C         	goto	l2808
-   878   0018A2                     u1980:
-   879   0018A2                     l2814:
+   874   001896  EF4F  F00C         	goto	u2001
+   875   00189A  EF51  F00C         	goto	u2000
+   876   00189E                     u2001:
+   877   00189E  EF1F  F00C         	goto	l2830
+   878   0018A2                     u2000:
+   879   0018A2                     l2836:
    880                           
    881                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 373:     return ret;
    882   0018A2  5047               	movf	lcd_8bit_send_string_pos@ret^0,w,c
@@ -969,7 +969,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    934   00194C  EFAA  F00C         	goto	u1921
    935   001950  EFAC  F00C         	goto	u1920
    936   001954                     u1921:
-   937   001954  EFB0  F00C         	goto	l2760
+   937   001954  EFB0  F00C         	goto	l2758
    938   001958                     u1920:
    939   001958                     
    940                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 542:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 543:      
@@ -978,44 +978,44 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    942   00195A  6E41               	movwf	lcd_8bit_set_cursor@ret^0,c
    943                           
    944                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 544:     }
-   945   00195C  EFEA  F00C         	goto	l2774
-   946   001960                     l2760:
+   945   00195C  EFEA  F00C         	goto	l2772
+   946   001960                     l2758:
    947                           
    948                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 546:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 547:      
       +                             coulmn--;
    949   001960  0640               	decf	lcd_8bit_set_cursor@coulmn^0,f,c
    950                           
    951                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 548:         switch(row)
-   952   001962  EFD7  F00C         	goto	l2772
-   953   001966                     l2762:
+   952   001962  EFD7  F00C         	goto	l2770
+   953   001966                     l2760:
    954   001966  C03E  F038         	movff	lcd_8bit_set_cursor@lcd,lcd_8bit_send_command@lcd
    955   00196A  5040               	movf	lcd_8bit_set_cursor@coulmn^0,w,c
    956   00196C  0F80               	addlw	128
    957   00196E  6E39               	movwf	lcd_8bit_send_command@command^0,c
    958   001970  EC27  F00D         	call	_lcd_8bit_send_command	;wreg free
-   959   001974  EFEA  F00C         	goto	l2774
-   960   001978                     l2764:
+   959   001974  EFEA  F00C         	goto	l2772
+   960   001978                     l2762:
    961   001978  C03E  F038         	movff	lcd_8bit_set_cursor@lcd,lcd_8bit_send_command@lcd
    962   00197C  5040               	movf	lcd_8bit_set_cursor@coulmn^0,w,c
    963   00197E  0FC0               	addlw	192
    964   001980  6E39               	movwf	lcd_8bit_send_command@command^0,c
    965   001982  EC27  F00D         	call	_lcd_8bit_send_command	;wreg free
-   966   001986  EFEA  F00C         	goto	l2774
-   967   00198A                     l2766:
+   966   001986  EFEA  F00C         	goto	l2772
+   967   00198A                     l2764:
    968   00198A  C03E  F038         	movff	lcd_8bit_set_cursor@lcd,lcd_8bit_send_command@lcd
    969   00198E  5040               	movf	lcd_8bit_set_cursor@coulmn^0,w,c
    970   001990  0F94               	addlw	148
    971   001992  6E39               	movwf	lcd_8bit_send_command@command^0,c
    972   001994  EC27  F00D         	call	_lcd_8bit_send_command	;wreg free
-   973   001998  EFEA  F00C         	goto	l2774
-   974   00199C                     l2768:
+   973   001998  EFEA  F00C         	goto	l2772
+   974   00199C                     l2766:
    975   00199C  C03E  F038         	movff	lcd_8bit_set_cursor@lcd,lcd_8bit_send_command@lcd
    976   0019A0  5040               	movf	lcd_8bit_set_cursor@coulmn^0,w,c
    977   0019A2  0FD4               	addlw	212
    978   0019A4  6E39               	movwf	lcd_8bit_send_command@command^0,c
    979   0019A6  EC27  F00D         	call	_lcd_8bit_send_command	;wreg free
-   980   0019AA  EFEA  F00C         	goto	l2774
-   981   0019AE                     l2772:
+   980   0019AA  EFEA  F00C         	goto	l2772
+   981   0019AE                     l2770:
    982   0019AE  503F               	movf	lcd_8bit_set_cursor@row^0,w,c
    983                           
    984                           ; Switch size 1, requested type "simple"
@@ -1026,18 +1026,18 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    989                           ;	Chosen strategy is simple_byte
    990   0019B0  0A01               	xorlw	1	; case 1
    991   0019B2  B4D8               	btfsc	status,2,c
-   992   0019B4  EFB3  F00C         	goto	l2762
+   992   0019B4  EFB3  F00C         	goto	l2760
    993   0019B8  0A03               	xorlw	3	; case 2
    994   0019BA  B4D8               	btfsc	status,2,c
-   995   0019BC  EFBC  F00C         	goto	l2764
+   995   0019BC  EFBC  F00C         	goto	l2762
    996   0019C0  0A01               	xorlw	1	; case 3
    997   0019C2  B4D8               	btfsc	status,2,c
-   998   0019C4  EFC5  F00C         	goto	l2766
+   998   0019C4  EFC5  F00C         	goto	l2764
    999   0019C8  0A07               	xorlw	7	; case 4
   1000   0019CA  B4D8               	btfsc	status,2,c
-  1001   0019CC  EFCE  F00C         	goto	l2768
-  1002   0019D0  EFEA  F00C         	goto	l2774
-  1003   0019D4                     l2774:
+  1001   0019CC  EFCE  F00C         	goto	l2766
+  1002   0019D0  EFEA  F00C         	goto	l2772
+  1003   0019D4                     l2772:
   1004                           
   1005                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 557:     return ret;
   1006   0019D4  5041               	movf	lcd_8bit_set_cursor@ret^0,w,c
@@ -1103,7 +1103,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1061   0019E0  EFF4  F00C         	goto	u1891
   1062   0019E4  EFF6  F00C         	goto	u1890
   1063   0019E8                     u1891:
-  1064   0019E8  EFFA  F00C         	goto	l2736
+  1064   0019E8  EFFA  F00C         	goto	l2734
   1065   0019EC                     u1890:
   1066   0019EC                     
   1067                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 287:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 288:      
@@ -1112,8 +1112,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1069   0019EE  6E3C               	movwf	lcd_8bit_send_char_data@ret^0,c
   1070                           
   1071                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 289:     }
-  1072   0019F0  EF25  F00D         	goto	l2752
-  1073   0019F4                     l2736:
+  1072   0019F0  EF25  F00D         	goto	l2750
+  1073   0019F4                     l2734:
   1074   0019F4  C038  F02F         	movff	lcd_8bit_send_char_data@lcd,gpio_pin_write_logic@_pin_config
   1075   0019F8  0E01               	movlw	1
   1076   0019FA  6E30               	movwf	gpio_pin_write_logic@logic^0,c
@@ -1123,7 +1123,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
       +                          <8 ; l_pin_counter++)
   1080   001A00  0E00               	movlw	0
   1081   001A02  6E3D               	movwf	lcd_8bit_send_char_data@l_pin_counter^0,c
-  1082   001A04                     l2744:
+  1082   001A04                     l2742:
   1083                           
   1084                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 294:         {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 295:  
       +                                   ret = gpio_pin_write_logic(&(lcd->lcd_data[l_pin_counter]), ((data >> l_pin_cou
@@ -1155,13 +1155,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1109   001A36  EF1F  F00D         	goto	u1911
   1110   001A3A  EF21  F00D         	goto	u1910
   1111   001A3E                     u1911:
-  1112   001A3E  EF02  F00D         	goto	l2744
+  1112   001A3E  EF02  F00D         	goto	l2742
   1113   001A42                     u1910:
   1114   001A42                     
   1115                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 297:         lcd_send_8bits_enable_signal(lcd);
   1116   001A42  C038  F037         	movff	lcd_8bit_send_char_data@lcd,lcd_send_8bits_enable_signal@lcd
   1117   001A46  EC7A  F00E         	call	_lcd_send_8bits_enable_signal	;wreg free
-  1118   001A4A                     l2752:
+  1118   001A4A                     l2750:
   1119                           
   1120                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 299:     return ret;
   1121   001A4A  503C               	movf	lcd_8bit_send_char_data@ret^0,w,c
@@ -1375,11 +1375,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1309                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 416:     if (((void*)0) == str)
   1310   001BF2  5059               	movf	convert_byte_to_string@str^0,w,c
   1311   001BF4  A4D8               	btfss	status,2,c
-  1312   001BF6  EFFF  F00D         	goto	u1991
-  1313   001BFA  EF01  F00E         	goto	u1990
-  1314   001BFE                     u1991:
-  1315   001BFE  EF05  F00E         	goto	l2824
-  1316   001C02                     u1990:
+  1312   001BF6  EFFF  F00D         	goto	u2011
+  1313   001BFA  EF01  F00E         	goto	u2010
+  1314   001BFE                     u2011:
+  1315   001BFE  EF05  F00E         	goto	l2846
+  1316   001C02                     u2010:
   1317   001C02                     
   1318                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 417:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 418:      
       +                             ret = (Std_ReturnType)0x00;
@@ -1387,8 +1387,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1320   001C04  6E5B               	movwf	convert_byte_to_string@ret^0,c
   1321                           
   1322                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 419:     }
-  1323   001C06  EF1A  F00E         	goto	l2828
-  1324   001C0A                     l2824:
+  1323   001C06  EF1A  F00E         	goto	l2850
+  1324   001C0A                     l2846:
   1325                           
   1326                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 421:     {;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 423:      
       +                             memset(str, '\0', 4);
@@ -1405,12 +1405,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1337   001C22                     
   1338                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 424:         sprintf(str, "%i", value);
   1339   001C22  C059  F048         	movff	convert_byte_to_string@str,sprintf@s
-  1340   001C26  0E2D               	movlw	low STR_3
+  1340   001C26  0E2D               	movlw	low STR_1
   1341   001C28  6E49               	movwf	sprintf@fmt^0,c
   1342   001C2A  C05A  F04A         	movff	convert_byte_to_string@value,?_sprintf+2
   1343   001C2E  6A4B               	clrf	(?_sprintf+3)^0,c
   1344   001C30  EC95  F00E         	call	_sprintf	;wreg free
-  1345   001C34                     l2828:
+  1345   001C34                     l2850:
   1346                           
   1347                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 426:     return ret;
   1348   001C34  505B               	movf	convert_byte_to_string@ret^0,w,c
@@ -1425,7 +1425,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1357 ;;  s               1   25[COMRAM] PTR unsigned char 
   1358 ;;		 -> lcd_counter_txt(4), 
   1359 ;;  fmt             1   26[COMRAM] PTR const unsigned char 
-  1360 ;;		 -> STR_5(3), STR_4(3), STR_3(3), 
+  1360 ;;		 -> STR_3(3), STR_2(3), STR_1(3), 
   1361 ;; Auto vars:     Size  Location     Type
   1362 ;;  f              12   30[COMRAM] struct _IO_FILE
   1363 ;;  ret             2    0        int 
@@ -1499,12 +1499,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1426 ;;  fp              1   21[COMRAM] PTR struct _IO_FILE
   1427 ;;		 -> sprintf@f(12), 
   1428 ;;  fmt             1   22[COMRAM] PTR const unsigned char 
-  1429 ;;		 -> STR_5(3), STR_4(3), STR_3(3), 
+  1429 ;;		 -> STR_3(3), STR_2(3), STR_1(3), 
   1430 ;;  ap              1   23[COMRAM] PTR PTR void 
   1431 ;;		 -> sprintf@ap(1), 
   1432 ;; Auto vars:     Size  Location     Type
   1433 ;;  cfmt            1   24[COMRAM] PTR unsigned char 
-  1434 ;;		 -> STR_5(3), STR_4(3), STR_3(3), 
+  1434 ;;		 -> STR_3(3), STR_2(3), STR_1(3), 
   1435 ;; Return value:  Size  Location     Type
   1436 ;;                  2   21[COMRAM] int 
   1437 ;; Registers used:
@@ -1605,7 +1605,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1520 ;;  convarg         4   16[COMRAM] struct .
   1521 ;;  c               1   20[COMRAM] unsigned char 
   1522 ;;  cp              1   15[COMRAM] PTR unsigned char 
-  1523 ;;		 -> STR_5(3), STR_4(3), STR_3(3), 
+  1523 ;;		 -> STR_3(3), STR_2(3), STR_1(3), 
   1524 ;;  done            1   14[COMRAM] _Bool 
   1525 ;; Return value:  Size  Location     Type
   1526 ;;                  1    wreg      void 
@@ -2479,14 +2479,14 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   2335   001D92                     _memset:
   2336                           	callstack 29
   2337   001D92  C02F  F034         	movff	memset@dest,memset@p
-  2338   001D96  EFD3  F00E         	goto	l2784
-  2339   001D9A                     l2780:
+  2338   001D96  EFD3  F00E         	goto	l2782
+  2339   001D9A                     l2778:
   2340   001D9A  5034               	movf	memset@p^0,w,c
   2341   001D9C  6ED9               	movwf	fsr2l,c
   2342   001D9E  6ADA               	clrf	fsr2h,c
   2343   001DA0  C030  FFDF         	movff	memset@c,indf2
   2344   001DA4  2A34               	incf	memset@p^0,f,c
-  2345   001DA6                     l2784:
+  2345   001DA6                     l2782:
   2346   001DA6  0632               	decf	memset@n^0,f,c
   2347   001DA8  A0D8               	btfss	status,0,c
   2348   001DAA  0633               	decf	(memset@n+1)^0,f,c
@@ -2497,7 +2497,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   2353   001DB4  EFDE  F00E         	goto	u1931
   2354   001DB8  EFE0  F00E         	goto	u1930
   2355   001DBC                     u1931:
-  2356   001DBC  EFCD  F00E         	goto	l2780
+  2356   001DBC  EFCD  F00E         	goto	l2778
   2357   001DC0                     u1930:
   2358   001DC0  0012               	return		;funcret
   2359   001DC2                     __end_of_memset:
@@ -2957,7 +2957,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   2778   001D04                     u1490:
   2779   001D04                     
   2780                           ;ECU_Layer/chr_lcd/ecu_chr_lcd.c: 527:     }
-  2781   001D04  EF94  F00E         	goto	l475
+  2781   001D04  EF94  F00E         	goto	l196
   2782   001D08                     l2418:
   2783   001D08  2837               	incf	lcd_send_8bits_enable_signal@lcd^0,w,c
   2784   001D0A  6E2F               	movwf	gpio_pin_write_logic@_pin_config^0,c
@@ -2977,7 +2977,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   2797   001D20  0E00               	movlw	0
   2798   001D22  6E30               	movwf	gpio_pin_write_logic@logic^0,c
   2799   001D24  EC82  F009         	call	_gpio_pin_write_logic	;wreg free
-  2800   001D28                     l475:
+  2800   001D28                     l196:
   2801   001D28  0012               	return		;funcret
   2802   001D2A                     __end_of_lcd_send_8bits_enable_signal:
   2803                           	callstack 0
@@ -3614,23 +3614,23 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   3383 ;; This function calls:
   3384 ;;		Nothing
   3385 ;; This function is called by:
-  3386 ;;		_gpio_pin_intialize
-  3387 ;;		_lcd_4bit_send_command
-  3388 ;;		_lcd_8bit_send_command
-  3389 ;;		_lcd_8bit_send_char_data
-  3390 ;;		_lcd_send_4bits
-  3391 ;;		_lcd_send_4bits_enable_signal
-  3392 ;;		_lcd_send_8bits_enable_signal
+  3386 ;;		_lcd_4bit_send_command
+  3387 ;;		_lcd_8bit_send_command
+  3388 ;;		_lcd_8bit_send_char_data
+  3389 ;;		_lcd_send_4bits
+  3390 ;;		_lcd_send_4bits_enable_signal
+  3391 ;;		_lcd_send_8bits_enable_signal
+  3392 ;;		_gpio_pin_intialize
   3393 ;;		_seven_segment_write_number
-  3394 ;;		_dc_motor_move_right
-  3395 ;;		_dc_motor_move_left
-  3396 ;;		_dc_motor_stop
-  3397 ;;		_keypad_get_value
-  3398 ;;		_led_turn_on
-  3399 ;;		_led_turn_off
-  3400 ;;		_relay_turn_on
-  3401 ;;		_relay_turn_off
-  3402 ;;		_lcd_4bit_send_char_data
+  3394 ;;		_lcd_4bit_send_char_data
+  3395 ;;		_dc_motor_move_right
+  3396 ;;		_dc_motor_move_left
+  3397 ;;		_dc_motor_stop
+  3398 ;;		_keypad_get_value
+  3399 ;;		_led_turn_on
+  3400 ;;		_led_turn_off
+  3401 ;;		_relay_turn_on
+  3402 ;;		_relay_turn_off
   3403 ;; This function uses a non-reentrant model
   3404 ;;
   3405                           
@@ -4260,7 +4260,7 @@ Pointer List with Targets:
 		 -> lcd_2(COMRAM[10]), 
 
     lcd_8bit_send_string_pos@str	PTR unsigned char  size(2) Largest target is 16
-		 -> lcd_counter_txt(COMRAM[4]), STR_1(CODE[12]), STR_2(CODE[16]), 
+		 -> lcd_counter_txt(COMRAM[4]), STR_4(CODE[12]), STR_5(CODE[16]), 
 
     lcd_8bit_set_cursor@lcd	PTR const struct . size(1) Largest target is 10
 		 -> lcd_2(COMRAM[10]), 
@@ -4284,9 +4284,9 @@ Pointer List with Targets:
 		 -> PORTA(BITBIGSFRll[1]), PORTB(BITBIGSFRll[1]), PORTC(BITBIGSFRll[1]), PORTD(BITBIGSFRll[1]), 
 		 -> PORTE(BITBIGSFRll[1]), 
 
-    S1300$buffer	PTR unsigned char  size(2) Largest target is 0
+    S1284$buffer	PTR unsigned char  size(2) Largest target is 0
 
-    S1300$source	PTR const unsigned char  size(2) Largest target is 0
+    S1284$source	PTR const unsigned char  size(2) Largest target is 0
 
     sp__memset	PTR void  size(1) Largest target is 4
 		 -> lcd_counter_txt(COMRAM[4]), 
@@ -4295,7 +4295,7 @@ Pointer List with Targets:
 		 -> ?_sprintf(COMRAM[2]), 
 
     sprintf@fmt	PTR const unsigned char  size(1) Largest target is 3
-		 -> STR_3(CODE[3]), STR_4(CODE[3]), STR_5(CODE[3]), 
+		 -> STR_1(CODE[3]), STR_2(CODE[3]), STR_3(CODE[3]), 
 
     sprintf@s	PTR unsigned char  size(1) Largest target is 4
 		 -> lcd_counter_txt(COMRAM[4]), 
@@ -4308,7 +4308,7 @@ Pointer List with Targets:
 		 -> sprintf@ap(COMRAM[1]), 
 
     vfpfcnvrt@cp	PTR unsigned char  size(1) Largest target is 3
-		 -> STR_3(CODE[3]), STR_4(CODE[3]), STR_5(CODE[3]), 
+		 -> STR_1(CODE[3]), STR_2(CODE[3]), STR_3(CODE[3]), 
 
     vfpfcnvrt@fmt	PTR PTR unsigned char  size(1) Largest target is 1
 		 -> vfprintf@cfmt(COMRAM[1]), 
@@ -4320,10 +4320,10 @@ Pointer List with Targets:
 		 -> sprintf@ap(COMRAM[1]), 
 
     vfprintf@cfmt	PTR unsigned char  size(1) Largest target is 3
-		 -> STR_3(CODE[3]), STR_4(CODE[3]), STR_5(CODE[3]), 
+		 -> STR_1(CODE[3]), STR_2(CODE[3]), STR_3(CODE[3]), 
 
     vfprintf@fmt	PTR const unsigned char  size(1) Largest target is 3
-		 -> STR_3(CODE[3]), STR_4(CODE[3]), STR_5(CODE[3]), 
+		 -> STR_1(CODE[3]), STR_2(CODE[3]), STR_3(CODE[3]), 
 
     vfprintf@fp	PTR struct _IO_FILE size(1) Largest target is 12
 		 -> sprintf@f(COMRAM[12]), 
@@ -4638,18 +4638,18 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Mon Aug 19 18:27:57 2024
+Symbol Table                                                                                   Fri Aug 23 14:04:53 2024
 
-                        ?_lcd_send_4bits 0037                             ___awdiv@sign 0034  
-                                    l217 1302                                      l236 1412  
-                                    l413 1A4C                                      l350 15DE  
-                                    l406 1AC2                                      l319 1E3E  
-                                    l257 1B8E                                      l169 1E20  
-                                    l450 1C36                                      l355 1BEA  
-                                    l470 1CF2                                      l438 18A4  
-                                    l465 1B30                                      l475 1D28  
-                                    l733 16A2                                      l399 14F8  
-                                    l487 19D6                                      l746 1752  
+                        ?_lcd_send_4bits 0037                                       l71 15DE  
+                                     l76 1BEA                             ___awdiv@sign 0034  
+                                    l120 14F8                                      l134 1A4C  
+                                    l127 1AC2                                      l208 19D6  
+                                    l171 1C36                                      l191 1CF2  
+                                    l159 18A4                                      l416 1412  
+                                    l186 1B30                                      l196 1D28  
+                                    l437 1B8E                                      l349 1E20  
+                                    l397 1302                                      l733 16A2  
+                                    l746 1752                                      l499 1E3E  
                                     u570 1E0A                                      u571 1E06  
                                     _abs 1D5E                                      _ret 0075  
                            ___awmod@sign 0034                      led_initialize@F3061 0070  
@@ -4658,31 +4658,27 @@ Symbol Table                                                                    
             lcd_send_4bits@_data_command 0038                                     ?_abs 0035  
                                    l1212 1D5C                                     l1205 1DC0  
                                    l1250 11F0                                     l1260 1D78  
-                                   l1180 1E32                                     l3110 18C8  
-                                   l1263 1D90                                     l1183 1E34  
-                                   l2400 1CB6                                     l1256 1C76  
-                                   l3120 192A                                     l3112 18D4  
-                                   l2410 1CF0                                     l2402 1CC6  
-                                   l3122 193A                                     l3114 18EC  
-                                   l3106 18A6                                     l1275 17FC  
+                                   l1180 1E32                                     l1263 1D90  
+                                   l1183 1E34                                     l2400 1CB6  
+                                   l1256 1C76                                     l2410 1CF0  
+                                   l2402 1CC6                                     l1275 17FC  
                                    l1195 1E0A                                     l2404 1CCE  
                                    l2420 1D14                                     l2500 1742  
-                                   l3116 18FA                                     l3108 18AA  
                                    l2350 1304                                     l2406 1CDA  
                                    l2422 1D1C                                     l2414 1CF4  
                                    l2430 15F2                                     l2502 174A  
                                    l1286 1E40                                     l2510 1774  
-                                   l3118 190C                                     l2352 1318  
-                                   l2408 1CE2                                     l2416 1D04  
-                                   l2440 1618                                     l2432 15FA  
-                                   l2520 1D5E                                     l2512 177E  
-                                   l2600 116C                                     l2362 13E6  
-                                   l2354 1338                                     l2530 1B6A  
-                                   l2418 1D08                                     l2450 1650  
-                                   l2442 1620                                     l2434 15FE  
-                                   l2426 15E0                                     l2522 1D6C  
-                                   l2514 179A                                     l2506 1754  
-                                   l2602 117C                                     l2610 11C0  
+                                   l2352 1318                                     l2408 1CE2  
+                                   l2416 1D04                                     l2440 1618  
+                                   l2432 15FA                                     l2520 1D5E  
+                                   l2512 177E                                     l2600 116C  
+                                   l2362 13E6                                     l2354 1338  
+                                   l2530 1B6A                                     l2418 1D08  
+                                   l2450 1650                                     l2442 1620  
+                                   l2434 15FE                                     l2426 15E0  
+                                   l2522 1D6C                                     l2514 179A  
+                                   l2506 1754                                     l2602 117C  
+                                   l2610 11C0                                     l3250 18C8  
                                    l2380 1284                                     l2372 11F2  
                                    l2356 1340                                     l2364 1410  
                                    l2532 1B8C                                     l2524 1B32  
@@ -4692,6 +4688,7 @@ Symbol Table                                                                    
                                    l2436 160C                                     l2428 15E4  
                                    l2516 17CC                                     l2508 1764  
                                    l2604 118E                                     l1740 1DF6  
+                                   l3260 192A                                     l3252 18D4  
                                    l2374 1206                                     l2358 1396  
                                    l2526 1B42                                     l2390 1AC4  
                                    l2542 1BE8                                     l2622 150E  
@@ -4700,16 +4697,18 @@ Symbol Table                                                                    
                                    l2462 1682                                     l2438 1614  
                                    l2470 16A4                                     l2606 11A8  
                                    l2614 11CC                                     l2710 1C40  
-                                   l2384 12D4                                     l2376 1226  
-                                   l2528 1B62                                     l2392 1AD4  
-                                   l2536 1B90                                     l2640 155A  
-                                   l2632 152E                                     l2624 1516  
-                                   l2560 1AA6                                     l2552 1A76  
-                                   l2704 14F6                                     l2464 1692  
-                                   l2456 1674                                     l2448 1642  
-                                   l2480 16D0                                     l2472 16A8  
-                                   l2608 11AA                                     l2712 1C50  
-                                   l1736 1DF0                                     l2800 17FE  
+                                   l3262 193A                                     l3254 18EC  
+                                   l3246 18A6                                     l2384 12D4  
+                                   l2376 1226                                     l2528 1B62  
+                                   l2392 1AD4                                     l2536 1B90  
+                                   l2640 155A                                     l2632 152E  
+                                   l2624 1516                                     l2560 1AA6  
+                                   l2552 1A76                                     l2704 14F6  
+                                   l2464 1692                                     l2456 1674  
+                                   l2448 1642                                     l2480 16D0  
+                                   l2472 16A8                                     l2608 11AA  
+                                   l2712 1C50                                     l1736 1DF0  
+                                   l3256 18FA                                     l3248 18AA  
                                    l2378 122E                                     l2386 1300  
                                    l2394 1ADC                                     l2538 1BA0  
                                    l2650 159E                                     l2642 1566  
@@ -4719,7 +4718,7 @@ Symbol Table                                                                    
                                    l2490 1708                                     l2482 16D8  
                                    l2474 16B6                                     l2570 1032  
                                    l2714 1C6E                                     l1738 1DF4  
-                                   l2810 186C                                     l2802 180E  
+                                   l2730 19D8                                     l3258 190C  
                                    l3268 13FA                                     l2396 1B2E  
                                    l2652 15AA                                     l2644 1580  
                                    l2636 153C                                     l2660 15DC  
@@ -4727,58 +4726,60 @@ Symbol Table                                                                    
                                    l2492 171E                                     l2484 16EA  
                                    l2476 16BE                                     l2580 1078  
                                    l2572 1056                                     l2708 1C38  
-                                   l2820 1BF2                                     l2732 19D8  
-                                   l2812 1870                                     l2804 1820  
-                                   l2654 15B6                                     l2646 1586  
-                                   l2638 154C                                     l2558 1A7A  
-                                   l2566 1AC0                                     l2670 1444  
-                                   l2718 1E0C                                     l2494 1726  
+                                   l2732 19EC                                     l2654 15B6  
+                                   l2646 1586                                     l2638 154C  
+                                   l2558 1A7A                                     l2566 1AC0  
+                                   l2670 1444                                     l2494 1726  
                                    l2486 16F2                                     l2478 16C2  
                                    l2590 10EE                                     l2582 1096  
-                                   l2574 105E                                     l2822 1C02  
-                                   l2750 1A42                                     l2734 19EC  
-                                   l2814 18A2                                     l2806 1828  
+                                   l2574 105E                                     l2742 1A04  
+                                   l2750 1A4A                                     l2734 19F4  
+                                   l2830 183E                                     l2822 17FE  
                                    l2656 15C2                                     l2648 1592  
                                    l2680 1456                                     l2664 1414  
                                    l2496 172C                                     l2488 16FA  
                                    l2592 111E                                     l2584 10B4  
-                                   l2576 106A                                     l2824 1C0A  
-                                   l2832 1E22                                     l2744 1A04  
-                                   l2752 1A4A                                     l2736 19F4  
-                                   l2760 1960                                     l2808 183E  
-                                   l2658 15CE                                     l2690 14A0  
-                                   l2682 1466                                     l2666 1428  
-                                   l2498 1732                                     l2594 113A  
-                                   l2586 10CC                                     l2578 106E  
-                                   l2826 1C22                                     l2818 1BEE  
-                                   l2834 1E26                                     l2746 1A30  
-                                   l2738 1A00                                     l2762 1966  
-                                   l2692 14AC                                     l2684 1474  
-                                   l2676 1448                                     l2668 1430  
-                                   l2780 1D9A                                     l2596 114C  
-                                   l2588 10D6                                     l2828 1C34  
-                                   l2748 1A32                                     l2764 1978  
-                                   l2772 19AE                                     l2756 1944  
-                                   l2694 14B8                                     l2686 1480  
-                                   l2678 1454                                     l2782 1DA4  
-                                   l2598 115C                                     l2790 1D3A  
-                                   l2766 198A                                     l2774 19D4  
-                                   l2758 1958                                     l2696 14C4  
-                                   l2688 149A                                     l2784 1DA6  
-                                   l2792 1D42                                     l2768 199C  
-                                   l2698 14D0                                     l2778 1D92  
-                                   l2794 1D52                                     l2786 1D2A  
-                                   l2788 1D32                                     l2798 1E3A  
-                                   STR_1 1021                                     STR_2 1011  
-                                   STR_3 102D       lcd_8bit_send_command@l_pin_counter 003D  
+                                   l2576 106A                                     l2840 1BEE  
+                                   l2744 1A30                                     l2736 1A00  
+                                   l2760 1966                                     l2832 186C  
+                                   l2824 180E                                     l2658 15CE  
+                                   l2690 14A0                                     l2682 1466  
+                                   l2666 1428                                     l2498 1732  
+                                   l2594 113A                                     l2586 10CC  
+                                   l2578 106E                                     l2850 1C34  
+                                   l2842 1BF2                                     l2746 1A32  
+                                   l2762 1978                                     l2770 19AE  
+                                   l2754 1944                                     l2834 1870  
+                                   l2826 1820                                     l2692 14AC  
+                                   l2684 1474                                     l2676 1448  
+                                   l2668 1430                                     l2780 1DA4  
+                                   l2596 114C                                     l2588 10D6  
+                                   l2844 1C02                                     l2748 1A42  
+                                   l2764 198A                                     l2772 19D4  
+                                   l2756 1958                                     l2836 18A2  
+                                   l2828 1828                                     l2694 14B8  
+                                   l2686 1480                                     l2678 1454  
+                                   l2854 1E3A                                     l2782 1DA6  
+                                   l2598 115C                                     l2790 1D42  
+                                   l2846 1C0A                                     l2766 199C  
+                                   l2758 1960                                     l2696 14C4  
+                                   l2688 149A                                     l2776 1D92  
+                                   l2792 1D52                                     l2784 1D2A  
+                                   l2848 1C22                                     l2856 1E22  
+                                   l2698 14D0                                     l2778 1D9A  
+                                   l2786 1D32                                     l2858 1E26  
+                                   l2796 1E0C                                     l2788 1D3A  
+                                   STR_1 102D                                     STR_4 1021  
+                                   STR_5 1011                                     u2000 18A2  
+                                   u2001 189E                                     u2010 1C02  
+                                   u2011 1BFE       lcd_8bit_send_command@l_pin_counter 003D  
                                    u1420 1206                                     u1404 135E  
                                    u1500 15F2                                     u1421 1202  
                                    u1405 135A                                     u1501 15EE  
                                    _LATA 0F89                                     u1430 1226  
                                    u1414 13B4                                     u1510 160C  
-                                   u2310 190C                                     _LATB 0F8A  
-                                   u1431 1222                                     u1415 13B0  
-                                   u1511 1608                                     u2311 1908  
+                                   _LATB 0F8A                                     u1431 1222  
+                                   u1415 13B0                                     u1511 1608  
                                    _LATC 0F8B                                     u1520 1632  
                                    u1600 171E                                     _LATD 0F8C  
                                    u1521 162E                                     u1601 171A  
@@ -4814,10 +4815,11 @@ Symbol Table                                                                    
                                    u1821 11B8                                     u1741 1092  
                                    u1670 1B42                                     u1830 150E  
                                    u1590 1708                                     u1750 10B4  
-                                   u1910 1A42                                     u1671 1B3E  
-                                   u1831 150A                                     u2527 1D16  
-                                   u1591 1704                                     u1751 10B0  
-                                   u1911 1A3E                                     u1680 1B62  
+                                   u1910 1A42                                     u2470 190C  
+                                   u1671 1B3E                                     u1831 150A  
+                                   u2527 1D16                                     u1591 1704  
+                                   u1751 10B0                                     u1911 1A3E  
+                                   u2471 1908                                     u1680 1B62  
                                    u1840 154C                                     u1760 10EA  
                                    u1904 1A1E                                     u1920 1958  
                                    u1681 1B5E                                     u2537 1552  
@@ -4828,18 +4830,16 @@ Symbol Table                                                                    
                                    u1691 1B9C                                     u2547 156C  
                                    u1851 1424                                     u1931 1DBC  
                                    u1860 1466                                     u1780 114C  
-                                   u1940 180E                                     u2557 1582  
-                                   u1861 1462                                     u1781 1148  
-                                   u1941 180A                                     u1790 115C  
-                                   u1870 1C6E                                     u1950 1820  
-                                   u2567 1CDC                                     u1791 1158  
-                                   u1871 1C6A                                     u1951 181C  
-                                   u2487 18F2                                     u1960 1864  
-                                   u2497 146C                                     u1890 19EC  
-                                   u1970 1892                                     u1891 19E8  
-                                   u1980 18A2                                     u1981 189E  
-                                   u1990 1C02                                     u1991 1BFE  
-                                   u1967 185A                                     u1977 1888  
+                                   u2557 1582                                     u1861 1462  
+                                   u1781 1148                                     u1790 115C  
+                                   u1870 1C6E                                     u2567 1CDC  
+                                   u1791 1158                                     u1871 1C6A  
+                                   u2487 18F2                                     u1960 180E  
+                                   u2497 146C                                     u1961 180A  
+                                   u1890 19EC                                     u1970 1820  
+                                   u1891 19E8                                     u1971 181C  
+                                   u1980 1864                                     u1990 1892  
+                                   u1987 185A                                     u1997 1888  
                                    abs@a 0035                                     _dbuf 0080  
                                    _main 18A6                                     _exit 1E22  
                                    _prec 0065                                     fsr0h 0FEA  
