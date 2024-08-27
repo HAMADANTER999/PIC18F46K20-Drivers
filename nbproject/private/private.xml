@@ -14,11 +14,11 @@
         <group>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_interrupt_manager.c</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_external_interrupt.h</file>
+            <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_interrupt_config.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_external_interrupt.c</file>
-            <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/GPIO/hal_gpio.h</file>
+            <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_interrupt_gen_cfg.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/MCAL_Layer/interrupt/mcal_interrupt_manager.h</file>
             <file>file:/D:/Courses/Embedded%20C/projects/application.c</file>
-            <file>file:/D:/Courses/Embedded%20C/projects/ECU_Layer/LED/ecu_led.c</file>
         </group>
     </open-files>
 </project-private>
