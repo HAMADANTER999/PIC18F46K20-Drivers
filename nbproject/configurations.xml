@@ -45,6 +45,7 @@
           <itemPath>MCAL_Layer/interrupt/mcal_external_interrupt.h</itemPath>
           <itemPath>MCAL_Layer/interrupt/mcal_interrupt_manager.h</itemPath>
           <itemPath>MCAL_Layer/interrupt/mcal_interrupt_config.h</itemPath>
+          <itemPath>MCAL_Layer/interrupt/mcal_interrupt_gen_cfg.h</itemPath>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.h</itemPath>
         <itemPath>MCAL_Layer/std_libraries.h</itemPath>
@@ -95,8 +96,8 @@
         </logicalFolder>
         <logicalFolder name="interrupt" displayName="interrupt" projectFiles="true">
           <itemPath>MCAL_Layer/interrupt/mcal_internal_interrupt.c</itemPath>
-          <itemPath>MCAL_Layer/interrupt/mcal_ecternal_interrupt.c</itemPath>
           <itemPath>MCAL_Layer/interrupt/mcal_interrupt_manager.c</itemPath>
+          <itemPath>MCAL_Layer/interrupt/mcal_external_interrupt.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.c</itemPath>
       </logicalFolder>
@@ -111,7 +112,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F4620</targetDevice>
+        <targetDevice>PIC18F46K20</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
@@ -120,7 +121,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.6.159"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.13.292"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

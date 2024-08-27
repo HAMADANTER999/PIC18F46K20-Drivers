@@ -18,6 +18,13 @@
 /* Section : Data type Declarations*/
 
 /* Section : Function Declarations*/
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+void RB4_ISR(uint8 RB4_source);
+void RB5_ISR(uint8 RB5_source);
+void RB6_ISR(uint8 RB6_source);
+void RB7_ISR(uint8 RB7_source);
 
 #endif	/* MCAL_INTERRUPT_MANAGER_H */
 

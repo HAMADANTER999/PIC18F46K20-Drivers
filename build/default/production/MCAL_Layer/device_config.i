@@ -23,28 +23,30 @@
 
 
 
-#pragma config OSC = HS
+
+#pragma config FOSC = RCIO6
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
 
 
-#pragma config PWRT = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 1
+#pragma config PWRTEN = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 18
 
 
-#pragma config WDT = OFF
+#pragma config WDTEN = ON
 #pragma config WDTPS = 32768
 
 
 #pragma config CCP2MX = PORTC
 #pragma config PBADEN = OFF
 #pragma config LPT1OSC = OFF
+#pragma config HFOFST = ON
 #pragma config MCLRE = ON
 
 
 #pragma config STVREN = ON
-#pragma config LVP = OFF
+#pragma config LVP = ON
 #pragma config XINST = OFF
 
 
@@ -76,9 +78,6 @@
 
 
 #pragma config EBTRB = OFF
-
-
-
 
 
 

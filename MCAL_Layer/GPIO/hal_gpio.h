@@ -9,7 +9,7 @@
 #define	HAL_GPIO_H
 
 /* Section : includes*/
-#include "pic18f4620.h"
+#include <xc.h>
 
 #include "../mcal_std_types.h"
 #include "../device_config.h"
