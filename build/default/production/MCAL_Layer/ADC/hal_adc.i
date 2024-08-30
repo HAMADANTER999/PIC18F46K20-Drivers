@@ -1,4 +1,4 @@
-# 1 "MCAL_Layer/interrupt/mcal_interrupt_manager.c"
+# 1 "MCAL_Layer/ADC/hal_adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_Layer/interrupt/mcal_interrupt_manager.c" 2
+# 1 "MCAL_Layer/ADC/hal_adc.c" 2
 
 
 
@@ -14,10 +14,8 @@
 
 
 
-# 1 "MCAL_Layer/interrupt/mcal_interrupt_manager.h" 1
-# 12 "MCAL_Layer/interrupt/mcal_interrupt_manager.h"
-# 1 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 1
-# 12 "MCAL_Layer/interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/ADC/hal_adc.h" 1
+# 12 "MCAL_Layer/ADC/hal_adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4949,12 +4947,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 2
+# 12 "MCAL_Layer/ADC/hal_adc.h" 2
 
-# 1 "MCAL_Layer/interrupt/../mcal_std_types.h" 1
-# 13 "MCAL_Layer/interrupt/../mcal_std_types.h"
-# 1 "MCAL_Layer/interrupt/../std_libraries.h" 1
-# 12 "MCAL_Layer/interrupt/../std_libraries.h"
+# 1 "MCAL_Layer/ADC/hal_adc_cfg.h" 1
+# 13 "MCAL_Layer/ADC/hal_adc.h" 2
+
+# 1 "MCAL_Layer/ADC/../mcal_std_types.h" 1
+# 13 "MCAL_Layer/ADC/../mcal_std_types.h"
+# 1 "MCAL_Layer/ADC/../std_libraries.h" 1
+# 12 "MCAL_Layer/ADC/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5107,7 +5108,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_Layer/interrupt/../std_libraries.h" 2
+# 12 "MCAL_Layer/ADC/../std_libraries.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
@@ -5167,12 +5168,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_Layer/interrupt/../std_libraries.h" 2
-# 13 "MCAL_Layer/interrupt/../mcal_std_types.h" 2
+# 14 "MCAL_Layer/ADC/../std_libraries.h" 2
+# 13 "MCAL_Layer/ADC/../mcal_std_types.h" 2
 
-# 1 "MCAL_Layer/interrupt/../compiler.h" 1
-# 14 "MCAL_Layer/interrupt/../mcal_std_types.h" 2
-# 37 "MCAL_Layer/interrupt/../mcal_std_types.h"
+# 1 "MCAL_Layer/ADC/../compiler.h" 1
+# 14 "MCAL_Layer/ADC/../mcal_std_types.h" 2
+# 37 "MCAL_Layer/ADC/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -5181,19 +5182,16 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 13 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 2
+# 14 "MCAL_Layer/ADC/hal_adc.h" 2
 
-# 1 "MCAL_Layer/interrupt/mcal_interrupt_gen_cfg.h" 1
-# 14 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 2
+# 1 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 1
+# 15 "MCAL_Layer/ADC/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/ADC/../GPIO/../device_config.h" 1
+# 15 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/interrupt/../GPIO/hal_gpio.h" 1
-# 15 "MCAL_Layer/interrupt/../GPIO/hal_gpio.h"
-# 1 "MCAL_Layer/interrupt/../GPIO/../device_config.h" 1
-# 15 "MCAL_Layer/interrupt/../GPIO/hal_gpio.h" 2
-
-# 1 "MCAL_Layer/interrupt/../GPIO/hal_gpio_cfg.h" 1
-# 16 "MCAL_Layer/interrupt/../GPIO/hal_gpio.h" 2
-# 37 "MCAL_Layer/interrupt/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/ADC/../GPIO/hal_gpio_cfg.h" 1
+# 16 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 2
+# 37 "MCAL_Layer/ADC/../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -5244,102 +5242,20 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 Std_ReturnType gpio_port_write_logic(port_index_t port, uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 15 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 2
-# 53 "MCAL_Layer/interrupt/mcal_interrupt_config.h"
+# 15 "MCAL_Layer/ADC/hal_adc.h" 2
+
+# 1 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 1
+# 12 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h"
+# 1 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h" 1
+# 14 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_gen_cfg.h" 1
+# 14 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h" 2
+# 53 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h"
 typedef enum {
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY,
 }interrupt_priority_cfg;
-# 12 "MCAL_Layer/interrupt/mcal_interrupt_manager.h" 2
-# 21 "MCAL_Layer/interrupt/mcal_interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-void RB4_ISR(uint8 RB4_source);
-void RB5_ISR(uint8 RB5_source);
-void RB6_ISR(uint8 RB6_source);
-void RB7_ISR(uint8 RB7_source);
-# 8 "MCAL_Layer/interrupt/mcal_interrupt_manager.c" 2
+# 12 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 2
+# 16 "MCAL_Layer/ADC/hal_adc.h" 2
+# 8 "MCAL_Layer/ADC/hal_adc.c" 2
 
-
-static volatile uint8 RB4_Flag = 1, RB5_Flag = 1, RB6_Flag = 1, RB7_Flag = 1;
-# 35 "MCAL_Layer/interrupt/mcal_interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) InterruptManager(void){
-
-
-    if ((INTCONbits.INT0IE == 1) && (INTCONbits.INT0IF == 1))
-    {
-        INT0_ISR();
-    }
-    else { }
-    if ((INTCON3bits.INT1IE == 1) && (INTCON3bits.INT1IF == 1))
-    {
-        INT1_ISR();
-    }
-    else { }
-    if ((INTCON3bits.INT2IE == 1) && (INTCON3bits.INT2IF == 1))
-    {
-        INT2_ISR();
-    }
-    else { }
-
-
-
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-         (GPIO_HIGH == PORTBbits.RB4) && (1 == RB4_Flag))
-    {
-        RB4_Flag = 0;
-        RB4_ISR(1);
-    }
-    else{ }
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-        (GPIO_LOW == PORTBbits.RB4) && (0 == RB4_Flag))
-    {
-        RB4_Flag = 1;
-        RB4_ISR(0);
-    }
-    else{ }
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-         (GPIO_HIGH == PORTBbits.RB5) && (1 == RB5_Flag))
-    {
-        RB5_Flag = 0;
-        RB5_ISR(1);
-    }
-    else{ }
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-        (GPIO_LOW == PORTBbits.RB5) && (0 == RB5_Flag))
-    {
-        RB5_Flag = 1;
-        RB5_ISR(0);
-    }
-
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-         (GPIO_HIGH == PORTBbits.RB6) && (1 == RB6_Flag))
-    {
-        RB6_Flag = 0;
-        RB6_ISR(1);
-    }
-    else{ }
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-        (GPIO_LOW == PORTBbits.RB6) && (0 == RB6_Flag))
-    {
-        RB6_Flag = 1;
-        RB6_ISR(0);
-    }
-
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-         (GPIO_HIGH == PORTBbits.RB7) && (1 == RB7_Flag))
-    {
-        RB7_Flag = 0;
-        RB7_ISR(1);
-    }
-    else{ }
-    if ((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) &&
-        (GPIO_LOW == PORTBbits.RB7) && (0 == RB7_Flag))
-    {
-        RB7_Flag = 1;
-        RB7_ISR(0);
-    }
-    else{ }
-
-}
