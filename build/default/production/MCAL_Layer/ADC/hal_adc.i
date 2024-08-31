@@ -5257,5 +5257,283 @@ typedef enum {
 }interrupt_priority_cfg;
 # 12 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 2
 # 16 "MCAL_Layer/ADC/hal_adc.h" 2
+# 101 "MCAL_Layer/ADC/hal_adc.h"
+typedef enum {
+   ADC_CHANNEL_AN0 = 0,
+   ADC_CHANNEL_AN1,
+   ADC_CHANNEL_AN2,
+   ADC_CHANNEL_AN3,
+   ADC_CHANNEL_AN4,
+   ADC_CHANNEL_AN5,
+   ADC_CHANNEL_AN6,
+   ADC_CHANNEL_AN7,
+   ADC_CHANNEL_AN8,
+   ADC_CHANNEL_AN9,
+   ADC_CHANNEL_AN10,
+   ADC_CHANNEL_AN11,
+   ADC_CHANNEL_AN12,
+}adc_channel_select_t;
+# 125 "MCAL_Layer/ADC/hal_adc.h"
+typedef enum {
+    ADC_0_TAD = 0,
+    ADC_2_TAD,
+    ADC_4_TAD,
+    ADC_6_TAD,
+    ADC_8_TAD,
+    ADC_12_TAD,
+    ADC_16_TAD,
+    ADC_20_TAD,
+}adc_acquisition_time_t;
+
+
+
+
+
+
+
+typedef enum {
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2 = 0,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_t;
+
+typedef struct {
+    void (* ADC_InterruptHandler) (void);
+    adc_acquisition_time_t Acquisition_time;
+    adc_conversion_clock_t convertion_clock;
+    adc_channel_select_t adc_channel;
+    uint8 voltage_reference : 1;
+    uint8 result_format : 1;
+    uint8 ADC_Reserved : 6;
+}adc_conf_t;
+
+typedef uint16 adc_result_t;
+
+
+Std_ReturnType ADC_Init(const adc_conf_t *_adc);
+Std_ReturnType ADC_DeInit(const adc_conf_t *_adc);
+Std_ReturnType ADC_SelectChannel (const adc_conf_t *_adc, adc_channel_select_t channel);
+Std_ReturnType ADC_StartConversion (const adc_conf_t *_adc);
+Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_status);
+Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
+Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
+                                  adc_result_t *conversion_result);
 # 8 "MCAL_Layer/ADC/hal_adc.c" 2
 
+
+
+static __attribute__((inline)) Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel);
+static __attribute__((inline)) Std_ReturnType select_result_format(const adc_conf_t *_adc);
+static __attribute__((inline)) Std_ReturnType configure_voltage_reference(const adc_conf_t *_adc);
+# 26 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_Init(const adc_conf_t *_adc){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+        (ADCON0bits.ADON = 0);
+
+        ADCON2bits.ACQT = _adc->Acquisition_time;
+
+        ADCON2bits.ADCS = _adc->convertion_clock;
+
+        ADCON0bits.CHS = _adc->adc_channel;
+        adc_input_channel_port_configure(_adc->adc_channel);
+
+
+
+        select_result_format(_adc);
+
+        configure_voltage_reference(_adc);
+
+        (ADCON0bits.ADON = 1);
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+Std_ReturnType ADC_DeInit(const adc_conf_t *_adc){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+        (ADCON0bits.ADON = 0);
+
+
+
+    }
+    return ret;
+}
+# 88 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_SelectChannel (const adc_conf_t *_adc, adc_channel_select_t channel){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        ADCON0bits.CHS = channel;
+        adc_input_channel_port_configure(channel);
+    }
+    return ret;
+}
+# 110 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_StartConversion (const adc_conf_t *_adc){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        (ADCON0bits.GO_nDONE = 1);
+    }
+    return ret;
+}
+# 137 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_status){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if ((((void*)0) == _adc) || (((void*)0) == conversion_status))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *conversion_status = (uint8)(!(ADCON0bits.GO_nDONE));
+    }
+    return ret;
+}
+# 161 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if ((((void*)0) == _adc) || (((void*)0) == conversion_result))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        if (0X01U == _adc->result_format)
+        {
+            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL );
+        }
+        else if (0X00U == _adc->result_format)
+        {
+            *conversion_result = (adc_result_t)(((ADRESH << 8) + ADRESL ) >> 6 ) ;
+        }
+        else
+        {
+            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL );
+        }
+    }
+    return ret;
+}
+# 196 "MCAL_Layer/ADC/hal_adc.c"
+Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
+                                  adc_result_t *conversion_result){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 l_conversion_status = 0X00;
+    if ((((void*)0) == _adc) || (((void*)0) == conversion_result))
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+
+        ret = ADC_SelectChannel (_adc, channel);
+
+        ret |= ADC_StartConversion (_adc);
+
+        while (ADCON0bits.GO_nDONE);
+        ret = ADC_GetConversionResult(_adc, conversion_result);
+
+    }
+    return ret;
+}
+
+static __attribute__((inline)) Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    switch (channel)
+    {
+        case ADC_CHANNEL_AN0 : (TRISA |= ((uint8)1<<0x0)); break;
+        case ADC_CHANNEL_AN1 : (TRISA |= ((uint8)1<<0x1)); break;
+        case ADC_CHANNEL_AN2 : (TRISA |= ((uint8)1<<0x2)); break;
+        case ADC_CHANNEL_AN3 : (TRISA |= ((uint8)1<<0x3)); break;
+        case ADC_CHANNEL_AN4 : (TRISA |= ((uint8)1<<0x5)); break;
+        case ADC_CHANNEL_AN5 : (TRISE |= ((uint8)1<<0x0)); break;
+        case ADC_CHANNEL_AN6 : (TRISE |= ((uint8)1<<0x1)); break;
+        case ADC_CHANNEL_AN7 : (TRISE |= ((uint8)1<<0x2)); break;
+        case ADC_CHANNEL_AN8 : (TRISB |= ((uint8)1<<0x2)); break;
+        case ADC_CHANNEL_AN9 : (TRISB |= ((uint8)1<<0x3)); break;
+        case ADC_CHANNEL_AN10 : (TRISB |= ((uint8)1<<0x1)); break;
+        case ADC_CHANNEL_AN11 : (TRISB |= ((uint8)1<<0x4)); break;
+        case ADC_CHANNEL_AN12 : (TRISB |= ((uint8)1<<0x0)); break;
+        default : ret = (Std_ReturnType)0x00;
+    }
+    return ret;
+}
+
+static __attribute__((inline)) Std_ReturnType select_result_format(const adc_conf_t *_adc){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        if (0X01U == _adc->result_format)
+        {
+            (ADCON2bits.ADFM = 1);
+        }
+        else if (0X00U == _adc->result_format)
+        {
+            (ADCON2bits.ADFM = 0);
+        }
+        else
+        {
+            (ADCON2bits.ADFM = 1);
+        }
+    }
+    return ret;
+}
+
+static __attribute__((inline)) Std_ReturnType configure_voltage_reference(const adc_conf_t *_adc){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if (((void*)0) == _adc)
+    {
+        ret = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        if (0X01U == _adc->voltage_reference)
+        {
+            do{ADCON1bits.VCFG1 = 1; ADCON1bits.VCFG0 = 1; }while(0);
+        }
+        else if (0X00U == _adc->voltage_reference)
+        {
+            do{ADCON1bits.VCFG1 = 0; ADCON1bits.VCFG0 = 0; }while(0);
+        }
+        else
+        {
+            do{ADCON1bits.VCFG1 = 0; ADCON1bits.VCFG0 = 0; }while(0);
+        }
+    }
+    return ret;
+}

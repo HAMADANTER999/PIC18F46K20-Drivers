@@ -7,92 +7,39 @@
 
 #include "application.h"
 
-void program_1(void);
-void program_2(void);
-void APP_CallBack(void);
+
 
 Std_ReturnType ret = E_NOT_OK;
-led_t led_1 = {
-    .led_status = LED_OFF,
-    .pin = GPIO_PIN0,
-    .port_name = PORTD_INDEX,
+void Application (void);
+
+adc_conf_t adc_1 = {
+    .ADC_InterruptHandler = NULL,
+    .Acquisition_time = ADC_12_TAD,
+    .adc_channel = ADC_CHANNEL_AN0,
+    .convertion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    .result_format = ADC_RESULT_RIGHT,
+    .voltage_reference = ADC_VOLTAGE_REFERENCE_DISALBE,
 };
 
-led_t led_2 = {
-    .led_status = LED_OFF,
-    .pin = GPIO_PIN1,
-    .port_name = PORTD_INDEX,
-};
+adc_result_t res_1 = ZERO_INIT, res_2 = ZERO_INIT, res_3 = ZERO_INIT , res_4 = ZERO_INIT;
 
 
-interrupt_INTx_t int0_obj = {
-    .EXT_InterruptHandler = APP_CallBack,
-    .edge = INTERRUPT_RISING_EDGE,
-    .mcu_pin.direction = GPIO_DIRECTION_INPUT,
-    .mcu_pin.logic = GPIO_LOW,
-    .mcu_pin.pin = GPIO_PIN0,
-    .mcu_pin.port = PORTB_INDEX,
-    .priority = INTERRUPT_HIGH_PRIORITY,
-    .source = INTERRUPT_EXTERNAL_INT0,
-};
 
-volatile uint8 program_selected = ZERO_INIT;
 int main() {
 
-    ret = led_initialize(&led_1);
-    ret = led_initialize(&led_2);
-    
-    ret = Interrupt_INTx_Init(&int0_obj);
-    ret = Data_EEPROM_ReadByte(0x3E0, &program_selected);
-    
+    Application ();
     while (1)
     {
-        if (1 == program_selected)
-        {
-            program_1();
-        }
-        else if (2 == program_selected)
-        {
-            program_2();
-        }
-        else{
-            led_turn_off(&led_1);
-            led_turn_off(&led_2);
-        }
-            
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN0, &res_1);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN1, &res_2);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN2, &res_3);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN3, &res_4);
     }
 
     return (EXIT_SUCCESS);
 }
 void Application (void)
 {
+    ret = ADC_Init(&adc_1);
     ecu_layer_initialize();
 }
-
-void program_1(void){
-    led_turn_on(&led_1);
-    __delay_ms(250);
-    led_turn_off(&led_1);
-    __delay_ms(250);
-}
-
-void program_2(void){
-    led_turn_on(&led_2);
-    __delay_ms(250);
-    led_turn_off(&led_2);
-    __delay_ms(250);
-}
-
-void APP_CallBack(void){
-    program_selected++;
-    if (3 == program_selected)
-    {
-        program_selected = 0;
-    }
-    else{}
-    ret = Data_EEPROM_WriteByte(0x3E0, program_selected);
-}
-
-
-
-

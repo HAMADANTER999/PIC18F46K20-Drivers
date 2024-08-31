@@ -5502,101 +5502,119 @@ Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj);
 Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj);
 # 14 "./application.h" 2
 
-# 1 "./MCAL_Layer/EEPROM/hal_eeprom.h" 1
-# 15 "./MCAL_Layer/EEPROM/hal_eeprom.h"
-# 1 "./MCAL_Layer/EEPROM/../interrupt/mcal_internal_interrupts.h" 1
-# 15 "./MCAL_Layer/EEPROM/hal_eeprom.h" 2
-# 42 "./MCAL_Layer/EEPROM/hal_eeprom.h"
-Std_ReturnType Data_EEPROM_WriteByte(uint16 bAdd, uint8 bData);
-Std_ReturnType Data_EEPROM_ReadByte(uint16 bAdd, uint8 *bData);
+# 1 "./MCAL_Layer/ADC/hal_adc.h" 1
+# 13 "./MCAL_Layer/ADC/hal_adc.h"
+# 1 "./MCAL_Layer/ADC/hal_adc_cfg.h" 1
+# 13 "./MCAL_Layer/ADC/hal_adc.h" 2
+
+
+
+# 1 "./MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 1
+# 16 "./MCAL_Layer/ADC/hal_adc.h" 2
+# 101 "./MCAL_Layer/ADC/hal_adc.h"
+typedef enum {
+   ADC_CHANNEL_AN0 = 0,
+   ADC_CHANNEL_AN1,
+   ADC_CHANNEL_AN2,
+   ADC_CHANNEL_AN3,
+   ADC_CHANNEL_AN4,
+   ADC_CHANNEL_AN5,
+   ADC_CHANNEL_AN6,
+   ADC_CHANNEL_AN7,
+   ADC_CHANNEL_AN8,
+   ADC_CHANNEL_AN9,
+   ADC_CHANNEL_AN10,
+   ADC_CHANNEL_AN11,
+   ADC_CHANNEL_AN12,
+}adc_channel_select_t;
+# 125 "./MCAL_Layer/ADC/hal_adc.h"
+typedef enum {
+    ADC_0_TAD = 0,
+    ADC_2_TAD,
+    ADC_4_TAD,
+    ADC_6_TAD,
+    ADC_8_TAD,
+    ADC_12_TAD,
+    ADC_16_TAD,
+    ADC_20_TAD,
+}adc_acquisition_time_t;
+
+
+
+
+
+
+
+typedef enum {
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2 = 0,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_t;
+
+typedef struct {
+    void (* ADC_InterruptHandler) (void);
+    adc_acquisition_time_t Acquisition_time;
+    adc_conversion_clock_t convertion_clock;
+    adc_channel_select_t adc_channel;
+    uint8 voltage_reference : 1;
+    uint8 result_format : 1;
+    uint8 ADC_Reserved : 6;
+}adc_conf_t;
+
+typedef uint16 adc_result_t;
+
+
+Std_ReturnType ADC_Init(const adc_conf_t *_adc);
+Std_ReturnType ADC_DeInit(const adc_conf_t *_adc);
+Std_ReturnType ADC_SelectChannel (const adc_conf_t *_adc, adc_channel_select_t channel);
+Std_ReturnType ADC_StartConversion (const adc_conf_t *_adc);
+Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_status);
+Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
+Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
+                                  adc_result_t *conversion_result);
 # 15 "./application.h" 2
 # 24 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
-void program_1(void);
-void program_2(void);
-void APP_CallBack(void);
+
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
-led_t led_1 = {
-    .led_status = LED_OFF,
-    .pin = GPIO_PIN0,
-    .port_name = PORTD_INDEX,
+void Application (void);
+
+adc_conf_t adc_1 = {
+    .ADC_InterruptHandler = ((void*)0),
+    .Acquisition_time = ADC_12_TAD,
+    .adc_channel = ADC_CHANNEL_AN0,
+    .convertion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    .result_format = 0X01U,
+    .voltage_reference = 0X00U,
 };
 
-led_t led_2 = {
-    .led_status = LED_OFF,
-    .pin = GPIO_PIN1,
-    .port_name = PORTD_INDEX,
-};
+adc_result_t res_1 = 0X00, res_2 = 0X00, res_3 = 0X00 , res_4 = 0X00;
 
 
-interrupt_INTx_t int0_obj = {
-    .EXT_InterruptHandler = APP_CallBack,
-    .edge = INTERRUPT_RISING_EDGE,
-    .mcu_pin.direction = GPIO_DIRECTION_INPUT,
-    .mcu_pin.logic = GPIO_LOW,
-    .mcu_pin.pin = GPIO_PIN0,
-    .mcu_pin.port = PORTB_INDEX,
-    .priority = INTERRUPT_HIGH_PRIORITY,
-    .source = INTERRUPT_EXTERNAL_INT0,
-};
 
-volatile uint8 program_selected = 0X00;
 int main() {
 
-    ret = led_initialize(&led_1);
-    ret = led_initialize(&led_2);
-
-    ret = Interrupt_INTx_Init(&int0_obj);
-    ret = Data_EEPROM_ReadByte(0x3E0, &program_selected);
-
+    Application ();
     while (1)
     {
-        if (1 == program_selected)
-        {
-            program_1();
-        }
-        else if (2 == program_selected)
-        {
-            program_2();
-        }
-        else{
-            led_turn_off(&led_1);
-            led_turn_off(&led_2);
-        }
-
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN0, &res_1);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN1, &res_2);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN2, &res_3);
+        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN3, &res_4);
     }
 
     return (0);
 }
 void Application (void)
 {
+    ret = ADC_Init(&adc_1);
     ecu_layer_initialize();
-}
-
-void program_1(void){
-    led_turn_on(&led_1);
-    _delay((unsigned long)((250)*(8000000UL/4000.0)));
-    led_turn_off(&led_1);
-    _delay((unsigned long)((250)*(8000000UL/4000.0)));
-}
-
-void program_2(void){
-    led_turn_on(&led_2);
-    _delay((unsigned long)((250)*(8000000UL/4000.0)));
-    led_turn_off(&led_2);
-    _delay((unsigned long)((250)*(8000000UL/4000.0)));
-}
-
-void APP_CallBack(void){
-    program_selected++;
-    if (3 == program_selected)
-    {
-        program_selected = 0;
-    }
-    else{}
-    ret = Data_EEPROM_WriteByte(0x3E0, program_selected);
 }

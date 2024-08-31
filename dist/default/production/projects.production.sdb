@@ -111,57 +111,79 @@ GPIO_PIN6 6
 GPIO_PIN7 7
 ]
 "15 D:\Courses\Embedded C\projects\application.c
-[e E3248 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
+[e E3499 . `uc
+ADC_0_TAD 0
+ADC_2_TAD 1
+ADC_4_TAD 2
+ADC_6_TAD 3
+ADC_8_TAD 4
+ADC_12_TAD 5
+ADC_16_TAD 6
+ADC_20_TAD 7
 ]
-[e E3238 . `uc
-GPIO_PIN0 0
-GPIO_PIN1 1
-GPIO_PIN2 2
-GPIO_PIN3 3
-GPIO_PIN4 4
-GPIO_PIN5 5
-GPIO_PIN6 6
-GPIO_PIN7 7
+[e E3509 . `uc
+ADC_CONVERSION_CLOCK_FOSC_DIV_2 0
+ADC_CONVERSION_CLOCK_FOSC_DIV_8 1
+ADC_CONVERSION_CLOCK_FOSC_DIV_32 2
+ADC_CONVERSION_CLOCK_FOSC_DIV_FRC 3
+ADC_CONVERSION_CLOCK_FOSC_DIV_4 4
+ADC_CONVERSION_CLOCK_FOSC_DIV_16 5
+ADC_CONVERSION_CLOCK_FOSC_DIV_64 6
 ]
-[e E3290 . `uc
-LED_OFF 0
-LED_ON 1
+[e E3484 . `uc
+ADC_CHANNEL_AN0 0
+ADC_CHANNEL_AN1 1
+ADC_CHANNEL_AN2 2
+ADC_CHANNEL_AN3 3
+ADC_CHANNEL_AN4 4
+ADC_CHANNEL_AN5 5
+ADC_CHANNEL_AN6 6
+ADC_CHANNEL_AN7 7
+ADC_CHANNEL_AN8 8
+ADC_CHANNEL_AN9 9
+ADC_CHANNEL_AN10 10
+ADC_CHANNEL_AN11 11
+ADC_CHANNEL_AN12 12
 ]
-"28
-[e E3451 . `uc
-INTERRUPT_FALLING_EDGE 0
-INTERRUPT_RISING_EDGE 1
+"26 D:\Courses\Embedded C\projects\MCAL_Layer/ADC/hal_adc.c
+[e E3309 . `uc
+ADC_0_TAD 0
+ADC_2_TAD 1
+ADC_4_TAD 2
+ADC_6_TAD 3
+ADC_8_TAD 4
+ADC_12_TAD 5
+ADC_16_TAD 6
+ADC_20_TAD 7
 ]
-[e E3455 . `uc
-INTERRUPT_EXTERNAL_INT0 0
-INTERRUPT_EXTERNAL_INT1 1
-INTERRUPT_EXTERNAL_INT2 2
+[e E3319 . `uc
+ADC_CONVERSION_CLOCK_FOSC_DIV_2 0
+ADC_CONVERSION_CLOCK_FOSC_DIV_8 1
+ADC_CONVERSION_CLOCK_FOSC_DIV_32 2
+ADC_CONVERSION_CLOCK_FOSC_DIV_FRC 3
+ADC_CONVERSION_CLOCK_FOSC_DIV_4 4
+ADC_CONVERSION_CLOCK_FOSC_DIV_16 5
+ADC_CONVERSION_CLOCK_FOSC_DIV_64 6
 ]
-[e E3445 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+[e E3294 . `uc
+ADC_CHANNEL_AN0 0
+ADC_CHANNEL_AN1 1
+ADC_CHANNEL_AN2 2
+ADC_CHANNEL_AN3 3
+ADC_CHANNEL_AN4 4
+ADC_CHANNEL_AN5 5
+ADC_CHANNEL_AN6 6
+ADC_CHANNEL_AN7 7
+ADC_CHANNEL_AN8 8
+ADC_CHANNEL_AN9 9
+ADC_CHANNEL_AN10 10
+ADC_CHANNEL_AN11 11
+ADC_CHANNEL_AN12 12
 ]
-[e E3234 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
-]
-[e E3230 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"40
+"28 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
-"72
-[v _program_1 program_1 `(v  1 e 1 0 ]
-"79
-[v _program_2 program_2 `(v  1 e 1 0 ]
-"86
-[v _APP_CallBack APP_CallBack `(v  1 e 1 0 ]
+"41
+[v _Application Application `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
@@ -214,16 +236,22 @@ GPIO_HIGH 1
 [v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 s 1 lcd_4bit_set_cursor ]
 "12 D:\Courses\Embedded C\projects\ECU_Layer/ecu_layer_init.c
 [v _ecu_layer_initialize ecu_layer_initialize `(v  1 e 1 0 ]
-"17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
-"44
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
-"72
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
-"10 D:\Courses\Embedded C\projects\MCAL_Layer/EEPROM/hal_eeprom.c
-[v _Data_EEPROM_WriteByte Data_EEPROM_WriteByte `(uc  1 e 1 0 ]
-"39
-[v _Data_EEPROM_ReadByte Data_EEPROM_ReadByte `(uc  1 e 1 0 ]
+"26 D:\Courses\Embedded C\projects\MCAL_Layer/ADC/hal_adc.c
+[v _ADC_Init ADC_Init `(uc  1 e 1 0 ]
+"88
+[v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
+"110
+[v _ADC_StartConversion ADC_StartConversion `(uc  1 e 1 0 ]
+"161
+[v _ADC_GetConversionResult ADC_GetConversionResult `(uc  1 e 1 0 ]
+"196
+[v _ADC_GetConversion_Blocking ADC_GetConversion_Blocking `(uc  1 e 1 0 ]
+"218
+[v _adc_input_channel_port_configure adc_input_channel_port_configure `T(uc  1 s 1 adc_input_channel_port_configure ]
+"240
+[v _select_result_format select_result_format `T(uc  1 s 1 select_result_format ]
+"264
+[v _configure_voltage_reference configure_voltage_reference `T(uc  1 s 1 configure_voltage_reference ]
 "27 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "84
@@ -234,9 +262,7 @@ GPIO_HIGH 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "167
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-"47 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
-[v _Interrupt_INTx_Init Interrupt_INTx_Init `(uc  1 e 1 0 ]
-"73
+"73 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 "88
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
@@ -270,26 +296,19 @@ GPIO_HIGH 1
 [v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
-"14 D:\Courses\Embedded C\projects\application.c
+"12 D:\Courses\Embedded C\projects\application.c
 [v _ret ret `uc  1 e 1 0 ]
-[s S466 . 1 `uc 1 port_name 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
 "15
-[v _led_1 led_1 `S466  1 e 1 0 ]
-"21
-[v _led_2 led_2 `S466  1 e 1 0 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"28
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v _int0_obj int0_obj `S1089  1 e 6 0 ]
-"39
-[v _program_selected program_selected `VEuc  1 e 1 0 ]
+[v _adc_1 adc_1 `S1427  1 e 6 0 ]
+"24
+[v _res_1 res_1 `us  1 e 2 0 ]
+[v _res_2 res_2 `us  1 e 2 0 ]
+[v _res_3 res_3 `us  1 e 2 0 ]
+[v _res_4 res_4 `us  1 e 2 0 ]
 "552 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "788
@@ -386,6 +405,71 @@ GPIO_HIGH 1
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3755
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
+[s S1581 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"5100
+[s S1586 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[u S1593 . 1 `S1581 1 . 1 0 `S1586 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES1593  1 e 1 @4032 ]
+[s S1632 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"5171
+[s S1635 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S1639 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S1643 . 1 `S1632 1 . 1 0 `S1635 1 . 1 0 `S1639 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1643  1 e 1 @4033 ]
+[s S1513 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"5245
+[s S1516 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S1520 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S1527 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1530 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1533 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S1536 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S1539 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S1542 . 1 `S1513 1 . 1 0 `S1516 1 . 1 0 `S1520 1 . 1 0 `S1527 1 . 1 0 `S1530 1 . 1 0 `S1533 1 . 1 0 `S1536 1 . 1 0 `S1539 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1542  1 e 1 @4034 ]
+"5327
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"5334
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 [s S859 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
@@ -485,255 +569,120 @@ GPIO_HIGH 1
 [v _RB5_Flag RB5_Flag `VEuc  1 s 1 RB5_Flag ]
 [v _RB6_Flag RB6_Flag `VEuc  1 s 1 RB6_Flag ]
 [v _RB7_Flag RB7_Flag `VEuc  1 s 1 RB7_Flag ]
-"40 D:\Courses\Embedded C\projects\application.c
+"28 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"66
+"40
 } 0
-"79
-[v _program_2 program_2 `(v  1 e 1 0 ]
+"41
+[v _Application Application `(v  1 e 1 0 ]
 {
-"84
+"45
 } 0
-"72
-[v _program_1 program_1 `(v  1 e 1 0 ]
+"12 D:\Courses\Embedded C\projects\ECU_Layer/ecu_layer_init.c
+[v _ecu_layer_initialize ecu_layer_initialize `(v  1 e 1 0 ]
 {
-"77
+"15
 } 0
-"44 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+"26 D:\Courses\Embedded C\projects\MCAL_Layer/ADC/hal_adc.c
+[v _ADC_Init ADC_Init `(uc  1 e 1 0 ]
 {
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"52
-[v led_turn_on@pin_obj pin_obj `S24  1 a 1 1 ]
-[s S466 . 1 `uc 1 port_name 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
-]
-"44
-[v led_turn_on@led led `*.30CS466  1 p 1 14 ]
-"51
-[v led_turn_on@F3315 F3315 `S24  1 s 1 F3315 ]
-"63
-} 0
-"72
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"80
-[v led_turn_off@pin_obj pin_obj `S24  1 a 1 1 ]
-[s S466 . 1 `uc 1 port_name 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
-]
-"72
-[v led_turn_off@led led `*.30CS466  1 p 1 14 ]
-"79
-[v led_turn_off@F3320 F3320 `S24  1 s 1 F3320 ]
-"91
-} 0
-"17
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"27
+[v ADC_Init@ret ret `uc  1 a 1 6 ]
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
 "26
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 5 ]
-"18
-[v led_initialize@ret ret `uc  1 a 1 4 ]
-[s S466 . 1 `uc 1 port_name 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
+[v ADC_Init@_adc _adc `*.30CS1427  1 p 1 4 ]
+"53
+} 0
+"240
+[v _select_result_format select_result_format `T(uc  1 s 1 select_result_format ]
+{
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"17
-[v led_initialize@led led `*.30CS466  1 p 1 2 ]
-"25
-[v led_initialize@F3310 F3310 `S24  1 s 1 F3310 ]
-"35
+[v select_result_format@_adc _adc `*.30CS1427  1 p 1 1 ]
+"262
 } 0
-"167 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
+"264
+[v _configure_voltage_reference configure_voltage_reference `T(uc  1 s 1 configure_voltage_reference ]
 {
-"168
-[v gpio_pin_intialize@ret ret `uc  1 a 1 1 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"167
-[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 14 ]
-"180
+[v configure_voltage_reference@_adc _adc `*.30CS1427  1 p 1 1 ]
+"286
 } 0
-"84
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+"196
+[v _ADC_GetConversion_Blocking ADC_GetConversion_Blocking `(uc  1 e 1 0 ]
 {
-"85
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 13 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"198
+[v ADC_GetConversion_Blocking@ret ret `uc  1 a 1 12 ]
+"199
+[v ADC_GetConversion_Blocking@l_conversion_status l_conversion_status `uc  1 a 1 11 ]
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"84
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 6 ]
-[v gpio_pin_write_logic@logic logic `E3230  1 p 1 7 ]
-"106
+"196
+[v ADC_GetConversion_Blocking@_adc _adc `*.30CS1427  1 p 1 8 ]
+[v ADC_GetConversion_Blocking@channel channel `E3294  1 p 1 9 ]
+"197
+[v ADC_GetConversion_Blocking@conversion_result conversion_result `*.30us  1 p 1 10 ]
+"216
 } 0
-"47 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
-[v _Interrupt_INTx_Init Interrupt_INTx_Init `(uc  1 e 1 0 ]
+"110
+[v _ADC_StartConversion ADC_StartConversion `(uc  1 e 1 0 ]
 {
-"48
-[v Interrupt_INTx_Init@ret ret `uc  1 a 1 1 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"111
+[v ADC_StartConversion@ret ret `uc  1 a 1 2 ]
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"47
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Init@int_obj int_obj `*.30CS1089  1 p 1 0 ]
-"71
+"110
+[v ADC_StartConversion@_adc _adc `*.30CS1427  1 p 1 1 ]
+"121
 } 0
-"523
-[v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
+"88
+[v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
 {
-"524
-[v Interrupt_INTx_SetInterruptHandler@ret ret `uc  1 a 1 12 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"89
+[v ADC_SelectChannel@ret ret `uc  1 a 1 7 ]
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"523
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_SetInterruptHandler@int_obj int_obj `*.30CS1089  1 p 1 9 ]
-"545
+"88
+[v ADC_SelectChannel@_adc _adc `*.30CS1427  1 p 1 4 ]
+[v ADC_SelectChannel@channel channel `E3294  1 p 1 5 ]
+"100
 } 0
-"511
-[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
+"218
+[v _adc_input_channel_port_configure adc_input_channel_port_configure `T(uc  1 s 1 adc_input_channel_port_configure ]
 {
-"512
-[v INT2_SetInterruptHandler@ret ret `uc  1 a 1 8 ]
-"511
-[v INT2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 6 ]
-"522
+[v adc_input_channel_port_configure@channel channel `E3294  1 a 1 wreg ]
+[v adc_input_channel_port_configure@channel channel `E3294  1 a 1 wreg ]
+[v adc_input_channel_port_configure@channel channel `E3294  1 a 1 3 ]
+"238
 } 0
-"499
-[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
+"161
+[v _ADC_GetConversionResult ADC_GetConversionResult `(uc  1 e 1 0 ]
 {
-"500
-[v INT1_SetInterruptHandler@ret ret `uc  1 a 1 8 ]
-"499
-[v INT1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 6 ]
-"510
-} 0
-"487
-[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
-{
-"488
-[v INT0_SetInterruptHandler@ret ret `uc  1 a 1 8 ]
-"487
-[v INT0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 6 ]
-"498
-} 0
-"448
-[v _Interrupt_INTx_Pin_Init Interrupt_INTx_Pin_Init `(uc  1 s 1 Interrupt_INTx_Pin_Init ]
-{
-"449
-[v Interrupt_INTx_Pin_Init@ret ret `uc  1 a 1 14 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"162
+[v ADC_GetConversionResult@ret ret `uc  1 a 1 6 ]
+[s S1427 . 6 `*.37(v 1 ADC_InterruptHandler 2 0 `E3499 1 Acquisition_time 1 2 `E3509 1 convertion_clock 1 3 `E3484 1 adc_channel 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 ADC_Reserved 1 5 :6:2 
 ]
-"448
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Pin_Init@int_obj int_obj `*.30CS1089  1 p 1 13 ]
-"458
-} 0
-"27 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
-{
-"28
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 12 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"27
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 6 ]
-"47
-} 0
-"296 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
-[v _Interrupt_INTx_Enable Interrupt_INTx_Enable `(uc  1 s 1 Interrupt_INTx_Enable ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Enable@int_obj int_obj `*.30CS1089  1 p 1 6 ]
-"349
-} 0
-"414
-[v _Interrupt_INTx_Edge_Init Interrupt_INTx_Edge_Init `(uc  1 s 1 Interrupt_INTx_Edge_Init ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Edge_Init@int_obj int_obj `*.30CS1089  1 p 1 6 ]
-"440
-} 0
-"356
-[v _Interrupt_INTx_Disable Interrupt_INTx_Disable `(uc  1 s 1 Interrupt_INTx_Disable ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Disable@int_obj int_obj `*.30CS1089  1 p 1 6 ]
-"376
-} 0
-"465
-[v _Interrupt_INTx_Clear_Flag Interrupt_INTx_Clear_Flag `(uc  1 s 1 Interrupt_INTx_Clear_Flag ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1089 . 6 `*.37(v 1 EXT_InterruptHandler 2 0 `S24 1 mcu_pin 1 2 `E3296 1 edge 1 3 `E3300 1 source 1 4 `E3290 1 priority 1 5 ]
-[v Interrupt_INTx_Clear_Flag@int_obj int_obj `*.30CS1089  1 p 1 6 ]
-"485
-} 0
-"39 D:\Courses\Embedded C\projects\MCAL_Layer/EEPROM/hal_eeprom.c
-[v _Data_EEPROM_ReadByte Data_EEPROM_ReadByte `(uc  1 e 1 0 ]
-{
-"40
-[v Data_EEPROM_ReadByte@ret ret `uc  1 a 1 9 ]
-"39
-[v Data_EEPROM_ReadByte@bAdd bAdd `us  1 p 2 6 ]
-[v Data_EEPROM_ReadByte@bData bData `*.30uc  1 p 1 8 ]
-"61
+"161
+[v ADC_GetConversionResult@_adc _adc `*.30CS1427  1 p 1 1 ]
+[v ADC_GetConversionResult@conversion_result conversion_result `*.30us  1 p 1 2 ]
+"183
 } 0
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
@@ -790,19 +739,4 @@ GPIO_HIGH 1
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 {
 "86
-} 0
-"86 D:\Courses\Embedded C\projects\application.c
-[v _APP_CallBack APP_CallBack `(v  1 e 1 0 ]
-{
-"94
-} 0
-"10 D:\Courses\Embedded C\projects\MCAL_Layer/EEPROM/hal_eeprom.c
-[v _Data_EEPROM_WriteByte Data_EEPROM_WriteByte `(uc  1 e 1 0 ]
-{
-"13
-[v Data_EEPROM_WriteByte@Global_Interrupt_Status Global_Interrupt_Status `uc  1 a 1 3 ]
-"10
-[v Data_EEPROM_WriteByte@bAdd bAdd `us  1 p 2 0 ]
-[v Data_EEPROM_WriteByte@bData bData `uc  1 p 1 2 ]
-"38
 } 0
