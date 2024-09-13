@@ -1,7 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F3520 `(v ~T0 @X0 0 tf ]
-"15 application.c
-[; ;application.c: 15: adc_conf_t adc_1 = {
+"17 application.c
+[; ;application.c: 17: adc_conf_t adc_1 = {
+[c E3445 0 1 .. ]
+[n E3445 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
 [c E3499 0 1 2 3 4 5 6 7 .. ]
 [n E3499 . ADC_0_TAD ADC_2_TAD ADC_4_TAD ADC_6_TAD ADC_8_TAD ADC_12_TAD ADC_16_TAD ADC_20_TAD  ]
 [c E3509 0 1 2 3 4 5 6 .. ]
@@ -10,18 +12,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E3484 . ADC_CHANNEL_AN0 ADC_CHANNEL_AN1 ADC_CHANNEL_AN2 ADC_CHANNEL_AN3 ADC_CHANNEL_AN4 ADC_CHANNEL_AN5 ADC_CHANNEL_AN6 ADC_CHANNEL_AN7 ADC_CHANNEL_AN8 ADC_CHANNEL_AN9 ADC_CHANNEL_AN10 ADC_CHANNEL_AN11 ADC_CHANNEL_AN12  ]
 "152 ./MCAL_Layer/ADC/hal_adc.h
 [; ;./MCAL_Layer/ADC/hal_adc.h: 152: typedef struct {
-[s S317 `*F3520 1 `E3499 1 `E3509 1 `E3484 1 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
-[n S317 . ADC_InterruptHandler Acquisition_time convertion_clock adc_channel voltage_reference result_format ADC_Reserved ]
-[v F3552 `(v ~T0 @X0 0 tf ]
+[s S317 `*F3520 1 `E3445 1 `E3499 1 `E3509 1 `E3484 1 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S317 . ADC_InterruptHandler priority Acquisition_time convertion_clock adc_channel voltage_reference result_format ADC_Reserved ]
+"16 application.c
+[; ;application.c: 16: void ADC_DefaultInterruptHandler(void);
+[v _ADC_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
+"173 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 173: Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
+[v _ADC_GetConversionResult `(uc ~T0 @X0 0 ef2`*CS317`*us ]
 [p mainexit ]
 "13 application.c
 [; ;application.c: 13: void Application (void);
 [v _Application `(v ~T0 @X0 0 ef ]
-"171 ./MCAL_Layer/ADC/hal_adc.h
-[; ;./MCAL_Layer/ADC/hal_adc.h: 171: Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
-[v _ADC_GetConversion_Blocking `(uc ~T0 @X0 0 ef3`*CS317`E3484`*us ]
-"165
-[; ;./MCAL_Layer/ADC/hal_adc.h: 165: Std_ReturnType ADC_Init(const adc_conf_t *_adc);
+"176 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 176: Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel);
+[v _ADC_GetConversion_Interrupt `(uc ~T0 @X0 0 ef2`*CS317`E3484 ]
+"168
+[; ;./MCAL_Layer/ADC/hal_adc.h: 168: Std_ReturnType ADC_Init(const adc_conf_t *_adc);
 [v _ADC_Init `(uc ~T0 @X0 0 ef1`*CS317 ]
 "31 ./ECU_Layer/ecu_layer_init.h
 [; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
@@ -473,13 +480,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _ret
 -> -> 0 `i `uc
 ]
+"14
+[; ;application.c: 14: adc_result_t res_1 = 0X00;
+[v _res_1 `us ~T0 @X0 1 e ]
+[i _res_1
+-> -> 0 `i `us
+]
 "15
-[; ;application.c: 15: adc_conf_t adc_1 = {
+[; ;application.c: 15: uint8 adc_flag = 0X00;
+[v _adc_flag `uc ~T0 @X0 1 e ]
+[i _adc_flag
+-> -> 0 `i `uc
+]
+"17
+[; ;application.c: 17: adc_conf_t adc_1 = {
 [v _adc_1 `S317 ~T0 @X0 1 e ]
 [i _adc_1
 :U ..
 :U ..
--> -> -> 0 `i `*v `*F3552
+&U _ADC_DefaultInterruptHandler
+-> -> 0 `i `E3445
 . `E3499 5
 . `E3509 5
 . `E3484 0
@@ -488,81 +508,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"24
-[; ;application.c: 24: adc_result_t res_1 = 0X00, res_2 = 0X00, res_3 = 0X00 , res_4 = 0X00;
-[v _res_1 `us ~T0 @X0 1 e ]
-[i _res_1
--> -> 0 `i `us
-]
-[v _res_2 `us ~T0 @X0 1 e ]
-[i _res_2
--> -> 0 `i `us
-]
-[v _res_3 `us ~T0 @X0 1 e ]
-[i _res_3
--> -> 0 `i `us
-]
-[v _res_4 `us ~T0 @X0 1 e ]
-[i _res_4
--> -> 0 `i `us
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"26
+[; ;application.c: 26: void ADC_DefaultInterruptHandler(void){
+[v _ADC_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _ADC_DefaultInterruptHandler ]
+[f ]
+"27
+[; ;application.c: 27:     adc_flag++;
+[e ++ _adc_flag -> -> 1 `i `uc ]
 "28
-[; ;application.c: 28: int main() {
+[; ;application.c: 28:     ret = ADC_GetConversionResult(&adc_1,&res_1);
+[e = _ret ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS317 &U _res_1 ]
+"29
+[; ;application.c: 29: }
+[e :UE 318 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"34
+[; ;application.c: 34: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"30
-[; ;application.c: 30:     Application ();
-[e ( _Application ..  ]
-"31
-[; ;application.c: 31:     while (1)
-[e :U 320 ]
-"32
-[; ;application.c: 32:     {
-{
-"33
-[; ;application.c: 33:         ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN0, &res_1);
-[e = _ret ( _ADC_GetConversion_Blocking (3 , , -> &U _adc_1 `*CS317 . `E3484 0 &U _res_1 ]
-"34
-[; ;application.c: 34:         ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN1, &res_2);
-[e = _ret ( _ADC_GetConversion_Blocking (3 , , -> &U _adc_1 `*CS317 . `E3484 1 &U _res_2 ]
-"35
-[; ;application.c: 35:         ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN2, &res_3);
-[e = _ret ( _ADC_GetConversion_Blocking (3 , , -> &U _adc_1 `*CS317 . `E3484 2 &U _res_3 ]
 "36
-[; ;application.c: 36:         ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN3, &res_4);
-[e = _ret ( _ADC_GetConversion_Blocking (3 , , -> &U _adc_1 `*CS317 . `E3484 3 &U _res_4 ]
+[; ;application.c: 36:     Application ();
+[e ( _Application ..  ]
 "37
-[; ;application.c: 37:     }
-}
-[e :U 319 ]
-[e $U 320  ]
+[; ;application.c: 37:     while (1)
 [e :U 321 ]
+"38
+[; ;application.c: 38:     {
+{
 "39
-[; ;application.c: 39:     return (0);
-[e ) -> 0 `i ]
-[e $UE 318  ]
+[; ;application.c: 39:         ret = ADC_GetConversion_Interrupt (&adc_1, ADC_CHANNEL_AN0);
+[e = _ret ( _ADC_GetConversion_Interrupt (2 , -> &U _adc_1 `*CS317 . `E3484 0 ]
 "40
-[; ;application.c: 40: }
-[e :UE 318 ]
+[; ;application.c: 40:     }
 }
-"41
-[; ;application.c: 41: void Application (void)
-[v _Application `(v ~T0 @X0 1 ef ]
+[e :U 320 ]
+[e $U 321  ]
+[e :U 322 ]
 "42
-[; ;application.c: 42: {
+[; ;application.c: 42:     return (0);
+[e ) -> 0 `i ]
+[e $UE 319  ]
+"43
+[; ;application.c: 43: }
+[e :UE 319 ]
+}
+"44
+[; ;application.c: 44: void Application (void)
+[v _Application `(v ~T0 @X0 1 ef ]
+"45
+[; ;application.c: 45: {
 {
 [e :U _Application ]
 [f ]
-"43
-[; ;application.c: 43:     ret = ADC_Init(&adc_1);
+"46
+[; ;application.c: 46:     ret = ADC_Init(&adc_1);
 [e = _ret ( _ADC_Init (1 -> &U _adc_1 `*CS317 ]
-"44
-[; ;application.c: 44:     ecu_layer_initialize();
+"47
+[; ;application.c: 47:     ecu_layer_initialize();
 [e ( _ecu_layer_initialize ..  ]
-"45
-[; ;application.c: 45: }
-[e :UE 322 ]
+"48
+[; ;application.c: 48: }
+[e :UE 323 ]
 }

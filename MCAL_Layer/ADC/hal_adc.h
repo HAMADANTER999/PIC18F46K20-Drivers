@@ -150,7 +150,10 @@ typedef enum {
 }adc_conversion_clock_t;
 
 typedef struct {
+#ifdef ADC_INTERRUPT_FEATURE_ENABLE
     void (* ADC_InterruptHandler) (void);
+    interrupt_priority_cfg priority;
+#endif 
     adc_acquisition_time_t Acquisition_time;   /* @ref adc_acquisition_time_t */
     adc_conversion_clock_t convertion_clock;   /* @ref adc_conversion_clock_t */
     adc_channel_select_t adc_channel;          /* @ref adc_channel_select_t */
@@ -170,6 +173,7 @@ Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_s
 Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
 Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
                                   adc_result_t *conversion_result);
+Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel);
 
 #endif	/* HAL_ADC_H */
 

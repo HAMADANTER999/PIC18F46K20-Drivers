@@ -110,6 +110,13 @@ void __interrupt() InterruptManager(void){
     }
     else{ /* Nothing */ }
     /* =====================PORTB On change external interrupt End=========================*/
+    
+    /* =====================ADC Module interrupt start=====================================*/
+    if ((PIE1bits.ADIE == INTERRUPT_ENABLE) && (PIR1bits.ADIF == INTERRUPT_OCCUR)){
+        ADC_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================ADC Module interrupt End=====================================*/
 }
 
 #endif

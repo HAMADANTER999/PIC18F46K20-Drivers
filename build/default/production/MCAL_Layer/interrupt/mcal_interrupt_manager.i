@@ -5259,6 +5259,7 @@ void RB4_ISR(uint8 RB4_source);
 void RB5_ISR(uint8 RB5_source);
 void RB6_ISR(uint8 RB6_source);
 void RB7_ISR(uint8 RB7_source);
+void ADC_ISR(void);
 # 8 "MCAL_Layer/interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -5341,5 +5342,14 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
         RB7_ISR(0);
     }
     else{ }
+
+
+
+    if ((PIE1bits.ADIE == 1) && (PIR1bits.ADIF == 1)){
+        ADC_ISR();
+    }
+    else { }
+
+
 
 }

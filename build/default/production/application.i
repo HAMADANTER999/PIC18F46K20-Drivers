@@ -5556,7 +5556,10 @@ typedef enum {
 }adc_conversion_clock_t;
 
 typedef struct {
+
     void (* ADC_InterruptHandler) (void);
+    interrupt_priority_cfg priority;
+
     adc_acquisition_time_t Acquisition_time;
     adc_conversion_clock_t convertion_clock;
     adc_channel_select_t adc_channel;
@@ -5576,6 +5579,7 @@ Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_s
 Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
 Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
                                   adc_result_t *conversion_result);
+Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel);
 # 15 "./application.h" 2
 # 24 "./application.h"
 void Application (void);
@@ -5586,9 +5590,11 @@ void Application (void);
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
 void Application (void);
-
+adc_result_t res_1 = 0X00;
+uint8 adc_flag = 0X00;
+void ADC_DefaultInterruptHandler(void);
 adc_conf_t adc_1 = {
-    .ADC_InterruptHandler = ((void*)0),
+    .ADC_InterruptHandler = ADC_DefaultInterruptHandler,
     .Acquisition_time = ADC_12_TAD,
     .adc_channel = ADC_CHANNEL_AN0,
     .convertion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
@@ -5596,7 +5602,11 @@ adc_conf_t adc_1 = {
     .voltage_reference = 0X00U,
 };
 
-adc_result_t res_1 = 0X00, res_2 = 0X00, res_3 = 0X00 , res_4 = 0X00;
+void ADC_DefaultInterruptHandler(void){
+    adc_flag++;
+    ret = ADC_GetConversionResult(&adc_1,&res_1);
+}
+
 
 
 
@@ -5605,10 +5615,7 @@ int main() {
     Application ();
     while (1)
     {
-        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN0, &res_1);
-        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN1, &res_2);
-        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN2, &res_3);
-        ret = ADC_GetConversion_Blocking (&adc_1, ADC_CHANNEL_AN3, &res_4);
+        ret = ADC_GetConversion_Interrupt (&adc_1, ADC_CHANNEL_AN0);
     }
 
     return (0);

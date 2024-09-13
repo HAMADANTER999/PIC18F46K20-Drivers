@@ -6,7 +6,10 @@
  */
 
 #include "hal_adc.h"
-
+#ifdef ADC_INTERRUPT_FEATURE_ENABLE
+static void (* ADC_InterruptHandler) (void) = NULL;
+#endif 
+ 
 
 static inline Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel);
 static inline Std_ReturnType select_result_format(const adc_conf_t *_adc);
@@ -41,7 +44,18 @@ Std_ReturnType ADC_Init(const adc_conf_t *_adc){
         ADCON0bits.CHS = _adc->adc_channel;
         adc_input_channel_port_configure(_adc->adc_channel);
         /* Configure the interrupt */
-        
+#ifdef ADC_INTERRUPT_FEATURE_ENABLE
+        INTERRUPT_GlobalInterruprEnable();
+        INTERRUPT_PeripheralInterruptEnable();
+        ADC_InterruptEnable();
+        ADC_InterruptFlagClear();
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+        if (INTERRUPT_HIGH_PRIORITY == _adc->priority) {ADC_HighPrioritySet();}
+        else if (INTERRUPT_LOW_PRIORITY == _adc->priority) {ADC_LowPrioritySet();}
+        else {/* Nothing */ }
+#endif     
+        ADC_InterruptHandler = _adc->ADC_InterruptHandler;
+#endif 
         /* Configure the result format */
         select_result_format(_adc);
         /* Configure the voltage reference */
@@ -68,8 +82,10 @@ Std_ReturnType ADC_DeInit(const adc_conf_t *_adc){
     {
         /* Disable the ADC */
         ADC_CONVERTER_DISABLE();
-        
         /* Disable the interrupt */
+#ifdef ADC_INTERRUPT_FEATURE_ENABLE
+        ADC_InterruptDisable();
+#endif
         
     }
     return ret;
@@ -196,7 +212,6 @@ Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *co
 Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
                                   adc_result_t *conversion_result){
     Std_ReturnType ret = E_OK;
-    uint8 l_conversion_status = ZERO_INIT;
     if ((NULL == _adc) || (NULL == conversion_result))
     {
         ret = E_NOT_OK;
@@ -215,6 +230,21 @@ Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_s
     return ret;
 }
 
+Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel){
+    Std_ReturnType ret = E_OK;
+    if (NULL == _adc)
+    {
+        ret = E_NOT_OK;
+    }
+    else
+    {
+        /* select the A/D channel */
+        ret = ADC_SelectChannel (_adc, channel);
+        /* start the conversion */
+        ret |= ADC_StartConversion (_adc);    
+    }
+    return ret;
+}
 static inline Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel){
     Std_ReturnType ret = E_OK;
     switch (channel)
@@ -283,4 +313,10 @@ static inline Std_ReturnType configure_voltage_reference(const adc_conf_t *_adc)
         }    
     }
     return ret;
+}
+void ADC_ISR(void){
+    ADC_InterruptFlagClear();
+    if (ADC_InterruptHandler){
+        ADC_InterruptHandler();
+    }
 }
