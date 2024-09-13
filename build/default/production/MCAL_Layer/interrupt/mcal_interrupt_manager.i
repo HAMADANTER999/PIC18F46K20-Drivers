@@ -5350,6 +5350,4 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
     }
     else { }
 
-
-
 }

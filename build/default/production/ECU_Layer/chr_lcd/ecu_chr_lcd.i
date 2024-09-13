@@ -5568,47 +5568,67 @@ Std_ReturnType lcd_8bit_send_custom_char(const chr_lcd_8bit_t *lcd, uint8 row, u
 # 414 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str){
     Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 Temp_String[4] = {0};
+    uint8 DataCounter = 0;
     if (((void*)0) == str)
     {
         ret = (Std_ReturnType)0x00;
     }
     else
     {
-
-        memset(str, '\0', 4);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 3);
+        str[4] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
-# 436 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+# 442 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 Std_ReturnType convert_short_to_string(uint16 value, uint8 *str){
     Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 Temp_String[6] = {0};
+    uint8 DataCounter = 0;
     if (((void*)0) == str)
     {
         ret = (Std_ReturnType)0x00;
     }
     else
     {
-        memset(str, '\0', 6);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 5);
+        str[5] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
-# 457 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+# 470 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 Std_ReturnType convert_int_to_string(uint32 value, uint8 *str){
     Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 Temp_String[11] = {0};
+    uint8 DataCounter = 0;
     if (((void*)0) == str)
     {
         ret = (Std_ReturnType)0x00;
     }
     else
     {
-        memset(str, '\0', 11);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 10);
+        str[11] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
-# 479 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+# 499 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 static Std_ReturnType lcd_send_4bits(const chr_lcd_4bit_t *lcd, uint8 _data_command){
     Std_ReturnType ret = (Std_ReturnType)0x01;
     if (((void*)0) == lcd)
@@ -5624,7 +5644,7 @@ static Std_ReturnType lcd_send_4bits(const chr_lcd_4bit_t *lcd, uint8 _data_comm
     }
     return ret;
 }
-# 502 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
+# 522 "ECU_Layer/chr_lcd/ecu_chr_lcd.c"
 static Std_ReturnType lcd_send_4bits_enable_signal(const chr_lcd_4bit_t *lcd){
     Std_ReturnType ret = (Std_ReturnType)0x01;
     if (((void*)0) == lcd)

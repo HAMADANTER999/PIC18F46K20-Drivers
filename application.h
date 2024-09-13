@@ -13,6 +13,7 @@
 #include "ECU_Layer/ecu_layer_init.h"
 #include "MCAL_Layer/interrupt/mcal_external_interrupt.h"
 #include "MCAL_Layer/ADC/hal_adc.h"
+#include "ECU_Layer/chr_lcd/ecu_chr_lcd.h"
 
 /* Section : Macro Declarations*/
 #define _XTAL_FREQ      8000000UL

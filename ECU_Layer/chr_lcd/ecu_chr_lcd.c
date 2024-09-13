@@ -413,15 +413,21 @@ Std_ReturnType lcd_8bit_send_custom_char(const chr_lcd_8bit_t *lcd, uint8 row, u
  */
 Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str){
     Std_ReturnType ret = E_OK;
+    uint8 Temp_String[4] = {0};
+    uint8 DataCounter = 0;
     if (NULL == str)
     {
         ret = E_NOT_OK;
     }
     else
     {
-        
-        memset(str, '\0', 4);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 3);
+        str[4] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
@@ -435,14 +441,21 @@ Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str){
  */
 Std_ReturnType convert_short_to_string(uint16 value, uint8 *str){
     Std_ReturnType ret = E_OK;
+    uint8 Temp_String[6] = {0};
+    uint8 DataCounter = 0;
     if (NULL == str)
     {
         ret = E_NOT_OK;
     }
     else
     {
-        memset(str, '\0', 6);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 5);
+        str[5] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
@@ -456,14 +469,21 @@ Std_ReturnType convert_short_to_string(uint16 value, uint8 *str){
  */
 Std_ReturnType convert_int_to_string(uint32 value, uint8 *str){
     Std_ReturnType ret = E_OK;
+    uint8 Temp_String[11] = {0};
+    uint8 DataCounter = 0;
     if (NULL == str)
     {
         ret = E_NOT_OK;
     }
     else
     {
-        memset(str, '\0', 11);
-        sprintf(str, "%i", value);
+        memset(str, ' ', 10);
+        str[11] = '\0';
+        sprintf((char *)Temp_String, "%i", value);
+        while (Temp_String[DataCounter] != '\0'){
+            str[DataCounter] = Temp_String[DataCounter];
+            DataCounter++;
+        }
     }
     return ret;
 }
