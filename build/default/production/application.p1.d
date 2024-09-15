@@ -27,4 +27,5 @@ MCAL_Layer/interrupt/mcal_interrupt_config.h  \
 MCAL_Layer/interrupt/mcal_interrupt_gen_cfg.h  \
 MCAL_Layer/ADC/hal_adc.h  \
 MCAL_Layer/ADC/hal_adc_cfg.h  \
-MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h 
+MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h  \
+MCAL_Layer/Timer/timer0.h 

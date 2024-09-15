@@ -5581,137 +5581,95 @@ Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_s
                                   adc_result_t *conversion_result);
 Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel);
 # 15 "./application.h" 2
-# 25 "./application.h"
+
+
+# 1 "./MCAL_Layer/Timer/timer0.h" 1
+# 51 "./MCAL_Layer/Timer/timer0.h"
+typedef enum {
+    TIMER0_PRESCALER_DIV_BY_2,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256,
+}timer0_prescaler_select_t;
+
+typedef struct {
+
+    void (*TMR0_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preloaded_value;
+    uint8 prescaler_enable : 1;
+    uint8 timer0_counter_edge : 1;
+    uint8 timer0_mode : 1;
+    uint8 timer0_register_size : 1;
+    uint8 timer0_reserved : 4;
+}timer0_t;
+
+
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 value);
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *value);
+# 17 "./application.h" 2
+# 26 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
 void Application (void);
-void ADC_DefaultInterruptHandler(void);
+void TMR_DefaultInterruptHandler(void);
 
-adc_conf_t adc_1 = {
-    .ADC_InterruptHandler = ADC_DefaultInterruptHandler,
-    .Acquisition_time = ADC_12_TAD,
-    .adc_channel = ADC_CHANNEL_AN0,
-    .convertion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
-    .result_format = 0X01U,
-    .voltage_reference = 0X00U,
+volatile uint16 counter_flag = 0X00;
+
+timer0_t timer0_timer_obj = {
+  .TMR0_InterruptHandler = TMR_DefaultInterruptHandler,
+  .prescaler_enable = 1U,
+  .prescaler_value = TIMER0_PRESCALER_DIV_BY_8,
+  .timer0_mode = 1U,
+  .timer0_register_size = 0U,
+  .timer0_preloaded_value = 3036,
+
 };
 
-chr_lcd_4bit_t lcd_1 = {
-    .lcd_rs.port = PORTC_INDEX,
-    .lcd_rs.pin = GPIO_PIN0,
-    .lcd_rs.direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_rs.logic = GPIO_LOW,
-    .lcd_en.port = PORTC_INDEX,
-    .lcd_en.pin = GPIO_PIN1,
-    .lcd_en.direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_en.logic = GPIO_LOW,
-    .lcd_data[0].port = PORTC_INDEX,
-    .lcd_data[0].pin = GPIO_PIN2,
-    .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[0].logic = GPIO_LOW,
-    .lcd_data[1].port = PORTC_INDEX,
-    .lcd_data[1].pin = GPIO_PIN3,
-    .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[1].logic = GPIO_LOW,
-    .lcd_data[2].port = PORTC_INDEX,
-    .lcd_data[2].pin = GPIO_PIN4,
-    .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[2].logic = GPIO_LOW,
-    .lcd_data[3].port = PORTC_INDEX,
-    .lcd_data[3].pin = GPIO_PIN5,
-    .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[3].logic = GPIO_LOW
+timer0_t timer0_counter_obj = {
+  .TMR0_InterruptHandler = TMR_DefaultInterruptHandler,
+  .prescaler_enable = 0U,
+  .timer0_mode = 0U,
+  .timer0_register_size = 0U,
+  .timer0_counter_edge = 1U,
+  .timer0_preloaded_value = 0,
+
 };
 
-dc_motor_t motor_1 = {
-   .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
-   .dc_motor[0].logic = GPIO_LOW,
-   .dc_motor[0].pin = GPIO_PIN0,
-   .dc_motor[0].port = PORTD_INDEX,
-   .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
-   .dc_motor[1].logic = GPIO_LOW,
-   .dc_motor[1].pin = GPIO_PIN1,
-   .dc_motor[1].port = PORTD_INDEX,
+led_t led_1 = {
+  .led_status = LED_OFF,
+  .pin = GPIO_PIN0,
+  .port_name = PORTD_INDEX,
 };
-dc_motor_t motor_2 = {
-   .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
-   .dc_motor[0].logic = GPIO_LOW,
-   .dc_motor[0].pin = GPIO_PIN2,
-   .dc_motor[0].port = PORTD_INDEX,
-   .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
-   .dc_motor[1].logic = GPIO_LOW,
-   .dc_motor[1].pin = GPIO_PIN3,
-   .dc_motor[1].port = PORTD_INDEX,
-};
-
 Std_ReturnType ret = (Std_ReturnType)0x00;
-adc_result_t res_1 = 0X00, res_2 = 0X00, lm35_res_1_Celsius = 0X00,lm35_res_2_Celsius = 0X00 ;
-uint8 adc_res_1_txt[6], adc_res_2_txt[6];
-uint8 ADC_Req = 0X00;
 int main() {
     Application ();
-    ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, "LM35 Test");
-
-    ret = lcd_4bit_send_string_pos(&lcd_1, 2, 1, "Temp1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1, 3, 1, "Temp2: ");
-
 
     while (1)
     {
-        if (0 == ADC_Req){
-            ret = ADC_GetConversion_Interrupt (&adc_1, ADC_CHANNEL_AN0);
-        }
-        else if (1 == ADC_Req){
-            ret = ADC_GetConversion_Interrupt (&adc_1, ADC_CHANNEL_AN1);
-        }
-        else { }
-
-        lm35_res_1_Celsius = res_1 * 4.88f;
-        lm35_res_2_Celsius = res_2 * 4.88f;
-
-        lm35_res_1_Celsius /= 10;
-        lm35_res_2_Celsius /= 10;
-
-        ret = convert_short_to_string(lm35_res_1_Celsius, adc_res_1_txt);
-        ret = convert_short_to_string(lm35_res_2_Celsius, adc_res_2_txt);
-
-        ret = lcd_4bit_send_string_pos(&lcd_1,2, 8, adc_res_1_txt);
-        ret = lcd_4bit_send_string_pos(&lcd_1,3, 8, adc_res_2_txt);
-
-        if (lm35_res_1_Celsius > 20 ){
-            ret = dc_motor_move_right(&motor_1);
-        }
-        else{
-            ret = dc_motor_stop(&motor_1);
-        }
-        if (lm35_res_2_Celsius > 25 ){
-            ret = dc_motor_move_left(&motor_2);
-        }
-        else{
-            ret = dc_motor_stop(&motor_2);
-        }
+        ret = Timer0_Read_Value(&timer0_counter_obj, &counter_flag);
     }
 
     return (0);
 }
 void Application (void)
 {
-    ret = ADC_Init(&adc_1);
-    ret = lcd_4bit_initialize(&lcd_1);
-    ret = dc_motor_initialize(&motor_1);
-    ret = dc_motor_initialize(&motor_2);
+    ret = Timer0_Init(&timer0_counter_obj);
+    ret = led_initialize(&led_1);
     ecu_layer_initialize();
 }
-void ADC_DefaultInterruptHandler(void){
-    if (0 == ADC_Req){
-        ret = ADC_GetConversionResult (&adc_1, &res_1);
-        ADC_Req = 1;
-    }
-    else if (1 == ADC_Req){
-        ret = ADC_GetConversionResult (&adc_1, &res_2);
-        ADC_Req = 0;
-    }
-    else { }
+
+void TMR_DefaultInterruptHandler(void){
+    ret = led_turn_toggle(&led_1);
 }

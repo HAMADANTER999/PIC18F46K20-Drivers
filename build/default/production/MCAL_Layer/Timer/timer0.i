@@ -1,4 +1,4 @@
-# 1 "MCAL_Layer/ADC/hal_adc.c"
+# 1 "MCAL_Layer/Timer/timer0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_Layer/ADC/hal_adc.c" 2
+# 1 "MCAL_Layer/Timer/timer0.c" 2
 
 
 
@@ -14,8 +14,8 @@
 
 
 
-# 1 "MCAL_Layer/ADC/hal_adc.h" 1
-# 12 "MCAL_Layer/ADC/hal_adc.h"
+# 1 "MCAL_Layer/Timer/timer0.h" 1
+# 12 "MCAL_Layer/Timer/timer0.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4947,15 +4947,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_Layer/ADC/hal_adc.h" 2
+# 12 "MCAL_Layer/Timer/timer0.h" 2
 
-# 1 "MCAL_Layer/ADC/hal_adc_cfg.h" 1
-# 13 "MCAL_Layer/ADC/hal_adc.h" 2
-
-# 1 "MCAL_Layer/ADC/../mcal_std_types.h" 1
-# 13 "MCAL_Layer/ADC/../mcal_std_types.h"
-# 1 "MCAL_Layer/ADC/../std_libraries.h" 1
-# 12 "MCAL_Layer/ADC/../std_libraries.h"
+# 1 "MCAL_Layer/Timer/../mcal_std_types.h" 1
+# 13 "MCAL_Layer/Timer/../mcal_std_types.h"
+# 1 "MCAL_Layer/Timer/../std_libraries.h" 1
+# 12 "MCAL_Layer/Timer/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5108,7 +5105,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_Layer/ADC/../std_libraries.h" 2
+# 12 "MCAL_Layer/Timer/../std_libraries.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
@@ -5168,12 +5165,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_Layer/ADC/../std_libraries.h" 2
-# 13 "MCAL_Layer/ADC/../mcal_std_types.h" 2
+# 14 "MCAL_Layer/Timer/../std_libraries.h" 2
+# 13 "MCAL_Layer/Timer/../mcal_std_types.h" 2
 
-# 1 "MCAL_Layer/ADC/../compiler.h" 1
-# 14 "MCAL_Layer/ADC/../mcal_std_types.h" 2
-# 37 "MCAL_Layer/ADC/../mcal_std_types.h"
+# 1 "MCAL_Layer/Timer/../compiler.h" 1
+# 14 "MCAL_Layer/Timer/../mcal_std_types.h" 2
+# 37 "MCAL_Layer/Timer/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -5182,16 +5179,16 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 14 "MCAL_Layer/ADC/hal_adc.h" 2
+# 13 "MCAL_Layer/Timer/timer0.h" 2
 
-# 1 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 1
-# 15 "MCAL_Layer/ADC/../GPIO/hal_gpio.h"
-# 1 "MCAL_Layer/ADC/../GPIO/../device_config.h" 1
-# 15 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 2
+# 1 "MCAL_Layer/Timer/../GPIO/hal_gpio.h" 1
+# 15 "MCAL_Layer/Timer/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/Timer/../GPIO/../device_config.h" 1
+# 15 "MCAL_Layer/Timer/../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/ADC/../GPIO/hal_gpio_cfg.h" 1
-# 16 "MCAL_Layer/ADC/../GPIO/hal_gpio.h" 2
-# 37 "MCAL_Layer/ADC/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/Timer/../GPIO/hal_gpio_cfg.h" 1
+# 16 "MCAL_Layer/Timer/../GPIO/hal_gpio.h" 2
+# 37 "MCAL_Layer/Timer/../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -5242,336 +5239,178 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 Std_ReturnType gpio_port_write_logic(port_index_t port, uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 15 "MCAL_Layer/ADC/hal_adc.h" 2
+# 14 "MCAL_Layer/Timer/timer0.h" 2
 
-# 1 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 1
-# 12 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h"
-# 1 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h" 1
-# 14 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h"
-# 1 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_gen_cfg.h" 1
-# 14 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h" 2
-# 53 "MCAL_Layer/ADC/../interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/Timer/../interrupt/mcal_internal_interrupts.h" 1
+# 12 "MCAL_Layer/Timer/../interrupt/mcal_internal_interrupts.h"
+# 1 "MCAL_Layer/Timer/../interrupt/mcal_interrupt_config.h" 1
+# 14 "MCAL_Layer/Timer/../interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/Timer/../interrupt/mcal_interrupt_gen_cfg.h" 1
+# 14 "MCAL_Layer/Timer/../interrupt/mcal_interrupt_config.h" 2
+# 53 "MCAL_Layer/Timer/../interrupt/mcal_interrupt_config.h"
 typedef enum {
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY,
 }interrupt_priority_cfg;
-# 12 "MCAL_Layer/ADC/../interrupt/mcal_internal_interrupts.h" 2
-# 16 "MCAL_Layer/ADC/hal_adc.h" 2
-# 101 "MCAL_Layer/ADC/hal_adc.h"
+# 12 "MCAL_Layer/Timer/../interrupt/mcal_internal_interrupts.h" 2
+# 15 "MCAL_Layer/Timer/timer0.h" 2
+# 51 "MCAL_Layer/Timer/timer0.h"
 typedef enum {
-   ADC_CHANNEL_AN0 = 0,
-   ADC_CHANNEL_AN1,
-   ADC_CHANNEL_AN2,
-   ADC_CHANNEL_AN3,
-   ADC_CHANNEL_AN4,
-   ADC_CHANNEL_AN5,
-   ADC_CHANNEL_AN6,
-   ADC_CHANNEL_AN7,
-   ADC_CHANNEL_AN8,
-   ADC_CHANNEL_AN9,
-   ADC_CHANNEL_AN10,
-   ADC_CHANNEL_AN11,
-   ADC_CHANNEL_AN12,
-}adc_channel_select_t;
-# 125 "MCAL_Layer/ADC/hal_adc.h"
-typedef enum {
-    ADC_0_TAD = 0,
-    ADC_2_TAD,
-    ADC_4_TAD,
-    ADC_6_TAD,
-    ADC_8_TAD,
-    ADC_12_TAD,
-    ADC_16_TAD,
-    ADC_20_TAD,
-}adc_acquisition_time_t;
-
-
-
-
-
-
-
-typedef enum {
-    ADC_CONVERSION_CLOCK_FOSC_DIV_2 = 0,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
-}adc_conversion_clock_t;
+    TIMER0_PRESCALER_DIV_BY_2,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256,
+}timer0_prescaler_select_t;
 
 typedef struct {
 
-    void (* ADC_InterruptHandler) (void);
+    void (*TMR0_InterruptHandler)(void);
     interrupt_priority_cfg priority;
 
-    adc_acquisition_time_t Acquisition_time;
-    adc_conversion_clock_t convertion_clock;
-    adc_channel_select_t adc_channel;
-    uint8 voltage_reference : 1;
-    uint8 result_format : 1;
-    uint8 ADC_Reserved : 6;
-}adc_conf_t;
-
-typedef uint16 adc_result_t;
-
-
-Std_ReturnType ADC_Init(const adc_conf_t *_adc);
-Std_ReturnType ADC_DeInit(const adc_conf_t *_adc);
-Std_ReturnType ADC_SelectChannel (const adc_conf_t *_adc, adc_channel_select_t channel);
-Std_ReturnType ADC_StartConversion (const adc_conf_t *_adc);
-Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_status);
-Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result);
-Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
-                                  adc_result_t *conversion_result);
-Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel);
-# 8 "MCAL_Layer/ADC/hal_adc.c" 2
-
-
-static void (* ADC_InterruptHandler) (void) = ((void*)0);
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preloaded_value;
+    uint8 prescaler_enable : 1;
+    uint8 timer0_counter_edge : 1;
+    uint8 timer0_mode : 1;
+    uint8 timer0_register_size : 1;
+    uint8 timer0_reserved : 4;
+}timer0_t;
 
 
 
-static __attribute__((inline)) Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel);
-static __attribute__((inline)) Std_ReturnType select_result_format(const adc_conf_t *_adc);
-static __attribute__((inline)) Std_ReturnType configure_voltage_reference(const adc_conf_t *_adc);
-# 29 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_Init(const adc_conf_t *_adc){
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 value);
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *value);
+# 8 "MCAL_Layer/Timer/timer0.c" 2
+
+
+
+static void (*TMR0_InterruptHandler)(void) = ((void*)0);
+
+
+static uint16 timer0_preload = 0X00;
+
+static __attribute__((inline)) void timer0_prescaler_config(const timer0_t *_timer);
+static __attribute__((inline)) void Timer0_Mode_Select(const timer0_t *_timer);
+static __attribute__((inline)) void Timer0_Register_Size_Config(const timer0_t *_timer);
+
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer){
     Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
+    if (((void*)0) == _timer){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
-
-        (ADCON0bits.ADON = 0);
-
-        ADCON2bits.ACQT = _adc->Acquisition_time;
-
-        ADCON2bits.ADCS = _adc->convertion_clock;
-
-        ADCON0bits.CHS = _adc->adc_channel;
-        adc_input_channel_port_configure(_adc->adc_channel);
+    else{
+        (T0CONbits.TMR0ON = 0);
+        timer0_prescaler_config(_timer);
+        Timer0_Mode_Select(_timer);
+        Timer0_Register_Size_Config(_timer);
+        TMR0H = ((_timer->timer0_preloaded_value) >> 8);
+        TMR0L = (uint8)(_timer->timer0_preloaded_value) ;
+        timer0_preload = _timer->timer0_preloaded_value;
 
 
-
-        (PIE1bits.ADIE = 1);
-        (PIR1bits.ADIF = 0);
-# 63 "MCAL_Layer/ADC/hal_adc.c"
+        (INTCONbits.TMR0IE = 1);
+        (INTCONbits.TMR0IF = 0);
+        TMR0_InterruptHandler = _timer->TMR0_InterruptHandler;
+# 51 "MCAL_Layer/Timer/timer0.c"
         (INTCONbits.GIE = 1);
         (INTCONbits.PEIE = 1);
 
-        ADC_InterruptHandler = _adc->ADC_InterruptHandler;
 
 
-        select_result_format(_adc);
 
-        configure_voltage_reference(_adc);
-
-        (ADCON0bits.ADON = 1);
+        (T0CONbits.TMR0ON = 1);
     }
     return ret;
+
 }
-
-
-
-
-
-
-
-Std_ReturnType ADC_DeInit(const adc_conf_t *_adc){
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer){
     Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
+    if (((void*)0) == _timer){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
+    else{
+        (T0CONbits.TMR0ON = 0);
 
-        (ADCON0bits.ADON = 0);
-
-
-        (PIE1bits.ADIE = 0);
-
+        (INTCONbits.TMR0IE = 0);
 
     }
     return ret;
 }
-# 113 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_SelectChannel (const adc_conf_t *_adc, adc_channel_select_t channel){
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 value){
     Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
+    if (((void*)0) == _timer){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
-        ADCON0bits.CHS = channel;
-        adc_input_channel_port_configure(channel);
+    else{
+        TMR0H = ((value) >> 8);
+        TMR0L = (uint8)(value) ;
     }
     return ret;
 }
-# 135 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_StartConversion (const adc_conf_t *_adc){
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *value){
     Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
+    uint8 l_tmr0l = 0X00, l_tmr0h = 0X00;
+    if ((((void*)0) == _timer) && (((void*)0) == value)){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
-        (ADCON0bits.GO_nDONE = 1);
-    }
-    return ret;
-}
-# 162 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_IsConversionDone (const adc_conf_t *_adc, uint8 *conversion_status){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if ((((void*)0) == _adc) || (((void*)0) == conversion_status))
-    {
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
-        *conversion_status = (uint8)(!(ADCON0bits.GO_nDONE));
-    }
-    return ret;
-}
-# 186 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_GetConversionResult (const adc_conf_t *_adc, adc_result_t *conversion_result){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if ((((void*)0) == _adc) || (((void*)0) == conversion_result))
-    {
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
-        if (0X01U == _adc->result_format)
-        {
-            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL );
-        }
-        else if (0X00U == _adc->result_format)
-        {
-            *conversion_result = (adc_result_t)(((ADRESH << 8) + ADRESL ) >> 6 ) ;
-        }
-        else
-        {
-            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL );
-        }
-    }
-    return ret;
-}
-# 221 "MCAL_Layer/ADC/hal_adc.c"
-Std_ReturnType ADC_GetConversion_Blocking (const adc_conf_t *_adc, adc_channel_select_t channel,
-                                  adc_result_t *conversion_result){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if ((((void*)0) == _adc) || (((void*)0) == conversion_result))
-    {
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
-
-        ret = ADC_SelectChannel (_adc, channel);
-
-        ret |= ADC_StartConversion (_adc);
-
-        while (ADCON0bits.GO_nDONE);
-        ret = ADC_GetConversionResult(_adc, conversion_result);
-
+    else{
+        l_tmr0l = TMR0L;
+        l_tmr0h = TMR0H;
+        *value = (uint16)((l_tmr0h << 8 ) + l_tmr0l);
     }
     return ret;
 }
 
-Std_ReturnType ADC_GetConversion_Interrupt (const adc_conf_t *_adc, adc_channel_select_t channel){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
-        ret = (Std_ReturnType)0x00;
+void TMR0_ISR(void){
+    (INTCONbits.TMR0IF = 0);
+    TMR0H = ((timer0_preload) >> 8);
+    TMR0L = (uint8)(timer0_preload) ;
+    if (TMR0_InterruptHandler){
+        TMR0_InterruptHandler();
     }
-    else
-    {
-
-        ret = ADC_SelectChannel (_adc, channel);
-
-        ret |= ADC_StartConversion (_adc);
-    }
-    return ret;
-}
-static __attribute__((inline)) Std_ReturnType adc_input_channel_port_configure(adc_channel_select_t channel){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    switch (channel)
-    {
-        case ADC_CHANNEL_AN0 : (TRISA |= ((uint8)1<<0x0)); break;
-        case ADC_CHANNEL_AN1 : (TRISA |= ((uint8)1<<0x1)); break;
-        case ADC_CHANNEL_AN2 : (TRISA |= ((uint8)1<<0x2)); break;
-        case ADC_CHANNEL_AN3 : (TRISA |= ((uint8)1<<0x3)); break;
-        case ADC_CHANNEL_AN4 : (TRISA |= ((uint8)1<<0x5)); break;
-        case ADC_CHANNEL_AN5 : (TRISE |= ((uint8)1<<0x0)); break;
-        case ADC_CHANNEL_AN6 : (TRISE |= ((uint8)1<<0x1)); break;
-        case ADC_CHANNEL_AN7 : (TRISE |= ((uint8)1<<0x2)); break;
-        case ADC_CHANNEL_AN8 : (TRISB |= ((uint8)1<<0x2)); break;
-        case ADC_CHANNEL_AN9 : (TRISB |= ((uint8)1<<0x3)); break;
-        case ADC_CHANNEL_AN10 : (TRISB |= ((uint8)1<<0x1)); break;
-        case ADC_CHANNEL_AN11 : (TRISB |= ((uint8)1<<0x4)); break;
-        case ADC_CHANNEL_AN12 : (TRISB |= ((uint8)1<<0x0)); break;
-        default : ret = (Std_ReturnType)0x00;
-    }
-    return ret;
 }
 
-static __attribute__((inline)) Std_ReturnType select_result_format(const adc_conf_t *_adc){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
-        ret = (Std_ReturnType)0x00;
+static __attribute__((inline)) void timer0_prescaler_config(const timer0_t *_timer){
+    if (1U == _timer->prescaler_enable){
+        (T0CONbits.PSA = 0);
+        T0CONbits.T0PS = _timer->prescaler_value;
     }
-    else
-    {
-        if (0X01U == _adc->result_format)
-        {
-            (ADCON2bits.ADFM = 1);
-        }
-        else if (0X00U == _adc->result_format)
-        {
-            (ADCON2bits.ADFM = 0);
-        }
-        else
-        {
-            (ADCON2bits.ADFM = 1);
-        }
+    else if (0U == _timer->prescaler_enable){
+        (T0CONbits.PSA = 1);
     }
-    return ret;
+    else { }
 }
 
-static __attribute__((inline)) Std_ReturnType configure_voltage_reference(const adc_conf_t *_adc){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if (((void*)0) == _adc)
-    {
-        ret = (Std_ReturnType)0x00;
+static __attribute__((inline)) void Timer0_Mode_Select(const timer0_t *_timer){
+    if (1U == _timer->timer0_mode){
+        (T0CONbits.T0CS = 0);
     }
-    else
-    {
-        if (0X01U == _adc->voltage_reference)
-        {
-            do{ADCON1bits.VCFG1 = 1; ADCON1bits.VCFG0 = 1; }while(0);
+    else if (0U == _timer->timer0_mode){
+        (T0CONbits.T0CS = 1);
+        if (1U == _timer->timer0_counter_edge){
+            (T0CONbits.T0SE = 0);
         }
-        else if (0X00U == _adc->voltage_reference)
-        {
-            do{ADCON1bits.VCFG1 = 0; ADCON1bits.VCFG0 = 0; }while(0);
+        else if (0U == _timer->timer0_counter_edge){
+            (T0CONbits.T0SE = 1);
         }
-        else
-        {
-            do{ADCON1bits.VCFG1 = 0; ADCON1bits.VCFG0 = 0; }while(0);
-        }
+        else { }
     }
-    return ret;
+    else { }
 }
-void ADC_ISR(void){
-    (PIR1bits.ADIF = 0);
-    if (ADC_InterruptHandler){
-        ADC_InterruptHandler();
+
+static __attribute__((inline)) void Timer0_Register_Size_Config(const timer0_t *_timer){
+    if (1U == _timer->timer0_register_size){
+        (T0CONbits.T08BIT = 1);
     }
+    else if (0U == _timer->timer0_register_size){
+        (T0CONbits.T08BIT = 0);
+    }
+    else { }
 }

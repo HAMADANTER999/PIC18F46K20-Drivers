@@ -117,6 +117,12 @@ void __interrupt() InterruptManager(void){
     }
     else { /* Nothing */ }
     /* =====================ADC Module interrupt End=====================================*/
+    /* =====================TIMER0 Module interrupt start=====================================*/
+    if ((INTCONbits.TMR0IE == INTERRUPT_ENABLE) && (INTCONbits.TMR0IF == INTERRUPT_OCCUR)){
+        TMR0_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================TIMER0 Module interrupt End=====================================*/
 }
 
 #endif

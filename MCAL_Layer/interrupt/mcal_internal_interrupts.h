@@ -14,8 +14,9 @@
 /* Section : Macro Declarations*/
 
 /* Section : Macro Function Declarations*/
-/* This routine clears the interrupt enable for the ADC Module*/
+/*=======================================ADC Interrupt Module ==============================*/
 #ifdef ADC_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the ADC Module*/
 #define ADC_InterruptDisable()         (PIE1bits.ADIE = 0)
 /* This routine sets the interrupt enable for the ADC Module */
 #define ADC_InterruptEnable()          (PIE1bits.ADIE = 1)
@@ -26,6 +27,22 @@
 #define ADC_HighPrioritySet()           (IPR1bits.ADIP = 1)
 /* This routine set the ADC Module Interrupt Priority to be Low priority */
 #define ADC_LowPrioritySet()            (IPR1bits.ADIP = 0)
+#endif
+#endif
+
+/*=======================================TIMER0 Interrupt Module ==============================*/
+#ifdef TIMER0_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the TIMER0 Module*/
+#define TIMER0_InterruptDisable()         (INTCONbits.TMR0IE = 0)
+/* This routine sets the interrupt enable for the TIMER0 Module */
+#define TIMER0_InterruptEnable()          (INTCONbits.TMR0IE = 1)
+/* This routine clears the interrupt flag for the TIMER0 Module */
+#define TIMER0_InterruptFlagClear()       (INTCONbits.TMR0IF = 0)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the TIMER0 Module Interrupt Priority to be High priority */
+#define TIMER0_HighPrioritySet()           (INTCON2bits.TMR0IP = 1)
+/* This routine set the TIMER0 Module Interrupt Priority to be Low priority */
+#define TIMER0_LowPrioritySet()            (INTCON2bits.TMR0IP = 0)
 #endif
 #endif
 /* Section : Data type Declarations*/
