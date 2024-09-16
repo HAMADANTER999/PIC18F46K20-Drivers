@@ -14,7 +14,8 @@
 #include "MCAL_Layer/interrupt/mcal_external_interrupt.h"
 #include "MCAL_Layer/ADC/hal_adc.h"
 #include "ECU_Layer/chr_lcd/ecu_chr_lcd.h"
-#include "MCAL_Layer/Timer/timer0.h"
+#include "MCAL_Layer/Timer0/hal_timer0.h"
+#include "MCAL_Layer/Timer1/hal_timer1.h"
 
 /* Section : Macro Declarations*/
 #define _XTAL_FREQ      8000000UL

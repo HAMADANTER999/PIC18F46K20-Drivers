@@ -45,6 +45,22 @@
 #define TIMER0_LowPrioritySet()            (INTCON2bits.TMR0IP = 0)
 #endif
 #endif
+
+/*=======================================TIMER1 Interrupt Module ==============================*/
+#ifdef TIMER1_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the TIMER1 Module*/
+#define TIMER1_InterruptDisable()         (PIE1bits.TMR1IE = 0)
+/* This routine sets the interrupt enable for the TIMER1 Module */
+#define TIMER1_InterruptEnable()          (PIE1bits.TMR1IE = 1)
+/* This routine clears the interrupt flag for the TIMER1 Module */
+#define TIMER1_InterruptFlagClear()       (PIR1bits.TMR1IF = 0)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the TIMER1 Module Interrupt Priority to be High priority */
+#define TIMER1_HighPrioritySet()           (IPR1bits.TMR1IP = 1)
+/* This routine set the TIMER1 Module Interrupt Priority to be Low priority */
+#define TIMER1_LowPrioritySet()            (IPR1bits.TMR1IP = 0)
+#endif
+#endif
 /* Section : Data type Declarations*/
 
 /* Section : Function Declarations*/

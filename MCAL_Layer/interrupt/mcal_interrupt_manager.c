@@ -123,6 +123,12 @@ void __interrupt() InterruptManager(void){
     }
     else { /* Nothing */ }
     /* =====================TIMER0 Module interrupt End=====================================*/
+    /* =====================TIMER1 Module interrupt start=====================================*/
+    if ((PIE1bits.TMR1IE == INTERRUPT_ENABLE) && (PIR1bits.TMR1IF == INTERRUPT_OCCUR)){
+        TMR1_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================TIMER1 Module interrupt End=====================================*/
 }
 
 #endif

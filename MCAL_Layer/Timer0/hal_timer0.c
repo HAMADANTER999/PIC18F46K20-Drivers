@@ -5,7 +5,7 @@
  * Created on September 15, 2024, 6:31 PM
  */
 
-#include "timer0.h"
+#include "hal_timer0.h"
 
 #ifdef TIMER0_INTERRUPT_FEATURE_ENABLE
 static void (*TMR0_InterruptHandler)(void) = NULL;
