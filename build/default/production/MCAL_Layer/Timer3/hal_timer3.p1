@@ -1,24 +1,110 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3627 `(v ~T0 @X0 0 tf ]
-"13 application.c
-[; ;application.c: 13: timer3_t timer3_obj;
-[c E3445 0 1 .. ]
-[n E3445 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
-"53 ./MCAL_Layer/Timer3/hal_timer3.h
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 53: typedef struct {
-[s S321 `*F3627 1 `E3445 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S321 . TMR3_InterruptHandler priority timer3_preloaded_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer3_reserved ]
-[p mainexit ]
-[v F3654 `(v ~T0 @X0 0 tf ]
-"68
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 68: Std_ReturnType Timer3_Init(const timer3_t *_timer);
-[v _Timer3_Init `(uc ~T0 @X0 0 ef1`*CS321 ]
-"71
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 71: Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
-[v _Timer3_Read_Value `(uc ~T0 @X0 0 ef2`*CS321`*us ]
-"31 ./ECU_Layer/ecu_layer_init.h
-[; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
-[v _ecu_layer_initialize `(v ~T0 @X0 0 ef ]
+[v F3316 `(v ~T0 @X0 0 tf ]
+[v F3317 `(v ~T0 @X0 0 tf ]
+[v F3296 `(v ~T0 @X0 0 tf ]
+"17 MCAL_Layer/Timer3/hal_timer3.c
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 17: Std_ReturnType Timer3_Init(const timer3_t *_timer){
+[c E3290 0 1 .. ]
+[n E3290 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
+"53 MCAL_Layer/Timer3/hal_timer3.h
+[; ;MCAL_Layer/Timer3/hal_timer3.h: 53: typedef struct {
+[s S307 `*F3296 1 `E3290 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S307 . TMR3_InterruptHandler priority timer3_preloaded_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer3_reserved ]
+"4296 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4296:     struct {
+[s S169 :2 `uc 1 :1 `uc 1 ]
+[n S169 . . NOT_T3SYNC ]
+"4300
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4300:     struct {
+[s S170 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S170 . TMR3ON TMR3CS nT3SYNC T3CCP1 T3CKPS T3CCP2 RD16 ]
+"4309
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4309:     struct {
+[s S171 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S171 . . T3SYNC . T3CKPS0 T3CKPS1 ]
+"4316
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4316:     struct {
+[s S172 :3 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S172 . . SOSCEN3 . RD163 ]
+"4322
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4322:     struct {
+[s S173 :7 `uc 1 :1 `uc 1 ]
+[n S173 . . T3RD16 ]
+"4295
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4295: typedef union {
+[u S168 `S169 1 `S170 1 `S171 1 `S172 1 `S173 1 ]
+[n S168 . . . . . . ]
+"4327
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4327: extern volatile T3CONbits_t T3CONbits __attribute__((address(0xFB1)));
+[v _T3CONbits `VS168 ~T0 @X0 0 e@4017 ]
+[v F3320 `(v ~T0 @X0 1 tf1`*CS307 ]
+"15 MCAL_Layer/Timer3/hal_timer3.c
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 15: static __attribute__((inline)) void Timer3_Mode_Select(const timer3_t *_timer);
+[v _Timer3_Mode_Select `TF3320 ~T0 @X0 0 s ]
+"4416 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4416: extern volatile unsigned char TMR3H __attribute__((address(0xFB3)));
+[v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
+"4409
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4409: extern volatile unsigned char TMR3L __attribute__((address(0xFB2)));
+[v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
+"3379
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3379:     struct {
+[s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . CCP2IE TMR3IE HLVDIE BCLIE EEIE C2IE C1IE OSCFIE ]
+"3389
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3389:     struct {
+[s S127 :2 `uc 1 :1 `uc 1 ]
+[n S127 . . LVDIE ]
+"3393
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3393:     struct {
+[s S128 :6 `uc 1 :1 `uc 1 ]
+[n S128 . . CMIE ]
+"3378
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3378: typedef union {
+[u S125 `S126 1 `S127 1 `S128 1 ]
+[n S125 . . . . ]
+"3398
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3398: extern volatile PIE2bits_t PIE2bits __attribute__((address(0xFA0)));
+[v _PIE2bits `VS125 ~T0 @X0 0 e@4000 ]
+"3459
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3459:     struct {
+[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S130 . CCP2IF TMR3IF HLVDIF BCLIF EEIF C2IF C1IF OSCFIF ]
+"3469
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3469:     struct {
+[s S131 :2 `uc 1 :1 `uc 1 ]
+[n S131 . . LVDIF ]
+"3473
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3473:     struct {
+[s S132 :6 `uc 1 :1 `uc 1 ]
+[n S132 . . CMIF ]
+"3458
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3458: typedef union {
+[u S129 `S130 1 `S131 1 `S132 1 ]
+[n S129 . . . . ]
+"3478
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 3478: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
+[v _PIR2bits `VS129 ~T0 @X0 0 e@4001 ]
+"7049
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7049:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7059
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7059:     struct {
+[s S298 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S298 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7069
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7069:     struct {
+[s S299 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S299 . . GIEL GIEH ]
+"7048
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7048: typedef union {
+[u S296 `S297 1 `S298 1 `S299 1 ]
+[n S296 . . . . ]
+"7075
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7075: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS296 ~T0 @X0 0 e@4082 ]
+[v F3342 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -460,81 +546,334 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 application.c
-[; ;application.c: 13: timer3_t timer3_obj;
-[v _timer3_obj `S321 ~T0 @X0 1 e ]
-"14
-[; ;application.c: 14: volatile uint16 counter_val;
-[v _counter_val `Vus ~T0 @X0 1 e ]
-"16
-[; ;application.c: 16: Std_ReturnType ret = (Std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
--> -> 0 `i `uc
+"10 MCAL_Layer/Timer3/hal_timer3.c
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 10: static void (*TMR3_InterruptHandler)(void) = ((void*)0);
+[v _TMR3_InterruptHandler `*F3316 ~T0 @X0 1 s ]
+[i _TMR3_InterruptHandler
+-> -> -> 0 `i `*v `*F3317
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"13
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 13: static uint16 timer3_preload = 0X00;
+[v _timer3_preload `us ~T0 @X0 1 s ]
+[i _timer3_preload
+-> -> 0 `i `us
+]
 "17
-[; ;application.c: 17: int main() {
-[v _main `(i ~T0 @X0 1 ef ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 17: Std_ReturnType Timer3_Init(const timer3_t *_timer){
+[v _Timer3_Init `(uc ~T0 @X0 1 ef1`*CS307 ]
 {
-[e :U _main ]
+[e :U _Timer3_Init ]
+[v __timer `*CS307 ~T0 @X0 1 r1 ]
 [f ]
+"18
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 18:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
 "19
-[; ;application.c: 19:     timer3_obj.TMR3_InterruptHandler = ((void*)0);
-[e = . _timer3_obj 0 -> -> -> 0 `i `*v `*F3654 ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 19:     if (((void*)0) == _timer){
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer 309  ]
+{
 "20
-[; ;application.c: 20:     timer3_obj.timer3_mode = 1U;
-[e = . _timer3_obj 4 -> -> 1 `ui `uc ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 20:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
 "21
-[; ;application.c: 21:     timer3_obj.timer3_preloaded_value = 0;
-[e = . _timer3_obj 2 -> -> 0 `i `us ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 21:     }
+}
+[e $U 310  ]
 "22
-[; ;application.c: 22:     timer3_obj.timer3_prescaler_value = 0U;
-[e = . _timer3_obj 3 -> -> 0 `ui `uc ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 22:     else{
+[e :U 309 ]
+{
 "23
-[; ;application.c: 23:     timer3_obj.timer3_reg_wr_mode = 0U;
-[e = . _timer3_obj 6 -> -> 0 `ui `uc ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 23:         (T3CONbits.TMR3ON = 0);
+[e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
 "24
-[; ;application.c: 24:     timer3_obj.timer3_counter_mode = 0U;
-[e = . _timer3_obj 5 -> -> 0 `ui `uc ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 24:         (T3CONbits.T3CKPS = _timer->timer3_prescaler_value);
+[e = . . _T3CONbits 1 4 . *U __timer 3 ]
 "25
-[; ;application.c: 25:     Timer3_Init(&timer3_obj);
-[e ( _Timer3_Init (1 -> &U _timer3_obj `*CS321 ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 25:         Timer3_Mode_Select(_timer);
+[e ( _Timer3_Mode_Select (1 __timer ]
+"26
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 26:         TMR3H = ((_timer->timer3_preloaded_value) >> 8);
+[e = _TMR3H -> >> -> . *U __timer 2 `ui -> 8 `i `uc ]
 "27
-[; ;application.c: 27:     while (1)
-[e :U 324 ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 27:         TMR3L = (uint8)(_timer->timer3_preloaded_value);
+[e = _TMR3L -> . *U __timer 2 `uc ]
 "28
-[; ;application.c: 28:     {
-{
-"29
-[; ;application.c: 29:        ret = Timer3_Read_Value(&timer3_obj, &counter_val);
-[e = _ret ( _Timer3_Read_Value (2 , -> &U _timer3_obj `*CS321 -> &U _counter_val `*us ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 28:         timer3_preload = _timer->timer3_preloaded_value;
+[e = _timer3_preload . *U __timer 2 ]
 "30
-[; ;application.c: 30:     }
-}
-[e :U 323 ]
-[e $U 324  ]
-[e :U 325 ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 30:         (PIE2bits.TMR3IE = 1);
+[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
+"31
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 31:         (PIR2bits.TMR3IF = 0);
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
 "32
-[; ;application.c: 32:     return (0);
-[e ) -> 0 `i ]
-[e $UE 322  ]
-"33
-[; ;application.c: 33: }
-[e :UE 322 ]
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 32:         TMR3_InterruptHandler = _timer->TMR3_InterruptHandler;
+[e = _TMR3_InterruptHandler . *U __timer 0 ]
+"45
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 45:         (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"46
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 46:         (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"50
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 50:         (T3CONbits.TMR3ON = 1);
+[e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
+"51
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 51:     }
 }
-"34
-[; ;application.c: 34: void Application (void)
-[v _Application `(v ~T0 @X0 1 ef ]
-"35
-[; ;application.c: 35: {
+[e :U 310 ]
+"52
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 52:     return ret;
+[e ) _ret ]
+[e $UE 308  ]
+"53
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 53: }
+[e :UE 308 ]
+}
+"54
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 54: Std_ReturnType Timer3_DeInit(const timer3_t *_timer){
+[v _Timer3_DeInit `(uc ~T0 @X0 1 ef1`*CS307 ]
 {
-[e :U _Application ]
+[e :U _Timer3_DeInit ]
+[v __timer `*CS307 ~T0 @X0 1 r1 ]
 [f ]
-"36
-[; ;application.c: 36:     ecu_layer_initialize();
-[e ( _ecu_layer_initialize ..  ]
-"37
-[; ;application.c: 37: }
-[e :UE 326 ]
+"55
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 55:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"56
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 56:     if (((void*)0) == _timer){
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer 312  ]
+{
+"57
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 57:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"58
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 58:     }
+}
+[e $U 313  ]
+"59
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 59:     else{
+[e :U 312 ]
+{
+"60
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 60:         (T3CONbits.TMR3ON = 0);
+[e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
+"62
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 62:         (PIE2bits.TMR3IE = 0);
+[e = . . _PIE2bits 0 1 -> -> 0 `i `uc ]
+"64
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 64:     }
+}
+[e :U 313 ]
+"65
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 65:     return ret;
+[e ) _ret ]
+[e $UE 311  ]
+"66
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 66: }
+[e :UE 311 ]
+}
+"67
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 67: Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 value){
+[v _Timer3_Write_Value `(uc ~T0 @X0 1 ef2`*CS307`us ]
+{
+[e :U _Timer3_Write_Value ]
+[v __timer `*CS307 ~T0 @X0 1 r1 ]
+[v _value `us ~T0 @X0 1 r2 ]
+[f ]
+"68
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 68:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"69
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 69:     if (((void*)0) == _timer){
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer 315  ]
+{
+"70
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 70:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"71
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 71:     }
+}
+[e $U 316  ]
+"72
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 72:     else{
+[e :U 315 ]
+{
+"73
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 73:         TMR3H = ((value) >> 8);
+[e = _TMR3H -> >> -> _value `ui -> 8 `i `uc ]
+"74
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 74:         TMR3L = (uint8)(value) ;
+[e = _TMR3L -> _value `uc ]
+"75
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 75:     }
+}
+[e :U 316 ]
+"76
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 76:     return ret;
+[e ) _ret ]
+[e $UE 314  ]
+"77
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 77: }
+[e :UE 314 ]
+}
+"78
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 78: Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value){
+[v _Timer3_Read_Value `(uc ~T0 @X0 1 ef2`*CS307`*us ]
+{
+[e :U _Timer3_Read_Value ]
+[v __timer `*CS307 ~T0 @X0 1 r1 ]
+[v _value `*us ~T0 @X0 1 r2 ]
+[f ]
+"79
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 79:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"80
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 80:     uint8 l_tmr3l = 0X00, l_tmr3h = 0X00;
+[v _l_tmr3l `uc ~T0 @X0 1 a ]
+[e = _l_tmr3l -> -> 0 `i `uc ]
+[v _l_tmr3h `uc ~T0 @X0 1 a ]
+[e = _l_tmr3h -> -> 0 `i `uc ]
+"81
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 81:     if ((((void*)0) == _timer) && (((void*)0) == value)){
+[e $ ! && == -> -> -> 0 `i `*v `*CS307 __timer == -> -> -> 0 `i `*v `*us _value 318  ]
+{
+"82
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 82:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"83
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 83:     }
+}
+[e $U 319  ]
+"84
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 84:     else{
+[e :U 318 ]
+{
+"85
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 85:         l_tmr3l = TMR3L;
+[e = _l_tmr3l _TMR3L ]
+"86
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 86:         l_tmr3h = TMR3H;
+[e = _l_tmr3h _TMR3H ]
+"87
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 87:         *value = (uint16)((l_tmr3h << 8 ) + l_tmr3l);
+[e = *U _value -> + << -> _l_tmr3h `i -> 8 `i -> _l_tmr3l `i `us ]
+"88
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 88:     }
+}
+[e :U 319 ]
+"89
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 89:     return ret;
+[e ) _ret ]
+[e $UE 317  ]
+"90
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 90: }
+[e :UE 317 ]
+}
+"92
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 92: void TMR3_ISR(void){
+[v _TMR3_ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _TMR3_ISR ]
+[f ]
+"93
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 93:     (PIR2bits.TMR3IF = 0);
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+"94
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 94:     TMR3H = ((timer3_preload) >> 8);
+[e = _TMR3H -> >> -> _timer3_preload `ui -> 8 `i `uc ]
+"95
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 95:     TMR3L = (uint8)(timer3_preload) ;
+[e = _TMR3L -> _timer3_preload `uc ]
+"96
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 96:     if (TMR3_InterruptHandler){
+[e $ ! != _TMR3_InterruptHandler -> -> 0 `i `*F3342 321  ]
+{
+"97
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 97:         TMR3_InterruptHandler();
+[e ( *U _TMR3_InterruptHandler ..  ]
+"98
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 98:     }
+}
+[e :U 321 ]
+"99
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 99: }
+[e :UE 320 ]
+}
+[v F3344 `(v ~T0 @X0 1 tf1`*CS307 ]
+"101
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 101: static __attribute__((inline)) void Timer3_Mode_Select(const timer3_t *_timer){
+[v _Timer3_Mode_Select `TF3344 ~T0 @X0 1 s ]
+{
+[e :U _Timer3_Mode_Select ]
+[v __timer `*CS307 ~T0 @X0 1 r1 ]
+[f ]
+"102
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 102:     if (0U == _timer->timer3_mode){
+[e $ ! == -> 0 `ui -> . *U __timer 4 `ui 323  ]
+{
+"103
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 103:         (T3CONbits.TMR3CS = 0);
+[e = . . _T3CONbits 1 1 -> -> 0 `i `uc ]
+"104
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 104:     }
+}
+[e $U 324  ]
+"105
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 105:     else if (1U == _timer->timer3_mode){
+[e :U 323 ]
+[e $ ! == -> 1 `ui -> . *U __timer 4 `ui 325  ]
+{
+"106
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 106:         (T3CONbits.TMR3CS = 1);
+[e = . . _T3CONbits 1 1 -> -> 1 `i `uc ]
+"107
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 107:         if (1U == _timer->timer3_counter_mode){
+[e $ ! == -> 1 `ui -> . *U __timer 5 `ui 326  ]
+{
+"108
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 108:             (T3CONbits.T3SYNC = 1);
+[e = . . _T3CONbits 2 1 -> -> 1 `i `uc ]
+"109
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 109:         }
+}
+[e $U 327  ]
+"110
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 110:         else if (0U == _timer->timer3_counter_mode){
+[e :U 326 ]
+[e $ ! == -> 0 `ui -> . *U __timer 5 `ui 328  ]
+{
+"111
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 111:             (T3CONbits.T3SYNC = 0);
+[e = . . _T3CONbits 2 1 -> -> 0 `i `uc ]
+"112
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 112:         }
+}
+[e $U 329  ]
+"113
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 113:         else { }
+[e :U 328 ]
+{
+}
+[e :U 329 ]
+[e :U 327 ]
+"114
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 114:     }
+}
+[e $U 330  ]
+"115
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 115:     else { }
+[e :U 325 ]
+{
+}
+[e :U 330 ]
+[e :U 324 ]
+"117
+[; ;MCAL_Layer/Timer3/hal_timer3.c: 117: }
+[e :UE 322 ]
 }

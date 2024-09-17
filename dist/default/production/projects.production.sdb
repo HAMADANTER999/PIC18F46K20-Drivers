@@ -149,16 +149,6 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-"18 D:\Courses\Embedded C\projects\MCAL_Layer/Timer1/hal_timer1.c
-[e E3290 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
-]
-"14 D:\Courses\Embedded C\projects\application.c
-[e E3445 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
-]
 "21 D:\Courses\Embedded C\projects\MCAL_Layer/Timer0/hal_timer0.c
 [e E3290 . `uc
 INTERRUPT_LOW_PRIORITY 0
@@ -174,14 +164,27 @@ TIMER0_PRESCALER_DIV_BY_64 5
 TIMER0_PRESCALER_DIV_BY_128 6
 TIMER0_PRESCALER_DIV_BY_256 7
 ]
+"18 D:\Courses\Embedded C\projects\MCAL_Layer/Timer1/hal_timer1.c
+[e E3290 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
 "16 D:\Courses\Embedded C\projects\MCAL_Layer/Timer2/hal_timer2.c
 [e E3290 . `uc
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"15 D:\Courses\Embedded C\projects\application.c
-[v _Timer2_DefualtInterruptHandler Timer2_DefualtInterruptHandler `(v  1 e 1 0 ]
-"25
+"13 D:\Courses\Embedded C\projects\application.c
+[e E3445 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"17 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
+[e E3290 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"17 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -305,19 +308,27 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
 "103
 [v _Timer1_Mode_Select Timer1_Mode_Select `T(v  1 s 1 Timer1_Mode_Select ]
-"16 D:\Courses\Embedded C\projects\MCAL_Layer/Timer2/hal_timer2.c
-[v _Timer2_Init Timer2_Init `(uc  1 e 1 0 ]
-"87
+"87 D:\Courses\Embedded C\projects\MCAL_Layer/Timer2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"12 D:\Courses\Embedded C\projects\application.c
-[v _timer_counter timer_counter `VEus  1 e 2 0 ]
-[s S2031 . 5 `*.37(v 1 TMR2_InterruptHandler 2 0 `E3445 1 priority 1 2 `uc 1 timer2_preloaded_value 1 3 `uc 1 timer2_postscaler_value 1 4 :4:0 
-`uc 1 timer2_prescaler_value 1 4 :2:4 
-`uc 1 timer2_reserved 1 4 :2:6 
+"17 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
+[v _Timer3_Init Timer3_Init `(uc  1 e 1 0 ]
+"78
+[v _Timer3_Read_Value Timer3_Read_Value `(uc  1 e 1 0 ]
+"92
+[v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
+"101
+[v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
+[s S2422 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3445 1 priority 1 2 `us 1 timer3_preloaded_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+`uc 1 timer3_mode 1 5 :1:2 
+`uc 1 timer3_counter_mode 1 5 :1:3 
+`uc 1 timer3_reg_wr_mode 1 5 :1:4 
+`uc 1 timer3_reserved 1 5 :3:5 
 ]
+"13 D:\Courses\Embedded C\projects\application.c
+[v _timer3_obj timer3_obj `S2422  1 e 6 0 ]
 "14
-[v _timer2_obj timer2_obj `S2031  1 e 5 0 ]
-"24
+[v _counter_val counter_val `VEus  1 e 2 0 ]
+"16
 [v _ret ret `uc  1 e 1 0 ]
 "552 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -424,6 +435,42 @@ INTERRUPT_HIGH_PRIORITY 1
 ]
 [u S819 . 1 `S806 1 . 1 0 `S815 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES819  1 e 1 @3998 ]
+[s S1464 . 1 `uc 1 CCP2IE 1 0 :1:0 
+`uc 1 TMR3IE 1 0 :1:1 
+`uc 1 HLVDIE 1 0 :1:2 
+`uc 1 BCLIE 1 0 :1:3 
+`uc 1 EEIE 1 0 :1:4 
+`uc 1 C2IE 1 0 :1:5 
+`uc 1 C1IE 1 0 :1:6 
+`uc 1 OSCFIE 1 0 :1:7 
+]
+"3398
+[s S1473 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIE 1 0 :1:2 
+]
+[s S1476 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIE 1 0 :1:6 
+]
+[u S1479 . 1 `S1464 1 . 1 0 `S1473 1 . 1 0 `S1476 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1479  1 e 1 @4000 ]
+[s S1499 . 1 `uc 1 CCP2IF 1 0 :1:0 
+`uc 1 TMR3IF 1 0 :1:1 
+`uc 1 HLVDIF 1 0 :1:2 
+`uc 1 BCLIF 1 0 :1:3 
+`uc 1 EEIF 1 0 :1:4 
+`uc 1 C2IF 1 0 :1:5 
+`uc 1 C1IF 1 0 :1:6 
+`uc 1 OSCFIF 1 0 :1:7 
+]
+"3478
+[s S1508 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIF 1 0 :1:2 
+]
+[s S1511 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIF 1 0 :1:6 
+]
+[u S1514 . 1 `S1499 1 . 1 0 `S1508 1 . 1 0 `S1511 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES1514  1 e 1 @4001 ]
 [s S1078 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
@@ -447,6 +494,38 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3755
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
+[s S2477 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T3SYNC 1 0 :1:2 
+]
+"4327
+[s S2480 . 1 `uc 1 TMR3ON 1 0 :1:0 
+`uc 1 TMR3CS 1 0 :1:1 
+`uc 1 nT3SYNC 1 0 :1:2 
+`uc 1 T3CCP1 1 0 :1:3 
+`uc 1 T3CKPS 1 0 :2:4 
+`uc 1 T3CCP2 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S2488 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T3SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T3CKPS0 1 0 :1:4 
+`uc 1 T3CKPS1 1 0 :1:5 
+]
+[s S2494 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN3 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 RD163 1 0 :1:7 
+]
+[s S2499 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 T3RD16 1 0 :1:7 
+]
+[u S2502 . 1 `S2477 1 . 1 0 `S2480 1 . 1 0 `S2488 1 . 1 0 `S2494 1 . 1 0 `S2499 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES2502  1 e 1 @4017 ]
+"4409
+[v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
+"4416
+[v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
 [s S742 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
@@ -512,12 +591,12 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "5334
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S2244 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S2300 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "5733
-[s S2248 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S2304 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -525,15 +604,15 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S2256 . 1 `S2244 1 . 1 0 `S2248 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES2256  1 e 1 @4042 ]
+[u S2312 . 1 `S2300 1 . 1 0 `S2304 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2312  1 e 1 @4042 ]
 "5893
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S1854 . 1 `uc 1 . 1 0 :2:0 
+[s S2114 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5933
-[s S1857 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2117 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -541,24 +620,24 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S1865 . 1 `uc 1 . 1 0 :2:0 
+[s S2125 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S1871 . 1 `uc 1 . 1 0 :3:0 
+[s S2131 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S1876 . 1 `S1854 1 . 1 0 `S1857 1 . 1 0 `S1865 1 . 1 0 `S1871 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1876  1 e 1 @4045 ]
+[u S2136 . 1 `S2114 1 . 1 0 `S2117 1 . 1 0 `S2125 1 . 1 0 `S2131 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2136  1 e 1 @4045 ]
 "6010
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "6017
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S2086 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S1953 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -566,12 +645,12 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6552
-[s S2093 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1960 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S2097 . 1 `S2086 1 . 1 0 `S2093 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2097  1 e 1 @4053 ]
+[u S1964 . 1 `S1953 1 . 1 0 `S1960 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1964  1 e 1 @4053 ]
 "6609
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6616
@@ -597,11 +676,11 @@ INTERRUPT_HIGH_PRIORITY 1
 ]
 [u S1276 . 1 `S1258 1 . 1 0 `S1267 1 . 1 0 ]
 [v _INTCON3bits INTCON3bits `VES1276  1 e 1 @4080 ]
-[s S1649 . 1 `uc 1 . 1 0 :7:0 
+[s S1739 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6998
-[s S1652 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S1742 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -610,11 +689,11 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S1661 . 1 `uc 1 . 1 0 :7:0 
+[s S1751 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S1664 . 1 `S1649 1 . 1 0 `S1652 1 . 1 0 `S1661 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES1664  1 e 1 @4081 ]
+[u S1754 . 1 `S1739 1 . 1 0 `S1742 1 . 1 0 `S1751 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1754  1 e 1 @4081 ]
 [s S836 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -689,38 +768,72 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 s 2 TMR2_InterruptHandler ]
 "13
 [v _timer2_preload timer2_preload `uc  1 s 1 timer2_preload ]
-"25 D:\Courses\Embedded C\projects\application.c
+"10 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
+[v _TMR3_InterruptHandler TMR3_InterruptHandler `*.37(v  1 s 2 TMR3_InterruptHandler ]
+"13
+[v _timer3_preload timer3_preload `us  1 s 2 timer3_preload ]
+"17 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"38
+"33
 } 0
-"16 D:\Courses\Embedded C\projects\MCAL_Layer/Timer2/hal_timer2.c
-[v _Timer2_Init Timer2_Init `(uc  1 e 1 0 ]
+"78 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
+[v _Timer3_Read_Value Timer3_Read_Value `(uc  1 e 1 0 ]
 {
-"17
-[v Timer2_Init@ret ret `uc  1 a 1 5 ]
-[s S2031 . 5 `*.37(v 1 TMR2_InterruptHandler 2 0 `E3445 1 priority 1 2 `uc 1 timer2_preloaded_value 1 3 `uc 1 timer2_postscaler_value 1 4 :4:0 
-`uc 1 timer2_prescaler_value 1 4 :2:4 
-`uc 1 timer2_reserved 1 4 :2:6 
+"80
+[v Timer3_Read_Value@l_tmr3h l_tmr3h `uc  1 a 1 7 ]
+[v Timer3_Read_Value@l_tmr3l l_tmr3l `uc  1 a 1 6 ]
+"79
+[v Timer3_Read_Value@ret ret `uc  1 a 1 5 ]
+[s S2422 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3445 1 priority 1 2 `us 1 timer3_preloaded_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+`uc 1 timer3_mode 1 5 :1:2 
+`uc 1 timer3_counter_mode 1 5 :1:3 
+`uc 1 timer3_reg_wr_mode 1 5 :1:4 
+`uc 1 timer3_reserved 1 5 :3:5 
 ]
-"16
-[v Timer2_Init@_timer _timer `*.30CS2031  1 p 1 3 ]
-"52
+"78
+[v Timer3_Read_Value@_timer _timer `*.30CS2422  1 p 1 1 ]
+[v Timer3_Read_Value@value value `*.30us  1 p 1 2 ]
+"90
+} 0
+"17
+[v _Timer3_Init Timer3_Init `(uc  1 e 1 0 ]
+{
+[s S2422 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3445 1 priority 1 2 `us 1 timer3_preloaded_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+`uc 1 timer3_mode 1 5 :1:2 
+`uc 1 timer3_counter_mode 1 5 :1:3 
+`uc 1 timer3_reg_wr_mode 1 5 :1:4 
+`uc 1 timer3_reserved 1 5 :3:5 
+]
+[v Timer3_Init@_timer _timer `*.30CS2422  1 p 1 2 ]
+"53
+} 0
+"101
+[v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
+{
+[s S2422 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3445 1 priority 1 2 `us 1 timer3_preloaded_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+`uc 1 timer3_mode 1 5 :1:2 
+`uc 1 timer3_counter_mode 1 5 :1:3 
+`uc 1 timer3_reg_wr_mode 1 5 :1:4 
+`uc 1 timer3_reserved 1 5 :3:5 
+]
+[v Timer3_Mode_Select@_timer _timer `*.30CS2422  1 p 1 1 ]
+"117
 } 0
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
 {
-"138
+"144
+} 0
+"92 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
+[v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
+{
+"99
 } 0
 "87 D:\Courses\Embedded C\projects\MCAL_Layer/Timer2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
 {
 "93
-} 0
-"15 D:\Courses\Embedded C\projects\application.c
-[v _Timer2_DefualtInterruptHandler Timer2_DefualtInterruptHandler `(v  1 e 1 0 ]
-{
-"17
 } 0
 "95 D:\Courses\Embedded C\projects\MCAL_Layer/Timer1/hal_timer1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]

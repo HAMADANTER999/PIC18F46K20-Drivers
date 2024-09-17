@@ -135,6 +135,12 @@ void __interrupt() InterruptManager(void){
     }
     else { /* Nothing */ }
     /* =====================TIMER2 Module interrupt End=====================================*/
+    /* =====================TIMER3 Module interrupt start=====================================*/
+    if ((PIE2bits.TMR3IE == INTERRUPT_ENABLE) && (PIR2bits.TMR3IF == INTERRUPT_OCCUR)){
+        TMR3_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================TIMER3 Module interrupt End=====================================*/
 }
 
 #endif

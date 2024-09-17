@@ -5660,36 +5660,54 @@ Std_ReturnType Timer2_DeInit(const timer2_t *_timer);
 Std_ReturnType Timer2_Write_Value(const timer2_t *_timer, uint8 value);
 Std_ReturnType Timer2_Read_Value(const timer2_t *_timer, uint8 *value);
 # 19 "./application.h" 2
-# 28 "./application.h"
+
+# 1 "./MCAL_Layer/Timer3/hal_timer3.h" 1
+# 53 "./MCAL_Layer/Timer3/hal_timer3.h"
+typedef struct {
+
+    void (*TMR3_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint16 timer3_preloaded_value;
+    uint8 timer3_prescaler_value : 2;
+    uint8 timer3_mode : 1;
+    uint8 timer3_counter_mode : 1;
+    uint8 timer3_reg_wr_mode : 1;
+    uint8 timer3_reserved : 3;
+}timer3_t;
+
+
+
+Std_ReturnType Timer3_Init(const timer3_t *_timer);
+Std_ReturnType Timer3_DeInit(const timer3_t *_timer);
+Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 value);
+Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
+# 20 "./application.h" 2
+# 29 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
 
 void Application (void);
-volatile uint16 timer_counter;
-
-timer2_t timer2_obj;
-void Timer2_DefualtInterruptHandler(void){
-    timer_counter++;
-}
-
-
-
-
-
+void Timer3_DefualtInterruptHandler(void);
+timer3_t timer3_obj;
+volatile uint16 counter_val;
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
 int main() {
 
-    timer2_obj.TMR2_InterruptHandler = Timer2_DefualtInterruptHandler;
-    timer2_obj.timer2_prescaler_value = 0;
-    timer2_obj.timer2_postscaler_value = 15;
-    timer2_obj.timer2_preloaded_value = 249;
-    ret = Timer2_Init(&timer2_obj);
+    timer3_obj.TMR3_InterruptHandler = ((void*)0);
+    timer3_obj.timer3_mode = 1U;
+    timer3_obj.timer3_preloaded_value = 0;
+    timer3_obj.timer3_prescaler_value = 0U;
+    timer3_obj.timer3_reg_wr_mode = 0U;
+    timer3_obj.timer3_counter_mode = 0U;
+    Timer3_Init(&timer3_obj);
+
     while (1)
     {
-
+       ret = Timer3_Read_Value(&timer3_obj, &counter_val);
     }
 
     return (0);
