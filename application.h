@@ -16,6 +16,7 @@
 #include "ECU_Layer/chr_lcd/ecu_chr_lcd.h"
 #include "MCAL_Layer/Timer0/hal_timer0.h"
 #include "MCAL_Layer/Timer1/hal_timer1.h"
+#include "MCAL_Layer/Timer2/hal_timer2.h"
 
 /* Section : Macro Declarations*/
 #define _XTAL_FREQ      8000000UL

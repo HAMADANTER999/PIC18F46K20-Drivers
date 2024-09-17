@@ -7,51 +7,31 @@
 
 #include "application.h"
 
+
 void Application (void);
-volatile uint16 timer_on = ZERO_INIT;
-volatile uint16 counter_value = ZERO_INIT;
+volatile uint16 timer_counter;
 
-timer1_t counter_obj;
-void Timer1_DefualtInterruptHandler(void){
-    
-}
-
-void timer1_timer_init(void){
-    timer1_t timer_obj; 
-    timer_obj.TMR1_InterruptHandler = Timer1_DefualtInterruptHandler;
-    timer_obj.priority = INTERRUPT_LOW_PRIORITY;
-    timer_obj.timer1_mode = TIMER1_TIMER_MODE;
-    timer_obj.timer1_preloaded_value = 15536;
-    timer_obj.timer1_prescaler_value = TIMER1_PRESCALER_DIV_BY_4;
-    timer_obj.timer1_reg_wr_mode = TIMER1_RW_REG_16BIT_MODE;
-    Timer1_Init(&timer_obj);
+timer2_t timer2_obj;
+void Timer2_DefualtInterruptHandler(void){
+    timer_counter++;
 }
 
 
 
-led_t led_1 = {
-    .led_status = LED_OFF,
-    .pin = GPIO_PIN0,
-    .port_name = PORTD_INDEX,
-};
+
+
 
 Std_ReturnType ret = E_NOT_OK;
 int main() {
     //Application ();
-    //timer1_timer_init();
-    
-    counter_obj.TMR1_InterruptHandler = NULL;
-    counter_obj.priority = INTERRUPT_LOW_PRIORITY;
-    counter_obj.timer1_mode = TIMER1_COUNTER_MODE;
-    counter_obj.timer1_preloaded_value = 0;
-    counter_obj.timer1_prescaler_value = TIMER1_PRESCALER_DIV_BY_1;
-    counter_obj.timer1_reg_wr_mode = TIMER1_RW_REG_16BIT_MODE;
-    counter_obj.timer1_counter_mode = TIMER1_SYNC_COUNTER_MODE;
-    Timer1_Init(&counter_obj);
-    ret = led_initialize(&led_1);
+    timer2_obj.TMR2_InterruptHandler = Timer2_DefualtInterruptHandler;
+    timer2_obj.timer2_prescaler_value = TIMER2_PRESCALER_DIV_BY_1;
+    timer2_obj.timer2_postscaler_value = TIMER2_POSTSCALER_DIV_BY_16;
+    timer2_obj.timer2_preloaded_value = 249;
+    ret = Timer2_Init(&timer2_obj);
     while (1)
     {
-        ret = Timer1_Read_Value(&counter_obj, &timer_on);
+       
     }
 
     return (EXIT_SUCCESS);
