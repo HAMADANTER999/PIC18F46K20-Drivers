@@ -459,23 +459,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "16
 [; ;application.c: 16:     while (1)
-[e :U 325 ]
+[e :U 328 ]
 "17
 [; ;application.c: 17:     {
 {
 "19
 [; ;application.c: 19:     }
 }
-[e :U 324 ]
-[e $U 325  ]
-[e :U 326 ]
+[e :U 327 ]
+[e $U 328  ]
+[e :U 329 ]
 "21
 [; ;application.c: 21:     return (0);
 [e ) -> 0 `i ]
-[e $UE 323  ]
+[e $UE 326  ]
 "22
 [; ;application.c: 22: }
-[e :UE 323 ]
+[e :UE 326 ]
 }
 "23
 [; ;application.c: 23: void Application (void)
@@ -490,5 +490,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _ecu_layer_initialize ..  ]
 "26
 [; ;application.c: 26: }
-[e :UE 327 ]
+[e :UE 330 ]
 }

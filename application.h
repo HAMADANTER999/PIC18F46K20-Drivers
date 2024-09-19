@@ -21,7 +21,7 @@
 #include "MCAL_Layer/CCP1/hal_ccp1.h"
 
 /* Section : Macro Declarations*/
-#define _XTAL_FREQ      8000000UL
+
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/

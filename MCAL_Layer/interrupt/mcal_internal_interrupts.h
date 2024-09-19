@@ -91,6 +91,22 @@
 #define TIMER3_LowPrioritySet()            (IPR2bits.TMR3IP = 0)
 #endif
 #endif
+
+/*=======================================CCP1 Interrupt Module ==============================*/
+#ifdef CCP1_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the CCP1 Module*/
+#define CCP1_InterruptDisable()         (PIE1bits.CCP1IE = 0)
+/* This routine sets the interrupt enable for the CCP1 Module */
+#define CCP1_InterruptEnable()          (PIE1bits.CCP1IE = 1)
+/* This routine clears the interrupt flag for the CCP1 Module */
+#define CCP1_InterruptFlagClear()       (PIR1bits.CCP1IF = 0)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the CCP1 Module Interrupt Priority to be High priority */
+#define CCP1_HighPrioritySet()           (IPR1bits.CCP1IP = 1)
+/* This routine set the CCP1 Module Interrupt Priority to be Low priority */
+#define CCP1_LowPrioritySet()            (IPR1bits.CCP1IP = 0)
+#endif
+#endif
 /* Section : Data type Declarations*/
 
 /* Section : Function Declarations*/

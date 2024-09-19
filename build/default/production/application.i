@@ -5688,19 +5688,57 @@ Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
 # 13 "./MCAL_Layer/CCP1/hal_ccp1.h"
 # 1 "./MCAL_Layer/CCP1/hal_ccp1_cfg.h" 1
 # 13 "./MCAL_Layer/CCP1/hal_ccp1.h" 2
-# 50 "./MCAL_Layer/CCP1/hal_ccp1.h"
+# 53 "./MCAL_Layer/CCP1/hal_ccp1.h"
 typedef enum {
     CCP1_CAPTURE_MODE_SELECTED = 0,
     CCP1_COMPARE_MODE_SELECTED,
     CCP1_PWM_MODE_SELECTED,
 }ccp1_mode_t;
 
+
+
+
+
+
+typedef union {
+    struct {
+        uint8 ccpr1_low;
+        uint8 ccpr1_high;
+    };
+    struct {
+        uint16 ccpr1_16bit;
+    };
+
+}CCP1_REG_T;
+
+
+
+
+
+
 typedef struct {
-  ccp1_mode_t ccp1_mode;
+
+    void (*CCP1_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
 
   uint32 PWM_Frequency;
 
+  ccp1_mode_t ccp1_mode;
+  uint8 ccp1_mode_variant;
+  pin_config_t pin;
+  uint8 timer2_postscaler_value : 4;
+  uint8 timer2_prescaler_value : 2;
+
 }ccp1_t;
+
+
+Std_ReturnType CCP1_Init(const ccp1_t * _ccp_obj);
+Std_ReturnType CCP1_DeInit(const ccp1_t * _ccp_obj);
+# 111 "./MCAL_Layer/CCP1/hal_ccp1.h"
+Std_ReturnType CCP1_PWM1_Set_Duty(const uint8 _duty);
+Std_ReturnType CCP1_PWM1_Start(void);
+Std_ReturnType CCP1_PWM1_Stop(void);
 # 21 "./application.h" 2
 # 30 "./application.h"
 void Application (void);

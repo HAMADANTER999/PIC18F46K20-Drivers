@@ -62,15 +62,15 @@ typedef enum {
  */
 
 typedef union {
-    typedef struct {
+    struct {
         uint8 ccpr1_low;   /*CCP1 Low register */ 
         uint8 ccpr1_high;  /*CCP1 High register */
     };
-    typedef struct {
+    struct {
         uint16 ccpr1_16bit; /* Read CCP1 as 16bit value */
     };
     
-}CCP1_PREIOD_REG_T;
+}CCP1_REG_T;
 
 /*
  * @Summary CCP1 Module Configurations
@@ -87,6 +87,9 @@ typedef struct {
 #endif
   ccp1_mode_t ccp1_mode; /* CCP1 Main module */
   uint8 ccp1_mode_variant; /* CCP1 Select mode variant */
+  pin_config_t pin;
+  uint8 timer2_postscaler_value : 4;
+  uint8 timer2_prescaler_value : 2;
 
 }ccp1_t;
 
@@ -105,7 +108,7 @@ Std_ReturnType CCP1_Compare_Mode_Set_Value(uint16 compare_value);
 #endif 
 
 #if (CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED)
-Std_ReturnType CCP1_PWM1_Set_Duty(const uint16 _duty);
+Std_ReturnType CCP1_PWM1_Set_Duty(const uint8 _duty);
 Std_ReturnType CCP1_PWM1_Start(void);
 Std_ReturnType CCP1_PWM1_Stop(void);
 #endif 

@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
   -cn -h+dist/default/production\projects.production.sym \
   --cmf=dist/default/production\projects.production.cmf -z -Q18F46K20 \
-  -oC:\Users\anter\AppData\Local\Temp\xcAsrd0.\driver_tmp_3.o \
+  -oC:\Users\anter\AppData\Local\Temp\xcAs173k.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/projects.production.map \
-  --md=C:\Users\anter\AppData\Local\Temp\xcAsrd0.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\anter\AppData\Local\Temp\xcAs173k.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F5Fh -ABIGRAM=01h-0F5Fh \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\anter\AppData\Local\Temp\xcAsrd0.\driver_tmp_9.o \
+  C:\Users\anter\AppData\Local\Temp\xcAs173k.\driver_tmp_9.o \
   dist/default/production\projects.production.o 
 
 Object code version is 3.11
@@ -38,14 +38,14 @@ Machine type is 18F46K20
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\anter\AppData\Local\Temp\xcAsrd0.\driver_tmp_9.o
+C:\Users\anter\AppData\Local\Temp\xcAs173k.\driver_tmp_9.o
                 config                           300000   300000        E        0       4
                 init                                32E      32E        4        4       0
                 reset_vec                             0        0        4        0       0
 dist/default/production\projects.production.o
                 intcode                               8        8      326        4       0
                 config                           300000   300000        E        0       4
-                temp                                 5D       5D        1        1       1
+                temp                                 5F       5F        1        1       1
                 smallconst                         1000     1000       16      800       0
                 text13                             1122     1122        4      80B       0
                 text12                             111E     111E        4      80B       0
@@ -60,10 +60,10 @@ dist/default/production\projects.production.o
                 text3                              110E     110E        8      80B       0
                 text2                              10E2     10E2        C      80B       0
                 text0                              1106     1106        8      80B       0
-                cstackCOMRAM                         5C       5C        1        1       1
+                cstackCOMRAM                         5E       5E        1        1       1
                 bssBANK0                             60       60        B       60       1
-                dataCOMRAM                           3A       3A       22        1       1
-                bssCOMRAM                             1        1       39        1       1
+                dataCOMRAM                           3C       3C       22        1       1
+                bssCOMRAM                             1        1       3B        1       1
                 cinit                              1016     1016       42      80B       0
                 idataCOMRAM                        1058     1058       22      80B       0
 
@@ -96,10 +96,10 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 5D       5D        1         1
-                cstackCOMRAM                         5C       5C        1         1
-                dataCOMRAM                           3A       3A       22         1
-                bssCOMRAM                             1        1       39         1
+                temp                                 5F       5F        1         1
+                cstackCOMRAM                         5E       5E        1         1
+                dataCOMRAM                           3C       3C       22         1
+                bssCOMRAM                             1        1       3B         1
 
         CLASS   ABS1           
 
@@ -162,7 +162,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  00005D  00005E         1       1  COMRAM  
+                bssCOMRAM                      000001  00005F  000060         1       1  COMRAM  
                 intcode                        000008  00032A  000332         4       0  CODE    
                 bssBANK0                       000060  00000B  00006B        60       1  BANK0   
                 smallconst                     001000  000016  001016       800       0  SMALLCON
@@ -188,13 +188,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00005E-00005F                2
-                         00006B-000F5F              EF5
+        BIGRAM           00006B-000F5F              EF5
         BIGSFR           000F60-000FFF               A0
         CODE             000004-000007                4
                          000332-000FFF              CCE
                          001126-00FFFF             EEDA
-        COMRAM           00005E-00005F                2
         CONST            000004-000007                4
                          000332-000FFF              CCE
                          001126-00FFFF             EEDA
@@ -207,28 +205,31 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-RB4_ISR@RB4_source         cstackCOMRAM 00005C
-RB5_ISR@RB5_source         cstackCOMRAM 00005C
-RB6_ISR@RB6_source         cstackCOMRAM 00005C
-RB7_ISR@RB7_source         cstackCOMRAM 00005C
+RB4_ISR@RB4_source         cstackCOMRAM 00005E
+RB5_ISR@RB5_source         cstackCOMRAM 00005E
+RB6_ISR@RB6_source         cstackCOMRAM 00005E
+RB7_ISR@RB7_source         cstackCOMRAM 00005E
 _ADCON0bits                (abs)        000FC2
 _ADCON1bits                (abs)        000FC1
 _ADCON2bits                (abs)        000FC0
 _ADC_ISR                   text13       001122
-_ADC_InterruptHandler      bssCOMRAM    00002F
+_ADC_InterruptHandler      bssCOMRAM    000031
 _ADRESH                    (abs)        000FC4
 _ADRESL                    (abs)        000FC3
+_CCP1CONbits               (abs)        000FBD
+_CCP1_InterruptHandler     bssCOMRAM    00000B
+_CCPR1L                    (abs)        000FBE
 _EEADR                     (abs)        000FA9
 _EEADRH                    (abs)        000FAA
 _EECON1bits                (abs)        000FA6
 _EECON2                    (abs)        000FA7
 _EEDATA                    (abs)        000FA8
 _INT0_ISR                  text12       00111E
-_INT0_InterruptHandler     bssCOMRAM    00002D
+_INT0_InterruptHandler     bssCOMRAM    00002F
 _INT1_ISR                  text11       00111A
-_INT1_InterruptHandler     bssCOMRAM    00002B
+_INT1_InterruptHandler     bssCOMRAM    00002D
 _INT2_ISR                  text10       001116
-_INT2_InterruptHandler     bssCOMRAM    000029
+_INT2_InterruptHandler     bssCOMRAM    00002B
 _INTCON2bits               (abs)        000FF1
 _INTCON3bits               (abs)        000FF0
 _INTCONbits                (abs)        000FF2
@@ -248,22 +249,23 @@ _PORTBbits                 (abs)        000F81
 _PORTC                     (abs)        000F82
 _PORTD                     (abs)        000F83
 _PORTE                     (abs)        000F84
-_RB4_Flag                  dataCOMRAM   00005B
+_PR2                       (abs)        000FCB
+_RB4_Flag                  dataCOMRAM   00005D
 _RB4_ISR                   text9        0010C8
-_RB4_InterruptHandler_HIGH bssCOMRAM    000027
-_RB4_InterruptHandler_LOW  bssCOMRAM    000025
-_RB5_Flag                  dataCOMRAM   00005A
+_RB4_InterruptHandler_HIGH bssCOMRAM    000029
+_RB4_InterruptHandler_LOW  bssCOMRAM    000027
+_RB5_Flag                  dataCOMRAM   00005C
 _RB5_ISR                   text8        0010AE
-_RB5_InterruptHandler_HIGH bssCOMRAM    000023
-_RB5_InterruptHandler_LOW  bssCOMRAM    000021
-_RB6_Flag                  dataCOMRAM   000059
+_RB5_InterruptHandler_HIGH bssCOMRAM    000025
+_RB5_InterruptHandler_LOW  bssCOMRAM    000023
+_RB6_Flag                  dataCOMRAM   00005B
 _RB6_ISR                   text7        001094
-_RB6_InterruptHandler_HIGH bssCOMRAM    00001F
-_RB6_InterruptHandler_LOW  bssCOMRAM    00001D
-_RB7_Flag                  dataCOMRAM   000058
+_RB6_InterruptHandler_HIGH bssCOMRAM    000021
+_RB6_InterruptHandler_LOW  bssCOMRAM    00001F
+_RB7_Flag                  dataCOMRAM   00005A
 _RB7_ISR                   text6        00107A
-_RB7_InterruptHandler_HIGH bssCOMRAM    00001B
-_RB7_InterruptHandler_LOW  bssCOMRAM    000019
+_RB7_InterruptHandler_HIGH bssCOMRAM    00001D
+_RB7_InterruptHandler_LOW  bssCOMRAM    00001B
 _T0CONbits                 (abs)        000FD5
 _T1CONbits                 (abs)        000FCD
 _T2CONbits                 (abs)        000FCA
@@ -271,18 +273,18 @@ _T3CONbits                 (abs)        000FB1
 _TMR0H                     (abs)        000FD7
 _TMR0L                     (abs)        000FD6
 _TMR0_ISR                  text5        0010FA
-_TMR0_InterruptHandler     bssCOMRAM    000017
+_TMR0_InterruptHandler     bssCOMRAM    000019
 _TMR1H                     (abs)        000FCF
 _TMR1L                     (abs)        000FCE
 _TMR1_ISR                  text4        0010EE
-_TMR1_InterruptHandler     bssCOMRAM    000013
+_TMR1_InterruptHandler     bssCOMRAM    000015
 _TMR2                      (abs)        000FCC
 _TMR2_ISR                  text3        00110E
-_TMR2_InterruptHandler     bssCOMRAM    00000F
+_TMR2_InterruptHandler     bssCOMRAM    000011
 _TMR3H                     (abs)        000FB3
 _TMR3L                     (abs)        000FB2
 _TMR3_ISR                  text2        0010E2
-_TMR3_InterruptHandler     bssCOMRAM    00000D
+_TMR3_InterruptHandler     bssCOMRAM    00000F
 _TRISA                     (abs)        000F92
 _TRISB                     (abs)        000F93
 _TRISC                     (abs)        000F94
@@ -319,6 +321,7 @@ __Hclrtext                 clrtext      000000
 __Hcomram                  comram       000000
 __Hconfig                  config       30000E
 __Hconst                   const        000000
+__HcstackBANK0             cstackBANK0  000000
 __HcstackCOMRAM            cstackCOMRAM 000000
 __Hdata                    data         000000
 __HdataCOMRAM              dataCOMRAM   000000
@@ -362,7 +365,7 @@ __Hspace_2                 (abs)        000000
 __Hspace_4                 (abs)        60000E
 __Hstack                   stack        000000
 __Hstruct                  struct       000000
-__Htemp                    temp         00005E
+__Htemp                    temp         000060
 __Htext                    text         000000
 __Htext0                   text0        000000
 __Htext10                  text10       000000
@@ -408,6 +411,7 @@ __Lclrtext                 clrtext      000000
 __Lcomram                  comram       000000
 __Lconfig                  config       000000
 __Lconst                   const        000000
+__LcstackBANK0             cstackBANK0  000000
 __LcstackCOMRAM            cstackCOMRAM 000000
 __Ldata                    data         000000
 __LdataCOMRAM              dataCOMRAM   000000
@@ -451,7 +455,7 @@ __Lspace_2                 (abs)        000000
 __Lspace_4                 (abs)        000000
 __Lstack                   stack        000000
 __Lstruct                  struct       000000
-__Ltemp                    temp         00005D
+__Ltemp                    temp         00005F
 __Ltext                    text         000000
 __Ltext0                   text0        000000
 __Ltext10                  text10       000000
@@ -506,8 +510,9 @@ __mediumconst              mediumconst  000000
 __pbssBANK0                bssBANK0     000060
 __pbssCOMRAM               bssCOMRAM    000001
 __pcinit                   cinit        001016
-__pcstackCOMRAM            cstackCOMRAM 00005C
-__pdataCOMRAM              dataCOMRAM   00003A
+__pcstackBANK0             cstackBANK0  000000
+__pcstackCOMRAM            cstackCOMRAM 00005E
+__pdataCOMRAM              dataCOMRAM   00003C
 __pidataCOMRAM             idataCOMRAM  001058
 __pintcode                 intcode      000008
 __psmallconst              smallconst   001000
@@ -527,39 +532,39 @@ __ptext9                   text9        0010C8
 __ramtop                   ramtop       001000
 __smallconst               smallconst   001000
 _btn_values                smallconst   001001
-_lat_registers             dataCOMRAM   000044
+_lat_registers             dataCOMRAM   000046
 _main                      text0        001106
-_port_registers            dataCOMRAM   00003A
-_ret                       bssCOMRAM    000032
-_timer0_preload            bssCOMRAM    000015
-_timer1_preload            bssCOMRAM    000011
-_timer2_preload            bssCOMRAM    000031
-_timer3_preload            bssCOMRAM    00000B
-_tris_registers            dataCOMRAM   00004E
-btemp                      temp         00005D
+_port_registers            dataCOMRAM   00003C
+_ret                       bssCOMRAM    000034
+_timer0_preload            bssCOMRAM    000017
+_timer1_preload            bssCOMRAM    000013
+_timer2_preload            bssCOMRAM    000033
+_timer3_preload            bssCOMRAM    00000D
+_tris_registers            dataCOMRAM   000050
+btemp                      temp         00005F
 end_of_initialization      cinit        00104E
-int$flags                  temp         00005D
+int$flags                  temp         00005F
 intlevel0                  text         000000
 intlevel1                  text         000000
 intlevel2                  text         000000
 intlevel3                  text         000000
 isa$std                    (abs)        000001
 isa$xinst                  (abs)        000000
-led_initialize@F3310       bssCOMRAM    000039
-led_turn_off@F3320         bssCOMRAM    000037
-led_turn_on@F3315          bssCOMRAM    000038
-led_turn_toggle@F3325      bssCOMRAM    000036
-relay_initialize@F3304     bssCOMRAM    000035
-relay_turn_off@F3314       bssCOMRAM    000033
-relay_turn_on@F3309        bssCOMRAM    000034
+led_initialize@F3310       bssCOMRAM    00003B
+led_turn_off@F3320         bssCOMRAM    000039
+led_turn_on@F3315          bssCOMRAM    00003A
+led_turn_toggle@F3325      bssCOMRAM    000038
+relay_initialize@F3304     bssCOMRAM    000037
+relay_turn_off@F3314       bssCOMRAM    000035
+relay_turn_on@F3309        bssCOMRAM    000036
 stackhi                    (abs)        000000
 stacklo                    (abs)        000000
 start                      init         00032E
 start_initialization       cinit        001016
-ttemp5                     temp         00005E
-ttemp6                     temp         000061
-ttemp7                     temp         000065
-wtemp8                     temp         00005E
+ttemp5                     temp         000060
+ttemp6                     temp         000063
+ttemp7                     temp         000067
+wtemp8                     temp         000060
 
 
 MODULE INFORMATION
