@@ -1,21 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3627 `(v ~T0 @X0 0 tf ]
-"13 application.c
-[; ;application.c: 13: timer3_t timer3_obj;
-[c E3445 0 1 .. ]
-[n E3445 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
-"53 ./MCAL_Layer/Timer3/hal_timer3.h
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 53: typedef struct {
-[s S321 `*F3627 1 `E3445 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S321 . TMR3_InterruptHandler priority timer3_preloaded_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer3_reserved ]
 [p mainexit ]
-[v F3654 `(v ~T0 @X0 0 tf ]
-"68
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 68: Std_ReturnType Timer3_Init(const timer3_t *_timer);
-[v _Timer3_Init `(uc ~T0 @X0 0 ef1`*CS321 ]
-"71
-[; ;./MCAL_Layer/Timer3/hal_timer3.h: 71: Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
-[v _Timer3_Read_Value `(uc ~T0 @X0 0 ef2`*CS321`*us ]
 "31 ./ECU_Layer/ecu_layer_init.h
 [; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
 [v _ecu_layer_initialize `(v ~T0 @X0 0 ef ]
@@ -460,81 +444,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 application.c
-[; ;application.c: 13: timer3_t timer3_obj;
-[v _timer3_obj `S321 ~T0 @X0 1 e ]
-"14
-[; ;application.c: 14: volatile uint16 counter_val;
-[v _counter_val `Vus ~T0 @X0 1 e ]
-"16
-[; ;application.c: 16: Std_ReturnType ret = (Std_ReturnType)0x00;
+"12 application.c
+[; ;application.c: 12: Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17
-[; ;application.c: 17: int main() {
+"13
+[; ;application.c: 13: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"19
-[; ;application.c: 19:     timer3_obj.TMR3_InterruptHandler = ((void*)0);
-[e = . _timer3_obj 0 -> -> -> 0 `i `*v `*F3654 ]
-"20
-[; ;application.c: 20:     timer3_obj.timer3_mode = 1U;
-[e = . _timer3_obj 4 -> -> 1 `ui `uc ]
-"21
-[; ;application.c: 21:     timer3_obj.timer3_preloaded_value = 0;
-[e = . _timer3_obj 2 -> -> 0 `i `us ]
-"22
-[; ;application.c: 22:     timer3_obj.timer3_prescaler_value = 0U;
-[e = . _timer3_obj 3 -> -> 0 `ui `uc ]
-"23
-[; ;application.c: 23:     timer3_obj.timer3_reg_wr_mode = 0U;
-[e = . _timer3_obj 6 -> -> 0 `ui `uc ]
-"24
-[; ;application.c: 24:     timer3_obj.timer3_counter_mode = 0U;
-[e = . _timer3_obj 5 -> -> 0 `ui `uc ]
-"25
-[; ;application.c: 25:     Timer3_Init(&timer3_obj);
-[e ( _Timer3_Init (1 -> &U _timer3_obj `*CS321 ]
-"27
-[; ;application.c: 27:     while (1)
-[e :U 324 ]
-"28
-[; ;application.c: 28:     {
-{
-"29
-[; ;application.c: 29:        ret = Timer3_Read_Value(&timer3_obj, &counter_val);
-[e = _ret ( _Timer3_Read_Value (2 , -> &U _timer3_obj `*CS321 -> &U _counter_val `*us ]
-"30
-[; ;application.c: 30:     }
-}
-[e :U 323 ]
-[e $U 324  ]
+"16
+[; ;application.c: 16:     while (1)
 [e :U 325 ]
-"32
-[; ;application.c: 32:     return (0);
-[e ) -> 0 `i ]
-[e $UE 322  ]
-"33
-[; ;application.c: 33: }
-[e :UE 322 ]
+"17
+[; ;application.c: 17:     {
+{
+"19
+[; ;application.c: 19:     }
 }
-"34
-[; ;application.c: 34: void Application (void)
+[e :U 324 ]
+[e $U 325  ]
+[e :U 326 ]
+"21
+[; ;application.c: 21:     return (0);
+[e ) -> 0 `i ]
+[e $UE 323  ]
+"22
+[; ;application.c: 22: }
+[e :UE 323 ]
+}
+"23
+[; ;application.c: 23: void Application (void)
 [v _Application `(v ~T0 @X0 1 ef ]
-"35
-[; ;application.c: 35: {
+"24
+[; ;application.c: 24: {
 {
 [e :U _Application ]
 [f ]
-"36
-[; ;application.c: 36:     ecu_layer_initialize();
+"25
+[; ;application.c: 25:     ecu_layer_initialize();
 [e ( _ecu_layer_initialize ..  ]
-"37
-[; ;application.c: 37: }
-[e :UE 326 ]
+"26
+[; ;application.c: 26: }
+[e :UE 327 ]
 }

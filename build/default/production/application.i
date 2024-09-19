@@ -5683,31 +5683,39 @@ Std_ReturnType Timer3_DeInit(const timer3_t *_timer);
 Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 value);
 Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
 # 20 "./application.h" 2
-# 29 "./application.h"
+
+# 1 "./MCAL_Layer/CCP1/hal_ccp1.h" 1
+# 13 "./MCAL_Layer/CCP1/hal_ccp1.h"
+# 1 "./MCAL_Layer/CCP1/hal_ccp1_cfg.h" 1
+# 13 "./MCAL_Layer/CCP1/hal_ccp1.h" 2
+# 50 "./MCAL_Layer/CCP1/hal_ccp1.h"
+typedef enum {
+    CCP1_CAPTURE_MODE_SELECTED = 0,
+    CCP1_COMPARE_MODE_SELECTED,
+    CCP1_PWM_MODE_SELECTED,
+}ccp1_mode_t;
+
+typedef struct {
+  ccp1_mode_t ccp1_mode;
+
+  uint32 PWM_Frequency;
+
+}ccp1_t;
+# 21 "./application.h" 2
+# 30 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
-
 void Application (void);
-void Timer3_DefualtInterruptHandler(void);
-timer3_t timer3_obj;
-volatile uint16 counter_val;
 
 Std_ReturnType ret = (Std_ReturnType)0x00;
 int main() {
 
-    timer3_obj.TMR3_InterruptHandler = ((void*)0);
-    timer3_obj.timer3_mode = 1U;
-    timer3_obj.timer3_preloaded_value = 0;
-    timer3_obj.timer3_prescaler_value = 0U;
-    timer3_obj.timer3_reg_wr_mode = 0U;
-    timer3_obj.timer3_counter_mode = 0U;
-    Timer3_Init(&timer3_obj);
 
     while (1)
     {
-       ret = Timer3_Read_Value(&timer3_obj, &counter_val);
+
     }
 
     return (0);
