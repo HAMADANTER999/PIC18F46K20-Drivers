@@ -5175,10 +5175,10 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 37 "MCAL_Layer/interrupt/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned int uint32;
+typedef unsigned long uint32;
 typedef signed char sint8;
 typedef signed short sint16;
-typedef signed int sint32;
+typedef signed long sint32;
 
 typedef uint8 Std_ReturnType;
 # 13 "MCAL_Layer/interrupt/mcal_interrupt_config.h" 2
@@ -5264,6 +5264,8 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
+void CCP1_ISR(void);
+void CCP2_ISR(void);
 # 8 "MCAL_Layer/interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -5375,6 +5377,17 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
 
     if ((PIE2bits.TMR3IE == 1) && (PIR2bits.TMR3IF == 1)){
         TMR3_ISR();
+    }
+    else { }
+
+
+    if ((PIE1bits.CCP1IE == 1) && (PIR1bits.CCP1IF == 1)){
+        CCP1_ISR();
+    }
+    else { }
+
+    if ((PIE2bits.CCP2IE == 1) && (PIR2bits.CCP2IF == 1)){
+        CCP2_ISR();
     }
     else { }
 

@@ -107,6 +107,22 @@
 #define CCP1_LowPrioritySet()            (IPR1bits.CCP1IP = 0)
 #endif
 #endif
+
+/*=======================================CCP2 Interrupt Module ==============================*/
+#ifdef CCP2_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the CCP2 Module*/
+#define CCP2_InterruptDisable()         (PIE2bits.CCP2IE = 0)
+/* This routine sets the interrupt enable for the CCP2 Module */
+#define CCP2_InterruptEnable()          (PIE2bits.CCP2IE = 1)
+/* This routine clears the interrupt flag for the CCP2 Module */
+#define CCP2_InterruptFlagClear()       (PIR2bits.CCP2IF = 0)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the CCP2 Module Interrupt Priority to be High priority */
+#define CCP2_HighPrioritySet()           (IPR2bits.CCP2IP = 1)
+/* This routine set the CCP2 Module Interrupt Priority to be Low priority */
+#define CCP2_LowPrioritySet()            (IPR2bits.CCP2IP = 0)
+#endif
+#endif
 /* Section : Data type Declarations*/
 
 /* Section : Function Declarations*/

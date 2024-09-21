@@ -5180,10 +5180,10 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 37 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned int uint32;
+typedef unsigned long uint32;
 typedef signed char sint8;
 typedef signed short sint16;
-typedef signed int sint32;
+typedef signed long sint32;
 
 typedef uint8 Std_ReturnType;
 # 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
@@ -5684,16 +5684,27 @@ Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 value);
 Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *value);
 # 20 "./application.h" 2
 
-# 1 "./MCAL_Layer/CCP1/hal_ccp1.h" 1
-# 13 "./MCAL_Layer/CCP1/hal_ccp1.h"
-# 1 "./MCAL_Layer/CCP1/hal_ccp1_cfg.h" 1
-# 13 "./MCAL_Layer/CCP1/hal_ccp1.h" 2
-# 53 "./MCAL_Layer/CCP1/hal_ccp1.h"
+# 1 "./MCAL_Layer/CCP/hal_ccp.h" 1
+# 13 "./MCAL_Layer/CCP/hal_ccp.h"
+# 1 "./MCAL_Layer/CCP/hal_ccp_cfg.h" 1
+# 13 "./MCAL_Layer/CCP/hal_ccp.h" 2
+# 77 "./MCAL_Layer/CCP/hal_ccp.h"
 typedef enum {
-    CCP1_CAPTURE_MODE_SELECTED = 0,
-    CCP1_COMPARE_MODE_SELECTED,
-    CCP1_PWM_MODE_SELECTED,
-}ccp1_mode_t;
+    CCP_CAPTURE_MODE_SELECTED = 0,
+    CCP_COMPARE_MODE_SELECTED,
+    CCP_PWM_MODE_SELECTED,
+}ccp_mode_t;
+
+typedef enum {
+    CCP1_INST,
+    CCP2_INST,
+}ccp_inst_t;
+
+typedef enum {
+    CCP1_CCP2_TIMER1 = 0,
+    CCP1_TIMER1_CCP2_TIMER3,
+    CCP1_CCP2_TIMER3,
+}ccp_capture_timer_t;
 
 
 
@@ -5702,14 +5713,14 @@ typedef enum {
 
 typedef union {
     struct {
-        uint8 ccpr1_low;
-        uint8 ccpr1_high;
+        uint8 ccpr_low;
+        uint8 ccpr_high;
     };
     struct {
-        uint16 ccpr1_16bit;
+        uint16 ccpr_16bit;
     };
 
-}CCP1_REG_T;
+}CCP_REG_T;
 
 
 
@@ -5719,46 +5730,105 @@ typedef union {
 typedef struct {
 
     void (*CCP1_InterruptHandler)(void);
-    interrupt_priority_cfg priority;
+    interrupt_priority_cfg CCP1_priority;
 
 
-  uint32 PWM_Frequency;
+    void (*CCP2_InterruptHandler)(void);
+    interrupt_priority_cfg CCP2_priority;
 
-  ccp1_mode_t ccp1_mode;
-  uint8 ccp1_mode_variant;
+
+
+
+
+
+  ccp_capture_timer_t ccp_capture_time;
+  ccp_mode_t ccp_mode;
+  uint8 ccp_mode_variant;
   pin_config_t pin;
-  uint8 timer2_postscaler_value : 4;
-  uint8 timer2_prescaler_value : 2;
-
-}ccp1_t;
+  ccp_inst_t ccp_inst;
 
 
-Std_ReturnType CCP1_Init(const ccp1_t * _ccp_obj);
-Std_ReturnType CCP1_DeInit(const ccp1_t * _ccp_obj);
-# 111 "./MCAL_Layer/CCP1/hal_ccp1.h"
-Std_ReturnType CCP1_PWM1_Set_Duty(const uint8 _duty);
-Std_ReturnType CCP1_PWM1_Start(void);
-Std_ReturnType CCP1_PWM1_Stop(void);
+}ccp_t;
+
+
+Std_ReturnType CCP_Init(const ccp_t * _ccp_obj);
+Std_ReturnType CCP_DeInit(const ccp_t * _ccp_obj);
+
+
+
+
+
+
+
+Std_ReturnType CCP_IsCompareComplete(uint8 *_compare_status);
+Std_ReturnType CCP_Compare_Mode_Set_Value(const ccp_t * _ccp_obj,uint16 compare_value);
 # 21 "./application.h" 2
 # 30 "./application.h"
 void Application (void);
 # 8 "application.c" 2
 
 
-void Application (void);
+timer3_t timer3_obj;
+ccp_t ccp_obj;
 
-Std_ReturnType ret = (Std_ReturnType)0x00;
+volatile uint8 CCP1_Callback_Flag = 0;
+
+void CCP1_DefaultInterruptHandler(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+
+    CCP1_Callback_Flag++;
+
+    ret = Timer3_Write_Value(&timer3_obj, 0);
+
+    if(CCP1_Callback_Flag == 1){
+
+        ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 12500);
+
+        (CCP1CONbits.CCP1M = ((uint8)0X09));
+    }
+    else if(CCP1_Callback_Flag == 2){
+
+        ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 37500);
+
+        (CCP1CONbits.CCP1M = ((uint8)0X08));
+        CCP1_Callback_Flag = 0;
+    }
+}
+
 int main() {
+    Std_ReturnType ret = (Std_ReturnType)0x00;
 
 
-    while (1)
-    {
+
+    ccp_obj.CCP1_InterruptHandler = CCP1_DefaultInterruptHandler;
+    ccp_obj.ccp_inst = CCP1_INST;
+    ccp_obj.ccp_mode = CCP_COMPARE_MODE_SELECTED;
+    ccp_obj.ccp_mode_variant = ((uint8)0X08);
+    ccp_obj.ccp_mode_variant = CCP1_CCP2_TIMER3;
+    ccp_obj.pin.port = PORTC_INDEX;
+    ccp_obj.pin.pin = GPIO_PIN2;
+    ccp_obj.pin.direction = GPIO_DIRECTION_OUTPUT;
+
+
+    ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 37500);
+
+    ret = CCP_Init(&ccp_obj);
+
+    timer3_obj.TMR3_InterruptHandler = ((void*)0);
+    timer3_obj.timer3_mode = 0U;
+    timer3_obj.priority = INTERRUPT_LOW_PRIORITY;
+    timer3_obj.timer3_prescaler_value = 0U;
+    timer3_obj.timer3_preloaded_value = 0;
+    timer3_obj.timer3_reg_wr_mode = 0U;
+    ret = Timer3_Init(&timer3_obj);
+
+    while(1){
 
     }
-
     return (0);
 }
-void Application (void)
-{
+
+void application_intialize(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
     ecu_layer_initialize();
 }

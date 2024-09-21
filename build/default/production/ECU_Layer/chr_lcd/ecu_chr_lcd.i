@@ -5176,10 +5176,10 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 37 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned int uint32;
+typedef unsigned long uint32;
 typedef signed char sint8;
 typedef signed short sint16;
-typedef signed int sint32;
+typedef signed long sint32;
 
 typedef uint8 Std_ReturnType;
 # 14 "ECU_Layer/chr_lcd/../../MCAL_Layer/GPIO/hal_gpio.h" 2
@@ -5304,11 +5304,11 @@ Std_ReturnType lcd_4bit_initialize(const chr_lcd_4bit_t *lcd){
         {
             ret = gpio_pin_intialize(&(lcd->lcd_data[l_data_pin_counter]));
         }
-        _delay((unsigned long)((20)*(8000000UL/4000.0)));
+        _delay((unsigned long)((20)*(4000000UL/4000.0)));
         ret = lcd_4bit_send_command(lcd, 0X38);
-        _delay((unsigned long)((5)*(8000000UL/4000.0)));
+        _delay((unsigned long)((5)*(4000000UL/4000.0)));
         ret = lcd_4bit_send_command(lcd, 0X38);
-        _delay((unsigned long)((150)*(8000000UL/4000000.0)));
+        _delay((unsigned long)((150)*(4000000UL/4000000.0)));
         ret = lcd_4bit_send_command(lcd, 0X38);
         ret = lcd_4bit_send_command(lcd, 0X01);
         ret = lcd_4bit_send_command(lcd, 0X02);
@@ -5443,11 +5443,11 @@ Std_ReturnType lcd_8bit_initialize(const chr_lcd_8bit_t *lcd){
         {
             ret = gpio_pin_intialize(&(lcd->lcd_data[l_data_pin_counter]));
         }
-        _delay((unsigned long)((20)*(8000000UL/4000.0)));
+        _delay((unsigned long)((20)*(4000000UL/4000.0)));
         ret = lcd_8bit_send_command(lcd, 0X38);
-        _delay((unsigned long)((5)*(8000000UL/4000.0)));
+        _delay((unsigned long)((5)*(4000000UL/4000.0)));
         ret = lcd_8bit_send_command(lcd, 0X38);
-        _delay((unsigned long)((150)*(8000000UL/4000000.0)));
+        _delay((unsigned long)((150)*(4000000UL/4000000.0)));
         ret = lcd_8bit_send_command(lcd, 0X38);
         ret = lcd_8bit_send_command(lcd, 0X01);
         ret = lcd_8bit_send_command(lcd, 0X02);
@@ -5654,7 +5654,7 @@ static Std_ReturnType lcd_send_4bits_enable_signal(const chr_lcd_4bit_t *lcd){
     else
     {
         ret = gpio_pin_write_logic(&(lcd->lcd_en), GPIO_HIGH);
-        _delay((unsigned long)((5)*(8000000UL/4000000.0)));
+        _delay((unsigned long)((5)*(4000000UL/4000000.0)));
         ret = gpio_pin_write_logic(&(lcd->lcd_en), GPIO_LOW);
     }
     return ret;
@@ -5674,7 +5674,7 @@ static Std_ReturnType lcd_send_8bits_enable_signal(const chr_lcd_8bit_t *lcd){
     else
     {
         ret = gpio_pin_write_logic(&(lcd->lcd_en), GPIO_HIGH);
-        _delay((unsigned long)((5)*(8000000UL/4000000.0)));
+        _delay((unsigned long)((5)*(4000000UL/4000000.0)));
         ret = gpio_pin_write_logic(&(lcd->lcd_en), GPIO_LOW);
     }
     return ret;

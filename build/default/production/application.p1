@@ -1,5 +1,73 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[v F3627 `(v ~T0 @X0 0 tf ]
+"10 application.c
+[; ;application.c: 10: timer3_t timer3_obj;
+[c E3445 0 1 .. ]
+[n E3445 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
+"53 ./MCAL_Layer/Timer3/hal_timer3.h
+[; ;./MCAL_Layer/Timer3/hal_timer3.h: 53: typedef struct {
+[s S321 `*F3627 1 `E3445 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S321 . TMR3_InterruptHandler priority timer3_preloaded_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer3_reserved ]
+[v F3671 `(v ~T0 @X0 0 tf ]
+[v F3674 `(v ~T0 @X0 0 tf ]
+"11 application.c
+[; ;application.c: 11: ccp_t ccp_obj;
+[c E3655 0 1 2 .. ]
+[n E3655 . CCP1_CCP2_TIMER1 CCP1_TIMER1_CCP2_TIMER3 CCP1_CCP2_TIMER3  ]
+[c E3646 0 1 2 .. ]
+[n E3646 . CCP_CAPTURE_MODE_SELECTED CCP_COMPARE_MODE_SELECTED CCP_PWM_MODE_SELECTED  ]
+"66 ./MCAL_Layer/CCP/../GPIO/hal_gpio.h
+[s S306 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S306 . port pin direction logic ]
+"11 application.c
+[; ;application.c: 11: ccp_t ccp_obj;
+[c E3651 0 1 .. ]
+[n E3651 . CCP1_INST CCP2_INST  ]
+"115 ./MCAL_Layer/CCP/hal_ccp.h
+[; ;./MCAL_Layer/CCP/hal_ccp.h: 115: typedef struct {
+[s S325 `*F3671 1 `E3445 1 `*F3674 1 `E3445 1 `E3655 1 `E3646 1 `uc 1 `S306 1 `E3651 1 ]
+[n S325 . CCP1_InterruptHandler CCP1_priority CCP2_InterruptHandler CCP2_priority ccp_capture_time ccp_mode ccp_mode_variant pin ccp_inst ]
+"70 ./MCAL_Layer/Timer3/hal_timer3.h
+[; ;./MCAL_Layer/Timer3/hal_timer3.h: 70: Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 value);
+[v _Timer3_Write_Value `(uc ~T0 @X0 0 ef2`*CS321`us ]
+"149 ./MCAL_Layer/CCP/hal_ccp.h
+[; ;./MCAL_Layer/CCP/hal_ccp.h: 149: Std_ReturnType CCP_Compare_Mode_Set_Value(const ccp_t * _ccp_obj,uint16 compare_value);
+[v _CCP_Compare_Mode_Set_Value `(uc ~T0 @X0 0 ef2`*CS325`us ]
+"4982 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4982:     struct {
+[s S202 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S202 . CCP1M DC1B P1M ]
+"4987
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4987:     struct {
+[s S203 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S203 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 DC1B0 DC1B1 P1M0 P1M1 ]
+"4981
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4981: typedef union {
+[u S201 `S202 1 `S203 1 ]
+[n S201 . . . ]
+"4998
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 4998: extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0xFBD)));
+[v _CCP1CONbits `VS201 ~T0 @X0 0 e@4029 ]
 [p mainexit ]
+"47 application.c
+[; ;application.c: 47:     ccp_obj.pin.port = PORTC_INDEX;
+[c E3248 0 1 2 3 4 .. ]
+[n E3248 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+"48
+[; ;application.c: 48:     ccp_obj.pin.pin = GPIO_PIN2;
+[c E3238 0 1 2 3 4 5 6 7 .. ]
+[n E3238 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+"49
+[; ;application.c: 49:     ccp_obj.pin.direction = GPIO_DIRECTION_OUTPUT;
+[c E3234 0 1 .. ]
+[n E3234 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+"139 ./MCAL_Layer/CCP/hal_ccp.h
+[; ;./MCAL_Layer/CCP/hal_ccp.h: 139: Std_ReturnType CCP_Init(const ccp_t * _ccp_obj);
+[v _CCP_Init `(uc ~T0 @X0 0 ef1`*CS325 ]
+[v F3703 `(v ~T0 @X0 0 tf ]
+"68 ./MCAL_Layer/Timer3/hal_timer3.h
+[; ;./MCAL_Layer/Timer3/hal_timer3.h: 68: Std_ReturnType Timer3_Init(const timer3_t *_timer);
+[v _Timer3_Init `(uc ~T0 @X0 0 ef1`*CS321 ]
 "31 ./ECU_Layer/ecu_layer_init.h
 [; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
 [v _ecu_layer_initialize `(v ~T0 @X0 0 ef ]
@@ -444,51 +512,165 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 application.c
-[; ;application.c: 12: Std_ReturnType ret = (Std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
+"10 application.c
+[; ;application.c: 10: timer3_t timer3_obj;
+[v _timer3_obj `S321 ~T0 @X0 1 e ]
+"11
+[; ;application.c: 11: ccp_t ccp_obj;
+[v _ccp_obj `S325 ~T0 @X0 1 e ]
+"13
+[; ;application.c: 13: volatile uint8 CCP1_Callback_Flag = 0;
+[v _CCP1_Callback_Flag `Vuc ~T0 @X0 1 e ]
+[i _CCP1_Callback_Flag
 -> -> 0 `i `uc
 ]
+"15
+[; ;application.c: 15: void CCP1_DefaultInterruptHandler(void){
+[v _CCP1_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _CCP1_DefaultInterruptHandler ]
+[f ]
+"16
+[; ;application.c: 16:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"18
+[; ;application.c: 18:     CCP1_Callback_Flag++;
+[e ++ _CCP1_Callback_Flag -> -> 1 `i `Vuc ]
+"20
+[; ;application.c: 20:     ret = Timer3_Write_Value(&timer3_obj, 0);
+[e = _ret ( _Timer3_Write_Value (2 , -> &U _timer3_obj `*CS321 -> -> 0 `i `us ]
+"22
+[; ;application.c: 22:     if(CCP1_Callback_Flag == 1){
+[e $ ! == -> _CCP1_Callback_Flag `i -> 1 `i 327  ]
+{
+"24
+[; ;application.c: 24:         ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 12500);
+[e = _ret ( _CCP_Compare_Mode_Set_Value (2 , -> &U _ccp_obj `*CS325 -> -> 12500 `i `us ]
+"26
+[; ;application.c: 26:         (CCP1CONbits.CCP1M = ((uint8)0X09));
+[e = . . _CCP1CONbits 0 0 -> -> 9 `i `uc ]
+"27
+[; ;application.c: 27:     }
+}
+[e $U 328  ]
+"28
+[; ;application.c: 28:     else if(CCP1_Callback_Flag == 2){
+[e :U 327 ]
+[e $ ! == -> _CCP1_Callback_Flag `i -> 2 `i 329  ]
+{
+"30
+[; ;application.c: 30:         ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 37500);
+[e = _ret ( _CCP_Compare_Mode_Set_Value (2 , -> &U _ccp_obj `*CS325 -> -> 37500 `l `us ]
+"32
+[; ;application.c: 32:         (CCP1CONbits.CCP1M = ((uint8)0X08));
+[e = . . _CCP1CONbits 0 0 -> -> 8 `i `uc ]
+"33
+[; ;application.c: 33:         CCP1_Callback_Flag = 0;
+[e = _CCP1_Callback_Flag -> -> 0 `i `uc ]
+"34
+[; ;application.c: 34:     }
+}
+[e :U 329 ]
+[e :U 328 ]
+"35
+[; ;application.c: 35: }
+[e :UE 326 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13
-[; ;application.c: 13: int main() {
+"37
+[; ;application.c: 37: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"16
-[; ;application.c: 16:     while (1)
-[e :U 328 ]
-"17
-[; ;application.c: 17:     {
+"38
+[; ;application.c: 38:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"42
+[; ;application.c: 42:     ccp_obj.CCP1_InterruptHandler = CCP1_DefaultInterruptHandler;
+[e = . _ccp_obj 0 &U _CCP1_DefaultInterruptHandler ]
+"43
+[; ;application.c: 43:     ccp_obj.ccp_inst = CCP1_INST;
+[e = . _ccp_obj 8 . `E3651 0 ]
+"44
+[; ;application.c: 44:     ccp_obj.ccp_mode = CCP_COMPARE_MODE_SELECTED;
+[e = . _ccp_obj 5 . `E3646 1 ]
+"45
+[; ;application.c: 45:     ccp_obj.ccp_mode_variant = ((uint8)0X08);
+[e = . _ccp_obj 6 -> -> 8 `i `uc ]
+"46
+[; ;application.c: 46:     ccp_obj.ccp_mode_variant = CCP1_CCP2_TIMER3;
+[e = . _ccp_obj 6 -> . `E3655 2 `uc ]
+"47
+[; ;application.c: 47:     ccp_obj.pin.port = PORTC_INDEX;
+[e = . . _ccp_obj 7 0 -> . `E3248 2 `uc ]
+"48
+[; ;application.c: 48:     ccp_obj.pin.pin = GPIO_PIN2;
+[e = . . _ccp_obj 7 1 -> . `E3238 2 `uc ]
+"49
+[; ;application.c: 49:     ccp_obj.pin.direction = GPIO_DIRECTION_OUTPUT;
+[e = . . _ccp_obj 7 2 -> . `E3234 0 `uc ]
+"52
+[; ;application.c: 52:     ret = CCP_Compare_Mode_Set_Value(&ccp_obj, 37500);
+[e = _ret ( _CCP_Compare_Mode_Set_Value (2 , -> &U _ccp_obj `*CS325 -> -> 37500 `l `us ]
+"54
+[; ;application.c: 54:     ret = CCP_Init(&ccp_obj);
+[e = _ret ( _CCP_Init (1 -> &U _ccp_obj `*CS325 ]
+"56
+[; ;application.c: 56:     timer3_obj.TMR3_InterruptHandler = ((void*)0);
+[e = . _timer3_obj 0 -> -> -> 0 `i `*v `*F3703 ]
+"57
+[; ;application.c: 57:     timer3_obj.timer3_mode = 0U;
+[e = . _timer3_obj 4 -> -> 0 `ui `uc ]
+"58
+[; ;application.c: 58:     timer3_obj.priority = INTERRUPT_LOW_PRIORITY;
+[e = . _timer3_obj 1 . `E3445 0 ]
+"59
+[; ;application.c: 59:     timer3_obj.timer3_prescaler_value = 0U;
+[e = . _timer3_obj 3 -> -> 0 `ui `uc ]
+"60
+[; ;application.c: 60:     timer3_obj.timer3_preloaded_value = 0;
+[e = . _timer3_obj 2 -> -> 0 `i `us ]
+"61
+[; ;application.c: 61:     timer3_obj.timer3_reg_wr_mode = 0U;
+[e = . _timer3_obj 6 -> -> 0 `ui `uc ]
+"62
+[; ;application.c: 62:     ret = Timer3_Init(&timer3_obj);
+[e = _ret ( _Timer3_Init (1 -> &U _timer3_obj `*CS321 ]
+"64
+[; ;application.c: 64:     while(1){
+[e :U 332 ]
 {
-"19
-[; ;application.c: 19:     }
+"66
+[; ;application.c: 66:     }
 }
-[e :U 327 ]
-[e $U 328  ]
-[e :U 329 ]
-"21
-[; ;application.c: 21:     return (0);
+[e :U 331 ]
+[e $U 332  ]
+[e :U 333 ]
+"67
+[; ;application.c: 67:     return (0);
 [e ) -> 0 `i ]
-[e $UE 326  ]
-"22
-[; ;application.c: 22: }
-[e :UE 326 ]
-}
-"23
-[; ;application.c: 23: void Application (void)
-[v _Application `(v ~T0 @X0 1 ef ]
-"24
-[; ;application.c: 24: {
-{
-[e :U _Application ]
-[f ]
-"25
-[; ;application.c: 25:     ecu_layer_initialize();
-[e ( _ecu_layer_initialize ..  ]
-"26
-[; ;application.c: 26: }
+[e $UE 330  ]
+"68
+[; ;application.c: 68: }
 [e :UE 330 ]
+}
+"70
+[; ;application.c: 70: void application_intialize(void){
+[v _application_intialize `(v ~T0 @X0 1 ef ]
+{
+[e :U _application_intialize ]
+[f ]
+"71
+[; ;application.c: 71:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"72
+[; ;application.c: 72:     ecu_layer_initialize();
+[e ( _ecu_layer_initialize ..  ]
+"73
+[; ;application.c: 73: }
+[e :UE 334 ]
 }

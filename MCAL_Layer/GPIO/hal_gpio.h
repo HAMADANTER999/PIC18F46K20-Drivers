@@ -1,4 +1,4 @@
-/* 
+ /* 
  * File:   hal_gpio.h
  * Author: Mohammed Antar
  *

@@ -141,6 +141,17 @@ void __interrupt() InterruptManager(void){
     }
     else { /* Nothing */ }
     /* =====================TIMER3 Module interrupt End=====================================*/
+    /* =====================CCP1 & CCP2 Module interrupt start=====================================*/
+    if ((PIE1bits.CCP1IE == INTERRUPT_ENABLE) && (PIR1bits.CCP1IF == INTERRUPT_OCCUR)){
+        CCP1_ISR();
+    }
+    else { /* Nothing */ }
+
+    if ((PIE2bits.CCP2IE == INTERRUPT_ENABLE) && (PIR2bits.CCP2IF == INTERRUPT_OCCUR)){
+        CCP2_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================CCP1 & CCP2 Module interrupt End=====================================*/
 }
 
 #endif

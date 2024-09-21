@@ -174,6 +174,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32 MCAL_Layer/interrupt/mcal_interrupt_manager.h
 [; ;MCAL_Layer/interrupt/mcal_interrupt_manager.h: 32: void TMR3_ISR(void);
 [v _TMR3_ISR `(v ~T0 @X0 0 ef ]
+"33
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.h: 33: void CCP1_ISR(void);
+[v _CCP1_ISR `(v ~T0 @X0 0 ef ]
+"34
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.h: 34: void CCP2_ISR(void);
+[v _CCP2_ISR `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -946,7 +952,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 }
 [e :U 337 ]
-"144
-[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 144: }
+"145
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 145:     if ((PIE1bits.CCP1IE == 1) && (PIR1bits.CCP1IF == 1)){
+[e $ ! && == -> . . _PIE1bits 0 2 `i -> 1 `i == -> . . _PIR1bits 0 2 `i -> 1 `i 338  ]
+{
+"146
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 146:         CCP1_ISR();
+[e ( _CCP1_ISR ..  ]
+"147
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 147:     }
+}
+[e $U 339  ]
+"148
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 148:     else { }
+[e :U 338 ]
+{
+}
+[e :U 339 ]
+"150
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 150:     if ((PIE2bits.CCP2IE == 1) && (PIR2bits.CCP2IF == 1)){
+[e $ ! && == -> . . _PIE2bits 0 0 `i -> 1 `i == -> . . _PIR2bits 0 0 `i -> 1 `i 340  ]
+{
+"151
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 151:         CCP2_ISR();
+[e ( _CCP2_ISR ..  ]
+"152
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 152:     }
+}
+[e $U 341  ]
+"153
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 153:     else { }
+[e :U 340 ]
+{
+}
+[e :U 341 ]
+"155
+[; ;MCAL_Layer/interrupt/mcal_interrupt_manager.c: 155: }
 [e :UE 307 ]
 }

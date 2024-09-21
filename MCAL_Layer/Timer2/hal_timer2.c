@@ -24,7 +24,7 @@ Std_ReturnType Timer2_Init(const timer2_t *_timer){
         TIMER2_POSTSCALER_SELECT(_timer->timer2_postscaler_value);
         TMR2 = _timer->timer2_preloaded_value;
         timer2_preload = _timer->timer2_preloaded_value;
-#ifdef TIMER1_INTERRUPT_FEATURE_ENABLE
+#ifdef TIMER2_INTERRUPT_FEATURE_ENABLE
         TIMER2_InterruptEnable();
         TIMER2_InterruptFlagClear();
         TMR2_InterruptHandler = _timer->TMR2_InterruptHandler;
