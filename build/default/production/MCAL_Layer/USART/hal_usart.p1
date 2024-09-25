@@ -1,46 +1,32 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3721 `(v ~T0 @X0 0 tf ]
-[v F3723 `(v ~T0 @X0 0 tf ]
-[v F3725 `(v ~T0 @X0 0 tf ]
-[v F3727 `(v ~T0 @X0 0 tf ]
-"14 application.c
-[; ;application.c: 14:     usart_t usart_obj;
-[c E3691 0 1 2 3 4 5 .. ]
-[n E3691 . BAUDRATE_ASYN_8BIT_LOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_LOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
-"68 ./MCAL_Layer/USART/hal_usart.h
-[; ;./MCAL_Layer/USART/hal_usart.h: 68: typedef struct {
-[s S326 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S326 . usart_reserved usart_tx_enable usart_tx_interrupt_enable usart_tx_9bit_enable ]
+[v F3324 `(v ~T0 @X0 0 tf ]
+[v F3326 `(v ~T0 @X0 0 tf ]
+[v F3328 `(v ~T0 @X0 0 tf ]
+[v F3330 `(v ~T0 @X0 0 tf ]
+"11 MCAL_Layer/USART/hal_usart.c
+[; ;MCAL_Layer/USART/hal_usart.c: 11: Std_ReturnType EUSART_Init(const usart_t *_eusart){
+[c E3294 0 1 2 3 4 5 .. ]
+[n E3294 . BAUDRATE_ASYN_8BIT_LOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_LOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
+"68 MCAL_Layer/USART/hal_usart.h
+[; ;MCAL_Layer/USART/hal_usart.h: 68: typedef struct {
+[s S307 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S307 . usart_reserved usart_tx_enable usart_tx_interrupt_enable usart_tx_9bit_enable ]
 "84
-[; ;./MCAL_Layer/USART/hal_usart.h: 84: typedef struct {
-[s S329 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S329 . usart_reserved usart_rx_enable usart_rx_interrupt_enable usart_rx_9bit_enable ]
+[; ;MCAL_Layer/USART/hal_usart.h: 84: typedef struct {
+[s S310 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S310 . usart_reserved usart_rx_enable usart_rx_interrupt_enable usart_rx_9bit_enable ]
 "76
-[; ;./MCAL_Layer/USART/hal_usart.h: 76:     struct {
-[s S328 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S328 . usart_reserved usart_ferr usart_oerr ]
+[; ;MCAL_Layer/USART/hal_usart.h: 76:     struct {
+[s S309 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S309 . usart_reserved usart_ferr usart_oerr ]
 "75
-[; ;./MCAL_Layer/USART/hal_usart.h: 75: typedef union {
-[u S327 `S328 1 `uc 1 ]
-[n S327 . . status ]
+[; ;MCAL_Layer/USART/hal_usart.h: 75: typedef union {
+[u S308 `S309 1 `uc 1 ]
+[n S308 . . status ]
 "91
-[; ;./MCAL_Layer/USART/hal_usart.h: 91: typedef struct {
-[s S330 `*F3721 1 `*F3723 1 `*F3725 1 `*F3727 1 `ul 1 `E3691 1 `S326 1 `S329 1 `S327 1 ]
-[n S330 . EUSART_TxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler baudrate baudrate_config usart_tx_cfg usart_rx_cfg error_status ]
-[v F3750 `(v ~T0 @X0 0 tf ]
-[v F3753 `(v ~T0 @X0 0 tf ]
-[v F3756 `(v ~T0 @X0 0 tf ]
-[v F3759 `(v ~T0 @X0 0 tf ]
-"105
-[; ;./MCAL_Layer/USART/hal_usart.h: 105: Std_ReturnType EUSART_Init(const usart_t *_eusart);
-[v _EUSART_Init `(uc ~T0 @X0 0 ef1`*CS330 ]
-[p mainexit ]
-"10 application.c
-[; ;application.c: 10: void application_intialize(void);
-[v _application_intialize `(v ~T0 @X0 0 ef ]
-"31 ./ECU_Layer/ecu_layer_init.h
-[; ;./ECU_Layer/ecu_layer_init.h: 31: void ecu_layer_initialize (void);
-[v _ecu_layer_initialize `(v ~T0 @X0 0 ef ]
+[; ;MCAL_Layer/USART/hal_usart.h: 91: typedef struct {
+[s S311 `*F3324 1 `*F3326 1 `*F3328 1 `*F3330 1 `ul 1 `E3294 1 `S307 1 `S310 1 `S308 1 ]
+[n S311 . EUSART_TxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler baudrate baudrate_config usart_tx_cfg usart_rx_cfg error_status ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -482,108 +468,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 application.c
-[; ;application.c: 12: void usart_module_init(void){
-[v _usart_module_init `(v ~T0 @X0 1 ef ]
+"11 MCAL_Layer/USART/hal_usart.c
+[; ;MCAL_Layer/USART/hal_usart.c: 11: Std_ReturnType EUSART_Init(const usart_t *_eusart){
+[v _EUSART_Init `(uc ~T0 @X0 1 ef1`*CS311 ]
 {
-[e :U _usart_module_init ]
+[e :U _EUSART_Init ]
+[v __eusart `*CS311 ~T0 @X0 1 r1 ]
 [f ]
-"13
-[; ;application.c: 13:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"12
+[; ;MCAL_Layer/USART/hal_usart.c: 12:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"14
-[; ;application.c: 14:     usart_t usart_obj;
-[v _usart_obj `S330 ~T0 @X0 1 a ]
-"15
-[; ;application.c: 15:     usart_obj.EUSART_FramingErrorHandler = ((void*)0);
-[e = . _usart_obj 2 -> -> -> 0 `i `*v `*F3750 ]
-"16
-[; ;application.c: 16:     usart_obj.EUSART_OverrunErrorHandler = ((void*)0);
-[e = . _usart_obj 3 -> -> -> 0 `i `*v `*F3753 ]
-"17
-[; ;application.c: 17:     usart_obj.EUSART_RxDefaultInterruptHandler = ((void*)0);
-[e = . _usart_obj 1 -> -> -> 0 `i `*v `*F3756 ]
-"18
-[; ;application.c: 18:     usart_obj.EUSART_TxDefaultInterruptHandler = ((void*)0);
-[e = . _usart_obj 0 -> -> -> 0 `i `*v `*F3759 ]
-"19
-[; ;application.c: 19:     usart_obj.baudrate = 9600;
-[e = . _usart_obj 4 -> -> -> 9600 `i `l `ul ]
-"20
-[; ;application.c: 20:     usart_obj.baudrate_config = BAUDRATE_ASYN_8BIT_LOW_SPEED;
-[e = . _usart_obj 5 . `E3691 0 ]
-"22
-[; ;application.c: 22:     usart_obj.usart_tx_cfg.usart_tx_enable = 1;
-[e = . . _usart_obj 6 1 -> -> 1 `i `uc ]
-"23
-[; ;application.c: 23:     usart_obj.usart_tx_cfg.usart_tx_interrupt_enable = 1;
-[e = . . _usart_obj 6 2 -> -> 1 `i `uc ]
-"24
-[; ;application.c: 24:     usart_obj.usart_tx_cfg.usart_tx_9bit_enable = 0;
-[e = . . _usart_obj 6 3 -> -> 0 `i `uc ]
-"26
-[; ;application.c: 26:     usart_obj.usart_rx_cfg.usart_rx_enable = 1;
-[e = . . _usart_obj 7 1 -> -> 1 `i `uc ]
-"27
-[; ;application.c: 27:     usart_obj.usart_rx_cfg.usart_rx_interrupt_enable = 0;
-[e = . . _usart_obj 7 2 -> -> 0 `i `uc ]
-"28
-[; ;application.c: 28:     usart_obj.usart_rx_cfg.usart_rx_9bit_enable = 0;
-[e = . . _usart_obj 7 3 -> -> 0 `i `uc ]
-"29
-[; ;application.c: 29:     ret = EUSART_Init(&usart_obj);
-[e = _ret ( _EUSART_Init (1 -> &U _usart_obj `*CS330 ]
-"30
-[; ;application.c: 30: }
-[e :UE 331 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"32
-[; ;application.c: 32: int main() {
-[v _main `(i ~T0 @X0 1 ef ]
+"13
+[; ;MCAL_Layer/USART/hal_usart.c: 13:     if(((void*)0) == _eusart){
+[e $ ! == -> -> -> 0 `i `*v `*CS311 __eusart 313  ]
 {
-[e :U _main ]
+"14
+[; ;MCAL_Layer/USART/hal_usart.c: 14:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"15
+[; ;MCAL_Layer/USART/hal_usart.c: 15:     }
+}
+[e $U 314  ]
+"16
+[; ;MCAL_Layer/USART/hal_usart.c: 16:     else {
+[e :U 313 ]
+{
+"18
+[; ;MCAL_Layer/USART/hal_usart.c: 18:     }
+}
+[e :U 314 ]
+"19
+[; ;MCAL_Layer/USART/hal_usart.c: 19:     return ret;
+[e ) _ret ]
+[e $UE 312  ]
+"20
+[; ;MCAL_Layer/USART/hal_usart.c: 20: }
+[e :UE 312 ]
+}
+"21
+[; ;MCAL_Layer/USART/hal_usart.c: 21: Std_ReturnType EUSART_DeInit(const usart_t *_eusart){
+[v _EUSART_DeInit `(uc ~T0 @X0 1 ef1`*CS311 ]
+{
+[e :U _EUSART_DeInit ]
+[v __eusart `*CS311 ~T0 @X0 1 r1 ]
 [f ]
-"33
-[; ;application.c: 33:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"22
+[; ;MCAL_Layer/USART/hal_usart.c: 22:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"23
+[; ;MCAL_Layer/USART/hal_usart.c: 23:     if(((void*)0) == _eusart){
+[e $ ! == -> -> -> 0 `i `*v `*CS311 __eusart 316  ]
+{
+"24
+[; ;MCAL_Layer/USART/hal_usart.c: 24:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"25
+[; ;MCAL_Layer/USART/hal_usart.c: 25:     }
+}
+[e $U 317  ]
+"26
+[; ;MCAL_Layer/USART/hal_usart.c: 26:     else {
+[e :U 316 ]
+{
+"28
+[; ;MCAL_Layer/USART/hal_usart.c: 28:     }
+}
+[e :U 317 ]
+"29
+[; ;MCAL_Layer/USART/hal_usart.c: 29:     return ret;
+[e ) _ret ]
+[e $UE 315  ]
+"30
+[; ;MCAL_Layer/USART/hal_usart.c: 30: }
+[e :UE 315 ]
+}
+"31
+[; ;MCAL_Layer/USART/hal_usart.c: 31: Std_ReturnType EUSART_ReadByteBlocking(const usart_t *_eusart, uint8 * _data){
+[v _EUSART_ReadByteBlocking `(uc ~T0 @X0 1 ef2`*CS311`*uc ]
+{
+[e :U _EUSART_ReadByteBlocking ]
+[v __eusart `*CS311 ~T0 @X0 1 r1 ]
+[v __data `*uc ~T0 @X0 1 r2 ]
+[f ]
+"32
+[; ;MCAL_Layer/USART/hal_usart.c: 32:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"33
+[; ;MCAL_Layer/USART/hal_usart.c: 33:     if((((void*)0) == _eusart) || (((void*)0) == _data)){
+[e $ ! || == -> -> -> 0 `i `*v `*CS311 __eusart == -> -> -> 0 `i `*v `*uc __data 319  ]
+{
+"34
+[; ;MCAL_Layer/USART/hal_usart.c: 34:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
 "35
-[; ;application.c: 35:     application_intialize();
-[e ( _application_intialize ..  ]
-"37
-[; ;application.c: 37:     while(1){
-[e :U 334 ]
+[; ;MCAL_Layer/USART/hal_usart.c: 35:     }
+}
+[e $U 320  ]
+"36
+[; ;MCAL_Layer/USART/hal_usart.c: 36:     else {
+[e :U 319 ]
 {
+"38
+[; ;MCAL_Layer/USART/hal_usart.c: 38:     }
+}
+[e :U 320 ]
 "39
-[; ;application.c: 39:     }
-}
-[e :U 333 ]
-[e $U 334  ]
-[e :U 335 ]
+[; ;MCAL_Layer/USART/hal_usart.c: 39:     return ret;
+[e ) _ret ]
+[e $UE 318  ]
 "40
-[; ;application.c: 40:     return (0);
-[e ) -> 0 `i ]
-[e $UE 332  ]
-"41
-[; ;application.c: 41: }
-[e :UE 332 ]
+[; ;MCAL_Layer/USART/hal_usart.c: 40: }
+[e :UE 318 ]
 }
-"43
-[; ;application.c: 43: void application_intialize(void){
-[v _application_intialize `(v ~T0 @X0 1 ef ]
+"41
+[; ;MCAL_Layer/USART/hal_usart.c: 41: Std_ReturnType EUSART_WriteByteBlocking(const usart_t *_eusart, uint8 _data){
+[v _EUSART_WriteByteBlocking `(uc ~T0 @X0 1 ef2`*CS311`uc ]
 {
-[e :U _application_intialize ]
+[e :U _EUSART_WriteByteBlocking ]
+[v __eusart `*CS311 ~T0 @X0 1 r1 ]
+[v __data `uc ~T0 @X0 1 r2 ]
 [f ]
-"44
-[; ;application.c: 44:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"42
+[; ;MCAL_Layer/USART/hal_usart.c: 42:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"43
+[; ;MCAL_Layer/USART/hal_usart.c: 43:     if(((void*)0) == _eusart){
+[e $ ! == -> -> -> 0 `i `*v `*CS311 __eusart 322  ]
+{
+"44
+[; ;MCAL_Layer/USART/hal_usart.c: 44:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
 "45
-[; ;application.c: 45:     ecu_layer_initialize();
-[e ( _ecu_layer_initialize ..  ]
+[; ;MCAL_Layer/USART/hal_usart.c: 45:     }
+}
+[e $U 323  ]
 "46
-[; ;application.c: 46: }
-[e :UE 336 ]
+[; ;MCAL_Layer/USART/hal_usart.c: 46:     else {
+[e :U 322 ]
+{
+"48
+[; ;MCAL_Layer/USART/hal_usart.c: 48:     }
+}
+[e :U 323 ]
+"49
+[; ;MCAL_Layer/USART/hal_usart.c: 49:     return ret;
+[e ) _ret ]
+[e $UE 321  ]
+"50
+[; ;MCAL_Layer/USART/hal_usart.c: 50: }
+[e :UE 321 ]
 }

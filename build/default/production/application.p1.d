@@ -33,4 +33,6 @@ MCAL_Layer/Timer1/hal_timer1.h  \
 MCAL_Layer/Timer2/hal_timer2.h  \
 MCAL_Layer/Timer3/hal_timer3.h  \
 MCAL_Layer/CCP/hal_ccp.h  \
-MCAL_Layer/CCP/hal_ccp_cfg.h 
+MCAL_Layer/CCP/hal_ccp_cfg.h  \
+MCAL_Layer/USART/hal_usart.h  \
+MCAL_Layer/USART/hal_usart_cfg.h 
