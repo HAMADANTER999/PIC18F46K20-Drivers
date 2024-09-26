@@ -66,6 +66,7 @@ Std_ReturnType EUSART_ASYN_WriteByteBlocking(uint8 _data){
     EUSART_TX_InterruptEnable();
 #endif
     TXREG = _data;
+    return ret;
 }
 Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data){
     Std_ReturnType ret = E_NOT_OK;
@@ -76,6 +77,12 @@ Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data){
     else {
         ret = E_NOT_OK;
     }
+    return ret;
+}
+Std_ReturnType EUSART_ASYN_RX_Restart(void){
+    Std_ReturnType ret = E_NOT_OK;
+    RCSTAbits.CREN = 0;
+    RCSTAbits.CREN = 1;
     return ret;
 }
 void EUSART_TX_ISR(void){

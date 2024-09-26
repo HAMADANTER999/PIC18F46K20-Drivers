@@ -5312,6 +5312,7 @@ Std_ReturnType EUSART_ASYN_ReadByteBlocking(uint8 * _data);
 Std_ReturnType EUSART_ASYN_WriteByteBlocking(uint8 _data);
 Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data);
 Std_ReturnType EUSART_ASYN_WriteStringBlocking(uint8 *_data, uint16 str_len);
+Std_ReturnType EUSART_ASYN_RX_Restart(void);
 # 8 "MCAL_Layer/USART/hal_usart.c" 2
 
 
@@ -5374,6 +5375,7 @@ Std_ReturnType EUSART_ASYN_WriteByteBlocking(uint8 _data){
     (PIE1bits.TXIE = 1);
 
     TXREG = _data;
+    return ret;
 }
 Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
@@ -5384,6 +5386,12 @@ Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data){
     else {
         ret = (Std_ReturnType)0x00;
     }
+    return ret;
+}
+Std_ReturnType EUSART_ASYN_RX_Restart(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    RCSTAbits.CREN = 0;
+    RCSTAbits.CREN = 1;
     return ret;
 }
 void EUSART_TX_ISR(void){
@@ -5471,7 +5479,7 @@ static void EUSART_ASYN_TX_Init(const usart_t *_eusart){
             EUSART_TXInterruptHandler = _eusart->EUSART_TxDefaultInterruptHandler;
 
             (PIE1bits.TXIE = 1);
-# 178 "MCAL_Layer/USART/hal_usart.c"
+# 185 "MCAL_Layer/USART/hal_usart.c"
         (INTCONbits.GIE = 1);
         (INTCONbits.PEIE = 1);
 
@@ -5504,7 +5512,7 @@ static void EUSART_ASYN_RX_Init(const usart_t *_eusart){
             EUSART_OverrunErrorHandler = _eusart->EUSART_OverrunErrorHandler;
 
             (PIE1bits.RCIE = 1);
-# 222 "MCAL_Layer/USART/hal_usart.c"
+# 229 "MCAL_Layer/USART/hal_usart.c"
         (INTCONbits.GIE = 1);
         (INTCONbits.PEIE = 1);
 

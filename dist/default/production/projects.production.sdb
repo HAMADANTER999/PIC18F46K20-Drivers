@@ -211,7 +211,7 @@ BAUDRATE_SYN_16BIT 5
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"16 D:\Courses\Embedded C\projects\application.c
+"21 D:\Courses\Embedded C\projects\application.c
 [e E3691 . `uc
 BAUDRATE_ASYN_8BIT_LOW_SPEED 0
 BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
@@ -224,7 +224,7 @@ BAUDRATE_SYN_16BIT 5
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"54
+"59
 [e E3248 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -246,12 +246,18 @@ GPIO_PIN7 7
 LED_OFF 0
 LED_ON 1
 ]
-"34
+"39
 [v _usart_module_int_init usart_module_int_init `(v  1 e 1 0 ]
-"60
+"71
 [v _main main `(i  1 e 2 0 ]
-"93
+"105
 [v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
+"109
+[v _EUSART_OverrunErrorInterruptHandler EUSART_OverrunErrorInterruptHandler `(v  1 e 1 0 ]
+"112
+[v _EUSART_FramingErrorInterruptHandler EUSART_FramingErrorInterruptHandler `(v  1 e 1 0 ]
+"117
+[v _EUSART_RxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
@@ -310,6 +316,10 @@ LED_ON 1
 [v _ecu_layer_initialize ecu_layer_initialize `(v  1 e 1 0 ]
 "17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
 [v _led_initialize led_initialize `(uc  1 e 1 0 ]
+"44
+[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+"72
+[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
 "113 D:\Courses\Embedded C\projects\MCAL_Layer/ADC/hal_adc.c
 [v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
 "135
@@ -336,6 +346,7 @@ LED_ON 1
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "84
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+[v i2_gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 "119
 [v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
 "143
@@ -398,26 +409,35 @@ LED_ON 1
 [v _EUSART_ASYN_Init EUSART_ASYN_Init `(uc  1 e 1 0 ]
 "62
 [v _EUSART_ASYN_WriteByteBlocking EUSART_ASYN_WriteByteBlocking `(uc  1 e 1 0 ]
-"81
+"71
+[v _EUSART_ASYN_ReadByteNonBlocking EUSART_ASYN_ReadByteNonBlocking `(uc  1 e 1 0 ]
+"82
+[v _EUSART_ASYN_RX_Restart EUSART_ASYN_RX_Restart `(uc  1 e 1 0 ]
+"88
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
-"90
+"97
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
-"105
+"112
 [v _EUSART_ASYN_WriteStringBlocking EUSART_ASYN_WriteStringBlocking `(uc  1 e 1 0 ]
-"114
+"121
 [v _EUSART_Baud_Rate_Calculations EUSART_Baud_Rate_Calculations `(v  1 s 1 EUSART_Baud_Rate_Calculations ]
-"157
+"164
 [v _EUSART_ASYN_TX_Init EUSART_ASYN_TX_Init `(v  1 s 1 EUSART_ASYN_TX_Init ]
-"199
+"206
 [v _EUSART_ASYN_RX_Init EUSART_ASYN_RX_Init `(v  1 s 1 EUSART_ASYN_RX_Init ]
 "11 D:\Courses\Embedded C\projects\application.c
-[v _valid_usart_counter valid_usart_counter `VEul  1 e 4 0 ]
+[v _valid_usart_tx_counter valid_usart_tx_counter `VEul  1 e 4 0 ]
+[v _valid_usart_rx_counter valid_usart_rx_counter `VEul  1 e 4 0 ]
 [s S475 . 1 `uc 1 port_name 1 0 :4:0 
 `uc 1 pin 1 0 :3:4 
 `uc 1 led_status 1 0 :1:7 
 ]
-"54
+"59
 [v _led_1 led_1 `S475  1 e 1 0 ]
+"65
+[v _led_2 led_2 `S475  1 e 1 0 ]
+"70
+[v _rec_uart_data rec_uart_data `uc  1 e 1 0 ]
 "552 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "788
@@ -1011,12 +1031,12 @@ LED_ON 1
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
 "17
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
-"60 D:\Courses\Embedded C\projects\application.c
+"71 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"85
+"97
 } 0
-"34
+"39
 [v _usart_module_int_init usart_module_int_init `(v  1 e 1 0 ]
 {
 [s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
@@ -1024,7 +1044,7 @@ LED_ON 1
 `uc 1 usart_tx_interrupt_enable 1 0 :1:6 
 `uc 1 usart_tx_9bit_enable 1 0 :1:7 
 `E3290 1 usart_tx_priority 1 1 ]
-"36
+"41
 [s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
 `uc 1 usart_rx_enable 1 0 :1:5 
 `uc 1 usart_rx_interrupt_enable 1 0 :1:6 
@@ -1036,14 +1056,14 @@ LED_ON 1
 ]
 [u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
 [s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
-[v usart_module_int_init@usart_obj usart_obj `S3028  1 a 18 0 ]
-"52
+[v usart_module_int_init@usart_obj usart_obj `S3028  1 a 18 34 ]
+"57
 } 0
 "25 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_ASYN_Init EUSART_ASYN_Init `(uc  1 e 1 0 ]
 {
 "26
-[v EUSART_ASYN_Init@ret ret `uc  1 a 1 70 ]
+[v EUSART_ASYN_Init@ret ret `uc  1 a 1 33 ]
 [s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
 `uc 1 usart_tx_enable 1 0 :1:5 
 `uc 1 usart_tx_interrupt_enable 1 0 :1:6 
@@ -1061,20 +1081,20 @@ LED_ON 1
 ]
 [u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
 [s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
-[v EUSART_ASYN_Init@_eusart _eusart `*.30CS3028  1 p 1 69 ]
+[v EUSART_ASYN_Init@_eusart _eusart `*.30CS3028  1 p 1 32 ]
 "40
 } 0
-"114
+"121
 [v _EUSART_Baud_Rate_Calculations EUSART_Baud_Rate_Calculations `(v  1 s 1 EUSART_Baud_Rate_Calculations ]
 {
-"115
-[v EUSART_Baud_Rate_Calculations@Baud_Rate_Temp Baud_Rate_Temp `f  1 a 4 61 ]
+"122
+[v EUSART_Baud_Rate_Calculations@Baud_Rate_Temp Baud_Rate_Temp `f  1 a 4 24 ]
 [s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
 `uc 1 usart_tx_enable 1 0 :1:5 
 `uc 1 usart_tx_interrupt_enable 1 0 :1:6 
 `uc 1 usart_tx_9bit_enable 1 0 :1:7 
 `E3290 1 usart_tx_priority 1 1 ]
-"114
+"121
 [s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
 `uc 1 usart_rx_enable 1 0 :1:5 
 `uc 1 usart_rx_interrupt_enable 1 0 :1:6 
@@ -1086,71 +1106,71 @@ LED_ON 1
 ]
 [u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
 [s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
-[v EUSART_Baud_Rate_Calculations@_eusart _eusart `*.30CS3028  1 p 1 58 ]
-"155
+[v EUSART_Baud_Rate_Calculations@_eusart _eusart `*.30CS3028  1 p 1 21 ]
+"162
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 13 ]
+[v ___xxtofl@arg arg `ul  1 a 4 30 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 12 ]
+[v ___xxtofl@exp exp `uc  1 a 1 29 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 3 ]
+[v ___xxtofl@val val `l  1 p 4 20 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 11 ]
+[v ___xxtofl@sign sign `uc  1 a 1 28 ]
 "44
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 12 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 11 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 29 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 28 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 3 ]
+[v ___fltol@f1 f1 `d  1 p 4 20 ]
 "70
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 36 ]
+[v ___fldiv@grs grs `ul  1 a 4 7 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 29 ]
+[v ___fldiv@rem rem `ul  1 a 4 0 ]
 "20
-[v ___fldiv@new_exp new_exp `s  1 a 2 34 ]
+[v ___fldiv@new_exp new_exp `s  1 a 2 5 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 41 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 12 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 40 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 11 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 33 ]
+[v ___fldiv@sign sign `uc  1 a 1 4 ]
 "11
-[v ___fldiv@b b `d  1 p 4 17 ]
-[v ___fldiv@a a `d  1 p 4 21 ]
+[v ___fldiv@b b `d  1 p 4 34 ]
+[v ___fldiv@a a `d  1 p 4 38 ]
 "185
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 57 ]
+[v ___fladd@grs grs `uc  1 a 1 20 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 56 ]
+[v ___fladd@bexp bexp `uc  1 a 1 19 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 55 ]
+[v ___fladd@aexp aexp `uc  1 a 1 18 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 54 ]
+[v ___fladd@signs signs `uc  1 a 1 17 ]
 "10
-[v ___fladd@b b `d  1 p 4 42 ]
-[v ___fladd@a a `d  1 p 4 46 ]
+[v ___fladd@b b `d  1 p 4 46 ]
+[v ___fladd@a a `d  1 p 4 50 ]
 "237
 } 0
-"157 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+"164 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_ASYN_TX_Init EUSART_ASYN_TX_Init `(v  1 s 1 EUSART_ASYN_TX_Init ]
 {
 [s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
@@ -1169,10 +1189,10 @@ LED_ON 1
 ]
 [u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
 [s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
-[v EUSART_ASYN_TX_Init@_eusart _eusart `*.30CS3028  1 p 1 3 ]
-"197
+[v EUSART_ASYN_TX_Init@_eusart _eusart `*.30CS3028  1 p 1 20 ]
+"204
 } 0
-"199
+"206
 [v _EUSART_ASYN_RX_Init EUSART_ASYN_RX_Init `(v  1 s 1 EUSART_ASYN_RX_Init ]
 {
 [s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
@@ -1191,8 +1211,8 @@ LED_ON 1
 ]
 [u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
 [s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
-[v EUSART_ASYN_RX_Init@_eusart _eusart `*.30CS3028  1 p 1 3 ]
-"241
+[v EUSART_ASYN_RX_Init@_eusart _eusart `*.30CS3028  1 p 1 20 ]
+"248
 } 0
 "17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
 [v _led_initialize led_initialize `(uc  1 e 1 0 ]
@@ -1203,15 +1223,15 @@ LED_ON 1
 `uc 1 logic 1 0 :1:7 
 ]
 "26
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 17 ]
+[v led_initialize@pin_obj pin_obj `S24  1 a 1 34 ]
 "18
-[v led_initialize@ret ret `uc  1 a 1 16 ]
+[v led_initialize@ret ret `uc  1 a 1 33 ]
 [s S475 . 1 `uc 1 port_name 1 0 :4:0 
 `uc 1 pin 1 0 :3:4 
 `uc 1 led_status 1 0 :1:7 
 ]
 "17
-[v led_initialize@led led `*.30CS475  1 p 1 14 ]
+[v led_initialize@led led `*.30CS475  1 p 1 31 ]
 "25
 [v led_initialize@F3310 F3310 `S24  1 s 1 F3310 ]
 "35
@@ -1220,64 +1240,44 @@ LED_ON 1
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
 {
 "168
-[v gpio_pin_intialize@ret ret `uc  1 a 1 13 ]
+[v gpio_pin_intialize@ret ret `uc  1 a 1 30 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "167
-[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 11 ]
+[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 28 ]
 "180
 } 0
 "84
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
 "85
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 10 ]
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 27 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "84
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 3 ]
-[v gpio_pin_write_logic@logic logic `E3230  1 p 1 4 ]
+[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 20 ]
+[v gpio_pin_write_logic@logic logic `E3230  1 p 1 21 ]
 "106
 } 0
 "27
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 {
 "28
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 9 ]
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 26 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "27
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 3 ]
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 20 ]
 "47
-} 0
-"105 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_ASYN_WriteStringBlocking EUSART_ASYN_WriteStringBlocking `(uc  1 e 1 0 ]
-{
-"107
-[v EUSART_ASYN_WriteStringBlocking@char_counter char_counter `us  1 a 2 9 ]
-"106
-[v EUSART_ASYN_WriteStringBlocking@ret ret `uc  1 a 1 8 ]
-"105
-[v EUSART_ASYN_WriteStringBlocking@_data _data `*.31uc  1 p 1 4 ]
-[v EUSART_ASYN_WriteStringBlocking@str_len str_len `us  1 p 2 5 ]
-"113
-} 0
-"62
-[v _EUSART_ASYN_WriteByteBlocking EUSART_ASYN_WriteByteBlocking `(uc  1 e 1 0 ]
-{
-[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
-[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
-[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 3 ]
-"69
 } 0
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
@@ -1355,20 +1355,123 @@ LED_ON 1
 {
 "85
 } 0
-"81 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+"88 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
-{
-"89
-} 0
-"93 D:\Courses\Embedded C\projects\application.c
-[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
 {
 "96
 } 0
-"90 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+"105 D:\Courses\Embedded C\projects\application.c
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"108
+} 0
+"97 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
-"104
+"111
+} 0
+"117 D:\Courses\Embedded C\projects\application.c
+[v _EUSART_RxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"145
+} 0
+"44 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
+[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"52
+[v led_turn_on@pin_obj pin_obj `S24  1 a 1 9 ]
+[s S475 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"44
+[v led_turn_on@led led `*.30CS475  1 p 1 7 ]
+"51
+[v led_turn_on@F3315 F3315 `S24  1 s 1 F3315 ]
+"63
+} 0
+"72
+[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"80
+[v led_turn_off@pin_obj pin_obj `S24  1 a 1 9 ]
+[s S475 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"72
+[v led_turn_off@led led `*.30CS475  1 p 1 7 ]
+"79
+[v led_turn_off@F3320 F3320 `S24  1 s 1 F3320 ]
+"91
+} 0
+"84 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
+[v i2_gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[v i2gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
+[v i2gpio_pin_write_logic@logic logic `E3230  1 p 1 1 ]
+"106
+} 0
+"112 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_WriteStringBlocking EUSART_ASYN_WriteStringBlocking `(uc  1 e 1 0 ]
+{
+"114
+[v EUSART_ASYN_WriteStringBlocking@char_counter char_counter `us  1 a 2 6 ]
+"113
+[v EUSART_ASYN_WriteStringBlocking@ret ret `uc  1 a 1 5 ]
+"112
+[v EUSART_ASYN_WriteStringBlocking@_data _data `*.31uc  1 p 1 1 ]
+[v EUSART_ASYN_WriteStringBlocking@str_len str_len `us  1 p 2 2 ]
+"120
+} 0
+"62
+[v _EUSART_ASYN_WriteByteBlocking EUSART_ASYN_WriteByteBlocking `(uc  1 e 1 0 ]
+{
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 0 ]
+"70
+} 0
+"109 D:\Courses\Embedded C\projects\application.c
+[v _EUSART_OverrunErrorInterruptHandler EUSART_OverrunErrorInterruptHandler `(v  1 e 1 0 ]
+{
+"111
+} 0
+"82 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_RX_Restart EUSART_ASYN_RX_Restart `(uc  1 e 1 0 ]
+{
+"87
+} 0
+"112 D:\Courses\Embedded C\projects\application.c
+[v _EUSART_FramingErrorInterruptHandler EUSART_FramingErrorInterruptHandler `(v  1 e 1 0 ]
+{
+"113
+[v EUSART_FramingErrorInterruptHandler@_data_ _data_ `uc  1 a 1 2 ]
+"115
+} 0
+"71 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_ReadByteNonBlocking EUSART_ASYN_ReadByteNonBlocking `(uc  1 e 1 0 ]
+{
+"72
+[v EUSART_ASYN_ReadByteNonBlocking@ret ret `uc  1 a 1 1 ]
+"71
+[v EUSART_ASYN_ReadByteNonBlocking@_data _data `*.30uc  1 p 1 0 ]
+"81
 } 0
 "114 D:\Courses\Embedded C\projects\MCAL_Layer/CCP/hal_ccp.c
 [v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]

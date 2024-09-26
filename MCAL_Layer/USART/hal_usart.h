@@ -113,6 +113,7 @@ Std_ReturnType EUSART_ASYN_ReadByteBlocking(uint8 * _data);
 Std_ReturnType EUSART_ASYN_WriteByteBlocking(uint8 _data);
 Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data);
 Std_ReturnType EUSART_ASYN_WriteStringBlocking(uint8 *_data, uint16 str_len);
+Std_ReturnType EUSART_ASYN_RX_Restart(void);
 
 
 #endif	/* HAL_USART_H */
