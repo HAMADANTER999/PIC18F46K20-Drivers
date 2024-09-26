@@ -27,6 +27,9 @@
 #define CCP1_INTERRUPT_FEATURE_ENABLE                 INTERRUPT_FEATURE_ENABLE
 #define CCP2_INTERRUPT_FEATURE_ENABLE                 INTERRUPT_FEATURE_ENABLE
 
+#define EUSART_TX_INTERRUPT_FEATURE_ENABLE               INTERRUPT_FEATURE_ENABLE
+#define EUSART_RX_INTERRUPT_FEATURE_ENABLE               INTERRUPT_FEATURE_ENABLE
+
 /* Section : Macro Function Declarations*/
 
 /* Section : Data type Declarations*/

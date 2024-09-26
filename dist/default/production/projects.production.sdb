@@ -143,7 +143,7 @@ PORTE_INDEX 4
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"47 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
+"46 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
 [e E3296 . `uc
 INTERRUPT_FALLING_EDGE 0
 INTERRUPT_RISING_EDGE 1
@@ -157,7 +157,7 @@ INTERRUPT_EXTERNAL_INT2 2
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"265
+"264
 [e E3238 . `uc
 GPIO_PIN0 0
 GPIO_PIN1 1
@@ -198,16 +198,7 @@ INTERRUPT_HIGH_PRIORITY 1
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"14 D:\Courses\Embedded C\projects\application.c
-[e E3691 . `uc
-BAUDRATE_ASYN_8BIT_LOW_SPEED 0
-BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
-BAUDRATE_ASYN_16BIT_LOW_SPEED 2
-BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
-BAUDRATE_SYN_8BIT 4
-BAUDRATE_SYN_16BIT 5
-]
-"11 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+"25 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
 [e E3294 . `uc
 BAUDRATE_ASYN_8BIT_LOW_SPEED 0
 BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
@@ -216,14 +207,57 @@ BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
 BAUDRATE_SYN_8BIT 4
 BAUDRATE_SYN_16BIT 5
 ]
-"32 D:\Courses\Embedded C\projects\application.c
+[e E3290 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"16 D:\Courses\Embedded C\projects\application.c
+[e E3691 . `uc
+BAUDRATE_ASYN_8BIT_LOW_SPEED 0
+BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
+BAUDRATE_ASYN_16BIT_LOW_SPEED 2
+BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
+BAUDRATE_SYN_8BIT 4
+BAUDRATE_SYN_16BIT 5
+]
+[e E3445 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"54
+[e E3248 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E3238 . `uc
+GPIO_PIN0 0
+GPIO_PIN1 1
+GPIO_PIN2 2
+GPIO_PIN3 3
+GPIO_PIN4 4
+GPIO_PIN5 5
+GPIO_PIN6 6
+GPIO_PIN7 7
+]
+[e E3290 . `uc
+LED_OFF 0
+LED_ON 1
+]
+"34
+[v _usart_module_int_init usart_module_int_init `(v  1 e 1 0 ]
+"60
 [v _main main `(i  1 e 2 0 ]
-"43
-[v _application_intialize application_intialize `(v  1 e 1 0 ]
+"93
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
@@ -248,6 +282,8 @@ BAUDRATE_SYN_16BIT 5
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "62 D:\Courses\Embedded C\projects\ECU_Layer/chr_lcd/ecu_chr_lcd.c
 [v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
 "88
@@ -272,6 +308,8 @@ BAUDRATE_SYN_16BIT 5
 [v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 s 1 lcd_4bit_set_cursor ]
 "12 D:\Courses\Embedded C\projects\ECU_Layer/ecu_layer_init.c
 [v _ecu_layer_initialize ecu_layer_initialize `(v  1 e 1 0 ]
+"17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
 "113 D:\Courses\Embedded C\projects\MCAL_Layer/ADC/hal_adc.c
 [v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
 "135
@@ -304,37 +342,37 @@ BAUDRATE_SYN_16BIT 5
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "167
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-"73 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
+"72 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
-"88
+"87
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
-"101
+"100
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
-"114
+"113
 [v _RB4_ISR RB4_ISR `(v  1 e 1 0 ]
-"132
+"131
 [v _RB5_ISR RB5_ISR `(v  1 e 1 0 ]
-"150
+"149
 [v _RB6_ISR RB6_ISR `(v  1 e 1 0 ]
-"168
+"167
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
-"296
+"295
 [v _Interrupt_INTx_Enable Interrupt_INTx_Enable `(uc  1 s 1 Interrupt_INTx_Enable ]
-"356
+"355
 [v _Interrupt_INTx_Disable Interrupt_INTx_Disable `(uc  1 s 1 Interrupt_INTx_Disable ]
-"414
+"413
 [v _Interrupt_INTx_Edge_Init Interrupt_INTx_Edge_Init `(uc  1 s 1 Interrupt_INTx_Edge_Init ]
-"448
+"447
 [v _Interrupt_INTx_Pin_Init Interrupt_INTx_Pin_Init `(uc  1 s 1 Interrupt_INTx_Pin_Init ]
-"465
+"464
 [v _Interrupt_INTx_Clear_Flag Interrupt_INTx_Clear_Flag `(uc  1 s 1 Interrupt_INTx_Clear_Flag ]
-"487
+"486
 [v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
-"499
+"498
 [v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
-"511
+"510
 [v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
-"523
+"522
 [v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
@@ -356,8 +394,30 @@ BAUDRATE_SYN_16BIT 5
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 "101
 [v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
-"11 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_Init EUSART_Init `(uc  1 e 1 0 ]
+"25 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_Init EUSART_ASYN_Init `(uc  1 e 1 0 ]
+"62
+[v _EUSART_ASYN_WriteByteBlocking EUSART_ASYN_WriteByteBlocking `(uc  1 e 1 0 ]
+"81
+[v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
+"90
+[v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
+"105
+[v _EUSART_ASYN_WriteStringBlocking EUSART_ASYN_WriteStringBlocking `(uc  1 e 1 0 ]
+"114
+[v _EUSART_Baud_Rate_Calculations EUSART_Baud_Rate_Calculations `(v  1 s 1 EUSART_Baud_Rate_Calculations ]
+"157
+[v _EUSART_ASYN_TX_Init EUSART_ASYN_TX_Init `(v  1 s 1 EUSART_ASYN_TX_Init ]
+"199
+[v _EUSART_ASYN_RX_Init EUSART_ASYN_RX_Init `(v  1 s 1 EUSART_ASYN_RX_Init ]
+"11 D:\Courses\Embedded C\projects\application.c
+[v _valid_usart_counter valid_usart_counter `VEul  1 e 4 0 ]
+[s S475 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"54
+[v _led_1 led_1 `S475  1 e 1 0 ]
 "552 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f46k20.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "788
@@ -427,6 +487,27 @@ BAUDRATE_SYN_16BIT 5
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "2476
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S3092 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"2508
+[s S3101 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S3110 . 1 `S3092 1 . 1 0 `S3101 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3110  1 e 1 @3988 ]
 "2698
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2920
@@ -522,6 +603,66 @@ BAUDRATE_SYN_16BIT 5
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3755
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
+[s S3038 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3822
+[s S3047 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S3050 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S3053 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S3056 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S3059 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S3061 . 1 `S3038 1 . 1 0 `S3047 1 . 1 0 `S3050 1 . 1 0 `S3053 1 . 1 0 `S3056 1 . 1 0 `S3059 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES3061  1 e 1 @4011 ]
+[s S3165 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4030
+[s S3174 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S3183 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S3186 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S3188 . 1 `S3165 1 . 1 0 `S3174 1 . 1 0 `S3183 1 . 1 0 `S3186 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES3188  1 e 1 @4012 ]
+"4247
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"4259
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"4271
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"4283
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
 [s S1293 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
@@ -554,6 +695,27 @@ BAUDRATE_SYN_16BIT 5
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "4416
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
+[s S3239 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4715
+[s S3248 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S3251 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S3254 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S3257 . 1 `S3239 1 . 1 0 `S3248 1 . 1 0 `S3251 1 . 1 0 `S3254 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES3257  1 e 1 @4024 ]
 [s S1113 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 ]
@@ -656,12 +818,12 @@ BAUDRATE_SYN_16BIT 5
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "5334
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S2694 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S2702 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "5733
-[s S2698 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S2706 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -669,15 +831,15 @@ BAUDRATE_SYN_16BIT 5
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S2706 . 1 `S2694 1 . 1 0 `S2698 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES2706  1 e 1 @4042 ]
+[u S2714 . 1 `S2702 1 . 1 0 `S2706 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2714  1 e 1 @4042 ]
 "5893
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S2508 . 1 `uc 1 . 1 0 :2:0 
+[s S2516 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5933
-[s S2511 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2519 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -685,24 +847,24 @@ BAUDRATE_SYN_16BIT 5
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S2519 . 1 `uc 1 . 1 0 :2:0 
+[s S2527 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S2525 . 1 `uc 1 . 1 0 :3:0 
+[s S2533 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2530 . 1 `S2508 1 . 1 0 `S2511 1 . 1 0 `S2519 1 . 1 0 `S2525 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2530  1 e 1 @4045 ]
+[u S2538 . 1 `S2516 1 . 1 0 `S2519 1 . 1 0 `S2527 1 . 1 0 `S2533 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2538  1 e 1 @4045 ]
 "6010
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "6017
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S2347 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2355 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -710,12 +872,12 @@ BAUDRATE_SYN_16BIT 5
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6552
-[s S2354 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2362 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S2358 . 1 `S2347 1 . 1 0 `S2354 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2358  1 e 1 @4053 ]
+[u S2366 . 1 `S2355 1 . 1 0 `S2362 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2366  1 e 1 @4053 ]
 "6609
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6616
@@ -741,11 +903,11 @@ BAUDRATE_SYN_16BIT 5
 ]
 [u S1712 . 1 `S1694 1 . 1 0 `S1703 1 . 1 0 ]
 [v _INTCON3bits INTCON3bits `VES1712  1 e 1 @4080 ]
-[s S2133 . 1 `uc 1 . 1 0 :7:0 
+[s S2141 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6998
-[s S2136 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S2144 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -754,11 +916,11 @@ BAUDRATE_SYN_16BIT 5
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S2145 . 1 `uc 1 . 1 0 :7:0 
+[s S2153 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S2148 . 1 `S2133 1 . 1 0 `S2136 1 . 1 0 `S2145 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES2148  1 e 1 @4081 ]
+[u S2156 . 1 `S2141 1 . 1 0 `S2144 1 . 1 0 `S2153 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2156  1 e 1 @4081 ]
 [s S836 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -798,27 +960,27 @@ BAUDRATE_SYN_16BIT 5
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "15
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"11 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
+"10 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
 [v _INT0_InterruptHandler INT0_InterruptHandler `*.37(v  1 s 2 INT0_InterruptHandler ]
-"12
+"11
 [v _INT1_InterruptHandler INT1_InterruptHandler `*.37(v  1 s 2 INT1_InterruptHandler ]
-"13
+"12
 [v _INT2_InterruptHandler INT2_InterruptHandler `*.37(v  1 s 2 INT2_InterruptHandler ]
-"15
+"14
 [v _RB4_InterruptHandler_HIGH RB4_InterruptHandler_HIGH `*.37(v  1 s 2 RB4_InterruptHandler_HIGH ]
-"16
+"15
 [v _RB4_InterruptHandler_LOW RB4_InterruptHandler_LOW `*.37(v  1 s 2 RB4_InterruptHandler_LOW ]
-"17
+"16
 [v _RB5_InterruptHandler_HIGH RB5_InterruptHandler_HIGH `*.37(v  1 s 2 RB5_InterruptHandler_HIGH ]
-"18
+"17
 [v _RB5_InterruptHandler_LOW RB5_InterruptHandler_LOW `*.37(v  1 s 2 RB5_InterruptHandler_LOW ]
-"19
+"18
 [v _RB6_InterruptHandler_HIGH RB6_InterruptHandler_HIGH `*.37(v  1 s 2 RB6_InterruptHandler_HIGH ]
-"20
+"19
 [v _RB6_InterruptHandler_LOW RB6_InterruptHandler_LOW `*.37(v  1 s 2 RB6_InterruptHandler_LOW ]
-"21
+"20
 [v _RB7_InterruptHandler_HIGH RB7_InterruptHandler_HIGH `*.37(v  1 s 2 RB7_InterruptHandler_HIGH ]
-"22
+"21
 [v _RB7_InterruptHandler_LOW RB7_InterruptHandler_LOW `*.37(v  1 s 2 RB7_InterruptHandler_LOW ]
 "10 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _RB4_Flag RB4_Flag `VEuc  1 s 1 RB4_Flag ]
@@ -841,25 +1003,286 @@ BAUDRATE_SYN_16BIT 5
 [v _TMR3_InterruptHandler TMR3_InterruptHandler `*.37(v  1 s 2 TMR3_InterruptHandler ]
 "13
 [v _timer3_preload timer3_preload `us  1 s 2 timer3_preload ]
-"32 D:\Courses\Embedded C\projects\application.c
+"11 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_TXInterruptHandler EUSART_TXInterruptHandler `*.37(v  1 s 2 EUSART_TXInterruptHandler ]
+"15
+[v _EUSART_RXInterruptHandler EUSART_RXInterruptHandler `*.37(v  1 s 2 EUSART_RXInterruptHandler ]
+"16
+[v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
+"17
+[v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
+"60 D:\Courses\Embedded C\projects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"41
+"85
 } 0
-"43
-[v _application_intialize application_intialize `(v  1 e 1 0 ]
+"34
+[v _usart_module_int_init usart_module_int_init `(v  1 e 1 0 ]
 {
-"46
+[s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_tx_enable 1 0 :1:5 
+`uc 1 usart_tx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_tx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_tx_priority 1 1 ]
+"36
+[s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_rx_enable 1 0 :1:5 
+`uc 1 usart_rx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_rx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_rx_priority 1 1 ]
+[s S3021 . 1 `uc 1 usart_reserved 1 0 :6:0 
+`uc 1 usart_ferr 1 0 :1:6 
+`uc 1 usart_oerr 1 0 :1:7 
+]
+[u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
+[s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
+[v usart_module_int_init@usart_obj usart_obj `S3028  1 a 18 0 ]
+"52
 } 0
-"12 D:\Courses\Embedded C\projects\ECU_Layer/ecu_layer_init.c
-[v _ecu_layer_initialize ecu_layer_initialize `(v  1 e 1 0 ]
+"25 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_Init EUSART_ASYN_Init `(uc  1 e 1 0 ]
 {
+"26
+[v EUSART_ASYN_Init@ret ret `uc  1 a 1 70 ]
+[s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_tx_enable 1 0 :1:5 
+`uc 1 usart_tx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_tx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_tx_priority 1 1 ]
+"25
+[s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_rx_enable 1 0 :1:5 
+`uc 1 usart_rx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_rx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_rx_priority 1 1 ]
+[s S3021 . 1 `uc 1 usart_reserved 1 0 :6:0 
+`uc 1 usart_ferr 1 0 :1:6 
+`uc 1 usart_oerr 1 0 :1:7 
+]
+[u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
+[s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
+[v EUSART_ASYN_Init@_eusart _eusart `*.30CS3028  1 p 1 69 ]
+"40
+} 0
+"114
+[v _EUSART_Baud_Rate_Calculations EUSART_Baud_Rate_Calculations `(v  1 s 1 EUSART_Baud_Rate_Calculations ]
+{
+"115
+[v EUSART_Baud_Rate_Calculations@Baud_Rate_Temp Baud_Rate_Temp `f  1 a 4 61 ]
+[s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_tx_enable 1 0 :1:5 
+`uc 1 usart_tx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_tx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_tx_priority 1 1 ]
+"114
+[s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_rx_enable 1 0 :1:5 
+`uc 1 usart_rx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_rx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_rx_priority 1 1 ]
+[s S3021 . 1 `uc 1 usart_reserved 1 0 :6:0 
+`uc 1 usart_ferr 1 0 :1:6 
+`uc 1 usart_oerr 1 0 :1:7 
+]
+[u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
+[s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
+[v EUSART_Baud_Rate_Calculations@_eusart _eusart `*.30CS3028  1 p 1 58 ]
+"155
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 13 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 12 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 3 ]
 "15
+[v ___xxtofl@sign sign `uc  1 a 1 11 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 12 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 11 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 3 ]
+"70
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 36 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 29 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 34 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 41 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 40 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 33 ]
+"11
+[v ___fldiv@b b `d  1 p 4 17 ]
+[v ___fldiv@a a `d  1 p 4 21 ]
+"185
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 57 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 56 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 55 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 54 ]
+"10
+[v ___fladd@b b `d  1 p 4 42 ]
+[v ___fladd@a a `d  1 p 4 46 ]
+"237
+} 0
+"157 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_TX_Init EUSART_ASYN_TX_Init `(v  1 s 1 EUSART_ASYN_TX_Init ]
+{
+[s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_tx_enable 1 0 :1:5 
+`uc 1 usart_tx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_tx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_tx_priority 1 1 ]
+[s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_rx_enable 1 0 :1:5 
+`uc 1 usart_rx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_rx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_rx_priority 1 1 ]
+[s S3021 . 1 `uc 1 usart_reserved 1 0 :6:0 
+`uc 1 usart_ferr 1 0 :1:6 
+`uc 1 usart_oerr 1 0 :1:7 
+]
+[u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
+[s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
+[v EUSART_ASYN_TX_Init@_eusart _eusart `*.30CS3028  1 p 1 3 ]
+"197
+} 0
+"199
+[v _EUSART_ASYN_RX_Init EUSART_ASYN_RX_Init `(v  1 s 1 EUSART_ASYN_RX_Init ]
+{
+[s S3009 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_tx_enable 1 0 :1:5 
+`uc 1 usart_tx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_tx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_tx_priority 1 1 ]
+[s S3015 . 2 `uc 1 usart_reserved 1 0 :5:0 
+`uc 1 usart_rx_enable 1 0 :1:5 
+`uc 1 usart_rx_interrupt_enable 1 0 :1:6 
+`uc 1 usart_rx_9bit_enable 1 0 :1:7 
+`E3290 1 usart_rx_priority 1 1 ]
+[s S3021 . 1 `uc 1 usart_reserved 1 0 :6:0 
+`uc 1 usart_ferr 1 0 :1:6 
+`uc 1 usart_oerr 1 0 :1:7 
+]
+[u S3025 . 1 `S3021 1 . 1 0 `uc 1 status 1 0 ]
+[s S3028 . 18 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 0 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 2 `*.37(v 1 EUSART_FramingErrorHandler 2 4 `*.37(v 1 EUSART_OverrunErrorHandler 2 6 `ul 1 baudrate 4 8 `E3294 1 baudrate_config 1 12 `S3009 1 usart_tx_cfg 2 13 `S3015 1 usart_rx_cfg 2 15 `S3025 1 error_status 1 17 ]
+[v EUSART_ASYN_RX_Init@_eusart _eusart `*.30CS3028  1 p 1 3 ]
+"241
+} 0
+"17 D:\Courses\Embedded C\projects\ECU_Layer/LED/ecu_led.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"26
+[v led_initialize@pin_obj pin_obj `S24  1 a 1 17 ]
+"18
+[v led_initialize@ret ret `uc  1 a 1 16 ]
+[s S475 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 0 :1:7 
+]
+"17
+[v led_initialize@led led `*.30CS475  1 p 1 14 ]
+"25
+[v led_initialize@F3310 F3310 `S24  1 s 1 F3310 ]
+"35
+} 0
+"167 D:\Courses\Embedded C\projects\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
+{
+"168
+[v gpio_pin_intialize@ret ret `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"167
+[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 11 ]
+"180
+} 0
+"84
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+{
+"85
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"84
+[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 3 ]
+[v gpio_pin_write_logic@logic logic `E3230  1 p 1 4 ]
+"106
+} 0
+"27
+[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
+{
+"28
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"27
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 3 ]
+"47
+} 0
+"105 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_ASYN_WriteStringBlocking EUSART_ASYN_WriteStringBlocking `(uc  1 e 1 0 ]
+{
+"107
+[v EUSART_ASYN_WriteStringBlocking@char_counter char_counter `us  1 a 2 9 ]
+"106
+[v EUSART_ASYN_WriteStringBlocking@ret ret `uc  1 a 1 8 ]
+"105
+[v EUSART_ASYN_WriteStringBlocking@_data _data `*.31uc  1 p 1 4 ]
+[v EUSART_ASYN_WriteStringBlocking@str_len str_len `us  1 p 2 5 ]
+"113
+} 0
+"62
+[v _EUSART_ASYN_WriteByteBlocking EUSART_ASYN_WriteByteBlocking `(uc  1 e 1 0 ]
+{
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v EUSART_ASYN_WriteByteBlocking@_data _data `uc  1 a 1 3 ]
+"69
 } 0
 "35 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
 {
-"155
+"167
 } 0
 "92 D:\Courses\Embedded C\projects\MCAL_Layer/Timer3/hal_timer3.c
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
@@ -881,56 +1304,71 @@ BAUDRATE_SYN_16BIT 5
 {
 "107
 } 0
-"168 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
+"167 D:\Courses\Embedded C\projects\MCAL_Layer/interrupt/mcal_external_interrupt.c
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
 {
 [v RB7_ISR@RB7_source RB7_source `uc  1 a 1 wreg ]
 [v RB7_ISR@RB7_source RB7_source `uc  1 a 1 wreg ]
-"170
+"169
 [v RB7_ISR@RB7_source RB7_source `uc  1 a 1 0 ]
-"185
+"184
 } 0
-"150
+"149
 [v _RB6_ISR RB6_ISR `(v  1 e 1 0 ]
 {
 [v RB6_ISR@RB6_source RB6_source `uc  1 a 1 wreg ]
 [v RB6_ISR@RB6_source RB6_source `uc  1 a 1 wreg ]
-"152
+"151
 [v RB6_ISR@RB6_source RB6_source `uc  1 a 1 0 ]
-"167
+"166
 } 0
-"132
+"131
 [v _RB5_ISR RB5_ISR `(v  1 e 1 0 ]
 {
 [v RB5_ISR@RB5_source RB5_source `uc  1 a 1 wreg ]
 [v RB5_ISR@RB5_source RB5_source `uc  1 a 1 wreg ]
-"134
+"133
 [v RB5_ISR@RB5_source RB5_source `uc  1 a 1 0 ]
-"148
+"147
 } 0
-"114
+"113
 [v _RB4_ISR RB4_ISR `(v  1 e 1 0 ]
 {
 [v RB4_ISR@RB4_source RB4_source `uc  1 a 1 wreg ]
 [v RB4_ISR@RB4_source RB4_source `uc  1 a 1 wreg ]
-"116
+"115
 [v RB4_ISR@RB4_source RB4_source `uc  1 a 1 0 ]
-"130
+"129
 } 0
-"101
+"100
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 {
-"112
+"111
 } 0
-"88
+"87
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
 {
-"99
+"98
 } 0
-"73
+"72
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 {
-"86
+"85
+} 0
+"81 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
+{
+"89
+} 0
+"93 D:\Courses\Embedded C\projects\application.c
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"96
+} 0
+"90 D:\Courses\Embedded C\projects\MCAL_Layer/USART/hal_usart.c
+[v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
+{
+"104
 } 0
 "114 D:\Courses\Embedded C\projects\MCAL_Layer/CCP/hal_ccp.c
 [v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]

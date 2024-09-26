@@ -6,7 +6,6 @@
  */
 
 #include "mcal_external_interrupt.h"
-#define _XTAL_FREQ      4000000UL
 
 static void (*INT0_InterruptHandler)(void) = NULL;
 static void (*INT1_InterruptHandler)(void) = NULL;

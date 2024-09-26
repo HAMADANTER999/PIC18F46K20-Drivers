@@ -5266,6 +5266,8 @@ void TMR2_ISR(void);
 void TMR3_ISR(void);
 void CCP1_ISR(void);
 void CCP2_ISR(void);
+void EUSART_TX_ISR(void);
+void EUSART_RX_ISR(void);
 # 8 "MCAL_Layer/interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -5388,6 +5390,18 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
 
     if ((PIE2bits.CCP2IE == 1) && (PIR2bits.CCP2IF == 1)){
         CCP2_ISR();
+    }
+    else { }
+
+
+    if ((PIE1bits.TXIE == 1) && ( PIR1bits.TXIF == 1)){
+        EUSART_TX_ISR();
+    }
+    else { }
+
+
+    if ((PIE1bits.RCIE == 1) && (PIR1bits.RCIF == 1)){
+        EUSART_RX_ISR();
     }
     else { }
 

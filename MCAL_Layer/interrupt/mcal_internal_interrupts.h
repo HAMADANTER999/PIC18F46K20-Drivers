@@ -123,6 +123,34 @@
 #define CCP2_LowPrioritySet()            (IPR2bits.CCP2IP = 0)
 #endif
 #endif
+
+/*=======================================EUSART Transmit Interrupt Module ==============================*/
+#ifdef EUSART_TX_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the USART Transmit Module*/
+#define EUSART_TX_InterruptDisable()         (PIE1bits.TXIE = 0)
+/* This routine sets the interrupt enable for the USART Transmit Module */
+#define EUSART_TX_InterruptEnable()          (PIE1bits.TXIE = 1)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the USART Transmit Module Interrupt Priority to be High priority */
+#define EUSART_TX_HighPrioritySet()           (IPR1bits.TXIP = 1)
+/* This routine set the USART Transmit Module Interrupt Priority to be Low priority */
+#define EUSART_TX_LowPrioritySet()            (IPR1bits.TXIP = 0)
+#endif
+#endif
+
+/*=======================================EUSART Receiver Interrupt Module ==============================*/
+#ifdef EUSART_RX_INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the EUSART Receiver Module*/
+#define EUSART_RX_InterruptDisable()         (PIE1bits.RCIE = 0)
+/* This routine sets the interrupt enable for the EUSART Receiver Module */
+#define EUSART_RX_InterruptEnable()          (PIE1bits.RCIE = 1)
+#ifdef INTERRUPT_PRIORITY_LEVELS_ENABLE
+/* This routine set the EUSART Receiver Module Interrupt Priority to be High priority */
+#define EUSART_RX_HighPrioritySet()           (IPR1bits.RCIP = 1)
+/* This routine set the EUSART Receiver Module Interrupt Priority to be Low priority */
+#define EUSART_RX_LowPrioritySet()            (IPR1bits.RCIP = 0)
+#endif
+#endif
 /* Section : Data type Declarations*/
 
 /* Section : Function Declarations*/

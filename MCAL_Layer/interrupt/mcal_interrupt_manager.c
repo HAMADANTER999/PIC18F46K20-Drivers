@@ -152,6 +152,18 @@ void __interrupt() InterruptManager(void){
     }
     else { /* Nothing */ }
     /* =====================CCP1 & CCP2 Module interrupt End=====================================*/
+    /* =====================EUSART Transmit Module interrupt start=====================================*/
+    if ((PIE1bits.TXIE == INTERRUPT_ENABLE) && ( PIR1bits.TXIF == INTERRUPT_OCCUR)){
+        EUSART_TX_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================EUSART Transmit Module interrupt End=====================================*/
+    /* =====================EUSART Receiver Module interrupt start=====================================*/
+    if ((PIE1bits.RCIE == INTERRUPT_ENABLE) && (PIR1bits.RCIF == INTERRUPT_OCCUR)){
+        EUSART_RX_ISR();
+    }
+    else { /* Nothing */ }
+    /* =====================EUSART Receiver Module interrupt End=====================================*/
 }
 
 #endif

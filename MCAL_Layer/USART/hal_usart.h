@@ -16,6 +16,9 @@
 #include "hal_usart_cfg.h"
 
 /* Section : Macro Declarations*/
+/* EUSART Module Enable */
+#define EUSART_MODULE_ENABLE      1
+#define EUSART_MODULE_DISABLE     0
 /* Selecting UART Working Mode */
 #define EUSART_SYNCHRONOUS_MODE               1
 #define EUSART_ASYNCHRONOUS_MODE              0
@@ -70,6 +73,7 @@ typedef struct {
     uint8 usart_tx_enable : 1;
     uint8 usart_tx_interrupt_enable : 1;
     uint8 usart_tx_9bit_enable : 1;
+    interrupt_priority_cfg usart_tx_priority;
 }usart_tx_cfg_t;
 
 typedef union {
@@ -86,6 +90,7 @@ typedef struct {
     uint8 usart_rx_enable : 1;
     uint8 usart_rx_interrupt_enable : 1;
     uint8 usart_rx_9bit_enable : 1;
+    interrupt_priority_cfg usart_rx_priority;
 }usart_rx_cfg_t;
 
 typedef struct {
@@ -102,10 +107,12 @@ typedef struct {
 
 /* Section : Function Declarations*/
 
-Std_ReturnType EUSART_Init(const usart_t *_eusart);
-Std_ReturnType EUSART_DeInit(const usart_t *_eusart);
-Std_ReturnType EUSART_ReadByteBlocking(const usart_t *_eusart, uint8 * _data);
-Std_ReturnType EUSART_WriteByteBlocking(const usart_t *_eusart, uint8 _data);
+Std_ReturnType EUSART_ASYN_Init(const usart_t *_eusart);
+Std_ReturnType EUSART_ASYN_DeInit(const usart_t *_eusart);
+Std_ReturnType EUSART_ASYN_ReadByteBlocking(uint8 * _data);
+Std_ReturnType EUSART_ASYN_WriteByteBlocking(uint8 _data);
+Std_ReturnType EUSART_ASYN_ReadByteNonBlocking(uint8 *_data);
+Std_ReturnType EUSART_ASYN_WriteStringBlocking(uint8 *_data, uint16 str_len);
 
 
 #endif	/* HAL_USART_H */

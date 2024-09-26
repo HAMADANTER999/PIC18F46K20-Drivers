@@ -41,7 +41,7 @@
 #define ROW3  3
 #define ROW4  4
 
-#define _XTAL_FREQ      4000000UL 
+
 
 /* Section : Macro Function Declarations*/
 
